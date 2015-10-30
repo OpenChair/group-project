@@ -7,8 +7,8 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: './routes/home/HomeTmpl.html',
-    controllers: 'homeCtrl'
+    templateUrl: './Routes/Home/HomeTmpl.html',
+    controllers: 'HomeCtrl'
   })
   .state('search', {
     url: '/search',
