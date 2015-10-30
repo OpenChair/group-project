@@ -25,5 +25,5 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
       templateUrl: './routes/user/userTmpl.html',
       controllers: 'userCtrl'
   })
-
+  
 })
