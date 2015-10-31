@@ -14,12 +14,15 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(cors());
 
+
+
+
 var mongoURI = 'mongodb://localhost:27017/openChair';
 
 mongoose.set('debug', true);
 mongoose.connect(mongoURI);
 mongoose.connection.once('open', function() {
-  console.log("connected to mongoDB at: ", mongoURI);
+  console.log(connected to mongoDB at: '', mongoURI);
 });
 
 var port = 8080;
