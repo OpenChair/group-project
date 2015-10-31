@@ -15,6 +15,11 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
     templateUrl: 'App/Routes/search/searchTmpl.html',
     controllers: 'searchCtrl'
   })
-  
+  .state('user', {
+    url: '/user',
+    templateUrl: 'App/Routes/user/userTmpl.html',
+    controllers: 'userCtrl'
+  })
+
 
 })
