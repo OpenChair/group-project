@@ -8,17 +8,17 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   .state('home', {
     url: '/home',
     templateUrl: 'App/Routes/Home/HomeTmpl.html',
-    controllers: 'HomeCtrl'
+    controller: 'HomeCtrl'
   })
   .state('search', {
     url: '/search',
     templateUrl: 'App/Routes/search/searchTmpl.html',
-    controllers: 'searchCtrl'
+    controller: 'searchCtrl'
   })
   .state('user', {
     url: '/user',
     templateUrl: 'App/Routes/user/userTmpl.html',
-    controllers: 'userCtrl'
+    controller: 'userCtrl'
   })
 
 
