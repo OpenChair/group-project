@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize'])
+angular.module('openChairApp', ['ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -7,7 +7,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'app/routes/home/homeTmpl.html',
+    templateUrl: 'app/routes/home/HomeTmpl.html',
     controller: 'homeCtrl'
     // resolve: {
     //   businesses: function (businessService) {
@@ -27,7 +27,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   })
   .state('businessProfile', {
     url: '/search/:id',
-    templateUrl: 'app/businessProfile/businessProfileTmpl.html',
+    templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
     controller: 'businessProfileCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
@@ -68,8 +68,8 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
       // }
     })
   .state('businessDash',{
-    url:'businessDash/businessDash/:id',
-    templateUrl: 'app/routes/businessDash/businessDash.html',
+    url:'/businessdash',
+    templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
     controller: 'businessDashCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
