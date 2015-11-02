@@ -104,9 +104,20 @@ app.get('/logout', function(req, res){
 });
 
 app.post('/appointment', AppointmentController.create);
-app.get('/appointment', AppointmentController.read);
-app.put('/appointment', AppointmentController.update);
+app.get('/appointments', AppointmentController.read);
+app.put('/appointment/:id', AppointmentController.update);
 app.delete('appointment/:id', AppointmentController.delete);
+app.get('/appointment/:id', AppointmentController.find);
+app.get('/appointments/user/:id', AppointmentController.userFind);
+app.get('/appointments/business/:id', AppointmentController.businessFind);
+
+app.get('/businesses', BusinessController.read);
+app.get('/businesses/:id', BusinessController.readByID);
+app.post('/businesses', BusinessController.create);
+app.put('/businesses/:id', BusinessController.edit);
+// app.put('/businesses/:id', BusinessController.update);
+// app.put('/businesses/:id', BusinessController.update);
+app.delete('/businesses/:id', BusinessController.delete);
 
 app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
