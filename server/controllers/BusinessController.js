@@ -3,13 +3,13 @@ var Business = require('../models/BusinessModel');
 module.exports = {
     register: function(req, res){
         console.log("hit");
-        //var newUser = new User(req.body);
-        Business.create(req.body, function(err, Business){
+        
+        Business.create(req.body, function(err, business){
             if(err){
                 return res.status(500).json(err);
             } else {
-                Business.password = null;
-                return res.json(Business);
+                business.password = null;
+                return res.json(business);
             }
         });
     },
