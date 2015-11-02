@@ -52,23 +52,23 @@ angular.module('openChairApp').service('businessService', function($http) {
     });
   };
 
-  this.editBusinessService = function(id, business) {
-    return $http({
-      method: 'PUT',
-      url: 'http://localhost:7200/businesses/' + id,
-      data: business
-    }).then(function(response) {
-      return response.data;
-    });
-  };
-  this.editBusinessUsers = function(id, business) {
-    return $http({
-      method: 'PUT',
-      url: 'http://localhost:7200/businesses/' + id,
-      data: business
-    }).then(function(response) {
-      return response.data;
-    });
-  };
+  // this.editBusinessService = function(id, business) {
+  //   return $http({
+  //     method: 'PUT',
+  //     url: 'http://localhost:7200/businesses/' + id,
+  //     data: business
+  //   }).then(function(response) {
+  //     return response.data;
+  //   });
+  // };
+  // this.editBusinessUsers = function(id, business) {
+  //   return $http({
+  //     method: 'PUT',
+  //     url: 'http://localhost:7200/businesses/' + id,
+  //     data: business
+  //   }).then(function(response) {
+  //     return response.data;
+  //   });
+  // };
 
 });
