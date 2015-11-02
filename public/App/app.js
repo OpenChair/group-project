@@ -20,6 +20,18 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
     templateUrl: 'App/Routes/user/userTmpl.html',
     controller: 'userCtrl'
   })
+<<<<<<< HEAD
 
 
+=======
+  .state('userProfile', {
+      url: '/user/:id',
+      templateUrl: './routes/user/userTmpl.html',
+      controllers: 'userCtrl'
+  })
+  .state('businessDash',{
+    url:'businessDash/businessDash.html/:id'
+  })
+  
+>>>>>>> origin/server
 })
