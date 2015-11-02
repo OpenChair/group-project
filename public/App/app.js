@@ -7,19 +7,23 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: './Routes/Home/HomeTmpl.html',
-    controllers: 'HomeCtrl'
+    templateUrl: 'App/Routes/Home/HomeTmpl.html',
+    controller: 'HomeCtrl'
   })
   .state('search', {
     url: '/search',
-    templateUrl: './routes/search/searchTmpl.html',
-    controllers: 'searchCtrl'
+    templateUrl: 'App/Routes/search/searchTmpl.html',
+    controller: 'searchCtrl'
   })
-  .state('businessProfile', {
-      url: '/search/business/:id',
-      templateUrl: './routes/business/businessTmpl.html',
-      controllers: 'businessProfileCtrl'
+  .state('user', {
+    url: '/user',
+    templateUrl: 'App/Routes/user/userTmpl.html',
+    controller: 'userCtrl'
   })
+<<<<<<< HEAD
+
+
+=======
   .state('userProfile', {
       url: '/user/:id',
       templateUrl: './routes/user/userTmpl.html',
@@ -29,4 +33,5 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
     url:'businessDash/businessDash.html/:id'
   })
   
+>>>>>>> origin/server
 })
