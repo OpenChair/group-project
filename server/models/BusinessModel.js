@@ -8,7 +8,7 @@ var Business = new mongoose.Schema({
     suite:{type:String},
     city:{type:String, required:true},
     state:{type:String, required:true},
-    zip:{type:Number, required:true}  
+    zip:{type:Number, required:true}
   },
   phone:{type:Number, required:true},
   mainEmail: { type: String, unique: true, required:true },
@@ -21,7 +21,7 @@ var Business = new mongoose.Schema({
 		  time:{type:Number},
 		  price:{type:Number}
 	  }}
-  ], 
+  ],
   scheduleParams:{
     sunday:{
       open:{type:Date},
@@ -60,11 +60,11 @@ var Business = new mongoose.Schema({
     },
     password:{type:String},
     highLevelPrivilages:{type:Boolean},
-    
-  }],
-  
 
-  
+  }],
+
+
+
 });
 
 Business.pre('save', function(next) {
