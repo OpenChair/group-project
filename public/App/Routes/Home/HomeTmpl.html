@@ -1,13 +1,54 @@
 <header>
-  <i class="large material-icons">search</i>
+  <i class="small material-icons">search</i>
 </header>
 
   <div class="parallax-container">
-      <div parallax><img src="http://meritageresort.com/wp-content/uploads/spa1.jpg"></div>
+      <div parallax><img src="http://meritageresort.com/wp-content/uploads/spa1.jpg" height="700px"></div>
   </div>
-  <div class='test'>
-  </div>
-  <div class='test'>
+  <div class="homeSearchBar">
+    <div class="businessSelector">
+      <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="false">
+      Business Type
+      </a>
+      <select id='demoDropdown' class='dropdown-content'>
+        <option><a href="javascript:void(0);">Hair Salon</a></option>
+        <option><a href="javascript:void(0);">Nail Salon</a></option>
+        <option><a href="javascript:void(0);">Spa</a></option>
+        <option><a href="javascript:void(0);">Masseuse</a></option>
+        <option><a href="javascript:void(0);">Barber</a></option>
+      </select>
+    </div>
+    <div class="dateSelector">
+      <label for="inputCreated">Input date</label>
+      <input input-date
+          type="text"
+          name="created"
+          id="inputCreated"
+          ng-model="currentTime"
+          container="body"
+          format="dd/mm/yyyy"
+          months-full="{{ month }}"
+          months-short="{{ monthShort }}"
+          weekdays-full="{{ weekdaysFull }}"
+          weekdays-short="{{ weekdaysShort }}"
+          weekdays-letter="{{ weekdaysLetter }}"
+          disable="disable"
+          min="{{ minDate }}"
+          max="{{ maxDate }}"
+          today="today"
+          clear="clear"
+          close="close"
+          select-years="15"
+          on-start="onStart()"
+          on-render="onRender()"
+          on-open="onOpen()"
+          on-close="onClose()"
+          on-set="onSet()"
+          on-stop="onStop()" />
+    </div>
+    <div class="">
+    
+    </div>
   </div>
 <footer>
 
