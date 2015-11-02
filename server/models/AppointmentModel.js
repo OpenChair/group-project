@@ -13,6 +13,6 @@ var schema = new Mongoose.Schema({
 		}
 	],
 
-	
-})
-module.exports = Mongoose.model('appointment', schema)
+
+});
+module.exports = Mongoose.model('appointment', schema);

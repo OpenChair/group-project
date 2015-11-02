@@ -9,17 +9,17 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var AppointmentController = require('./controllers/AppointmentController');
 var BusinessController = require('./controllers/BusinessController');
-var UserController = require('./controllers/UserController')
+var UserController = require('./controllers/UserController');
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('../public'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
   secret:'myNameIsTravis',
   saveUninitialized:true,
   resave:true
-  }))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -70,7 +70,7 @@ mongoose.connection.once('open', function() {
   console.log("connected to mongoDB at: ", mongoURI);
 });
 
-var port = 8080;
+var port = 7200;
 
 app.listen(port, function() {
   console.log('listening on port ', port);
