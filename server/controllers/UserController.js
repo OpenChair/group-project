@@ -3,7 +3,7 @@ var User = require('../models/UserModel');
 module.exports = {
     register: function(req, res){
         console.log("hit");
-        //var newUser = new User(req.body);
+
         User.create(req.body, function(err, user){
             if(err){
                 return res.status(500).json(err);

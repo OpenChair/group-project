@@ -9,7 +9,7 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
+  };
   this.getAppointments = function() {
     return $http({
       method: 'GET',
@@ -17,7 +17,7 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
+  };
   this.editAppointment = function(id, appointment) {
     return $http({
       method: 'PUT',
@@ -26,7 +26,7 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
+  };
   this.deleteAppointment = function(id) {
     return $http({
       method: 'DELETE',
@@ -34,7 +34,7 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
+  };
   this.getAppointment = function(id) {
     return $http({
       method: 'GET',
@@ -42,7 +42,7 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
+  };
   this.getAppointmentsById = function(id, type) {
     return $http({
       method: 'GET',
@@ -50,5 +50,5 @@ angular.module('openChairApp')
     }).then(function(response) {
       return response.data;
     });
-  }
-})
+  };
+});

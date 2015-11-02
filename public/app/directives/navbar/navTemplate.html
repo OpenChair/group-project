@@ -1,49 +1,44 @@
-<div>
+<div ng-controller='navbarCtrl'>
 	<div>
-		login
+		user login
 		<input placeholder = 'email' ng-model = 'login.email'type="email">
 		<input placeholder = 'password' ng-model = 'login.password'type="password">
 		<button ng-submit = 'loginSubmit(login)'>submit</button>
 	</div>
 	<div>
-		register user
-		<input ng-model = 'User.name.first' placeholder = '' type="text">
-		<input ng-model = 'User.name.last' placeholder = '' type="text">
-		<input ng-model = 'User.email' placeholder = '' type="text">
-		<input ng-model = 'User.password' placeholder = '' type="text">
-		<input ng-model = 'User.phone' placeholder = '' type="text">
-		<input ng-model = 'User.address.street' placeholder = '' type="text">
-		<input ng-model = 'User.address.aptSuite' placeholder = '' type="text">
-		<input ng-model = 'User.address.city' placeholder = '' type="text">
-		<input ng-model = 'User.address.state' placeholder = '' type="text">
-		<input ng-model = 'User.address.zip' placeholder = '' type="text">
+		business login
+		<input placeholder = 'email' ng-model = 'login.email'type="email">
+		<input placeholder = 'password' ng-model = 'login.password'type="password">
+		<button ng-submit = 'loginBusinessSubmit(login)'>submit</button>
 	</div>
-	<!--<div>
+	<div>
+		register user
+		<input ng-model = 'User.name.first' placeholder = 'first' type="text">
+		<input ng-model = 'User.name.last' placeholder = 'last' type="text">
+		<input ng-model = 'User.email' placeholder = 'email' type="email">
+		<input ng-model = 'User.password' placeholder = 'password' type="password">
+		<input ng-model = 'User.phone' placeholder = 'phone' type="number">
+		<input ng-model = 'User.address.street' placeholder = 'street' type="text">
+		<input ng-model = 'User.address.aptSuite' placeholder = 'suite/apt' type="text">
+		<input ng-model = 'User.address.city' placeholder = 'city' type="text">
+		<input ng-model = 'User.address.state' placeholder = 'state' type="text">
+		<input ng-model = 'User.address.zip' placeholder = 'zip' type="number">
+		<button ng-click = 'submitNewUser(User)'>submit</button>
+	</div>
+	<div>
+		
+	</div>
+	<div>
 		register business
 		<input ng-model = 'Business.businessName' placeholder = 'Business Name' type="text">
-		<input ng-model = 'Business.address' placeholder = 'address' type="text">
 		<input ng-model = 'Business.address.street' placeholder = 'street' type="text">
 		<input ng-model = 'Business.address.suite' placeholder = 'suite' type="text">
 		<input ng-model = 'Business.address.city' placeholder = 'city' type="text">
 		<input ng-model = 'Business.address.state' placeholder = 'state' type="text">
 		<input ng-model = 'Business.address.zip' placeholder = 'zip' type="number">
 		<input ng-model = 'Business.phone' placeholder = 'phone' type="text">
-		<input ng-model = 'Business.email' placeholder = 'Main Admin email' type="email">
-		<input ng-model = 'Business.password' placeholder = 'Main Admin password' type="password">
-		<input ng-model = 'Business.logo' placeholder = 'logo img' type="text">
-		<input ng-model = 'Business.yelpReview' placeholder = 'yelp id' type="text">
-		<input ng-model = 'Business.scheduleParams.open' placeholder = 'open time' type="text">
-		<input ng-model = 'Business.scheduleParams.closed' placeholder = 'closed time' type="text">
-		<input ng-model = 'Business.' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		<input ng-model = 'Business' placeholder = '' type="text">
-		
-	</div>-->
+		<input ng-model = 'Business.mainEmail' placeholder = 'Main Admin email' type="email">
+		<input ng-model = 'Business.mainPassword' placeholder = 'Main Admin password' type="password">
+		<button ng-click='submitNewBusiness(Business)'>submit</button>
+	</div>
 </div>

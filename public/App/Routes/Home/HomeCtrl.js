@@ -1,7 +1,7 @@
 angular.module('openChairApp')
 
 
-.controller('HomeCtrl', function($scope){
+.controller('homeCtrl', function($scope){
 
 
-})
+});
