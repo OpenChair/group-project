@@ -27,7 +27,7 @@ angular.module('openChairApp', ['ui.router'])
   })
   .state('businessProfile', {
     url: '/search/:id',
-    templateUrl: 'app/businessProfile/businessProfileTmpl.html',
+    templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
     controller: 'businessProfileCtrl',
     // resolve: {
     //   business: function (businessService, $route) {
