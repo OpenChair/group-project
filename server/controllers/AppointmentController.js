@@ -30,5 +30,23 @@ module.exports={
 			if(err){res.send(err);}
 			else{res.json(result);}
 		});
+	},
+	find:function(req,res){
+		Appointment.findByID(req.params.id).exec(function(err,result){
+			if(err){res.send(err);}
+			else{res.json(result);}
+		});
+	},
+	userFind:function(req,res){
+		Appointment.find({user:req.params.id}).exec(function(err,result){
+			if(err){res.send(err);}
+			else{res.json(result);}
+		});
+	},
+	businessFind:function(req,res){
+		Appointment.find({business:req.params.id}).exec(function(err,result){
+			if(err){res.send(err);}
+			else{res.json(result);}
+		});
 	}
 };
