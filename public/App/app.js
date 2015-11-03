@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -7,8 +7,8 @@ angular.module('openChairApp', ['ui.router'])
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'App/Routes/Home/HomeTmpl.html',
-    controller: 'homeCtrl',
+    templateUrl: 'app/routes/home/HomeTmpl.html',
+    controller: 'homeCtrl'
     // resolve: {
     //   businesses: function (businessService) {
     //     return businessService.getBusinesses();
@@ -18,7 +18,7 @@ angular.module('openChairApp', ['ui.router'])
   .state('search', {
     url: '/search',
     templateUrl: 'app/routes/search/searchTmpl.html',
-    controller: 'searchCtrl',
+    controller: 'searchCtrl'
     // resolve: {
     //   businesses: function (businessService) {
     //     return businessService.getBusinesses();
@@ -28,7 +28,7 @@ angular.module('openChairApp', ['ui.router'])
   .state('businessProfile', {
     url: '/search/:id',
     templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
-    controller: 'businessProfileCtrl',
+    controller: 'businessProfileCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
     //     return businessService.getBusiness($route.current.params.id);
@@ -44,7 +44,7 @@ angular.module('openChairApp', ['ui.router'])
   .state('userProfile', {
       url: '/user/:id',
       templateUrl: 'app/routes/user/userTmpl.html',
-      controller: 'userCtrl',
+      controller: 'userCtrl'
       // resolve: {
       //   user: function (userService, $route) {
       //     return userService.getUser($route.current.params.id);
@@ -57,7 +57,7 @@ angular.module('openChairApp', ['ui.router'])
     .state('businessSchedule', {
       url: '/business/:id',
       templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
-      controller: 'businessScheduleCtrl',
+      controller: 'businessScheduleCtrl'
       // resolve: {
       //   business: function (businessService, $route) {
       //     return businessService.getBusiness($route.current.params.id);
@@ -70,7 +70,7 @@ angular.module('openChairApp', ['ui.router'])
   .state('businessDash',{
     url:'/businessdash',
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
-    controller: 'businessDashCtrl',
+    controller: 'businessDashCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
     //     return businessService.getBusiness($route.current.params.id);
