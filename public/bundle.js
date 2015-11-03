@@ -55,6 +55,8 @@
 		"./app.js": 2,
 		"./directives/navbar/navTemplate.js": 3,
 		"./directives/navbar/navbarCtrl.js": 4,
+		"./directives/searchBar/searchBarCtrl.js": 14,
+		"./directives/searchBar/searchBarDirective.js": 15,
 		"./routes/businessDash/businessDashCtrl.js": 5,
 		"./routes/businessProfile/businessProfileCtrl.js": 6,
 		"./routes/businessSchedule/businessScheduleCtrl.js": 7,
@@ -67,10 +69,10 @@
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
-	}
+	};
 	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'."); }());
-	}
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
 	webpackContext.keys = function webpackContextKeys() {
 		return Object.keys(map);
 	};
@@ -176,8 +178,8 @@
 	openChairApp.directive('navTemplate', function(){
 		return{
 			templateUrl:'app/directives/navbar/navTemplate.html'
-		};
-	});
+		}
+	})
 
 /***/ },
 /* 4 */
@@ -185,60 +187,60 @@
 
 	var openChairApp = angular.module('openChairApp');
 	openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
-
+			
 		$scope.submitNewUser=function(user){
-			console.log(user);
+			console.log(user)
 			loginService.newUserService(user);
-		};
-
+		}
+		
 		$scope.loginUserSubmit=function(login){
-
+			
 			loginService.loginUserSubmit(login).then(function(res){
 			loginService.getUserName().then(function(res){
 					if(res){
 						$scope.customerName='Welcome, ' + res.data.name;
-
-
-
+						
+						
+						
 					}
 				});
-
+				
 			},function(err){
-					console.log(err);
+					console.log(err)
 					if(err.status>300){
-						alert('bad data guys!!!!');
+						alert('bad data guys!!!!')
 					}
 				});
-
-		};
+			
+		}
 
 		$scope.submitNewBusiness=function(business){
-			console.log(business);
+			console.log(business)
 			loginService.newBusinessService(business);
-		};
-
+		}
+		
 		$scope.loginBusinessSubmit=function(login){
-
+			
 			loginService.loginBusinessSubmit(login).then(function(res){
 			loginService.getBusinessName().then(function(res){
 					if(res){
 						$scope.businessName='Welcome, ' + res.data.name;
-
-
-
+						
+						
+						
 					}
 				});
-
+				
 			},function(err){
-					console.log(err);
+					console.log(err)
 					if(err.status>300){
-						alert('bad data guys!!!!');
+						alert('bad data guys!!!!')
 					}
 				});
-
-		};
-
-	});
+			
+		}
+		
+	})
 
 /***/ },
 /* 5 */
@@ -253,13 +255,13 @@
 /* 6 */
 /***/ function(module, exports) {
 
-
+	
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-
+	
 
 /***/ },
 /* 8 */
@@ -269,42 +271,7 @@
 
 	.controller('homeCtrl', function($scope){
 
-
-	var currentTime = new Date();
-	$scope.currentTime = currentTime;
-	$scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	$scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	$scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	$scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-	//$scope.disable = [false, 1, 7];
-	$scope.today = 'Today';
-	$scope.clear = 'Clear';
-	$scope.close = 'Close';
-	var days = 15;
-	//$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-	//$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-	$scope.onStart = function () {
-	    console.log('onStart');
-	};
-	$scope.onRender = function () {
-	    console.log('onRender');
-	};
-	$scope.onOpen = function () {
-	    console.log('onOpen');
-	};
-	$scope.onClose = function () {
-	    console.log('onClose');
-	};
-	$scope.onSet = function () {
-	    console.log('onSet');
-	};
-	$scope.onStop = function () {
-	    console.log('onStop');
-	};
-
-
 	});
-
 
 
 /***/ },
@@ -317,7 +284,7 @@
 
 	  businessService.getBusinesses().then(function(response) {
 	    $scope.businesses = response;
-	  });
+	  })
 
 	});
 
@@ -331,7 +298,7 @@
 	.controller('userCtrl', function($scope){
 
 
-	});
+	})
 
 
 /***/ },
@@ -550,6 +517,60 @@
 		};
 
 	});
+
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
+
+	  var currentTime = new Date();
+	  $scope.currentTime = currentTime;
+	  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+	  //$scope.disable = [false, 1, 7];
+	  $scope.today = 'Today';
+	  $scope.clear = 'Clear';
+	  $scope.close = 'Close';
+	  var days = 15;
+	  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+	  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+	  $scope.onStart = function () {
+	      console.log('onStart');
+	  };
+	  $scope.onRender = function () {
+	      console.log('onRender');
+	  };
+	  $scope.onOpen = function () {
+	      console.log('onOpen');
+	  };
+	  $scope.onClose = function () {
+	      console.log('onClose');
+	  };
+	  $scope.onSet = function () {
+	      console.log('onSet');
+	  };
+	  $scope.onStop = function () {
+	      console.log('onStop');
+	  };
+
+	})
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	angular.module('openChairApp').directive('searchBar', function() {
+		return {
+	    restrict: 'EA',
+			templateUrl:'App/directives/searchBar/searchBarTemplate.html',
+			controller: 'searchBarCtrl'
+		}
+	})
 
 
 /***/ }
