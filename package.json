@@ -4,20 +4,28 @@
   "description": "open chair project",
   "main": "server.js",
   "dependencies": {
-    "cors": "^2.7.1",
-    "body-parser": "^1.14.1",
-    "express-session": "^1.12.1",
-    "passport": "^0.3.0",
+    "angular": "^1.4.7",
     "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
+    "express-session": "^1.12.1",
     "mongoose": "^4.2.3",
-    "sessions": "^0.0.2",
-    "passport-google": "^0.3.0",
+    "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",
+    "passport-google": "^0.3.0",
     "passport-local": "^1.0.0",
+    "sessions": "^0.0.2",
     "webpack": "^1.12.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-uglify": "^1.4.2",
+    "gulp-watch": "^4.3.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

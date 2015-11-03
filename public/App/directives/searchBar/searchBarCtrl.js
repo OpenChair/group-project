@@ -32,4 +32,4 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
       console.log('onStop');
   };
 
-})
+});
