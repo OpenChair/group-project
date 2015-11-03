@@ -1,6 +1,7 @@
 var openChairApp = angular.module('openChairApp');
 openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
 		
+  
 	$scope.submitNewUser=function(user){
 		console.log(user)
 		loginService.newUserService(user);
