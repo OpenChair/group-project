@@ -1,44 +1,84 @@
-<div ng-controller='navbarCtrl'>
-	<div>
-		user login
-		<input placeholder = 'email' ng-model = 'login.email'type="email">
-		<input placeholder = 'password' ng-model = 'login.password'type="password">
-		<button ng-submit = 'loginSubmit(login)'>submit</button>
-	</div>
-	<div>
-		business login
-		<input placeholder = 'email' ng-model = 'login.email'type="email">
-		<input placeholder = 'password' ng-model = 'login.password'type="password">
-		<button ng-submit = 'loginBusinessSubmit(login)'>submit</button>
-	</div>
-	<div>
-		register user
-		<input ng-model = 'User.name.first' placeholder = 'first' type="text">
-		<input ng-model = 'User.name.last' placeholder = 'last' type="text">
-		<input ng-model = 'User.email' placeholder = 'email' type="email">
-		<input ng-model = 'User.password' placeholder = 'password' type="password">
-		<input ng-model = 'User.phone' placeholder = 'phone' type="number">
-		<input ng-model = 'User.address.street' placeholder = 'street' type="text">
-		<input ng-model = 'User.address.aptSuite' placeholder = 'suite/apt' type="text">
-		<input ng-model = 'User.address.city' placeholder = 'city' type="text">
-		<input ng-model = 'User.address.state' placeholder = 'state' type="text">
-		<input ng-model = 'User.address.zip' placeholder = 'zip' type="number">
-		<button ng-click = 'submitNewUser(User)'>submit</button>
-	</div>
-	<div>
-		
-	</div>
-	<div>
-		register business
-		<input ng-model = 'Business.businessName' placeholder = 'Business Name' type="text">
-		<input ng-model = 'Business.address.street' placeholder = 'street' type="text">
-		<input ng-model = 'Business.address.suite' placeholder = 'suite' type="text">
-		<input ng-model = 'Business.address.city' placeholder = 'city' type="text">
-		<input ng-model = 'Business.address.state' placeholder = 'state' type="text">
-		<input ng-model = 'Business.address.zip' placeholder = 'zip' type="number">
-		<input ng-model = 'Business.phone' placeholder = 'phone' type="text">
-		<input ng-model = 'Business.mainEmail' placeholder = 'Main Admin email' type="email">
-		<input ng-model = 'Business.mainPassword' placeholder = 'Main Admin password' type="password">
-		<button ng-click='submitNewBusiness(Business)'>submit</button>
-	</div>
+<div class="navBar" ng-controller='navbarCtrl'>
+  
+    <!-- Modal Trigger -->
+  <div class="col">
+      <a class='btn' href='#userLoginModal' modal>User Login</a>
+  </div>
+  <!-- Modal Structure -->
+  <div id="userLoginModal" class="modal">
+      <div class="modal-content">
+          <h4>User Login</h4>
+          <input placeholder = 'email' ng-model = 'login.email' type="email">
+          <input placeholder = 'password' ng-model = 'login.password' type="password">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-submit='loginSubmit(login)'>submit</a>
+      </div>
+  </div>
+
+    <!-- Modal Trigger -->
+  <div class="col">
+      <a class='btn' href='#businessLoginModal' modal>Business Login</a>
+  </div>
+  <!-- Modal Structure -->
+  <div id="businessLoginModal" class="modal">
+      <div class="modal-content">
+          <h4>Business Login</h4>
+          <input placeholder = 'email' ng-model = 'login.email' type="email">
+          <input placeholder = 'password' ng-model = 'login.password' type="password">
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-submit='loginBusinessSubmit(login)'>Submit</a>
+      </div>
+  </div>
+
+
+
+  <!-- Modal Trigger -->
+  <div class="col">
+      <a class='btn' href='#registerUserModal' modal>Register User</a>
+  </div>
+  <!-- Modal Structure -->
+  <div id="registerUserModal" class="modal">
+      <div class="modal-content">
+          <h4>Register User</h4>
+          <input ng-model = 'User.name.first' placeholder = 'first' type="text">
+          <input ng-model = 'User.name.last' placeholder = 'last' type="text">
+          <input ng-model = 'User.email' placeholder = 'email' type="email">
+          <input ng-model = 'User.password' placeholder = 'password' type="password">
+          <input ng-model = 'User.phone' placeholder = 'phone' type="number">
+          <input ng-model = 'User.address.street' placeholder = 'street' type="text">
+          <input ng-model = 'User.address.aptSuite' placeholder = 'suite/apt' type="text">
+          <input ng-model = 'User.address.city' placeholder = 'city' type="text">
+          <input ng-model = 'User.address.state' placeholder = 'state' type="text">
+          <input ng-model = 'User.address.zip' placeholder = 'zip' type="number">
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='submitNewUser(User)'>Submit</a>
+      </div>
+  </div>
+
+
+      <!-- Modal Trigger -->
+  <div class="col">
+      <a class='btn' href='#registerBusinessModal' modal>Register Business</a>
+  </div>
+  <!-- Modal Structure -->
+  <div id="registerBusinessModal" class="modal">
+      <div class="modal-content">
+          <h4>Register Business</h4>
+          <input ng-model = 'Business.businessName' placeholder = 'Business Name' type="text">
+          <input ng-model = 'Business.address.street' placeholder = 'street' type="text">
+          <input ng-model = 'Business.address.suite' placeholder = 'suite' type="text">
+          <input ng-model = 'Business.address.city' placeholder = 'city' type="text">
+          <input ng-model = 'Business.address.state' placeholder = 'state' type="text">
+          <input ng-model = 'Business.address.zip' placeholder = 'zip' type="number">
+          <input ng-model = 'Business.phone' placeholder = 'phone' type="text">
+          <input ng-model = 'Business.mainEmail' placeholder = 'Main Admin email' type="email">
+          <input ng-model = 'Business.mainPassword' placeholder = 'Main Admin password' type="password">
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='submitNewBusiness(Business)'>Submit</a>
+      </div>
+  </div>
 </div>
