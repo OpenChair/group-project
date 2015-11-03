@@ -4,6 +4,6 @@ angular.module('openChairApp')
 
   businessService.getBusinesses().then(function(response) {
     $scope.businesses = response;
-  })
+  });
 
 });
