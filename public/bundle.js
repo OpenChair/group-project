@@ -71,7 +71,7 @@
 	      templateUrl: './routes/user/userTmpl.html',
 	      controllers: 'userCtrl'
 	  })
-	  
+
 	})
 
 

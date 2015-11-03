@@ -1,1 +1,29 @@
-Hello from search
+<div>
+  <div class="row">
+    <div class="s10 offset-s1 col">
+      <div class="row">
+        <div class="col s12 m6 l3" style="-webkit-animation-duration:{{$index * 300}}ms" ng-repeat="b in businesses">
+          <div class="card blue lighten-1">
+            <div class="card-content center-align">
+              <div class="card-title">{{b.businessName}}</div>
+              <img class="card-image" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg">
+              <p class="blue-text text-darken-4">{{b.mainPassword}}</p>
+              <br>
+              <div class="row">
+                <p class="blue-text text-darken-4">{{b.logo}}</p>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col s12 center-align"><a class="waves-effect waves-light btn"><i class="material-icons left">query_builder</i>See appointments</a></div>
+              </div>
+            </div>
+            <div class="card-action center-align">
+              <a href="#" class="blue-text text-darken-4">{{b.address.city}}, {{b.address.state}}</a>
+            </div>
+          </div>
+          <!--/card-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
