@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  min-height: 1000px;
+  min-height: 2000px;
 }
 .navBar {
   display: flex;
@@ -39,13 +39,24 @@ body {
   border-right: 1px solid grey;
   padding-left: 3em;
 }
+.homeSearchContainer {
+  position: relative;
+  left: 2em;
+  bottom: 8em;
+}
+.search-bar-home-title {
+  position: relative;
+  left: 0.41em;
+  bottom: 1.35em;
+  text-shadow: .02em .02em white;
+}
 .search-bar-home {
   position: relative;
   left: 2em;
   bottom: 8em;
 }
 .parallax-container {
-  height: 600px;
+  height: 25%;
 }
 .modal-content {
   color: white;
