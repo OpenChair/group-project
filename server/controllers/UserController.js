@@ -34,7 +34,7 @@ module.exports = {
     },
 
     find: function(req, res) {
-      User.findById(req.params._id).populate('favorites').exec(function(err, result){
+      User.findById(req.params.id).populate('favorites').exec(function(err, result){
           if(err){
               return res.status(500).json(err);
           } else {

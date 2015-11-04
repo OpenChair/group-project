@@ -50,7 +50,7 @@ app.get('/user', UserController.me);
 app.put('/user', isAuthed, UserController.update);
 app.post('/login', passport.authenticate('local',{
 	successRedirect:'/user'
-}))
+}));
 app.get('/logout', function(req, res){
   req.logout();
   req.session.destroy(function(err){
