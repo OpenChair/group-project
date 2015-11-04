@@ -18,8 +18,9 @@ angular.module('openChairApp')
   businessService.getBusinesses().then(function(response) {
     $scope.businesses = response;
   });
-
-  appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
+  
+  appointmentsService.getAppointmentsById(
+    $scope.user._id, 'user').then(function(response) {
     $scope.appointments = response;
     console.log($scope.appointments);
   });

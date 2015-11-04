@@ -21,7 +21,7 @@ angular.module('openChairApp')
   this.editAppointment = function(id, appointment) {
     return $http({
       method: 'PUT',
-      url: 'http://localhost:7200/appointment/' + id,
+      url: '/appointment/' + id,
       data: appointment
     }).then(function(response) {
       return response.data;
@@ -30,7 +30,7 @@ angular.module('openChairApp')
   this.deleteAppointment = function(id) {
     return $http({
       method: 'DELETE',
-      url: 'http://localhost:7200/appointment/' + id
+      url: '/appointment/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -38,7 +38,7 @@ angular.module('openChairApp')
   this.getAppointment = function(id) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/appointment/' + id
+      url: '/appointment/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -46,9 +46,11 @@ angular.module('openChairApp')
   this.getAppointmentsById = function(id, type) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/appointments/' + type + '/' + id
+      url: '/appointments/' + type + '/' + id
     }).then(function(response) {
+      console.log(response)
       return response.data;
+      
     });
   };
 });
