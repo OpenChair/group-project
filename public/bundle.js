@@ -26,13 +26,13 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
     // }
   })
   .state('businessProfile', {
-    url: '/search/:id',
+    url: '/search/:businessID',
     templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
     controller: 'businessProfileCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
     //     return businessService.getBusiness($route.current.params.id);
-    //   },
+    //   }
     //   reviews: function (apiService) {
     //     return apiService.getReview();
     //   },
@@ -212,11 +212,10 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
 
 }]);
 
-angular.module('openChairApp').service('loginService', ["$http", "$q", function($http,$q){
+angular.module('openChairApp').service('loginService', ["$http", "$q", function($http, $q){
 
 	this.newUserService=function(user){
-
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/user',
 			data:user
@@ -250,7 +249,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 	};
 	this.newBusinessService=function(business){
 
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/business',
 			data:business
@@ -299,6 +298,10 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", functio
 
 }]);
 
+angular.module('openChairApp')
+.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  $scope.businessProfile = business;
+}]);
 
 
 angular.module('openChairApp')
@@ -317,6 +320,20 @@ angular.module('openChairApp')
 
 
 }]);
+
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/businessPreview/businessPreview.html',
+    controller: 'businessPreviewCtrl'
+	};
+});
 
 var openChairApp=angular.module('openChairApp');
 openChairApp.directive('navTemplate', function(){
