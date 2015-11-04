@@ -289,6 +289,10 @@ angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", function($scope){
 
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+  
 }]);
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
