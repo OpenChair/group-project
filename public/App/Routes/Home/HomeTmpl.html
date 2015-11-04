@@ -8,15 +8,15 @@
   <search-bar class="search-bar-home"></search-bar>
 </div>
 <div class="popularContainer">
-  <h3>Popular Now Near You</h3>
-  <div class="row business-display-search">
-  <div class="s10 offset-s1 col">
-    <div class="row">
-      <div class="col s12 m6 l3" ng-repeat="b in businesses">
-        <business-preview></business-preview>
+  <h3 class="homePopularTitle">Popular Now Near You</h3>
+  <div class="row business-display-search homeBusCard">
+    <div class="s10 offset-s1 col">
+      <div class="row">
+        <div class="col s12 m6 l3 " ng-repeat="b in businesses | limitTo: 4">
+          <business-preview></business-preview>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <footer></footer>
