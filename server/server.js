@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var session = require('express-session');
-var passport = require('passport');
+var passport = require('./services/passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var AppointmentController = require('./controllers/AppointmentController');
@@ -48,9 +48,9 @@ app.get('/auth/facebook/callback',
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
 app.put('/user', isAuthed, UserController.update);
-app.post('/login', passport.authenticate('local', {
-  successRedirect:'/home'
-}));
+app.post('/login', passport.authenticate('local',{
+	successRedirect:'/user'
+}))
 app.get('/logout', function(req, res){
   req.logout();
   req.session.destroy(function(err){

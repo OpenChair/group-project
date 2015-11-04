@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 

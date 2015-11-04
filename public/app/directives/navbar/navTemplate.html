@@ -122,7 +122,7 @@
           </li>
         </ul>
     </li>    
-
+        {{customerName}}
       <li>
         <!-- Dropdown Trigger -->
         <a class='dropdown-button' href='javascript:void(0);' data-activates='registerDropdown' dropdown>
@@ -154,11 +154,11 @@
             <div id="userLoginModal" class="modal">
               <div class="modal-content">
                 <h4>User Login</h4>
-                <input placeholder = 'email' ng-model = 'login.email' type="email">
-                <input placeholder = 'password' ng-model = 'login.password' type="password">
+                <input placeholder = 'email' ng-model = 'user1.email' type="email">
+                <input placeholder = 'password' ng-model = 'user1.password' type="password">
               </div>
               <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-submit='loginSubmit(login)'>Submit<i class="material-icons right">send</i></a>
+                <button  class="modal-action modal-close waves-effect waves-green btn-flat" ng-click='loginUserSubmit(user1)'>Submit<i class="material-icons right">send</i></button>
               </div>
             </div>
                 <!-- Modal Structure -->

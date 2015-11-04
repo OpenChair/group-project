@@ -2,7 +2,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy
 var User = require('../models/UserModel');
-var configAuth = require('config')
+var configAuth = require('./config')
 
 passport.use(new LocalStrategy({
   usernameField: 'email',
@@ -20,7 +20,7 @@ passport.use(new LocalStrategy({
 passport.use(new FacebookStrategy({
   clientID     : configAuth.facebookAuth.clientID,
   clientSecret : configAuth.facebookAuth.clientSecret,
-  callbackUrl  : configAuth.facebook.Auth.callbackURL
+  callbackUrl  : configAuth.facebookAuth.callbackURL
 },
 
 function(token, refreshToken, profile, done){
@@ -44,14 +44,13 @@ function(token, refreshToken, profile, done){
   })
 }))
 
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+passport.deserializeUser(function(_id, done) {
+  User.findById(_id, function(err, user) {
+    done(err, user);
+  });
+});
 
-module.exports = function(passport){
-  passport.serializeUser(function(user, done) {
-    done(null, user._id);
-  });
-  passport.deserializeUser(function(_id, done) {
-    User.findById(_id, function(err, user) {
-      done(err, user);
-    });
-  });
-}
+module.exports = passport;
