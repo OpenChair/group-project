@@ -1,5 +1,10 @@
 angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
+.constant("constants",
+{
+  "baseURL": "http://localhost:7200/"
+})
+
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');
@@ -86,11 +91,11 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
 angular.module('openChairApp')
 
-.service('appointmentsService', ["$http", function($http) {
+.service('appointmentsService', ["$http", "constants", function($http, constants) {
   this.makeAppointment = function(appointment) {
     return $http({
       method: 'POST',
-      url: 'http://localhost:7200/appointment',
+      url: constants.baseURL + 'appointment',
       data: appointment
     }).then(function(response) {
       return response.data;
@@ -99,7 +104,7 @@ angular.module('openChairApp')
   this.getAppointments = function() {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/appointments'
+      url: constants.baseURL + 'appointments'
     }).then(function(response) {
       return response.data;
     });
@@ -107,7 +112,7 @@ angular.module('openChairApp')
   this.editAppointment = function(id, appointment) {
     return $http({
       method: 'PUT',
-      url: '/appointment/' + id,
+      url: constants.baseURL + 'appointment/' + id,
       data: appointment
     }).then(function(response) {
       return response.data;
@@ -116,7 +121,7 @@ angular.module('openChairApp')
   this.deleteAppointment = function(id) {
     return $http({
       method: 'DELETE',
-      url: '/appointment/' + id
+      url: constants.baseURL + 'appointment/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -124,30 +129,30 @@ angular.module('openChairApp')
   this.getAppointment = function(id) {
     return $http({
       method: 'GET',
-      url: '/appointment/' + id
+      url: constants.baseURL + 'appointment/' + id
     }).then(function(response) {
       return response.data;
     });
   };
   this.getAppointmentsById = function(id, type) {
-    console.log(id)
+    console.log(id);
     return $http({
       method: 'GET',
-      url: '/appointments/' + type + '/' + id
+      url: constants.baseURL + 'appointments/' + type + '/' + id
     }).then(function(response) {
-      console.log(response)
+      console.log(response);
       return response.data;
-      
+
     });
   };
 }]);
 
-angular.module('openChairApp').service('businessService', ["$http", function($http) {
+angular.module('openChairApp').service('businessService', ["$http", "constants", function($http, constants) {
 
   this.getBusinesses = function() {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/businesses'
+      url: constants.baseURL + 'businesses'
     }).then(function(response) {
       return response.data;
     });
@@ -155,7 +160,7 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   this.getFilterdBusinesses = function(filters) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/businesses/?',
+      url: constants.baseURL + 'businesses/?',
     }).then(function(response) {
       return response.data;
     });
@@ -164,13 +169,13 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   this.getBusiness = function(id) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/businesses/' + id
+      url: constants.baseURL + 'businesses/' + id
     });
   };
   this.addBusiness = function(business) {
     return $http({
       method: 'POST',
-      url: 'http://localhost:7200/businesses',
+      url: constants.baseURL + 'businesses',
       data: business
     }).then(function(response) {
       return response.data;
@@ -179,7 +184,7 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   this.editBusiness = function(id, business) {
     return $http({
       method: 'PUT',
-      url: 'http://localhost:7200/businesses/' + id,
+      url: constants.baseURL + 'businesses/' + id,
       data: business
     }).then(function(response) {
       return response.data;
@@ -188,7 +193,7 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   this.deleteBusiness = function(id) {
     return $http({
       method: 'DELETE',
-      url: 'http://localhost:7200/businesses/' + id
+      url: constants.baseURL + 'businesses/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -197,7 +202,7 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   // this.editBusinessService = function(id, business) {
   //   return $http({
   //     method: 'PUT',
-  //     url: 'http://localhost:7200/businesses/' + id,
+  //     url: constants.baseURL + 'businesses/' + id,
   //     data: business
   //   }).then(function(response) {
   //     return response.data;
@@ -206,7 +211,7 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
   // this.editBusinessUsers = function(id, business) {
   //   return $http({
   //     method: 'PUT',
-  //     url: 'http://localhost:7200/businesses/' + id,
+  //     url: constants.baseURL + 'businesses/' + id,
   //     data: business
   //   }).then(function(response) {
   //     return response.data;
@@ -215,12 +220,12 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
 
 }]);
 
-angular.module('openChairApp').service('loginService', ["$http", "$q", function($http, $q){
+angular.module('openChairApp').service('loginService', ["$http", "$q", "constants", function($http, $q, constants){
 
 	this.newUserService=function(user){
 		return $http({
 			method:'POST',
-			url:'http://localhost:7200/user',
+			url: constants.baseURL + 'user',
 			data:user
 		}).then(function(err, res){
 			if(err){ return err;}
@@ -231,10 +236,10 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 	this.loginUserSubmit=function(user){
 		return $http({
 			method:"POST",
-			url:'http://localhost:7200/login',
+			url: constants.baseURL + 'login',
 			data:user
 		}).then(function(res){
-			console.log(res)
+			console.log(res);
 			return res;
 		});
 	};
@@ -242,7 +247,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url:'http://localhost:7200/user'
+			url: constants.baseURL + 'user'
 		}).then(function(res){
 			var userName=res;
 			deferred.resolve(userName);
@@ -255,7 +260,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 
 		return $http({
 			method:'POST',
-			url:'http://localhost:7200/business',
+			url: constants.baseURL + 'business',
 			data:business
 		}).then(function(err, res){
 			if(err){ return err;}
@@ -266,7 +271,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 	this.loginBusinessSubmit=function(business){
 		return $http({
 			method:"POST",
-			url:'http://localhost:7200/loginBusiness',
+			url: constants.baseURL + 'loginBusiness',
 			data:business
 		}).then(function(res,err){
 			return res;
@@ -276,7 +281,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url:'http://localhost:7200/business'
+			url: constants.baseURL + 'business'
 		}).then(function(res){
 			var businessName=res;
 			deferred.resolve(businessName);
@@ -288,15 +293,33 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 
 }]);
 
+angular.module('openChairApp').service('userService', ["$http", "constants", function($http, constants) {
+
+  this.getUser = function(id) {
+    return $http({
+      method: 'GET',
+      url: constants.baseURL + 'user/' + id
+    }).then(function(response) {
+      return response.data;
+    });
+  };
+
+}]);
+
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
+}]);
+
 angular.module('openChairApp')
 
-.controller('homeCtrl', ["$scope", function($scope){
+.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
 
-  $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
   
 }]);
+
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
@@ -437,31 +460,16 @@ angular.module('openChairApp')
 
 angular.module('openChairApp')
 
-.controller('userCtrl', ["$scope", "businessService", "appointmentsService", function($scope, businessService, appointmentsService){
-  $scope.user = {
-    _id: "563a3eef2a9334c01ae5f176",
-    name: {
-      first: 'bob',
-      last: 'bobby'
-    },
-    displayName: "bobbity",
-    email: "bibity@bobbity.boo",
-    phone: 1234567890,
-    address: {
-      street: '1234s12345e,12345678 UT 876543'
-    }
-  };
+.controller('userCtrl', ["$scope", "userService", "appointmentsService", function($scope, userService, appointmentsService){
 
-  businessService.getBusinesses().then(function(response) {
-    $scope.businesses = response;
+  userService.getUser("563957383955920e3064202c").then(function(response) {
+    $scope.user = response;
+    console.log(response);
+    appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
+      $scope.appointments = response;
+      console.log($scope.appointments);
+    });
   });
-  
-  appointmentsService.getAppointmentsById(
-    $scope.user._id, 'user').then(function(response) {
-    $scope.appointments = response;
-    console.log("Controller" + $scope.appointments);
-  });
-
 }]);
 
 angular.module('openChairApp')

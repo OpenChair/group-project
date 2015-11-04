@@ -1,5 +1,10 @@
 angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
+.constant("constants",
+{
+  "baseURL": "http://localhost:7200/"
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');

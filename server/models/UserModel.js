@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+var Mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-var User = new mongoose.Schema({
+var User = new Mongoose.Schema({
   name: {
     first:  {type:String},
     last: {type:String}
@@ -19,9 +19,7 @@ var User = new mongoose.Schema({
     state:  {type:String},
     zip:  {type:String},
   },
-  favorites: [
-    // {type: Mongoose.Schema.Types.ObjectId, ref:'Business'}
-  ]
+  favorites: [{type: Mongoose.Schema.Types.ObjectId, ref:'Business'}]
 });
 
 User.pre('save', function(next) {
@@ -38,4 +36,4 @@ User.methods.verifyPassword = function(reqBodyPassword) {
   return bcrypt.compareSync(reqBodyPassword, user.password);
 };
 
-module.exports = mongoose.model('User', User);
+module.exports = Mongoose.model('User', User);

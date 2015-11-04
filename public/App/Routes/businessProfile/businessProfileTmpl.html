@@ -1,5 +1,7 @@
 <nav-template></nav-template>
-<div class="business-info" ng-model="bProfile">
-  <div class="row center-align"><img class="business-photo" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg"></div>
-  <div class="row center-align business-name">{{bProfile.businessName}}</div>
-</div>
+
+  <div class="business-info z-depth-1" ng-model="bProfile">
+    <div class="row center-align"><img class="business-photo" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg"></div>
+    <div class="row center-align business-name">{{bProfile.businessName}}</div>
+    <div class="row center-align business-city">{{bProfile.address.city}}, {{bProfile.address.state}}</div>
+  </div>
