@@ -1,7 +1,7 @@
 <div class="homeSearchBar">
   <div >
-    <a class='dropdown-button btn' class="businessSelector" href='javascript:void(0);' data-activates='businessDropdown' dropdown data-hover="false">
-    Business Type
+    <a class='dropdown-button btn searchButton' class="businessSelector" href='javascript:void(0);' data-activates='businessDropdown' dropdown data-hover="false">
+    Type
     </a>
     <select id='businessDropdown' class='dropdown-content'>
       <option><a href="javascript:void(0);">Hair Salon</a></option>
@@ -12,7 +12,7 @@
     </select>
   </div>
 
-  <div class="dateSelector">
+  <div class="datePicker">
     <label for="inputCreated"></label>
     <input input-date
         type="text"
@@ -38,11 +38,12 @@
         on-open="onOpen()"
         on-close="onClose()"
         on-set="onSet()"
-        on-stop="onStop()" />
+        on-stop="onStop()"
+        />
   </div>
   <div class="timeSelector">
-    <a class='dropdown-button btn' href='javascript:void(0);' data-activates='timeDropDown' dropdown data-hover="false">
-    Select Time
+    <a class='dropdown-button btn searchButton' href='javascript:void(0);' data-activates='timeDropDown' dropdown data-hover="false">
+    Time
     </a>
     <select id="timeDropDown">
       <option value="09:00">9:00 AM</option>
@@ -100,10 +101,10 @@
       <option value="22:00">10:00 PM</option>
     </select>
   </div>
-  <div class="searchInput">
-    <input placeholder="Location, Business Name, or Type"></input>
+  <div >
+    <input class="searchInput" placeholder="Location, Business Name, or Type"></input>
   </div>
-  <div class="searchButton">
-    <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>Find It</a>
+  <div>
+    <a class="waves-effect waves-light btn searchButton"><i class="material-icons left">search</i>Find It</a>
   </div>
 </div>
