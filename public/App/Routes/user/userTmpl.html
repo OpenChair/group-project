@@ -6,7 +6,7 @@
       <img src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png" />
     </div>
     <div class="row userInfo">
-      <h3>{{user.name.first}} {{user.name.last}}</h3>
+      <h4>{{user.name.first}} {{user.name.last}}</h3>
       <h4>{{user.displayName}}</h4>
     </div>
   </div>
@@ -23,20 +23,31 @@
     </div>
   </div>
 
-  <div class="row appointments">
-    <div class=" col s6">
-       appointments
-    </div>
-    <div class=" col s6">
-       appointments
-    </div>
-    <div class=" col s6">
-       appointments
-    </div>
-    <div class=" col s6">
-       appointments
+  <div class="col appointments" ng-repeat="appointment in appointments">
+    <div class="">
+      <h4>{{appointment.business.businessName}}</h4>
+      <div>
+        Service: {{appointment.service}}
+      </div>
+      <div>
+        Date: {{appointment.startTime | date: 'short'}}
+      </div>
+      <div>
+        Appointment Length: {{appointment.timePeriod}}
+      </div>
+      <div>
+        Note: {{appointment.note}}
+      </div>
     </div>
   </div>
 
-  {{favorites}}
+  <div class="row">
+    <div class="s10 offset-s1 col">
+      <div class="row">
+        <div class="col s12 m6 l3" ng-repeat="b in businesses">
+          <business-preview></business-preview>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

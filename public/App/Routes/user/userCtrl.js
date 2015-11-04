@@ -1,7 +1,8 @@
 angular.module('openChairApp')
 
-.controller('userCtrl', function($scope){
+.controller('userCtrl', function($scope, businessService, appointmentsService){
   $scope.user = {
+    _id: "563957383955920e3064202c",
     name: {
       first: 'bob',
       last: 'bobby'
@@ -13,5 +14,14 @@ angular.module('openChairApp')
       street: '1234s12345e,12345678 UT 876543'
     }
   };
+
+  businessService.getBusinesses().then(function(response) {
+    $scope.businesses = response;
+  });
+
+  appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
+    $scope.appointments = response;
+    console.log($scope.appointments);
+  });
 
 });

@@ -130,7 +130,7 @@ angular.module('openChairApp')
   this.getAppointmentsById = function(id, type) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:7200/appointment/' + type + '/' + id
+      url: 'http://localhost:7200/appointments/' + type + '/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -212,11 +212,10 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
 
 }]);
 
-angular.module('openChairApp').service('loginService', ["$http", "$q", function($http,$q){
+angular.module('openChairApp').service('loginService', ["$http", "$q", function($http, $q){
 
 	this.newUserService=function(user){
-
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/user',
 			data:user
@@ -250,7 +249,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 	};
 	this.newBusinessService=function(business){
 
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/business',
 			data:business
@@ -313,8 +312,9 @@ angular.module('openChairApp')
 
 angular.module('openChairApp')
 
-.controller('userCtrl', ["$scope", function($scope){
+.controller('userCtrl', ["$scope", "businessService", "appointmentsService", function($scope, businessService, appointmentsService){
   $scope.user = {
+    _id: "563957383955920e3064202c",
     name: {
       first: 'bob',
       last: 'bobby'
@@ -327,7 +327,30 @@ angular.module('openChairApp')
     }
   };
 
+  businessService.getBusinesses().then(function(response) {
+    $scope.businesses = response;
+  });
+
+  appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
+    $scope.appointments = response;
+    console.log($scope.appointments);
+  });
+
 }]);
+
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/businessPreview/businessPreview.html',
+    controller: 'businessPreviewCtrl'
+	};
+});
 
 var openChairApp=angular.module('openChairApp');
 openChairApp.directive('navTemplate', function(){

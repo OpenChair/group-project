@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 var User = new mongoose.Schema({
   name: {
     first:  {type:String},
-    last: {type:String}    
+    last: {type:String}
     },
   facebookId:{type:Number},
   photo:{type:String},
@@ -19,8 +19,9 @@ var User = new mongoose.Schema({
     state:  {type:String},
     zip:  {type:String},
   },
-  favorites:  []
-  
+  favorites: [
+    // {type: Mongoose.Schema.Types.ObjectId, ref:'Business'}
+  ]
 });
 
 User.pre('save', function(next) {
