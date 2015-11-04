@@ -6,7 +6,7 @@ var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 
 var paths = {
-  jsSource: ['./public/app/**/*.js', '!/public/bundle.js'],
+  jsSource: ['public/app/**/*.js', '!/public/bundle.js'],
 
 };
 

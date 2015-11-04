@@ -212,11 +212,10 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
 
 }]);
 
-angular.module('openChairApp').service('loginService', ["$http", "$q", function($http,$q){
+angular.module('openChairApp').service('loginService', ["$http", "$q", function($http, $q){
 
 	this.newUserService=function(user){
-
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/user',
 			data:user
@@ -250,7 +249,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 	};
 	this.newBusinessService=function(business){
 
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/business',
 			data:business
@@ -289,6 +288,10 @@ angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", function($scope){
 
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+  
 }]);
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
@@ -313,6 +316,20 @@ angular.module('openChairApp')
 
 
 }]);
+
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/businessPreview/businessPreview.html',
+    controller: 'businessPreviewCtrl'
+	};
+});
 
 var openChairApp=angular.module('openChairApp');
 openChairApp.directive('navTemplate', function(){

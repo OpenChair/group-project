@@ -1,8 +1,7 @@
-angular.module('openChairApp').service('loginService', function($http,$q){
+angular.module('openChairApp').service('loginService', function($http, $q){
 
 	this.newUserService=function(user){
-
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/user',
 			data:user
@@ -36,7 +35,7 @@ angular.module('openChairApp').service('loginService', function($http,$q){
 	};
 	this.newBusinessService=function(business){
 
-		$http({
+		return $http({
 			method:'POST',
 			url:'http://localhost:7200/business',
 			data:business
