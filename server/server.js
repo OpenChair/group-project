@@ -37,13 +37,13 @@ var isAuthed = function(req, res, next){
 };
 
 
-app.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}))
+app.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook',{
     successRedirect:'/user',
     failureRedirect:'/'
   })
-)
+);
 
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
@@ -57,6 +57,8 @@ app.get('/logout', function(req, res){
     res.redirect('/');
   });
 });
+
+app.get('/user/:id', UserController.find);
 
 app.post('/appointment', AppointmentController.create);
 app.get('/appointments', AppointmentController.read);

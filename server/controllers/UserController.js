@@ -31,5 +31,15 @@ module.exports = {
                 res.status(200).json(result);
             }
         });
+    },
+
+    find: function(req, res) {
+      User.findById(req.params._id).populate('favorites').exec(function(err, result){
+          if(err){
+              return res.status(500).json(err);
+          } else {
+              res.status(200).json(result);
+          }
+      });
     }
 };
