@@ -1,9 +1,9 @@
 angular.module('openChairApp')
 
-.controller('homeCtrl', function($scope){
+.controller('homeCtrl', function($scope, businessService){
 
-  $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
   
 });

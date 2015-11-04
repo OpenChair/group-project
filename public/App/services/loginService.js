@@ -18,6 +18,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			data:user
 		}).then(function(res){
 			console.log(res)
+
 			return res;
 		});
 	};

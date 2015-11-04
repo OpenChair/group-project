@@ -3,6 +3,7 @@ var bcrypt = require('bcryptjs');
 
 var Business = new mongoose.Schema({
   businessName: {type:String, required:true},
+  category: {type:String, require:true},
   address:{
     street:{type:String, required:true},
     suite:{type:String},

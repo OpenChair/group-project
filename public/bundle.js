@@ -232,6 +232,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 			data:user
 		}).then(function(res){
 			console.log(res)
+
 			return res;
 		});
 	};
@@ -285,18 +286,18 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 
 }]);
 
-angular.module('openChairApp')
-
-.controller('homeCtrl', ["$scope", function($scope){
-
-  $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-  
-}]);
-
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
+}]);
+
+angular.module('openChairApp')
+
+.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
+
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
+  
 }]);
 
 angular.module('openChairApp')
