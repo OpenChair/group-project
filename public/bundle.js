@@ -28,18 +28,20 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   .state('businessProfile', {
     url: '/search/:businessID',
     templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
-    controller: 'businessProfileCtrl'
-    // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
-    //   }
-    //   reviews: function (apiService) {
-    //     return apiService.getReview();
-    //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
-    //   }
-    // }
+    controller: 'businessProfileCtrl',
+    resolve: {
+      business: ["businessService", "$stateParams", function (businessService, $stateParams) {
+        return businessService.getBusiness($stateParams.businessID).then(function (res) {
+          return res.data;
+        });
+      }]
+      // reviews: function (apiService) {
+      //   return apiService.getReview();
+      // },
+      // appointments: function (appointmentsService, $route) {
+      //   return appointmentsService.getAppointments($route.current.params.id);
+      // }
+    }
   })
   .state('userProfile', {
       url: '/user/:id',
@@ -160,8 +162,6 @@ angular.module('openChairApp').service('businessService', ["$http", function($ht
     return $http({
       method: 'GET',
       url: 'http://localhost:7200/businesses/' + id
-    }).then(function(response) {
-      return response.data;
     });
   };
   this.addBusiness = function(business) {
@@ -300,7 +300,7 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", functio
 
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
-  $scope.businessProfile = business;
+  $scope.bProfile = business;
 }]);
 
 

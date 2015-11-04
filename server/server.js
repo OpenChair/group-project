@@ -37,13 +37,13 @@ var isAuthed = function(req, res, next){
 };
 
 
-app.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}))
+app.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook',{
     successRedirect:'/user',
     failureRedirect:'/'
   })
-)
+);
 
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
