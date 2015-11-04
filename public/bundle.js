@@ -128,6 +128,7 @@ angular.module('openChairApp')
     });
   };
   this.getAppointmentsById = function(id, type) {
+    console.log(id)
     return $http({
       method: 'GET',
       url: '/appointments/' + type + '/' + id
@@ -286,10 +287,6 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 
 }]);
 
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
 angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", function($scope){
@@ -303,6 +300,10 @@ angular.module('openChairApp')
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   $scope.businessProfile = business;
+}]);
+
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
 }]);
 
 
@@ -320,7 +321,7 @@ angular.module('openChairApp')
 
 .controller('userCtrl', ["$scope", "businessService", "appointmentsService", function($scope, businessService, appointmentsService){
   $scope.user = {
-    _id: "563957383955920e3064202c",
+    _id: "563a3eef2a9334c01ae5f176",
     name: {
       first: 'bob',
       last: 'bobby'
@@ -340,7 +341,7 @@ angular.module('openChairApp')
   appointmentsService.getAppointmentsById(
     $scope.user._id, 'user').then(function(response) {
     $scope.appointments = response;
-    console.log($scope.appointments);
+    console.log("Controller" + $scope.appointments);
   });
 
 }]);

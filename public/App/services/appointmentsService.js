@@ -44,6 +44,7 @@ angular.module('openChairApp')
     });
   };
   this.getAppointmentsById = function(id, type) {
+    console.log(id)
     return $http({
       method: 'GET',
       url: '/appointments/' + type + '/' + id
