@@ -4,10 +4,12 @@ var annotate = require('gulp-ng-annotate');
 var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
+var less = require('gulp-less');
+var path = require('path');
 
 var paths = {
-  jsSource: ['public/app/**/*.js', '!/public/bundle.js'],
-
+  jsSource: ['./public/app/**/*.js', '!/public/bundle.js'],
+  lessSource: ['./public/styles/**/*.less']
 };
 
 gulp.task('js', function() {
@@ -18,8 +20,17 @@ gulp.task('js', function() {
   .pipe(gulp.dest('./public'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.jsSource, ['js']);
+gulp.task('less', function () {
+  return gulp.src(paths.lessSource)
+    .pipe(less({
+      paths: [ path.join(__dirname, 'styles') ]
+    }))
+    .pipe(gulp.dest('./public/styles'));
 });
 
-gulp.task('default', ['watch','js']);
+gulp.task('watch', function() {
+  gulp.watch(paths.jsSource, ['js']);
+  gulp.watch(paths.lessSource, ['less']);
+});
+
+gulp.task('default', ['watch', 'js', 'less']);

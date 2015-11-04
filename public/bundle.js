@@ -26,13 +26,13 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
     // }
   })
   .state('businessProfile', {
-    url: '/search/:id',
+    url: '/search/:businessID',
     templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
     controller: 'businessProfileCtrl'
     // resolve: {
     //   business: function (businessService, $route) {
     //     return businessService.getBusiness($route.current.params.id);
-    //   },
+    //   }
     //   reviews: function (apiService) {
     //     return apiService.getReview();
     //   },
@@ -298,6 +298,10 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", functio
 
 }]);
 
+angular.module('openChairApp')
+.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  $scope.businessProfile = business;
+}]);
 
 
 angular.module('openChairApp')
