@@ -1,11 +1,11 @@
 <nav-template></nav-template>
 
 <div class="row">
-  <div class="col userWraper s12">
-    <div class="row userInfo s6">
+  <div class="row userWraper s2">
+    <div class="row userInfo s2">
       <img src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png" />
     </div>
-    <div class="row userInfo s6">
+    <div class="row userInfo s2">
       <h4>{{user.name.first}} {{user.name.last}}</h3>
       <h4>{{user.displayName}}</h4>
     </div>
@@ -22,15 +22,15 @@
       Address: {{user.address}}
     </div>
   </div>
-
-  <div class="col appointments" ng-repeat="appointment in appointments">
+<br>
+  <div class="card blue lighten-1 col appointments" ng-repeat="appointment in appointments">
     <div class="">
-      <h4>{{appointment.business.businessName}}</h4>
+      <h5>{{appointment.businessName}}</h5>
       <div>
         Service: {{appointment.service}}
       </div>
       <div>
-        Date: {{appointment.startTime | date: 'short'}}
+        Date: <strong>{{appointment.startTime | date: 'short'}}</strong>
       </div>
       <div>
         Appointment Length: {{appointment.timePeriod}}

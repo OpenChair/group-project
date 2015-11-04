@@ -298,17 +298,15 @@ angular.module('openChairApp')
   
 }]);
 
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
+}]);
+
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   $scope.bProfile = business;
 }]);
 
-<<<<<<< HEAD
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
-=======
 var app=angular.module('openChairApp');
  app.controller('businessScheduleCtrl', ["$scope", "$compile", "$timeout", "uiCalendarConfig", function($scope, $compile, $timeout, uiCalendarConfig) {
     var date = new Date();
@@ -426,7 +424,6 @@ var app=angular.module('openChairApp');
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
 }])
->>>>>>> 6d7e356fe3beeb9e83e9005de88da6d8ca456312
 
 angular.module('openChairApp')
 
