@@ -44,11 +44,14 @@ angular.module('openChairApp')
     });
   };
   this.getAppointmentsById = function(id, type) {
+    console.log(id);
     return $http({
       method: 'GET',
       url: constants.baseURL + 'appointments/' + type + '/' + id
     }).then(function(response) {
+      console.log(response);
       return response.data;
+
     });
   };
 });
