@@ -21,8 +21,6 @@ angular.module('openChairApp').service('businessService', function($http) {
     return $http({
       method: 'GET',
       url: 'http://localhost:7200/businesses/' + id
-    }).then(function(response) {
-      return response.data;
     });
   };
   this.addBusiness = function(business) {

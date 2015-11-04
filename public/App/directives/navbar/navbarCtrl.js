@@ -1,17 +1,25 @@
 var openChairApp = angular.module('openChairApp');
 openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
+	loginService.getUserName().then(function(res){
+				if(res){
+					$scope.customerName='Welcome, ' + res.data.name.first;
+					console.log($scope.customerName)
 
+
+
+				}
+			});
 	$scope.submitNewUser=function(user){
 		console.log(user);
 		loginService.newUserService(user);
 	};
 
-	$scope.loginUserSubmit=function(login){
-
-		loginService.loginUserSubmit(login).then(function(res){
+	$scope.loginUserSubmit=function(user){
+		loginService.loginUserSubmit(user).then(function(res){
 		loginService.getUserName().then(function(res){
 				if(res){
-					$scope.customerName='Welcome, ' + res.data.name;
+					$scope.customerName='Welcome, ' + res.data.name.first;
+					console.log($scope.customerName)
 
 
 
