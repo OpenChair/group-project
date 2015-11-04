@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -28,18 +28,20 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize'])
   .state('businessProfile', {
     url: '/search/:businessID',
     templateUrl: 'app/routes/businessProfile/businessProfileTmpl.html',
-    controller: 'businessProfileCtrl'
-    // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
-    //   }
-    //   reviews: function (apiService) {
-    //     return apiService.getReview();
-    //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
-    //   }
-    // }
+    controller: 'businessProfileCtrl',
+    resolve: {
+      business: function (businessService, $stateParams) {
+        return businessService.getBusiness($stateParams.businessID).then(function (res) {
+          return res.data;
+        });
+      }
+      // reviews: function (apiService) {
+      //   return apiService.getReview();
+      // },
+      // appointments: function (appointmentsService, $route) {
+      //   return appointmentsService.getAppointments($route.current.params.id);
+      // }
+    }
   })
   .state('userProfile', {
       url: '/user/:id',

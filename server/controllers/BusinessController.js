@@ -13,7 +13,7 @@ module.exports = {
       }
     });
   },
-  
+
   me: function(req, res) {
     if (!req.business) {
       return res.send("current user not defined");
