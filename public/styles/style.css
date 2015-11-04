@@ -1,16 +1,13 @@
-
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   min-height: 1000px;
-
 }
-
 .navBar {
   display: flex;
   flex-direction: row;
 }
-
 .searchBar {
   height: auto;
   width: auto;
@@ -19,16 +16,13 @@ html, body {
   justify-content: flex-start;
   color: lightgrey;
 }
-
 .businessSelector {
   height: 100%;
 }
-
 .searchInput {
   height: 3em;
   width: 20em;
 }
-
 .searchButton {
   height: 3em;
   width: 10em;
@@ -37,7 +31,6 @@ html, body {
   border-right: 1px solid grey;
   padding-top: 0.3em;
 }
-
 .datePicker {
   height: 3em;
   width: 10em;
@@ -45,31 +38,24 @@ html, body {
   text-align: center;
   border-right: 1px solid grey;
   padding-left: 3em;
-
 }
-
 .search-bar-home {
   position: relative;
   left: 2em;
   bottom: 8em;
 }
-
 .parallax-container {
   height: 600px;
-
 }
-
 .modal-content {
   color: white;
   background: black;
 }
-
 .search-bar-search {
   position: relative;
   top: 25px;
   left: 9.65%;
 }
-
 .business-display-search {
   position: relative;
   top: 45px;
