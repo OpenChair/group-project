@@ -289,6 +289,10 @@ angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", function($scope){
 
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+  
 }]);
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
@@ -310,7 +314,18 @@ angular.module('openChairApp')
 angular.module('openChairApp')
 
 .controller('userCtrl', ["$scope", function($scope){
-
+  $scope.user = {
+    name: {
+      first: 'bob',
+      last: 'bobby'
+    },
+    displayName: "bobbity",
+    email: "bibity@bobbity.boo",
+    phone: 1234567890,
+    address: {
+      street: '1234s12345e,12345678 UT 876543'
+    }
+  };
 
 }]);
 
