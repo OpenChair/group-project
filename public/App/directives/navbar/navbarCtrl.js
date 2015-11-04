@@ -6,13 +6,14 @@ openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
 		loginService.newUserService(user);
 	};
 
-	$scope.loginUserSubmit=function(login){
-
-		loginService.loginUserSubmit(login).then(function(res){
-		loginService.getUserName().then(function(res){
+	$scope.loginUserSubmit=function(loginUser){
+        console.log(loginUser)
+		loginService.loginUserSubmit(loginUser).then(function(res){
+          console.log('hi')
+          loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name;
-
+                    console.log(res);
 
 
 				}

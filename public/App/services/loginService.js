@@ -16,7 +16,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			method:"POST",
 			url:'http://localhost:7200/login',
 			data:user
-		}).then(function(res,err){
+		}).then(function(res){
 			return res;
 		});
 	};

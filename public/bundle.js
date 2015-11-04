@@ -230,7 +230,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 			method:"POST",
 			url:'http://localhost:7200/login',
 			data:user
-		}).then(function(res,err){
+		}).then(function(res){
 			return res;
 		});
 	};
@@ -286,11 +286,11 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 
 angular.module('openChairApp')
 
-.controller('homeCtrl', ["$scope", function($scope){
+.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
 
-  $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
   
 }]);
 
@@ -350,13 +350,14 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 		loginService.newUserService(user);
 	};
 
-	$scope.loginUserSubmit=function(login){
-
-		loginService.loginUserSubmit(login).then(function(res){
-		loginService.getUserName().then(function(res){
+	$scope.loginUserSubmit=function(loginUser){
+        console.log(loginUser)
+		loginService.loginUserSubmit(loginUser).then(function(res){
+          console.log('hi')
+          loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name;
-
+                    console.log(res);
 
 
 				}
