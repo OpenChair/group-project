@@ -2,7 +2,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  min-height: 2000px;
+  min-height: 100em;
 }
 .navBar {
   display: flex;
@@ -56,7 +56,7 @@ body {
   bottom: 8em;
 }
 .parallax-container {
-  height: 25%;
+  height: 30em;
 }
 .modal-content {
   color: white;
@@ -74,11 +74,18 @@ body {
 .business-info {
   position: relative;
   top: 50px;
+  width: 35%;
+  background-color: #F4F4F4;
 }
 .business-info .business-name {
   font-size: 72px;
 }
 .business-info .business-photo {
+  position: relative;
+  top: 25px;
   width: 300px;
   height: 300px;
+}
+.business-info .business-city {
+  font-size: 22px;
 }

@@ -305,21 +305,21 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 angular.module('openChairApp')
 
-.controller('homeCtrl', ["$scope", function($scope){
+.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
 
-  $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
   
+}]);
+
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
 }]);
 
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   $scope.bProfile = business;
-}]);
-
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
 }]);
 
 var app=angular.module('openChairApp');
@@ -442,6 +442,16 @@ var app=angular.module('openChairApp');
 
 angular.module('openChairApp')
 
+.controller('searchCtrl', ["$scope", "businessService", function($scope, businessService){
+
+  businessService.getBusinesses().then(function(response) {
+    $scope.businesses = response;
+  });
+
+}]);
+
+angular.module('openChairApp')
+
 .controller('userCtrl', ["$scope", "userService", "appointmentsService", function($scope, userService, appointmentsService){
 
   userService.getUser("563957383955920e3064202c").then(function(response) {
@@ -452,16 +462,6 @@ angular.module('openChairApp')
       console.log($scope.appointments);
     });
   });
-}]);
-
-angular.module('openChairApp')
-
-.controller('searchCtrl', ["$scope", "businessService", function($scope, businessService){
-
-  businessService.getBusinesses().then(function(response) {
-    $scope.businesses = response;
-  });
-
 }]);
 
 angular.module('openChairApp')
