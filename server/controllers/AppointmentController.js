@@ -4,11 +4,11 @@ var Business = require('../models/BusinessModel');
 module.exports={
 	create:function(req, res){
 		var newAppointment = {
-			appointments:req.body,
-			user:req.user._id,
-			business:req.business._id
+			appointment:req.body,
+			// user:req.user._id,
+			// business:req.business._id
 		};
-		Appointment.create(newAppointment, function(err, result){
+		Appointment.create(newAppointment.appointment, function(err, result){
 			if(err){res.status(500).send(err);}
 			else{res.json(result);}
 		});
@@ -38,7 +38,7 @@ module.exports={
 		});
 	},
 	userFind:function(req,res){
-		Appointment.find({user:req.params.id}).exec(function(err,result){
+		Appointment.find({user:req.params.id}).populate('business').exec(function(err,result){
 			if(err){res.send(err);}
 			else{res.json(result);}
 		});
