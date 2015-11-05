@@ -1,9 +1,9 @@
-angular.module('openChairApp').service('loginService', function($http, $q, constants){
+angular.module('openChairApp').service('loginService', function($http, $q){
 
 	this.newUserService=function(user){
 		return $http({
 			method:'POST',
-			url: constants.baseURL + 'user',
+			url:'http://localhost:7200/user',
 			data:user
 		}).then(function(err, res){
 			if(err){ return err;}
@@ -14,10 +14,10 @@ angular.module('openChairApp').service('loginService', function($http, $q, const
 	this.loginUserSubmit=function(user){
 		return $http({
 			method:"POST",
-			url: constants.baseURL + 'login',
+			url:'http://localhost:7200/login',
 			data:user
 		}).then(function(res){
-			console.log(res);
+			console.log(res)
 			return res;
 		});
 	};
@@ -25,7 +25,7 @@ angular.module('openChairApp').service('loginService', function($http, $q, const
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url: constants.baseURL + 'user'
+			url:'http://localhost:7200/user'
 		}).then(function(res){
 			var userName=res;
 			deferred.resolve(userName);
@@ -38,29 +38,32 @@ angular.module('openChairApp').service('loginService', function($http, $q, const
 
 		return $http({
 			method:'POST',
-			url: constants.baseURL + 'business',
+			url:'http://localhost:7200/business',
 			data:business
-		}).then(function(err, res){
-			if(err){ return err;}
-			else{return res;}
-		});
+		})
+		// .then(function(res, err){
+		// 	if(err){ return err;}
+		// 	else{return res;}
+		// });
 	};
 
 	this.loginBusinessSubmit=function(business){
 		return $http({
 			method:"POST",
-			url: constants.baseURL + 'loginBusiness',
+			url:'/loginBusiness',
 			data:business
 		}).then(function(res,err){
+			console.log(res);
 			return res;
 		});
 	};
+	
 	this.getBusinessName=function(){
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url: constants.baseURL + 'business'
-		}).then(function(res){
+			url:'http://localhost:7200/business'
+		}).then(function(res,err){
 			var businessName=res;
 			deferred.resolve(businessName);
 		},function(err){
