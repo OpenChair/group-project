@@ -89,6 +89,17 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
   });
 }]);
 
+// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
+//   this.lengthFilter = function(length) {
+//     var tempLength = length % 4;
+//     if (tempLength < 1) {
+//       if (tempLength) {
+//
+//       }
+//     }
+//   };
+// });
+
 angular.module('openChairApp')
 
 .service('appointmentsService', ["$http", "constants", function($http, constants) {
@@ -306,17 +317,6 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 }]);
 
-// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
-//   this.lengthFilter = function(length) {
-//     var tempLength = length % 4;
-//     if (tempLength < 1) {
-//       if (tempLength) {
-//
-//       }
-//     }
-//   };
-// });
-
 angular.module('openChairApp')
 .controller('businessPreviewCtrl', ["$scope", function($scope) {
 
@@ -493,7 +493,6 @@ angular.module('openChairApp').directive('searchBar', function() {
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
-<<<<<<< HEAD
 }]);
 
 angular.module('openChairApp')
@@ -520,8 +519,6 @@ angular.module('openChairApp')
   ];
 
 
-=======
->>>>>>> 4e7c68b3df57763767473315263a112b553a05ff
 }]);
 
 var app=angular.module('openChairApp');
@@ -650,12 +647,6 @@ angular.module('openChairApp')
       $scope.businesses = response;
   });
   
-}]);
-
-angular.module('openChairApp')
-.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
-  console.log(business);
-  $scope.bProfile = business;
 }]);
 
 angular.module('openChairApp')
