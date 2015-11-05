@@ -8,6 +8,9 @@ body {
   display: flex;
   flex-direction: row;
 }
+.navBarLogo {
+  left: 2em;
+}
 .searchBar {
   height: auto;
   width: auto;
