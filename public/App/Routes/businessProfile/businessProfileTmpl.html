@@ -1,7 +1,20 @@
+<!-- HEADER -->
 <nav-template></nav-template>
 
-  <div class="business-info z-depth-1" ng-model="bProfile">
-    <div class="row center-align"><img class="business-photo" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg"></div>
-    <div class="row center-align business-name">{{bProfile.businessName}}</div>
-    <div class="row center-align business-city">{{bProfile.address.city}}, {{bProfile.address.state}}</div>
-  </div>
+<!-- BUSINESS BACKGROUND -->
+<div class="business-info z-depth-1 grey lighten-3"></div>
+
+<!-- BUSINESS HEADER INFO -->
+<div class="business" ng-model="bProfile">
+  <img class="business-photo z-depth-1" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg">
+  <div class="business-name">{{bProfile.businessName}}</div>
+  <div class="business-category">{{bProfile.mainPassword}}</div>
+  <div class="business-city">{{bProfile.address.city}}, {{bProfile.address.state}}</div>
+</div>
+
+<!-- BUSINESS INFO -->
+<h3 class="about-header">About</h3>
+<div class="business-about grey lighten-3 z-depth-1"></div>
+
+<h3 class="about-header">Services</h3>
+<div class="business-about grey lighten-3 z-depth-1"></div>
