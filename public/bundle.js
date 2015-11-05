@@ -51,15 +51,15 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
   .state('userProfile', {
       url: '/user/:id',
       templateUrl: 'app/routes/user/userTmpl.html',
-      controller: 'userCtrl'
-      // resolve: {
-      //   user: function (userService, $route) {
-      //     return userService.getUser($route.current.params.id);
-      //   },
-      //   appointments: function (appointmentsService, $route) {
-      //     return appointmentsService.getAppointments($route.current.params.id);
-      //   }
-      // }
+      controller: 'userCtrl',
+      resolve: {
+        user: ["userService", "$route", function (userService, $route) {
+          return userService.getUser($route.current.params.id);
+        }],
+        appointments: ["appointmentsService", "$route", function (appointmentsService, $route) {
+          return appointmentsService.getAppointments($route.current.params.id);
+        }]
+      }
     })
     .state('businessSchedule', {
       url: '/business/:id',
@@ -455,16 +455,10 @@ angular.module('openChairApp')
 
 angular.module('openChairApp')
 
-.controller('userCtrl', ["$scope", "userService", "appointmentsService", function($scope, userService, appointmentsService){
+.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
+  $scope.user = user;
+  $scope.appointments = appointments;
 
-  userService.getUser("563957383955920e3064202c").then(function(response) {
-    $scope.user = response;
-    console.log(response);
-    appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
-      $scope.appointments = response;
-      console.log($scope.appointments);
-    });
-  });
 }]);
 
 angular.module('openChairApp')
