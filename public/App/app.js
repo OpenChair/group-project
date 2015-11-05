@@ -1,5 +1,10 @@
 angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 
+.constant("constants",
+{
+  "baseURL": "http://localhost:7200/"
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');
@@ -46,15 +51,15 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
   .state('userProfile', {
       url: '/user/:id',
       templateUrl: 'app/routes/user/userTmpl.html',
-      controller: 'userCtrl'
-      // resolve: {
-      //   user: function (userService, $route) {
-      //     return userService.getUser($route.current.params.id);
-      //   },
-      //   appointments: function (appointmentsService, $route) {
-      //     return appointmentsService.getAppointments($route.current.params.id);
-      //   }
-      // }
+      controller: 'userCtrl',
+      resolve: {
+        user: function (userService, $route) {
+          return userService.getUser($route.current.params.id);
+        },
+        appointments: function (appointmentsService, $route) {
+          return appointmentsService.getAppointments($route.current.params.id);
+        }
+      }
     })
     .state('businessSchedule', {
       url: '/business/:id',

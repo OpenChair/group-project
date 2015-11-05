@@ -162,6 +162,13 @@ body {
   left: 375px;
   top: -300px;
 }
+.userWraper {
+  padding: 20px;
+}
+.userWraper .userInfo {
+  display: inline-block;
+  padding: 10px;
+}
 .business-about {
   width: 80%;
   height: 400px;
