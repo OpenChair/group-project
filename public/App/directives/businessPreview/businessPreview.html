@@ -1,18 +1,26 @@
 <div class="card grey lighten-3">
-  <div class="card-content center-align">
+  <div class="card-content">
     <div class="card-title black">{{b.businessName}}</div>
-    <img class="card-image" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg">
-    <p class="black-text">{{b.mainPassword}}</p>
+    <img class="card-image center-align" src="http://resizer.otstatic.com/v2/profiles/legacy/3176.jpg" />
     <br>
     <div class="row">
-      <p class="black">{{b.logo}}</p>
+      <p class="">{{b.logo}}</p>
     </div>
+    <div class="">
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+    </div>
+    <p class="black-text">{{b.category}}</p>
     <br>
     <div class="row">
-      <div class="col s12 center-align"><a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black"><i class="material-icons left">query_builder</i>See appointments</a></div>
+      <div class="col s12 center-align"><a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black"><i class="material-icons left">query_builder</i>Reserve</a></div>
     </div>
-  </div>
-  <div class="card-action center-align">
+    <div class="card-action center-align">
     <a href="#" class="black-text text-darken-4">{{b.address.city}}, {{b.address.state}}</a>
   </div>
+  </div>
+  
 </div>

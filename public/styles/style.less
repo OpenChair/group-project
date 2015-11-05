@@ -14,6 +14,34 @@ html, body {
   left: 2em;
 }
 
+.picker__weekday-display {
+  background-color: grey;
+}
+
+.picker__date-display {
+  background-color: black;
+}
+
+.picker__select--year.browser-default {
+  width: 28%
+}
+
+.picker__day.picker__day--today {
+  color: burlywood;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+  background-color: black;
+}
+
+.picker__close, .picker__today {
+  color: grey;
+}
+
+.picker__close:active, .picker__today:active {
+  color: grey;
+}
+
 .searchBar {
   height: auto;
   width: auto;
@@ -50,6 +78,7 @@ html, body {
   padding-left: 3em;
 
 }
+
 .homeSearchContainer {
   position: relative;
   left: 2em;
@@ -62,13 +91,15 @@ html, body {
 }
 
 .homePopularTitle {
+  width: 81%;
   position: relative;
   top: 1em;
-  left: 3.6em;
+  left: 4em;
+  border-bottom: .03em solid black;
+  padding-bottom: 1em;
 }
 
 .homeBusCard {
-  border-top: 0.3em solid black;
   padding-top: 2em;
 }
 
