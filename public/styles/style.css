@@ -87,6 +87,12 @@ body {
 .homeBusCard {
   padding-top: 2em;
 }
+.homeContainer {
+  height: auto;
+  width: 90%;
+  position: absolute;
+  left: 8em;
+}
 .search-bar-home-title {
   position: relative;
   left: 0.41em;
@@ -95,8 +101,13 @@ body {
 }
 .search-bar-home {
   position: relative;
-  left: 2em;
   bottom: 8em;
+  left: 2em;
+}
+#timeDropDown {
+  position: absolute;
+  top: 0em;
+  left: 20em;
 }
 .parallax-container {
   height: 30em;
@@ -151,6 +162,13 @@ body {
   left: 375px;
   top: -300px;
 }
+.userWraper {
+  padding: 20px;
+}
+.userWraper .userInfo {
+  display: inline-block;
+  padding: 10px;
+}
 .business-about {
   width: 80%;
   height: 400px;
@@ -162,11 +180,4 @@ body {
   position: relative;
   top: 115px;
   left: 10%;
-}
-.userWraper {
-  padding: 20px;
-}
-.userWraper .userInfo {
-  display: inline-block;
-  padding: 10px;
 }

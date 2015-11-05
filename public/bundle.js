@@ -306,135 +306,6 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 }]);
 
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
-angular.module('openChairApp')
-.directive('businessPreview', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'App/directives/businessPreview/businessPreview.html',
-    controller: 'businessPreviewCtrl'
-	};
-});
-
-var openChairApp=angular.module('openChairApp');
-openChairApp.directive('navTemplate', function(){
-	return{
-		templateUrl:'app/directives/navbar/navTemplate.html'
-	};
-});
-
-var openChairApp = angular.module('openChairApp');
-openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", function(loginService, $scope, $location){
-	loginService.getUserName().then(function(res){
-				if(res){
-					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
-
-
-
-				}
-			});
-	$scope.submitNewUser=function(user){
-		console.log(user);
-		loginService.newUserService(user);
-	};
-
-	$scope.loginUserSubmit=function(user){
-		loginService.loginUserSubmit(user).then(function(res){
-		loginService.getUserName().then(function(res){
-				if(res){
-					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
-
-
-
-				}
-			});
-
-		},function(err){
-				console.log(err);
-				if(err.status>300){
-					alert('bad data guys!!!!');
-				}
-			});
-
-	};
-
-	$scope.submitNewBusiness=function(business){
-		console.log(business);
-		loginService.newBusinessService(business);
-	};
-
-	$scope.loginBusinessSubmit=function(login){
-
-		loginService.loginBusinessSubmit(login).then(function(res){
-		loginService.getBusinessName().then(function(res){
-				if(res){
-					$scope.businessName='Welcome, ' + res.data.name;
-
-
-
-				}
-			});
-
-		},function(err){
-				console.log(err);
-				if(err.status>300){
-					alert('bad data guys!!!!');
-				}
-			});
-
-	};
-
-}]);
-
-angular.module('openChairApp').controller('searchBarCtrl', ["$scope", function($scope) {
-
-  var currentTime = new Date();
-  $scope.currentTime = currentTime;
-  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  //$scope.disable = [false, 1, 7];
-  $scope.today = 'Today';
-  $scope.clear = 'Clear';
-  $scope.close = 'Close';
-  var days = 15;
-  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  $scope.onStart = function () {
-//      console.log('onStart');
-  };
-  $scope.onRender = function () {
-//      console.log('onRender');
-  };
-  $scope.onOpen = function () {
-//      console.log('onOpen');
-  };
-  $scope.onClose = function () {
-//      console.log('onClose');
-  };
-  $scope.onSet = function () {
-//      console.log('onSet');
-  };
-  $scope.onStop = function () {
-//      console.log('onStop');
-  };
-
-}]);
-
-angular.module('openChairApp').directive('searchBar', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'App/directives/searchBar/searchBarTemplate.html',
-		controller: 'searchBarCtrl'
-	};
-});
-
 angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
@@ -442,17 +313,11 @@ angular.module('openChairApp')
   businessService.getBusinesses().then(function(response) {
       $scope.businesses = response;
   });
-
+  
 }]);
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
-}]);
-
-angular.module('openChairApp')
-.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
-  console.log(business);
-  $scope.bProfile = business;
 }]);
 
 var app=angular.module('openChairApp');
@@ -462,14 +327,14 @@ var app=angular.module('openChairApp');
     var m = date.getMonth();
     var y = date.getFullYear();
 
-
+    
     $scope.eventSource = {
             url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
             className: 'gcal-event',           // an option!
             currentTimezone: 'America/Chicago' // an option!
     };
     /* event source that contains custom events on the scope */
-    // $scope.events =
+    // $scope.events = 
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
       var s = new Date(start).getTime() / 1000;
@@ -566,12 +431,26 @@ var app=angular.module('openChairApp');
         $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-
+      
     };
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
 }])
+
+angular.module('openChairApp')
+.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  console.log(business);
+  $scope.bProfile = business;
+}]);
+
+angular.module('openChairApp')
+
+.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
+  $scope.user = user;
+  $scope.appointments = appointments;
+
+}]);
 
 angular.module('openChairApp')
 
@@ -583,10 +462,132 @@ angular.module('openChairApp')
 
 }]);
 
-angular.module('openChairApp')
+var openChairApp=angular.module('openChairApp');
+openChairApp.directive('navTemplate', function(){
+	return{
+		templateUrl:'app/directives/navbar/navTemplate.html'
+	};
+});
 
-.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
-  $scope.user = user;
-  $scope.appointments = appointments;
+var openChairApp = angular.module('openChairApp');
+openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", function(loginService, $scope, $location){
+	loginService.getUserName().then(function(res){
+				if(res){
+					$scope.customerName='Welcome, ' + res.data.name.first;
+					console.log($scope.customerName)
+
+
+
+				}
+			});
+	$scope.submitNewUser=function(user){
+		console.log(user);
+		loginService.newUserService(user);
+	};
+
+	$scope.loginUserSubmit=function(user){
+		loginService.loginUserSubmit(user).then(function(res){
+		loginService.getUserName().then(function(res){
+				if(res){
+					$scope.customerName='Welcome, ' + res.data.name.first;
+					console.log($scope.customerName)
+
+
+
+				}
+			});
+
+		},function(err){
+				console.log(err);
+				if(err.status>300){
+					alert('bad data guys!!!!');
+				}
+			});
+
+	};
+
+	$scope.submitNewBusiness=function(business){
+		console.log(business);
+		loginService.newBusinessService(business);
+	};
+
+	$scope.loginBusinessSubmit=function(login){
+
+		loginService.loginBusinessSubmit(login).then(function(res){
+		loginService.getBusinessName().then(function(res){
+				if(res){
+					$scope.businessName='Welcome, ' + res.data.name;
+
+
+
+				}
+			});
+
+		},function(err){
+				console.log(err);
+				if(err.status>300){
+					alert('bad data guys!!!!');
+				}
+			});
+
+	};
 
 }]);
+
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/businessPreview/businessPreview.html',
+    controller: 'businessPreviewCtrl'
+	};
+});
+
+angular.module('openChairApp').controller('searchBarCtrl', ["$scope", function($scope) {
+
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+//      console.log('onStart');
+  };
+  $scope.onRender = function () {
+//      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+//      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+//      console.log('onClose');
+  };
+  $scope.onSet = function () {
+//      console.log('onSet');
+  };
+  $scope.onStop = function () {
+//      console.log('onStop');
+  };
+
+}]);
+
+angular.module('openChairApp').directive('searchBar', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/searchBar/searchBarTemplate.html',
+		controller: 'searchBarCtrl'
+	};
+});
