@@ -301,6 +301,7 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", functio
 
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  console.log(business);
   $scope.bProfile = business;
 }]);
 
