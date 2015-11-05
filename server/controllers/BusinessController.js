@@ -13,7 +13,6 @@ module.exports = {
       }
     });
   },
-
   me: function(req, res) {
     if (!req.business) {
       return res.send("current user not defined");
@@ -22,7 +21,6 @@ module.exports = {
       return res.json(req.business);
     }
   },
-
   update: function(req, res, done) {
     Business.findByIdandUpdate(req.business._id, req.body, function(err, result) {
       if (err) {
@@ -32,9 +30,18 @@ module.exports = {
       }
     });
   },
-
   read: function(req, res) {
     Business.find().exec(function(err, result) {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        res.status(200).json(result);
+      }
+    });
+  },
+
+  findByLocation: function(req, res) {
+    Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } }).exec(function(err, result) {
       if (err) {
         return res.status(500).json(err);
       } else {
@@ -52,7 +59,6 @@ module.exports = {
       }
     });
   },
-
   create: function(req, res) {
     Business.create(req.body, function(err, result) {
       if (err) {
@@ -62,7 +68,6 @@ module.exports = {
       }
     });
   },
-
   edit: function(req, res) {
     Business.findByIdAndUpdate((req.params.id), req.body, {
       new: true

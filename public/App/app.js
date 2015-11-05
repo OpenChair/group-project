@@ -43,8 +43,8 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
       // reviews: function (apiService) {
       //   return apiService.getReview();
       // },
-      // appointments: function (appointmentsService, $route) {
-      //   return appointmentsService.getAppointments($route.current.params.id);
+      // appointments: function (appointmentsService, $stateParams) {
+      //   return appointmentsService.getAppointments($stateParams.id);
       // }
     }
   })
@@ -66,11 +66,11 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
     templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
     controller: 'businessScheduleCtrl'
     // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
+    //   business: function (businessService, $stateParams) {
+    //     return businessService.getBusiness($stateParams.id);
     //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   appointments: function (appointmentsService, $stateParams) {
+    //     return appointmentsService.getAppointments($stateParams.id);
     //   }
     // }
   })
@@ -79,11 +79,11 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
     controller: 'businessDashCtrl'
     // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
+    //   business: function (businessService, $stateParams) {
+    //     return businessService.getBusiness($stateParams.id);
     //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   appointments: function (appointmentsService, $stateParams) {
+    //     return appointmentsService.getAppointments($stateParams.id);
     //   }
     // }
   });
