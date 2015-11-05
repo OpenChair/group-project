@@ -5,14 +5,14 @@ var app=angular.module('openChairApp');
     var m = date.getMonth();
     var y = date.getFullYear();
 
-    
+
     $scope.eventSource = {
             url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
             className: 'gcal-event',           // an option!
             currentTimezone: 'America/Chicago' // an option!
     };
     /* event source that contains custom events on the scope */
-    // $scope.events = 
+    // $scope.events =
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
       var s = new Date(start).getTime() / 1000;
@@ -109,9 +109,9 @@ var app=angular.module('openChairApp');
         $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      
+
     };
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
-})
+});
