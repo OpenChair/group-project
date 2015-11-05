@@ -3,8 +3,18 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy
 var User = require('../models/UserModel');
 var configAuth = require('./config')
+var Business = require('../models/BusinessModel')
 
-passport.use(new LocalStrategy({
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+passport.deserializeUser(function(_id, done) {
+  User.findById(_id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use('poople', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function(email, password, done) {
@@ -13,6 +23,23 @@ passport.use(new LocalStrategy({
     if(err) done(err);
     if(!user) return done(null, false);
     if(user.verifyPassword(password)) return done(null, user);
+    return done(null, false);
+  });
+}));
+
+
+passport.use( 'biz', new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+}, function(email, password, done) {
+  Business.findOne({ email: email })
+  .exec(function(err, business) {
+    if(err) {
+      console.log(err)
+      done(err);
+    }
+    if(!business) return done(null, false);
+    if(business.verifyPassword(password)) return done(null, business);
     return done(null, false);
   });
 }));
@@ -43,14 +70,5 @@ function(token, refreshToken, profile, done){
     }})
   })
 }))
-
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
-});
-passport.deserializeUser(function(_id, done) {
-  User.findById(_id, function(err, user) {
-    done(err, user);
-  });
-});
 
 module.exports = passport;

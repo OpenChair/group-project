@@ -9,6 +9,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
 
   $urlRouterProvider.otherwise('/home');
 
+
   $stateProvider
   .state('home', {
     url: '/home',

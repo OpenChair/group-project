@@ -70,7 +70,7 @@ app.get('/appointments/business/:id', AppointmentController.businessFind);
 
 app.get('/businesses', BusinessController.read);
 app.get('/businesses/:id', BusinessController.readByID);
-app.get('/businesses/:radius/:lat/:lon', BusinessController.findByLocation);
+// app.get('/businesses/:radius/:lat/:lon', BusinessController.findByLocation);
 app.post('/businesses', BusinessController.create);
 app.put('/businesses/:id', BusinessController.edit);
 // app.put('/businesses/:id', BusinessController.update);
@@ -80,15 +80,10 @@ app.delete('/businesses/:id', BusinessController.delete);
 app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
-app.post('/loginBusiness', passport.authenticate('local', {
-  successRedirect:'/businessScheduleTmpl'
-}));
-app.get('/logout', function(req, res){
-  req.logout();
-  req.session.destroy(function(err){
-    res.redirect('/');
-  });
+app.post('/loginBusiness', passport.authenticate('biz'), function(req,res){
+  res.send(req.user)
 });
+
 
 var mongoURI = 'mongodb://localhost:27017/openChair';
 

@@ -9,6 +9,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
 
   $urlRouterProvider.otherwise('/home');
 
+
   $stateProvider
   .state('home', {
     url: '/home',
@@ -231,12 +232,12 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
 
 }]);
 
-angular.module('openChairApp').service('loginService', ["$http", "$q", "constants", function($http, $q, constants){
+angular.module('openChairApp').service('loginService', ["$http", "$q", function($http, $q){
 
 	this.newUserService=function(user){
 		return $http({
 			method:'POST',
-			url: constants.baseURL + 'user',
+			url:'http://localhost:7200/user',
 			data:user
 		}).then(function(err, res){
 			if(err){ return err;}
@@ -247,10 +248,10 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", "constant
 	this.loginUserSubmit=function(user){
 		return $http({
 			method:"POST",
-			url: constants.baseURL + 'login',
+			url:'http://localhost:7200/login',
 			data:user
 		}).then(function(res){
-			console.log(res);
+			console.log(res)
 			return res;
 		});
 	};
@@ -258,7 +259,7 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", "constant
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url: constants.baseURL + 'user'
+			url:'http://localhost:7200/user'
 		}).then(function(res){
 			var userName=res;
 			deferred.resolve(userName);
@@ -271,29 +272,32 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", "constant
 
 		return $http({
 			method:'POST',
-			url: constants.baseURL + 'business',
+			url:'http://localhost:7200/business',
 			data:business
-		}).then(function(err, res){
-			if(err){ return err;}
-			else{return res;}
-		});
+		})
+		// .then(function(res, err){
+		// 	if(err){ return err;}
+		// 	else{return res;}
+		// });
 	};
 
 	this.loginBusinessSubmit=function(business){
 		return $http({
 			method:"POST",
-			url: constants.baseURL + 'loginBusiness',
+			url:'/loginBusiness',
 			data:business
 		}).then(function(res,err){
+			console.log(res);
 			return res;
 		});
 	};
+	
 	this.getBusinessName=function(){
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url: constants.baseURL + 'business'
-		}).then(function(res){
+			url:'http://localhost:7200/business'
+		}).then(function(res,err){
 			var businessName=res;
 			deferred.resolve(businessName);
 		},function(err){
@@ -303,7 +307,6 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", "constant
 	};
 
 }]);
-
 angular.module('openChairApp').service('userService', ["$http", "constants", function($http, constants) {
 
   this.getUser = function(id) {
@@ -375,6 +378,66 @@ angular.module('openChairApp')
 	};
 });
 
+var openChairApp=angular.module('openChairApp');
+openChairApp.directive('navTemplate', function(){
+	return{
+		templateUrl:'app/directives/navbar/navTemplate.html'
+	};
+});
+
+var openChairApp = angular.module('openChairApp');
+openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", function (loginService, $scope, $location) {
+	loginService.getUserName().then(function (res) {
+		if (res) {
+			$scope.customerName = 'Welcome, ' + res.data.name.first;
+			console.log($scope.customerName)
+		}
+	});
+	$scope.submitNewUser = function (user) {
+		console.log(user);
+		loginService.newUserService(user);
+	};
+	$scope.loginUserSubmit = function (user) {
+		loginService.loginUserSubmit(user).then(function (res) {
+			loginService.getUserName().then(function (res) {
+				if (res) {
+					$scope.customerName = 'Welcome, ' + res.data.name.first;
+					console.log($scope.customerName)
+				}
+			});
+
+		}, function (err) {
+			console.log(err);
+			if (err.status > 300) {
+				alert('bad data guys!!!!');
+			}
+		});
+
+	};
+
+	$scope.submitNewBusiness = function (business) {
+		console.log(business);
+		loginService.newBusinessService(business).then(function (res) {
+			console.log('new biz: ', res.data);
+		}, function (err) {
+			console.log('biz create err: ', err);
+		});
+	};
+	$scope.loginBusinessSubmit = function (login) {
+		loginService.loginBusinessSubmit(login).then(function (res) {
+			console.log("login complete", res);
+			loginService.getBusinessName().then(function (res) {
+				if (res) {
+					console.log(res)
+					$scope.businessName = 'Welcome, ' + res.data.name;
+				}
+			});
+		}, function (err) {
+			console.log(err);
+			if (err.status > 300) {alert('bad data guys!!!!');}
+		});
+	};
+}]);
 angular.module('openChairApp').controller('searchBarCtrl', ["$scope", function($scope) {
 
   var currentTime = new Date();
@@ -418,78 +481,6 @@ angular.module('openChairApp').directive('searchBar', function() {
 		controller: 'searchBarCtrl'
 	};
 });
-
-var openChairApp=angular.module('openChairApp');
-openChairApp.directive('navTemplate', function(){
-	return{
-		templateUrl:'app/directives/navbar/navTemplate.html'
-	};
-});
-
-var openChairApp = angular.module('openChairApp');
-openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", function(loginService, $scope, $location){
-	loginService.getUserName().then(function(res){
-				if(res){
-					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName);
-
-
-
-				}
-			});
-	$scope.submitNewUser=function(user){
-		console.log(user);
-		loginService.newUserService(user);
-	};
-
-	$scope.loginUserSubmit=function(user){
-		loginService.loginUserSubmit(user).then(function(res){
-		loginService.getUserName().then(function(res){
-				if(res){
-					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName);
-
-
-
-				}
-			});
-
-		},function(err){
-				console.log(err);
-				if(err.status>300){
-					alert('bad data guys!!!!');
-				}
-			});
-
-	};
-
-	$scope.submitNewBusiness=function(business){
-		console.log(business);
-		loginService.newBusinessService(business);
-	};
-
-	$scope.loginBusinessSubmit=function(login){
-
-		loginService.loginBusinessSubmit(login).then(function(res){
-		loginService.getBusinessName().then(function(res){
-				if(res){
-					$scope.businessName='Welcome, ' + res.data.name;
-
-
-
-				}
-			});
-
-		},function(err){
-				console.log(err);
-				if(err.status>300){
-					alert('bad data guys!!!!');
-				}
-			});
-
-	};
-
-}]);
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
