@@ -1,0 +1,34 @@
+<!-- HEADER -->
+<nav-template></nav-template>
+
+<div ng-model="bProfile">
+
+  <img class="business-picture z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+
+  <div class="selecting-appointment-header center-align">Make appointment</div>
+  <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
+    <li ng-repeat="single in collapsibleElements">
+        <div class="collapsible-header {{single.isActive}}"><i class="{{single.icon}}"></i>{{single.title}}</div>
+        <div class="collapsible-body"><p>{{single.content}}</p></div>
+    </li>
+  </ul>
+  <ul class="collapsible business-info" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header active business-info-header center-align">{{bProfile.businessName}}</div>
+        <div class="collapsible-body business-about grey lighten-5"><p>{{bProfile.logo}}</p></div>
+      </li>
+      <li>
+        <div class="collapsible-header center-align grey lighten-5">View details</div>
+        <div class="collapsible-body grey lighten-5">
+          <p>{{bProfile.address.city}}, {{bProfile.address.state}}</p>
+          <p>{{bProfile.phone}}</p>
+        </div>
+      </li>
+    </ul>
+  <!-- <div class="business-info">
+
+          <div class="business-description">{{bProfile.logo}}</div>
+        <div class="business-name">Address: {{bProfile.address.city}},{{bProfile.address.state}}</div>
+        <div class="business-name">Phone: {{bProfile.phone}}</div>
+
+</div>

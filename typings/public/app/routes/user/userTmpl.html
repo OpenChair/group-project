@@ -1,0 +1,53 @@
+<nav-template></nav-template>
+
+<div class="row">
+  <div class="row userWraper s2">
+    <div class="row userInfo s2">
+      <img src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png" />
+    </div>
+    <div class="row userInfo s2">
+      <h4>{{user.name.first}} {{user.name.last}}</h3>
+      <h4>{{user.displayName}}</h4>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      Email: {{user.email}}
+    </div>
+    <div>
+      Phone: {{user.phone}}
+    </div>
+    <div>
+      Address: {{user.address}}
+    </div>
+  </div>
+<br>
+  <div class="card blue lighten-1 col appointments" ng-repeat="appointment in appointments">
+    <div class="">
+      <h5>{{appointment.businessName}}</h5>
+      <div>
+        Service: {{appointment.service}}
+      </div>
+      <div>
+        Date: <strong>{{appointment.startTime | date: 'short'}}</strong>
+      </div>
+      <div>
+        Appointment Length: {{appointment.timePeriod}}
+      </div>
+      <div>
+        Notes: {{appointment.note}} 
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="s10 offset-s1 col">
+      <div class="row">
+        <div class="col s12 m6 l3" ng-repeat="b in user.favorites">
+          <business-preview></business-preview>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
