@@ -8,6 +8,34 @@ body {
   display: flex;
   flex-direction: row;
 }
+.navBarLogo {
+  left: 2em;
+}
+.picker__weekday-display {
+  background-color: grey;
+}
+.picker__date-display {
+  background-color: black;
+}
+.picker__select--year.browser-default {
+  width: 28%;
+}
+.picker__day.picker__day--today {
+  color: burlywood;
+}
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+  background-color: black;
+}
+.picker__close,
+.picker__today {
+  color: grey;
+}
+.picker__close:active,
+.picker__today:active {
+  color: grey;
+}
 .searchBar {
   height: auto;
   width: auto;
@@ -44,6 +72,21 @@ body {
   left: 2em;
   bottom: 8em;
 }
+.popularContainer {
+  position: relative;
+  top: -12.5em;
+}
+.homePopularTitle {
+  width: 81%;
+  position: relative;
+  top: 1em;
+  left: 4em;
+  border-bottom: .03em solid black;
+  padding-bottom: 1em;
+}
+.homeBusCard {
+  padding-top: 2em;
+}
 .search-bar-home-title {
   position: relative;
   left: 0.41em;
@@ -73,21 +116,40 @@ body {
 }
 .business-info {
   position: relative;
-  top: 50px;
-  width: 35%;
-  background-color: #F4F4F4;
+  top: 0;
+  height: 250px;
 }
-.business-info .business-name {
-  font-size: 72px;
+.business {
+  position: absolute;
+  width: 700px;
+  height: 300px;
+  left: 3%;
+  top: 100px;
+  display: inline-block;
 }
-.business-info .business-photo {
+.business .business-photo {
   position: relative;
-  top: 25px;
+  top: 0px;
   width: 300px;
   height: 300px;
 }
-.business-info .business-city {
+.business .business-name {
+  position: relative;
+  left: 370px;
+  top: -300px;
+  font-size: 72px;
+}
+.business .business-category {
+  position: relative;
+  left: 375px;
+  top: -300px;
+  font-size: 25px;
+}
+.business .business-city {
   font-size: 22px;
+  position: relative;
+  left: 375px;
+  top: -300px;
 }
 .userWraper {
   padding: 20px;
@@ -95,4 +157,16 @@ body {
 .userWraper .userInfo {
   display: inline-block;
   padding: 10px;
+}
+.business-about {
+  width: 80%;
+  height: 400px;
+  position: relative;
+  left: 10%;
+  top: 100px;
+}
+.about-header {
+  position: relative;
+  top: 115px;
+  left: 10%;
 }
