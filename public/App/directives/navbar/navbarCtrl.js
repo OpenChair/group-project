@@ -3,7 +3,7 @@ openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
 	loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
+					console.log($scope.customerName);
 
 
 
@@ -19,7 +19,7 @@ openChairApp.controller('navbarCtrl', function(loginService, $scope, $location){
 		loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
+					console.log($scope.customerName);
 
 
 
