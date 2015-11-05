@@ -95,6 +95,9 @@ body {
   height: auto;
   width: 100%;
 }
+.homeMap {
+  left: 5em;
+}
 .search-bar-home-title {
   position: relative;
   left: 0.41em;
