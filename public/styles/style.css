@@ -86,12 +86,13 @@ body {
   width: 300px;
   height: 300px;
 }
-
-.userInfo {
-  display: inline-block;
-  padding: 10px;
-}
 .business-info .business-city {
   font-size: 22px;
-
+}
+.userWraper {
+  padding: 20px;
+}
+.userWraper .userInfo {
+  display: inline-block;
+  padding: 10px;
 }

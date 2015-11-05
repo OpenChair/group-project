@@ -320,11 +320,6 @@ angular.module('openChairApp')
   
 }]);
 
-
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   $scope.bProfile = business;
