@@ -2,19 +2,19 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var Business = new mongoose.Schema({
-  businessName: {type:String, required:true},
-  category: {type:String, require:true},
+  businessName: {type:String},
+  category: {type:String},
   address:{
-    street:{type:String, required:true},
+    street:{type:String},
     suite:{type:String},
-    city:{type:String, required:true},
-    state:{type:String, required:true},
-    zip:{type:Number, required:true}
+    city:{type:String},
+    state:{type:String},
+    zip:{type:Number}
   },
   location: [{type: Number}],
-  phone:{type:Number, required:true},
-  mainEmail: { type: String, unique: true, required:true },
-  mainPassword: {type: String, required:true },
+  phone:{type:Number},
+  email: { type: String, unique: true},
+  password: {type: String},
   logo:{type:String},
   yelpReviews:{type:String},
   services:[
@@ -54,16 +54,16 @@ var Business = new mongoose.Schema({
       closed:{type:Date}
     },
   },
-  user:[{
-    email:{type:String},
-    name:{
-        first:{type:String},
-        last:{type:String},
-    },
-    password:{type:String},
-    highLevelPrivilages:{type:Boolean},
+  // user:[{
+  //   email:{type:String},
+  //   name:{
+  //       first:{type:String},
+  //       last:{type:String},
+  //   },
+  //   password:{type:String},
+  //   highLevelPrivilages:{type:Boolean},
 
-  }],
+  // }],
 
 
 
