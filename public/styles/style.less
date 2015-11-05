@@ -1,8 +1,12 @@
+::-webkit-scrollbar {
+    display: none;
+}
 
 html, body {
   height: 100%;
   width: 100%;
   min-height: 100em;
+  overflow-x: hidden;
 }
 
 .navBar {
@@ -105,9 +109,9 @@ html, body {
 
 .homeContainer {
   height: auto;
-  width: 90%;
-  position: absolute;
-  left:8em; 
+  width: 100%;
+//  position: absolute;
+   
 }
 
 .search-bar-home-title {
@@ -121,7 +125,7 @@ html, body {
   position: relative;
   bottom: 8em;
   left: 2em;
-  
+
 }
 
 #timeDropDown {
@@ -155,61 +159,62 @@ html, body {
   height: 250px;
 }
 
-.business {
-  display: inline-block;
-  position: absolute;
-  width: 700px;
-  height: 300px;
+.business-picture {
+  width: 35%;
+  height: auto;
+  position: relative;
+  top: 35px;
   left: 3%;
+}
+
+.selecting-appointment {
+  position: absolute;
+  right: 3%;
+  top: 200px;
+  width: 55%;
+}
+
+.selecting-appointment-header {
+  position: absolute;
+  right: 3%;
   top: 100px;
-  display: inline-block;
-  .business-photo {
-    position: relative;
-    top: 0px;
-    width: 300px;
-    height: 300px;
-  }
-  .business-name {
-    position: relative;
-    left: 370px;
-    top: -300px;
-    font-size: 72px;
-  }
-  .business-category {
-    position: relative;
-    left: 375px;
-    top: -300px;
-    font-size: 25px;
-  }
-  .business-city {
-    font-size: 22px;
-    position: relative;
-    left: 375px;
-    top: -300px;
-  }
+  width: 55%;
+  height: 75px;
+  background-color: black;
+  color: white;
+  font-size: 50px;
 }
 
-.userWraper {
-  padding: 20px;
-  .userInfo {
-    display: inline-block;
-    padding: 10px;
-  }
-
-  .appointments {
-
-  }
-}
-
-.business-about {
-  width: 80%;
-  height: 400px;
+.business-info {
+  width: 35%;
+  height: auto;
+  top: 75px;
   position: relative;
-  left: 10%;
-  top: 100px;
-}
-.about-header {
-  position: relative;
-  top: 115px;
-  left: 10%;
+  left: 3%;
+  .business-info-header {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: black;
+    color: white;
+    font-size: 35px;
+  }
+  .business-about {
+    width: 100%;
+    height: 100px;
+    .business-description {
+      width: 80%;
+      height: auto;
+      position: relative;
+      left: 10%;
+      top: 25px;
+    }
+    .business-info-expandable {
+      width: 100%;
+      height: 75px;
+      position: relative;
+      top: -10px;
+
+    }
+  }
 }

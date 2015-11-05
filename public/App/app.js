@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'leaflet-directive'])
 
 .constant("constants",
 {
@@ -8,6 +8,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');
+
 
   $stateProvider
   .state('home', {

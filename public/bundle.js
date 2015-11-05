@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'leaflet-directive'])
 
 .constant("constants",
 {
@@ -8,6 +8,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/home');
+
 
   $stateProvider
   .state('home', {
@@ -322,10 +323,23 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
+  
+  angular.extend($scope, {
+        center: {
+            lat: 48,
+            lng: 4,
+            zoom: 4
+        },
+      
+        defaults: {
+            scrollWheelZoom: false
+        }
+    });
 
   businessService.getBusinesses().then(function(response) {
       $scope.businesses = response;
   });
+  
   
 }]);
 
@@ -337,6 +351,26 @@ angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   console.log(business);
   $scope.bProfile = business;
+
+  $scope.collapsibleElements = [{
+        isActive: "active",
+        icon: 'mdi-action-face-unlock',
+        title: 'Select Service',
+        content: ''
+    },{
+        isActive: "",
+        icon: 'mdi-action-event',
+        title: 'Select Date',
+        content: ''
+    },{
+        isActive: "",
+        icon: 'mdi-action-query-builder',
+        title: 'Select Time',
+        content: ''
+    }
+  ];
+
+
 }]);
 
 var app=angular.module('openChairApp');
@@ -486,6 +520,50 @@ angular.module('openChairApp')
     restrict: 'EA',
 		templateUrl:'App/directives/businessPreview/businessPreview.html',
     controller: 'businessPreviewCtrl'
+	};
+});
+
+angular.module('openChairApp')
+.controller('makeApptCtrl', ["$scope", function($scope) {
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+      console.log('onStart');
+  };
+  $scope.onRender = function () {
+      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+      console.log('onClose');
+  };
+  $scope.onSet = function () {
+      console.log('onSet');
+  };
+  $scope.onStop = function () {
+      console.log('onStop');
+  };
+}]);
+
+angular.module('openChairApp')
+.directive('makeAppt', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/makeAppt/makeAppt.html',
+    controller: 'makeApptCtrl'
 	};
 });
 
