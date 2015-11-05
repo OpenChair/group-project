@@ -18,6 +18,34 @@ html, body {
   left: 2em;
 }
 
+.picker__weekday-display {
+  background-color: grey;
+}
+
+.picker__date-display {
+  background-color: black;
+}
+
+.picker__select--year.browser-default {
+  width: 28%
+}
+
+.picker__day.picker__day--today {
+  color: burlywood;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected{
+  background-color: black;
+}
+
+.picker__close, .picker__today {
+  color: grey;
+}
+
+.picker__close:active, .picker__today:active {
+  color: grey;
+}
+
 .searchBar {
   height: auto;
   width: auto;
@@ -54,6 +82,7 @@ html, body {
   padding-left: 3em;
 
 }
+
 .homeSearchContainer {
   position: relative;
   left: 2em;
@@ -66,14 +95,23 @@ html, body {
 }
 
 .homePopularTitle {
+  width: 81%;
   position: relative;
   top: 1em;
-  left: 3.6em;
+  left: 4em;
+  border-bottom: .03em solid black;
+  padding-bottom: 1em;
 }
 
 .homeBusCard {
-  border-top: 0.3em solid black;
   padding-top: 2em;
+}
+
+.homeContainer {
+  height: auto;
+  width: 90%;
+  position: absolute;
+  left:8em;
 }
 
 .search-bar-home-title {
@@ -85,11 +123,16 @@ html, body {
 
 .search-bar-home {
   position: relative;
-  left: 2em;
   bottom: 8em;
+  left: 2em;
+
 }
 
-
+#timeDropDown {
+  position: absolute;
+  top: 0em;
+  left: 20em;
+}
 
 .parallax-container {
   height: 30em;
@@ -116,12 +159,6 @@ html, body {
   height: 250px;
 }
 
-.business-name {
-  font-size: 60px;
-  position: relative;
-  top: 10px;
-  left: 5%;
-}
 
 .business-picture {
   width: 35%;
@@ -132,5 +169,5 @@ html, body {
 }
 
 .services-header {
-  width: 
+  width:
 }

@@ -15,6 +15,31 @@ body {
 .navBarLogo {
   left: 2em;
 }
+.picker__weekday-display {
+  background-color: grey;
+}
+.picker__date-display {
+  background-color: black;
+}
+.picker__select--year.browser-default {
+  width: 28%;
+}
+.picker__day.picker__day--today {
+  color: burlywood;
+}
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+  background-color: black;
+}
+.picker__close,
+.picker__today {
+  color: grey;
+}
+.picker__close:active,
+.picker__today:active {
+  color: grey;
+}
 .searchBar {
   height: auto;
   width: auto;
@@ -56,13 +81,21 @@ body {
   top: -12.5em;
 }
 .homePopularTitle {
+  width: 81%;
   position: relative;
   top: 1em;
-  left: 3.6em;
+  left: 4em;
+  border-bottom: .03em solid black;
+  padding-bottom: 1em;
 }
 .homeBusCard {
-  border-top: 0.3em solid black;
   padding-top: 2em;
+}
+.homeContainer {
+  height: auto;
+  width: 90%;
+  position: absolute;
+  left: 8em;
 }
 .search-bar-home-title {
   position: relative;
@@ -72,8 +105,13 @@ body {
 }
 .search-bar-home {
   position: relative;
-  left: 2em;
   bottom: 8em;
+  left: 2em;
+}
+#timeDropDown {
+  position: absolute;
+  top: 0em;
+  left: 20em;
 }
 .parallax-container {
   height: 30em;
@@ -102,9 +140,33 @@ body {
   top: 10px;
   left: 5%;
 }
+<<<<<<< HEAD
 .business-picture {
   width: 800px;
   height: auto;
+=======
+.business .business-city {
+  font-size: 22px;
+  position: relative;
+  left: 375px;
+  top: -300px;
+}
+.userWraper {
+  padding: 20px;
+}
+.userWraper .userInfo {
+  display: inline-block;
+  padding: 10px;
+}
+.business-about {
+  width: 80%;
+  height: 400px;
+  position: relative;
+  left: 10%;
+  top: 100px;
+}
+.about-header {
+>>>>>>> 8e54bd27a13b1b523afbaf617d390646fca79898
   position: relative;
   top: 10px;
   left: 5%;
