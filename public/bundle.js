@@ -306,6 +306,10 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 }]);
 
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
+}]);
+
 angular.module('openChairApp')
 
 .controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
@@ -315,6 +319,7 @@ angular.module('openChairApp')
   });
   
 }]);
+
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
