@@ -70,6 +70,7 @@ app.get('/appointments/business/:id', AppointmentController.businessFind);
 
 app.get('/businesses', BusinessController.read);
 app.get('/businesses/:id', BusinessController.readByID);
+app.get('/businesses/:radius/:lat/:lon', BusinessController.findByLocation);
 app.post('/businesses', BusinessController.create);
 app.put('/businesses/:id', BusinessController.edit);
 // app.put('/businesses/:id', BusinessController.update);
