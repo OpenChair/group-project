@@ -13,14 +13,14 @@
       <a href=""><i class="extra-small material-icons black-text">stars</i></a>
       <a href=""><i class="extra-small material-icons black-text">stars</i></a>
     </div>
-    <p class="black-text">{{b.category}}</p>
+    <p class="black-text">{{b.category}} - $$</p>
     <br>
-    <div class="row">
-      <div class="col s12 center-align"><a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black"><i class="material-icons left">query_builder</i>Reserve</a></div>
+    <div class="card-action">
+      <a href="#" class="black-text">{{b.address.city}}, {{b.address.state}}</a>
     </div>
-    <div class="card-action center-align">
-    <a href="#" class="black-text text-darken-4">{{b.address.city}}, {{b.address.state}}</a>
-  </div>
+    <div class="">
+      <div class=""><a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black"><i class="material-icons left">query_builder</i>Reserve</a></div>
+    </div>
   </div>
   
 </div>
