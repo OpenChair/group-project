@@ -343,7 +343,7 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 	loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
+					console.log($scope.customerName);
 
 
 
@@ -359,7 +359,7 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 		loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
+					console.log($scope.customerName);
 
 
 
@@ -447,10 +447,6 @@ angular.module('openChairApp').directive('searchBar', function() {
 	};
 });
 
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   console.log(business);
@@ -464,14 +460,14 @@ var app=angular.module('openChairApp');
     var m = date.getMonth();
     var y = date.getFullYear();
 
-    
+
     $scope.eventSource = {
             url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
             className: 'gcal-event',           // an option!
             currentTimezone: 'America/Chicago' // an option!
     };
     /* event source that contains custom events on the scope */
-    // $scope.events = 
+    // $scope.events =
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
       var s = new Date(start).getTime() / 1000;
@@ -568,12 +564,16 @@ var app=angular.module('openChairApp');
         $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      
+
     };
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
-}])
+}]);
+
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
+}]);
 
 angular.module('openChairApp')
 
