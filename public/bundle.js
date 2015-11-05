@@ -316,14 +316,14 @@ angular.module('openChairApp')
   
 }]);
 
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
+
+}]);
+
 angular.module('openChairApp')
 .controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
   console.log(business);
   $scope.bProfile = business;
-}]);
-
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
 }]);
 
 var app=angular.module('openChairApp');
