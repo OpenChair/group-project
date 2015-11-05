@@ -11,6 +11,7 @@ var Business = new mongoose.Schema({
     state:{type:String, required:true},
     zip:{type:Number, required:true}
   },
+  location: [{type: Number}],
   phone:{type:Number, required:true},
   mainEmail: { type: String, unique: true, required:true },
   mainPassword: {type: String, required:true },

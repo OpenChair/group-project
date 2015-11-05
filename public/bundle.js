@@ -43,8 +43,8 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
       // reviews: function (apiService) {
       //   return apiService.getReview();
       // },
-      // appointments: function (appointmentsService, $route) {
-      //   return appointmentsService.getAppointments($route.current.params.id);
+      // appointments: function (appointmentsService, $stateParams) {
+      //   return appointmentsService.getAppointments($stateParams.id);
       // }
     }
   })
@@ -66,11 +66,11 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
     templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
     controller: 'businessScheduleCtrl'
     // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
+    //   business: function (businessService, $stateParams) {
+    //     return businessService.getBusiness($stateParams.id);
     //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   appointments: function (appointmentsService, $stateParams) {
+    //     return appointmentsService.getAppointments($stateParams.id);
     //   }
     // }
   })
@@ -79,26 +79,15 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
     controller: 'businessDashCtrl'
     // resolve: {
-    //   business: function (businessService, $route) {
-    //     return businessService.getBusiness($route.current.params.id);
+    //   business: function (businessService, $stateParams) {
+    //     return businessService.getBusiness($stateParams.id);
     //   },
-    //   appointments: function (appointmentsService, $route) {
-    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   appointments: function (appointmentsService, $stateParams) {
+    //     return appointmentsService.getAppointments($stateParams.id);
     //   }
     // }
   });
 }]);
-
-// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
-//   this.lengthFilter = function(length) {
-//     var tempLength = length % 4;
-//     if (tempLength < 1) {
-//       if (tempLength) {
-//
-//       }
-//     }
-//   };
-// });
 
 angular.module('openChairApp')
 
@@ -317,6 +306,17 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 }]);
 
+// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
+//   this.lengthFilter = function(length) {
+//     var tempLength = length % 4;
+//     if (tempLength < 1) {
+//       if (tempLength) {
+//
+//       }
+//     }
+//   };
+// });
+
 angular.module('openChairApp')
 .controller('businessPreviewCtrl', ["$scope", function($scope) {
 
@@ -493,6 +493,7 @@ angular.module('openChairApp').directive('searchBar', function() {
 
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
+<<<<<<< HEAD
 }]);
 
 angular.module('openChairApp')
@@ -519,6 +520,8 @@ angular.module('openChairApp')
   ];
 
 
+=======
+>>>>>>> 4e7c68b3df57763767473315263a112b553a05ff
 }]);
 
 var app=angular.module('openChairApp');
@@ -647,6 +650,12 @@ angular.module('openChairApp')
       $scope.businesses = response;
   });
   
+}]);
+
+angular.module('openChairApp')
+.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  console.log(business);
+  $scope.bProfile = business;
 }]);
 
 angular.module('openChairApp')
