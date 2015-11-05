@@ -1,4 +1,4 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'leaflet-directive'])
 
 .constant("constants",
 {
@@ -306,18 +306,14 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 
 }]);
 
-angular.module('openChairApp')
-
-.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
-
-  businessService.getBusinesses().then(function(response) {
-      $scope.businesses = response;
-  });
-  
-}]);
-
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
 
+}]);
+
+angular.module('openChairApp')
+.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
+  console.log(business);
+  $scope.bProfile = business;
 }]);
 
 var app=angular.module('openChairApp');
@@ -439,17 +435,26 @@ var app=angular.module('openChairApp');
 }])
 
 angular.module('openChairApp')
-.controller('businessProfileCtrl', ["$scope", "business", function($scope, business) {
-  console.log(business);
-  $scope.bProfile = business;
-}]);
 
-angular.module('openChairApp')
+.controller('homeCtrl', ["$scope", "businessService", function($scope, businessService){
+  
+  angular.extend($scope, {
+        center: {
+            lat: 48,
+            lng: 4,
+            zoom: 4
+        },
+      
+        defaults: {
+            scrollWheelZoom: false
+        }
+    });
 
-.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
-  $scope.user = user;
-  $scope.appointments = appointments;
-
+  businessService.getBusinesses().then(function(response) {
+      $scope.businesses = response;
+  });
+  
+  
 }]);
 
 angular.module('openChairApp')
@@ -461,6 +466,28 @@ angular.module('openChairApp')
   });
 
 }]);
+
+angular.module('openChairApp')
+
+.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
+  $scope.user = user;
+  $scope.appointments = appointments;
+
+}]);
+
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/businessPreview/businessPreview.html',
+    controller: 'businessPreviewCtrl'
+	};
+});
 
 var openChairApp=angular.module('openChairApp');
 openChairApp.directive('navTemplate', function(){
@@ -533,20 +560,6 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 	};
 
 }]);
-
-angular.module('openChairApp')
-.controller('businessPreviewCtrl', ["$scope", function($scope) {
-
-}]);
-
-angular.module('openChairApp')
-.directive('businessPreview', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'App/directives/businessPreview/businessPreview.html',
-    controller: 'businessPreviewCtrl'
-	};
-});
 
 angular.module('openChairApp').controller('searchBarCtrl', ["$scope", function($scope) {
 
