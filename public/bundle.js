@@ -53,27 +53,27 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
       templateUrl: 'app/routes/user/userTmpl.html',
       controller: 'userCtrl',
       resolve: {
-        user: ["userService", "$route", function (userService, $route) {
-          return userService.getUser($route.current.params.id);
+        user: ["userService", "$stateParams", function (userService, $stateParams) {
+          return userService.getUser($stateParams.id);
         }],
-        appointments: ["appointmentsService", "$route", function (appointmentsService, $route) {
-          return appointmentsService.getAppointments($route.current.params.id);
+        appointments: ["appointmentsService", "$stateParams", function (appointmentsService, $stateParams) {
+          return appointmentsService.getAppointments($stateParams.id);
         }]
       }
     })
-    .state('businessSchedule', {
-      url: '/business/:id',
-      templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
-      controller: 'businessScheduleCtrl'
-      // resolve: {
-      //   business: function (businessService, $route) {
-      //     return businessService.getBusiness($route.current.params.id);
-      //   },
-      //   appointments: function (appointmentsService, $route) {
-      //     return appointmentsService.getAppointments($route.current.params.id);
-      //   }
-      // }
-    })
+  .state('businessSchedule', {
+    url: '/business/:id',
+    templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
+    controller: 'businessScheduleCtrl'
+    // resolve: {
+    //   business: function (businessService, $route) {
+    //     return businessService.getBusiness($route.current.params.id);
+    //   },
+    //   appointments: function (appointmentsService, $route) {
+    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   }
+    // }
+  })
   .state('businessDash',{
     url:'/businessdash',
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
@@ -88,6 +88,17 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
     // }
   });
 }]);
+
+// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
+//   this.lengthFilter = function(length) {
+//     var tempLength = length % 4;
+//     if (tempLength < 1) {
+//       if (tempLength) {
+//
+//       }
+//     }
+//   };
+// });
 
 angular.module('openChairApp')
 
@@ -311,10 +322,6 @@ angular.module('openChairApp')
 
 }]);
 
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", function($scope) {
-
-}]);
-
 angular.module('openChairApp')
 .directive('businessPreview', function() {
 	return {
@@ -336,7 +343,7 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 	loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName);
+					console.log($scope.customerName)
 
 
 
@@ -352,7 +359,7 @@ openChairApp.controller('navbarCtrl', ["loginService", "$scope", "$location", fu
 		loginService.getUserName().then(function(res){
 				if(res){
 					$scope.customerName='Welcome, ' + res.data.name.first;
-					console.log($scope.customerName);
+					console.log($scope.customerName)
 
 
 
@@ -457,14 +464,14 @@ var app=angular.module('openChairApp');
     var m = date.getMonth();
     var y = date.getFullYear();
 
-
+    
     $scope.eventSource = {
             url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
             className: 'gcal-event',           // an option!
             currentTimezone: 'America/Chicago' // an option!
     };
     /* event source that contains custom events on the scope */
-    // $scope.events =
+    // $scope.events = 
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
       var s = new Date(start).getTime() / 1000;
@@ -561,12 +568,12 @@ var app=angular.module('openChairApp');
         $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-
+      
     };
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
-}]);
+}])
 
 angular.module('openChairApp')
 
@@ -575,7 +582,7 @@ angular.module('openChairApp')
   businessService.getBusinesses().then(function(response) {
       $scope.businesses = response;
   });
-
+  
 }]);
 
 angular.module('openChairApp')
@@ -590,7 +597,7 @@ angular.module('openChairApp')
 
 angular.module('openChairApp')
 
-.controller('userCtrl', ["$scope", "userService", "appointmentsService", "user", "appointments", function($scope, userService, appointmentsService, user, appointments){
+.controller('userCtrl', ["$scope", "user", "appointments", function($scope, user, appointments){
   $scope.user = user;
   $scope.appointments = appointments;
 

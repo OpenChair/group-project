@@ -53,27 +53,27 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar'])
       templateUrl: 'app/routes/user/userTmpl.html',
       controller: 'userCtrl',
       resolve: {
-        user: function (userService, $route) {
-          return userService.getUser($route.current.params.id);
+        user: function (userService, $stateParams) {
+          return userService.getUser($stateParams.id);
         },
-        appointments: function (appointmentsService, $route) {
-          return appointmentsService.getAppointments($route.current.params.id);
+        appointments: function (appointmentsService, $stateParams) {
+          return appointmentsService.getAppointments($stateParams.id);
         }
       }
     })
-    .state('businessSchedule', {
-      url: '/business/:id',
-      templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
-      controller: 'businessScheduleCtrl'
-      // resolve: {
-      //   business: function (businessService, $route) {
-      //     return businessService.getBusiness($route.current.params.id);
-      //   },
-      //   appointments: function (appointmentsService, $route) {
-      //     return appointmentsService.getAppointments($route.current.params.id);
-      //   }
-      // }
-    })
+  .state('businessSchedule', {
+    url: '/business/:id',
+    templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
+    controller: 'businessScheduleCtrl'
+    // resolve: {
+    //   business: function (businessService, $route) {
+    //     return businessService.getBusiness($route.current.params.id);
+    //   },
+    //   appointments: function (appointmentsService, $route) {
+    //     return appointmentsService.getAppointments($route.current.params.id);
+    //   }
+    // }
+  })
   .state('businessDash',{
     url:'/businessdash',
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
