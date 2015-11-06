@@ -1,2 +1,2 @@
-# group-project
-open chair project
+# OpenChair.in
+###Purpose
