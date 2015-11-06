@@ -1,6 +1,5 @@
 angular.module('openChairApp')
 .controller('businessProfileCtrl', function($scope, business) {
-  console.log(business);
   $scope.bProfile = business;
 
   $scope.collapsibleElements = [{
@@ -20,13 +19,14 @@ angular.module('openChairApp')
         content: [' ']
     }
   ];
+  console.log(business);
 
   angular.extend(
     $scope, {
        center: {
-           lat: 48,
-           lng: 4,
-           zoom: 4
+           lat: $scope.bProfile.location[0],
+           lng: $scope.bProfile.location[1],
+           zoom: 16
        },
 
        defaults: {
