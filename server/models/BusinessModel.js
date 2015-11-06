@@ -18,11 +18,11 @@ var Business = new mongoose.Schema({
   logo:{type:String},
   yelpReviews:{type:String},
   services:[
-	  {serviceType:{
+	  {
 		  name:{type:String},
 		  time:{type:Number},
 		  price:{type:Number}
-	  }}
+	  }
   ],
   scheduleParams:{
     sunday:{

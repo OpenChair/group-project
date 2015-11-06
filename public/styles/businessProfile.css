@@ -53,3 +53,28 @@
   position: relative;
   top: -10px;
 }
+.leaflet-business {
+  width: 35%;
+  height: 300px;
+  position: relative;
+  top: 100px;
+  left: 3%;
+}
+.services-repeat {
+  display: flex;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+}
+.services-repeat .b-name {
+  position: relative;
+  flex: 1;
+}
+.services-repeat .b-price {
+  position: relative;
+  flex: 1;
+}
+.services-repeat .b-select {
+  flex: 1;
+  position: relative;
+}

@@ -7,19 +7,30 @@ angular.module('openChairApp')
         isActive: "active",
         icon: 'mdi-action-face-unlock',
         title: 'Select Service',
-        content: ''
+        content: business.services
     },{
         isActive: "",
         icon: 'mdi-action-event',
         title: 'Select Date',
-        content: ''
+        content: [' ']
     },{
         isActive: "",
         icon: 'mdi-action-query-builder',
         title: 'Select Time',
-        content: ''
+        content: [' ']
     }
   ];
 
+  angular.extend(
+    $scope, {
+       center: {
+           lat: 48,
+           lng: 4,
+           zoom: 4
+       },
 
+       defaults: {
+           scrollWheelZoom: false
+       }
+    });
 });
