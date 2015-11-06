@@ -6,7 +6,7 @@ module.exports = {
 
     Business.create(req.body, function(err, business) {
       if (err) {
-       console.log(err)
+       console.log(err);
         return res.status(500).json(err);
       } else {
         business.password = null;
@@ -27,6 +27,16 @@ module.exports = {
 
   update: function(req, res, done) {
     Business.findByIdandUpdate(req.business._id, req.body, function(err, result) {
+      if (err) {
+        return res.status(500).json(err);
+      } else {
+        res.status(200).json(result);
+      }
+    });
+  },
+
+  findByLocation: function(req, res) {
+    Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } }).exec(function(err, result) {
       if (err) {
         return res.status(500).json(err);
       } else {
