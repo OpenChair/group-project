@@ -20,7 +20,7 @@ var Business = new mongoose.Schema({
   services:[
 	  {
 		  name:{type:String},
-		  time:{type:Number},
+		  duration:{type:Number},
 		  price:{type:Number}
 	  }
   ],
