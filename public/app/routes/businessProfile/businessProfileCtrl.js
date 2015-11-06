@@ -19,7 +19,6 @@ angular.module('openChairApp')
         content: [' ']
     }
   ];
-  console.log(business);
 
   angular.extend(
     $scope, {
