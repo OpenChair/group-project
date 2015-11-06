@@ -19,6 +19,7 @@ var User = new Mongoose.Schema({
     state:  {type:String},
     zip:  {type:String},
   },
+  location: [{type: Number}],
   favorites: [{type: Mongoose.Schema.Types.ObjectId, ref:'Business'}]
 });
 

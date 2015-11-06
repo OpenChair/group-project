@@ -1,21 +1,23 @@
-var openChairApp = angular.module('openChairApp');
-openChairApp.controller('navbarCtrl', function (loginService, $scope, $location) {
+angular.module('openChairApp').controller('navbarCtrl', function (loginService, $scope, $location, geocodingService) {
 	loginService.getUserName().then(function (res) {
 		if (res) {
 			$scope.customerName = 'Welcome, ' + res.data.name.first;
-			console.log($scope.customerName)
+			console.log($scope.customerName);
 		}
 	});
 	$scope.submitNewUser = function (user) {
 		console.log(user);
-		loginService.newUserService(user);
+		var geocode = geocodingService.geocode(user.address).then(function(response) {
+			user.location = [response.lat, response.lng];
+			loginService.newUserService(user);
+		});
 	};
 	$scope.loginUserSubmit = function (user) {
 		loginService.loginUserSubmit(user).then(function (res) {
 			loginService.getUserName().then(function (res) {
 				if (res) {
 					$scope.customerName = 'Welcome, ' + res.data.name.first;
-					console.log($scope.customerName)
+					console.log($scope.customerName);
 				}
 			});
 
@@ -30,10 +32,13 @@ openChairApp.controller('navbarCtrl', function (loginService, $scope, $location)
 
 	$scope.submitNewBusiness = function (business) {
 		console.log(business);
-		loginService.newBusinessService(business).then(function (res) {
-			console.log('new biz: ', res.data);
-		}, function (err) {
-			console.log('biz create err: ', err);
+		var geocode = geocodingService.geocode(business.address).then(function(response) {
+			business.location = [response.lat, response.lng];
+			loginService.newBusinessService(business).then(function (res) {
+				console.log('new biz: ', res.data);
+			}, function (err) {
+				console.log('biz create err: ', err);
+			});
 		});
 	};
 	$scope.loginBusinessSubmit = function (login) {
@@ -41,7 +46,7 @@ openChairApp.controller('navbarCtrl', function (loginService, $scope, $location)
 			console.log("login complete", res);
 			loginService.getBusinessName().then(function (res) {
 				if (res) {
-					console.log(res)
+					console.log(res);
 					$scope.businessName = 'Welcome, ' + res.data.name;
 				}
 			});

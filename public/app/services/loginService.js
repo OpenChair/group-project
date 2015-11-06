@@ -17,7 +17,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			url:'http://localhost:7200/login',
 			data:user
 		}).then(function(res){
-			console.log(res)
+			console.log(res);
 			return res;
 		});
 	};
@@ -40,7 +40,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			method:'POST',
 			url:'http://localhost:7200/business',
 			data:business
-		})
+		});
 		// .then(function(res, err){
 		// 	if(err){ return err;}
 		// 	else{return res;}
@@ -57,7 +57,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			return res;
 		});
 	};
-	
+
 	this.getBusinessName=function(){
 		var deferred=$q.defer();
 		$http({
