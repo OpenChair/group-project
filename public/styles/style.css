@@ -190,3 +190,75 @@ body {
   position: relative;
   top: -10px;
 }
+.user-pic {
+  height: 35%;
+  width: 35%;
+}
+.about-header {
+  position: relative;
+  top: 115px;
+  left: 10%;
+}
+.user-container{
+  margin-top: 10px;
+}
+
+.appointment-header {
+  background-color: black ;
+  color: white;
+  height: 60px;
+  width: 50%;
+  float: right;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+   -webkit-box-shadow: 0 10px 6px -6px #777;
+	   -moz-box-shadow: 0 10px 6px -6px #777;
+	        box-shadow: 0 10px 6px -6px #777;
+}
+
+.app-box-info{
+  background-color: white;
+  width: 50%;
+}
+
+.app-box {
+  height: 220px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  font: Georgia, Garamond, Serif;
+  overflow: auto;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+	   -moz-box-shadow: 0 10px 6px -6px #777;
+	        box-shadow: 0 10px 6px -6px #777;
+          
+}
+
+/*.user-info{
+  font-size: 30px;
+}*/
+.app-bus-name {
+  text-align: center;
+  
+}
+
+.app-size{
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.cancel-button {
+  float: right;
+  margin-right: 10px;
+}
+
+.favorites-header {
+  /*text-align: center;*/
+  margin-left: 22px;
+}
+
+.underline{
+  text-decoration: underline;
+}

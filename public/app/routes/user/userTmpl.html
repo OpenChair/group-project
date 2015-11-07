@@ -1,53 +1,72 @@
 <nav-template></nav-template>
 
 <div class="row">
-  <div class="row userWraper s2">
-    <div class="row userInfo s2">
-      <img src="http://bible.soulsurvivor.com/sites/all/themes/ss_bible/images/anonymous-user-gravatar.png" />
+  <div class="user-container col s6">
+    <div class="row">
+      <img class="col user-pic" src="http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6468.png&w=350&h=254"
+      />
+      <div class="user-firstName col">
+        <h3>{{user.name.first}} {{user.name.last}}</h3>
+        <h4>{{user.displayName}}</h4>
+      </div>
     </div>
-    <div class="row userInfo s2">
-      <h4>{{user.name.first}} {{user.name.last}}</h3>
-      <h4>{{user.displayName}}</h4>
+
+    <div class="user-info col">
+      <div>
+        <h5 class="underline">Email </h5>
+      </div>
+      <div>
+        <h6>{{user.email}}</h6>
+      </div>
+      <div>
+        <h5 class="underline"> Phone</h5>
+      </div>
+      <div>
+        <h6 >{{user.phone}}</h6>
+      </div>
+      <div>
+        <h5 class="underline">Address</h5>
+      </div>
+      <div>
+        <h6>{{user.address.street}} {{user.address.aptSuite}}</h6>
+      </div>
+      <div>
+        <h6>{{user.address.city}} {{user.address.state}} {{user.address.zip}}</h6>
+      </div>
+      <br>
+      <button class="edit-profile "> Edit Profile </button>
     </div>
   </div>
 
-  <div>
-    <div>
-      Email: {{user.email}}
-    </div>
-    <div>
-      Phone: {{user.phone}}
-    </div>
-    <div>
-      Address: {{user.address}}
-    </div>
-  </div>
-<br>
-  <div class="card blue lighten-1 col appointments" ng-repeat="appointment in appointments">
-    <div class="">
-      <h5>{{appointment.businessName}}</h5>
-      <div>
-        Service: {{appointment.service}}
-      </div>
-      <div>
-        Date: <strong>{{appointment.startTime | date: 'short'}}</strong>
-      </div>
-      <div>
-        Appointment Length: {{appointment.timePeriod}}
-      </div>
-      <div>
-        Notes: {{appointment.note}} 
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="s10 offset-s1 col">
-      <div class="row">
-        <div class="col s12 m6 l3" ng-repeat="b in user.favorites">
-          <business-preview></business-preview>
+  <div class="appointment-header "> Appointments </div>
+  <div class="user-appointment-box s6 col ">
+    <div class="row app-box " ng-repeat="appointment in appointments ">
+      <h5 class="app-bus-name ">{{appointment.businessName}} </h5>
+      <div class="app-inside-container ">
+        <div class="app-box-info ">
+          <h6 class="app-size ">Service: {{appointment.service}}</h6>
+          <h6 class="app-size "> Date: {{appointment.startTime | date: 'short'}} </h6>
+          <h6 class="app-size "> Appointment Length: {{appointment.timePeriod}}</h6>
+          <div>
+            <h6 class="app-size "> Notes: {{appointment.note}}</h6> </div>
         </div>
+
+        <button class="cancel-button ">CANCEL APPOINTMENT</button>
+        </a>
       </div>
     </div>
   </div>
+</div>
+<br>
+<h4 class="favorites-header"> Favorites </h4>
+<br>
+<div class="row ">
+  <div class="s10 col ">
+    <div class="row ">
+      <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
+        <business-preview></business-preview>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
