@@ -1,80 +1,110 @@
-.business-picture {
-  width: 35%;
+.business-page-content-one {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.business-page-content-one .business-page-content-one-one {
+  width: 950px;
+  height: auto;
+}
+.business-page-content-one .business-page-content-one-one .business-profile-name {
+  position: relative;
+  font-size: 48px;
+}
+.business-page-content-one .business-page-content-one-one .business-picture {
+  width: 100%;
   height: auto;
   position: relative;
-  top: 35px;
-  left: 3%;
+  top: 0;
+  left: 0;
 }
-.selecting-appointment {
-  position: absolute;
-  right: 3%;
-  top: 200px;
-  width: 55%;
+.business-page-content-one .business-page-content-one-one .mini-pictures-business {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
 }
-.selecting-appointment-header {
-  position: absolute;
-  right: 3%;
-  top: 100px;
-  width: 55%;
+.business-page-content-one .business-page-content-one-one .mini-pictures-business .mini-picture-business {
+  flex: 1;
+  margin: 10px;
+  width: 250px;
+  height: auto;
+}
+.business-page-content-one .business-page-content-one-one .business-info-header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+}
+.business-page-content-one .business-page-content-one-one .business-info {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about {
+  width: 100%;
+  height: 100px;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about .business-description {
+  width: 80%;
+  height: auto;
+  position: relative;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about .business-info-expandable {
+  width: 100%;
+  height: 75px;
+  position: relative;
+}
+.business-page-content-one .business-page-content-one-one .leaflet-business {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.business-page-content-one .business-page-content-one-two {
+  width: 700px;
+  height: auto;
+}
+.business-page-content-one .business-page-content-one-two .selecting-appointment-header {
+  position: relative;
+  top: 75px;
+  left: 0;
+  width: 100%;
   height: 75px;
   background-color: black;
   color: white;
   font-size: 50px;
 }
-.business-info {
-  width: 35%;
-  height: auto;
-  top: 75px;
+.business-page-content-one .business-page-content-one-two .selecting-appointment {
   position: relative;
-  left: 3%;
-}
-.business-info .business-info-header {
+  top: 70px;
+  left: 0;
   width: 100%;
-  height: 50px;
-  position: relative;
-  background-color: black;
-  color: white;
-  font-size: 35px;
 }
-.business-info .business-about {
-  width: 100%;
-  height: 100px;
-}
-.business-info .business-about .business-description {
-  width: 80%;
-  height: auto;
-  position: relative;
-  left: 10%;
-  top: 25px;
-}
-.business-info .business-about .business-info-expandable {
-  width: 100%;
-  height: 75px;
-  position: relative;
-  top: -10px;
-}
-.leaflet-business {
-  width: 35%;
-  height: 300px;
-  position: relative;
-  top: 100px;
-  left: 3%;
-}
-.services-repeat {
+.business-page-content-one .business-page-content-one-two .services-repeat {
   display: flex;
   margin: 10px;
   position: relative;
   text-align: center;
 }
-.services-repeat .b-name {
+.business-page-content-one .business-page-content-one-two .services-repeat .b-name {
   position: relative;
   flex: 1;
 }
-.services-repeat .b-price {
+.business-page-content-one .business-page-content-one-two .services-repeat .b-price {
   position: relative;
   flex: 1;
 }
-.services-repeat .b-select {
+.business-page-content-one .business-page-content-one-two .services-repeat .b-select {
   flex: 1;
   position: relative;
 }
