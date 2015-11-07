@@ -1,9 +1,27 @@
 <div class="navBar" ng-controller='navbarCtrl'>
   <nav class='black'>
     <div class="nav-wrapper-container">
-      <a href="#" class="brand-logo navBarLogo">Open Chair</a>
+      <a href="#/home" class="brand-logo navBarLogo">Open Chair</a>
       <!--Dropdown Trigger -->
       <ul class='right'>
+        <li>
+          {{customerName}}
+        </li>
+        <li>
+          <a href="#/home">Home</a>
+        </li>
+        <li>
+          <a href="#/search">Search</a>
+        </li>
+        <li>
+          <a href="#/user/563d3a52bff7ed830bd40cb2">User</a>
+        </li>
+        <li>
+          <a href="#/business/563d1db66d356790090fe33d">Profile</a>
+        </li>
+        <li>
+          <a href="#/businessDash">Dash</a>
+        </li>
         <li>
           <a class='dropdown-button' href='javascript:void(0);' data-activates='loginDropdown' dropdown>
             Login
@@ -28,7 +46,7 @@
 
             </li>
           </ul>
-      </li>    
+        </li>
 
         <li>
           <!-- Dropdown Trigger -->
@@ -61,8 +79,8 @@
       <div id="userLoginModal" class="modal">
         <div class="modal-content">
           <h4>User Login</h4>
-          <input placeholder = 'email' ng-model = 'loginUser.email' type="email">
-          <input placeholder = 'password' ng-model = 'loginUser.password' type="password">
+          <input placeholder='email' ng-model='loginUser.email' type="email">
+          <input placeholder='password' ng-model='loginUser.password' type="password">
         </div>
         <div class="modal-footer">
           <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" ng-click='loginUserSubmit(loginUser)'>Submit<i class="material-icons right">send</i></button>
@@ -72,8 +90,8 @@
       <div id="businessLoginModal" class="modal">
         <div class="modal-content">
           <h4>Business Login</h4>
-          <input placeholder = 'email' ng-model = 'login.email' type="email">
-          <input placeholder = 'password' ng-model = 'login.password' type="password">
+          <input placeholder='email' ng-model='login.email' type="email">
+          <input placeholder='password' ng-model='login.password' type="password">
         </div>
         <div class="modal-footer">
           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-submit='loginBusinessSubmit(login)'>Submit<i class="material-icons right">send</i></a>
@@ -83,16 +101,16 @@
       <div id="registerUserModal" class="modal">
         <div class="modal-content">
           <h4>User Registration</h4>
-          <input ng-model = 'User.name.first' placeholder = 'first' type="text">
-          <input ng-model = 'User.name.last' placeholder = 'last' type="text">
-          <input ng-model = 'User.email' placeholder = 'email' type="email">
-          <input ng-model = 'User.password' placeholder = 'password' type="password">
-          <input ng-model = 'User.phone' placeholder = 'phone' type="number">
-          <input ng-model = 'User.address.street' placeholder = 'street' type="text">
-          <input ng-model = 'User.address.aptSuite' placeholder = 'suite/apt' type="text">
-          <input ng-model = 'User.address.city' placeholder = 'city' type="text">
-          <input ng-model = 'User.address.state' placeholder = 'state' type="text">
-          <input ng-model = 'User.address.zip' placeholder = 'zip' type="number">
+          <input ng-model='User.name.first' placeholder='first' type="text">
+          <input ng-model='User.name.last' placeholder='last' type="text">
+          <input ng-model='User.email' placeholder='email' type="email">
+          <input ng-model='User.password' placeholder='password' type="password">
+          <input ng-model='User.phone' placeholder='phone' type="number">
+          <input ng-model='User.address.street' placeholder='street' type="text">
+          <input ng-model='User.address.aptSuite' placeholder='suite/apt' type="text">
+          <input ng-model='User.address.city' placeholder='city' type="text">
+          <input ng-model='User.address.state' placeholder='state' type="text">
+          <input ng-model='User.address.zip' placeholder='zip' type="number">
         </div>
         <div class="modal-footer">
           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='submitNewUser(User)'>Submit<i class="material-icons right">send</i></a>
@@ -102,15 +120,15 @@
       <div id="registerBusinessModal" class="modal">
         <div class="modal-content">
           <h4>Business Registration</h4>
-          <input ng-model = 'Business.businessName' placeholder = 'Business Name' type="text">
-          <input ng-model = 'Business.address.street' placeholder = 'street' type="text">
-          <input ng-model = 'Business.address.suite' placeholder = 'suite' type="text">
-          <input ng-model = 'Business.address.city' placeholder = 'city' type="text">
-          <input ng-model = 'Business.address.state' placeholder = 'state' type="text">
-          <input ng-model = 'Business.address.zip' placeholder = 'zip' type="number">
-          <input ng-model = 'Business.phone' placeholder = 'phone' type="text">
-          <input ng-model = 'Business.mainEmail' placeholder = 'Main Admin email' type="email">
-          <input ng-model = 'Business.mainPassword' placeholder = 'Main Admin password' type="password">
+          <input ng-model='Business.businessName' placeholder='Business Name' type="text">
+          <input ng-model='Business.address.street' placeholder='street' type="text">
+          <input ng-model='Business.address.suite' placeholder='suite' type="text">
+          <input ng-model='Business.address.city' placeholder='city' type="text">
+          <input ng-model='Business.address.state' placeholder='state' type="text">
+          <input ng-model='Business.address.zip' placeholder='zip' type="number">
+          <input ng-model='Business.phone' placeholder='phone' type="text">
+          <input ng-model='Business.mainEmail' placeholder='Main Admin email' type="email">
+          <input ng-model='Business.mainPassword' placeholder='Main Admin password' type="password">
           <a class='dropdown-button btn searchButton' class="businessSelector" href='javascript:void(0);' data-activates='businessDropdown' dropdown data-hover="false">
           Category
           </a>
@@ -126,8 +144,6 @@
           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click='submitNewBusiness(Business)'>Submit<i class="material-icons right">send</i></a>
         </div>
       </div>
-    </div>  
-  </nav>  
-</div>  
-
-
+    </div>
+  </nav>
+</div>
