@@ -1,42 +1,73 @@
 <!-- HEADER -->
 <nav-template></nav-template>
 
-<div ng-model="bProfile">
+<div ng-model="bProfile" class="business-page-content-one">
+  <div class="business-page-content-one-one">
 
-  <img class="business-picture z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+    <!-- NAME -->
+    <div class="business-profile-name">{{bProfile.businessName}}</div>
+    <!-- PICTURE EVENTUALLY -->
+    <!-- <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="{{bProfile.picture}}"> -->
 
-  <div class="selecting-appointment-header center-align">Make appointment</div>
-  <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
-    <li ng-repeat="single in collapsibleElements">
-        <div class="collapsible-header {{single.isActive}}"><i class="{{single.icon}}"></i>{{single.title}}</div>
-        <div class="collapsible-body">
-          <div class="services-repeat" ng-repeat="b in single.content">
-            <div class="b-name">{{b.name}}</div>
-            <div class="b-price">{{b.price}}</div>
-            <div class="b-select"><button>Select</button></div>
+    <!-- PICTURE HARD CODED-->
+    <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+    <!-- MINI PICTURES EVENTUALLY-->
+    <!-- <div class="mini-pictures-business" ng-repeat="pic in pictures">
+      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.source}}">
+    </div> -->
+
+    <!-- MINI PICTURES HARD CODED -->
+    <div class="mini-pictures-business">
+      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+    </div>
+    <!-- INFORMATION -->
+    <ul class="collapsible business-info" data-collapsible="expandable">
+        <li>
+          <div class="collapsible-header active business-info-header center-align">Information</div>
+          <div class="collapsible-body business-about grey lighten-5"><p>{{bProfile.logo}}</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header center-align grey lighten-5">View details</div>
+          <div class="collapsible-body grey lighten-5">
+            <p>{{bProfile.address.city}}, {{bProfile.address.state}}</p>
+            <p>{{bProfile.phone}}</p>
           </div>
-        </div>
-    </li>
-  </ul>
-  <ul class="collapsible business-info" data-collapsible="expandable">
+        </li>
+      </ul>
+      <!-- MAP -->
+      <leaflet class="leaflet-business" defaults="defaults" center="center"></leaflet>
+
+  </div>
+
+  <div class="business-page-content-one-two">
+    <!-- MAKE APPOINTMENT -->
+    <div class="selecting-appointment-header center-align">Make Appointment</div>
+
+    <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
       <li>
-        <div class="collapsible-header active business-info-header center-align">{{bProfile.businessName}}</div>
-        <div class="collapsible-body business-about grey lighten-5"><p>{{bProfile.logo}}</p></div>
+        <div class="collapsible-header active">
+          <i class="mdi-action-face-unlock"></i>Select Service
+        </div>
+        <div class="collapsible-body services-repeat" ng-repeat="b in bProfile.services">
+          <div class="b-name">{{b.name}}</div>
+          <div class="b-price">{{b.price}}</div>
+          <div class="b-select"><button>Select</button></div>
+        </div>
       </li>
       <li>
-        <div class="collapsible-header center-align grey lighten-5">View details</div>
-        <div class="collapsible-body grey lighten-5">
-          <p>{{bProfile.address.city}}, {{bProfile.address.state}}</p>
-          <p>{{bProfile.phone}}</p>
+        <div class="collapsible-header">
+          <i class="mdi-action-event"></i>Select Date
         </div>
+        <div class="collapsible-body"></div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <i class="mdi-action-query-builder"></i>Select Time
+        </div>
+        <div class="collapsible-body"></div>
       </li>
     </ul>
 
-    <leaflet class="leaflet-business" defaults="defaults" center="center"></leaflet>
-  <!-- <div class="business-info">
-
-          <div class="business-description">{{bProfile.logo}}</div>
-        <div class="business-name">Address: {{bProfile.address.city}},{{bProfile.address.state}}</div>
-        <div class="business-name">Phone: {{bProfile.phone}}</div>
-
-</div>
+  </div>
