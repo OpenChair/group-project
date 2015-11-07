@@ -68,5 +68,14 @@ angular.module('openChairApp').service('businessService', function($http, consta
   //     return response.data;
   //   });
   // };
+  this.edithours=function(hours){
+    return $http({
+      method:'PUT',
+      url:constants.baseURL + 'businesses/' +id,
+      data:hours
+    }).then(function(res){
+      return res.data;
+    })
+  }
 
 });
