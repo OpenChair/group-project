@@ -1,63 +1,108 @@
-		
-		<div>
-			edit business info
-			<input ng-model = 'Business.businessName' placeholder = 'Business Name' type="text">
-			<input ng-model = 'Business.address' placeholder = 'address' type="text">
-			<input ng-model = 'Business.address.street' placeholder = 'street' type="text">
-			<input ng-model = 'Business.address.suite' placeholder = 'suite' type="text">
-			<input ng-model = 'Business.address.city' placeholder = 'city' type="text">
-			<input ng-model = 'Business.address.state' placeholder = 'state' type="text">
-			<input ng-model = 'Business.address.zip' placeholder = 'zip' type="number">
-			<input ng-model = 'Business.phone' placeholder = 'phone' type="text">
-			<input ng-model = 'Business.email' placeholder = 'Main Admin email' type="email">
-			<input ng-model = 'Business.password' placeholder = 'Main Admin password' type="password">
-			<input ng-model = 'Business.logo' placeholder = 'logo img' type="text">
-			<input ng-model = 'Business.yelpReview' placeholder = 'yelp id' type="text">
+<nav-template></nav-template>
+<div ng-controller='businessDashCtrl'>
+<h1 class="name-business-dash">BusinessName</h1>
+<div class="business-dash-content-one">
+	<div class="business-dash-content-one-one">
+		<img class="picture-business-dash z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+		<!-- PEOPLE NEED TO BE ABLE TO EDIT THESE PHOTOS -->
+		<div class="small-images">
+			<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+			<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+			<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
 		</div>
-		<div>
-			edit hours
-			<div>
-				<input ng-model = 'Business.scheduleParams.sunday.openSunday' placeholder = 'Open Sunday' type="text">
-				<input ng-model = 'Business.scheduleParams.sunday.closedSunday' placeholder = 'Closed Sunday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.sunday)'></button>
+	</div>
+
+
+	<div class="business-dash-content-one-two">
+	<div class="collapsible-business-dash-header z-depth-1 center-align"><h5 class="edit-info-header">Edit Information</h5></div>
+	<ul class="collapsible collapsible-business-dash" data-collapsible="accordion">
+
+		<li class="edit-business-info">
+			<div class="collapsible-header"><i class="material-icons">work</i>edit business info</div>
+			<div class="collapsible-body grey lighten-3">
+				<div>
+					<input ng-model='Business.businessName' placeholder='Business Name' type="text">
+					<input ng-model='Business.address' placeholder='address' type="text">
+					<input ng-model='Business.address.street' placeholder='street' type="text">
+					<input ng-model='Business.address.suite' placeholder='suite' type="text">
+					<input ng-model='Business.address.city' placeholder='city' type="text">
+					<input ng-model='Business.address.state' placeholder='state' type="text">
+					<input ng-model='Business.address.zip' placeholder='zip' type="number">
+					<input ng-model='Business.phone' placeholder='phone' type="text">
+					<input ng-model='Business.email' placeholder='Main Admin email' type="email">
+					<input ng-model='Business.password' placeholder='Main Admin password' type="password">
+					<input ng-model='Business.logo' placeholder='logo img' type="text">
+					<input ng-model='Business.yelpReview' placeholder='yelp id' type="text">
+				</div>
+				<!-- just added a submit -->
+				<button class="submit-button-business-dash" ng-click=''>submit</button>
 			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.monday.openMonday' placeholder = 'Open Monday' type="text">
-				<input ng-model = 'Business.scheduleParams.monday.closedMonday' placeholder = 'Closed Monday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.monday)'></button>
+		</li>
+
+		<li class="edit-hours">
+			<div class="collapsible-header"><i class="material-icons">query_builder</i>edit hours</div>
+			<div class="collapsible-body grey lighten-3">
+				<div>
+					<input ng-model='Business.scheduleParams.sunday.openSunday' placeholder='Open Sunday' type="text">
+					<input ng-model='Business.scheduleParams.sunday.closedSunday' placeholder='Closed Sunday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.sunday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.monday.openMonday' placeholder='Open Monday' type="text">
+					<input ng-model='Business.scheduleParams.monday.closedMonday' placeholder='Closed Monday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.monday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.tuesday.openTuesday' placeholder='Open Tuesday' type="text">
+					<input ng-model='Business.scheduleParams.tuesday.closedTuesday' placeholder='Closed Tuesday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.tuesday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.wednsday.openWednsday' placeholder='Open Wednsday' type="text">
+					<input ng-model='Business.scheduleParams.wednsday.closedThursday' placeholder='Closed Wednsday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.wednsday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.thursday.openThursday' placeholder='Open Thursday' type="text">
+					<input ng-model='Business.scheduleParams.thursday.closedThursday' placeholder='Closed Thursday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.thursday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.friday.openFriday' placeholder='Open Friday' type="text">
+					<input ng-model='Business.scheduleParams.friday.closedFriday' placeholder='Closed Friday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.friday)'></button>
+				</div>
+				<div>
+					<input ng-model='Business.scheduleParams.saturday.openSaturday' placeholder='Open Saturday' type="text">
+					<input ng-model='Business.scheduleParams.saturday.closedSaturday' placeholder='Closed Saturday' type="text">
+					<button ng-click='editHours(Business.ScheduleParams.saturday)'></button>
+				</div>
 			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.tuesday.openTuesday' placeholder = 'Open Tuesday' type="text">
-				<input ng-model = 'Business.scheduleParams.tuesday.closedTuesday' placeholder = 'Closed Tuesday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.tuesday)'></button>
+		</li>
+
+		<li class="edit-users">
+			<div class="collapsible-header"><i class="material-icons">perm_identity</i>add users</div>
+			<div class="collapsible-body grey lighten-3">
+				<div>
+					<input type="text" ng-model='Business.user.name.first' placeholder='first name'>
+					<input type="text" ng-model='Business.user.name.last' placeholder='last name'>
+					<input type="email" ng-model='Business.user.email' placeholder='email'>
+					<input type="password" ng-model='Business.user.password' placeholder='password'>
+					<input type="text" ng-model='Business.user.highLevelPrivilages' placeholder='highlevel privilages true or false'>
+				</div>
+				<button class="submit-button-business-dash" ng-click='addUserSubmit(Business)'>submit</button>
 			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.wednsday.openWednsday' placeholder = 'Open Wednsday' type="text">
-				<input ng-model = 'Business.scheduleParams.wednsday.closedThursday' placeholder = 'Closed Wednsday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.wednsday)'></button>
+		</li>
+
+		<li class="edit-services">
+			<div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>edit services</div>
+			<div class="collapsible-body grey lighten-3">
+				<div>
+				</div>
+				<button class="submit-button-business-dash">submit</button>
 			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.thursday.openThursday' placeholder = 'Open Thursday' type="text">
-				<input ng-model = 'Business.scheduleParams.thursday.closedThursday' placeholder = 'Closed Thursday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.thursday)'></button>
-			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.friday.openFriday' placeholder = 'Open Friday' type="text">
-				<input ng-model = 'Business.scheduleParams.friday.closedFriday' placeholder = 'Closed Friday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.friday)'></button>
-			</div>
-			<div>
-				<input ng-model = 'Business.scheduleParams.saturday.openSaturday' placeholder = 'Open Saturday' type="text">
-				<input ng-model = 'Business.scheduleParams.saturday.closedSaturday' placeholder = 'Closed Saturday' type="text">
-				<button ng-click = 'editHours(Business.ScheduleParams.saturday)'></button>
-			</div>
-		</div>
-		<div>
-			add users
-			<input type="text"ng-model = 'Business.user.name.first' placeholder = 'first name'>
-			<input type="text"ng-model = 'Business.user.name.last' placeholder = 'last name'>
-			<input type="email"ng-model = 'Business.user.email' placeholder = 'email'>
-			<input type="password"ng-model = 'Business.user.password' placeholder = 'password'>
-			<input type="text" ng-model = 'Business.user.highLevelPrivilages' placeholder = 'highlevel privilages true or false'>
-			<button ng-click = 'addUserSubmit(Business)'>submit</button>
+		</li>
+	</ul>
+
+</div>
 </div>

@@ -19,8 +19,8 @@ Passport
 
 ###Contributers
 -------------------------------------------
-Cyrus Holt,
-Deon Sharp,
-Devyn Bartel,
-Stephen Brinkworth,
-Travis Erickson
+* Cyrus Holt,
+* Deon Sharp,
+* Devyn Bartel,
+* Stephen Brinkworth,
+* Travis Erickson
