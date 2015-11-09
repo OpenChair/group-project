@@ -1,9 +1,9 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy
+var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/UserModel');
-var configAuth = require('./config')
-var Business = require('../models/BusinessModel')
+var configAuth = require('./config');
+var Business = require('../models/BusinessModel');
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);
@@ -35,7 +35,7 @@ passport.use( 'biz', new LocalStrategy({
   Business.findOne({ email: email })
   .exec(function(err, business) {
     if(err) {
-      console.log(err)
+      console.log(err);
       done(err);
     }
     if(!business) return done(null, false);
@@ -52,12 +52,12 @@ passport.use(new FacebookStrategy({
 
 function(token, refreshToken, profile, done){
   process.nextTick(function(){
-    User.findOne({'facebook.id' : profile.id, function(err, user) {
+    User.findOne({'facebook.id' : profile.id}, function(err, user) {
       if (err){return done(err);}
       if(user){return done(null, user);}
-      else{ 
-        var newUser = new User()
-        
+      else{
+        var newUser = new User();
+
         newUser.facbook.id     = profile.id;
         newUser.facebook.token = token;
         newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
@@ -65,10 +65,10 @@ function(token, refreshToken, profile, done){
         newUser.save(function(err){
           if(err){throw err;}
           return done(null, newUser);
-        })
-        };
-    }})
-  })
-}))
+        });
+      }
+    });
+  });
+}));
 
 module.exports = passport;
