@@ -190,6 +190,16 @@ body {
   position: relative;
   top: -10px;
 }
+<<<<<<< HEAD
+.select-wrapper input.select-dropdown {
+  background: black;
+  border-right: 1px solid #9e9e9e;
+  text-align: center;
+}
+.dropdown-content {
+  background: black;
+  text-decoration-color: #9e9e9e;
+=======
 .about-header {
   position: relative;
   top: 115px;
@@ -239,4 +249,5 @@ body {
 }
 .add-new-app {
   font-size: 30px;
+>>>>>>> 630c856cf048cbccf010b2ec0e7a3cfcedf8a08b
 }
