@@ -76,7 +76,7 @@ app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req,res){
-  res.send(req.user);
+  res.send(req);
 });
 
 var mongoURI = 'mongodb://localhost:27017/openChair';

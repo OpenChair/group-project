@@ -2,7 +2,6 @@ angular.module('openChairApp').controller('navbarCtrl', function (loginService, 
 	loginService.getUserName().then(function (res) {
 		if (res) {
 			$scope.customerName = 'Welcome, ' + res.data.name.first;
-			$scope.user = res.data;
 		}
 	});
 	$scope.submitNewUser = function (user) {
