@@ -37,6 +37,7 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
   };
   $scope.loginBusinessSubmit = function(login) {
     loginService.loginBusinessSubmit(login).then(function(res) {
+      console.log('hi', res)
       loginService.getBusinessName().then(function(res) {
         $scope.businessName = 'Welcome, ' + res.data.name;
         $scope.business = res.data;
