@@ -5,7 +5,7 @@
   <div class="business-page-content-one-one">
 
     <!-- NAME -->
-    <div class="business-profile-name">{{bProfile.businessName}}</div>
+    <div class="business-profile-name">{{bProfile.businessName}} ({{bProfile.category}})</div>
     <!-- PICTURE EVENTUALLY -->
     <!-- <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="{{bProfile.picture}}"> -->
 
@@ -26,12 +26,13 @@
     <ul class="collapsible business-info" data-collapsible="expandable">
         <li>
           <div class="collapsible-header active business-info-header center-align">Information</div>
-          <div class="collapsible-body business-about grey lighten-5"><p>{{bProfile.logo}}</p></div>
+          <div class="collapsible-body business-about grey lighten-5"><p>{{bProfile.about}}</p></div>
         </li>
         <li>
           <div class="collapsible-header center-align grey lighten-5">View details</div>
           <div class="collapsible-body grey lighten-5">
-            <p>{{bProfile.address.city}}, {{bProfile.address.state}}</p>
+            <p>{{bProfile.address.street}} {{bProfile.address.suite}}</p>
+            <p>{{bProfile.address.city}}, {{bProfile.address.state}} {{bProfile.address.zip}}</p>
             <p>{{bProfile.phone}}</p>
           </div>
         </li>
