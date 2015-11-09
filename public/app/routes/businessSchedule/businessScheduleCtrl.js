@@ -1,10 +1,10 @@
 var app = angular.module('openChairApp');
 app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCalendarConfig, loginService, $location) {
-  loginService.getBusinessName().then(function(res) {
-    if (!res) {
-      $location.path('#/home');
-    }
-  });
+  // loginService.getBusinessName().then(function(res) {
+  //   if (!res.data._id) {
+  //     $location.path('#/home');
+  //   }
+  // });
   var date = new Date();
   var d = date.getDate();
   var m = date.getMonth();
