@@ -63,7 +63,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		$http({
 			method:"GET",
 			url:'http://localhost:7200/business'
-		}).then(function(res,err){
+		}).then(function(res){
 			var businessName=res;
 			deferred.resolve(businessName);
 		},function(err){
