@@ -13,6 +13,16 @@ angular.module('openChairApp')
            lng: $scope.bProfile.location[1],
            zoom: 16
        },
+       markers: {
+                    m1: {
+                        lat: $scope.bProfile.location[0],
+                        lng: $scope.bProfile.location[1],
+                        focus: true,
+                        draggable: false,
+                        message: "Hi there!",
+                        icon: {}
+                    }
+                },
 
        defaults: {
            scrollWheelZoom: false

@@ -13,15 +13,12 @@
     <div class="row business-display-search homeBusCard">
       <div class="s10 offset-s1 col">
         <div class="row">
-          <div class="col s12 m6 l3 " ng-repeat="b in businesses | limitTo: 4">
+          <div class="col s12 m6 l3 " ng-repeat="b in businesses | limitTo: 8">
             <business-preview></business-preview>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="homeMap">
-    <leaflet center="center" defaults="defaults" height="50em" width="80%"></leaflet>
   </div>
 </div>
 
