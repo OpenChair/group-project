@@ -1,5 +1,10 @@
 angular.module('openChairApp')
-.controller('businessProfileCtrl', function($scope, business) {
+.controller('businessProfileCtrl', function($scope, business, loginService, $location) {
+  loginService.getBusinessName().then(function(res) {
+    if (!res) {
+      $location.path('#/home');
+    }
+  });
 
   $scope.bProfile = business;
 
@@ -28,5 +33,5 @@ angular.module('openChairApp')
            scrollWheelZoom: false
        }
     });
-  
+
 });

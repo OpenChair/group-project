@@ -229,7 +229,6 @@ body {
   float: right;
   margin-right: 10px;
 }
-
 .app-bus-name {
   text-align: center;
   font-size: 25px;
@@ -237,4 +236,7 @@ body {
 .app-size {
   font-size: 20px;
   margin-left: 10px;
+}
+.add-new-app {
+  font-size: 30px;
 }
