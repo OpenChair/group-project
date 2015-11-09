@@ -11,6 +11,7 @@ body {
 .navBar {
   display: flex;
   flex-direction: row;
+  z-index: 999;
 }
 .navBarLogo {
   left: 2em;
