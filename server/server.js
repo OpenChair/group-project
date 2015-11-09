@@ -14,11 +14,6 @@ var UserController = require('./controllers/UserController');
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-
-
-
-
-
 app.use(express.static('../public'));
 app.use(bodyParser.json());
 app.use(cors());
@@ -81,7 +76,7 @@ app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req,res){
-  res.send(req.user);
+  res.send(req);
 });
 
 var mongoURI = 'mongodb://localhost:27017/openChair';

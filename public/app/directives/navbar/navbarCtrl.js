@@ -2,7 +2,6 @@ angular.module('openChairApp').controller('navbarCtrl', function (loginService, 
 	loginService.getUserName().then(function (res) {
 		if (res) {
 			$scope.customerName = 'Welcome, ' + res.data.name.first;
-			$scope.user = res.data;
 		}
 	});
 	$scope.submitNewUser = function (user) {
@@ -17,7 +16,7 @@ angular.module('openChairApp').controller('navbarCtrl', function (loginService, 
 			loginService.getUserName().then(function (res) {
 				if (res) {
 					$scope.customerName = 'Welcome, ' + res.data.name.first;
-					console.log($scope.customerName);
+					$scope.user = res.data;
 				}
 			});
 
@@ -48,6 +47,7 @@ angular.module('openChairApp').controller('navbarCtrl', function (loginService, 
 				if (res) {
 					console.log(res);
 					$scope.businessName = 'Welcome, ' + res.data.name;
+					$scope.business = res.data;
 				}
 			});
 		}, function (err) {

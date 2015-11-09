@@ -1,6 +1,6 @@
 <nav-template></nav-template>
-<div ng-controller='businessDashCtrl'>
-<h1 class="name-business-dash">BusinessName</h1>
+<div>
+<h1 class="name-business-dash">{{businessName}}</h1>
 <div class="business-dash-content-one">
 	<div class="business-dash-content-one-one">
 		<img class="picture-business-dash z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
@@ -45,7 +45,7 @@
 				<div>
 					<input ng-model='Business.scheduleParams.sunday.openSunday' placeholder='Open Sunday' type="text">
 					<input ng-model='Business.scheduleParams.sunday.closedSunday' placeholder='Closed Sunday' type="text">
-					<button ng-click='editHours(Business.ScheduleParams.sunday)'></button>
+					<button class="waves-effect waves-light btn" ng-click ='editHours(Business.ScheduleParams.sunday)'>submit</button>
 				</div>
 				<div>
 					<input ng-model='Business.scheduleParams.monday.openMonday' placeholder='Open Monday' type="text">
@@ -104,5 +104,6 @@
 		</li>
 	</ul>
 
+</div>
 </div>
 </div>
