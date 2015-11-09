@@ -129,10 +129,13 @@
           <input ng-model='Business.phone' placeholder='phone' type="text">
           <input ng-model='Business.mainEmail' placeholder='Main Admin email' type="email">
           <input ng-model='Business.mainPassword' placeholder='Main Admin password' type="password">
+<!--
           <a class='dropdown-button btn searchButton' class="businessSelector" href='javascript:void(0);' data-activates='businessDropdown' dropdown data-hover="false">
           Category
           </a>
-          <select id='businessDropdown' class='dropdown-content'>
+-->
+          <select id='businessDropdown' material-select>
+            <option>Select Category</option>
             <option><a href="javascript:void(0);">Hair Salon</a></option>
             <option><a href="javascript:void(0);">Nail Salon</a></option>
             <option><a href="javascript:void(0);">Spa</a></option>
