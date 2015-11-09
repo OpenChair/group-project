@@ -28,4 +28,5 @@ angular.module('openChairApp')
            scrollWheelZoom: false
        }
     });
+  
 });
