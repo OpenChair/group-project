@@ -2,7 +2,10 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 	loginService.getBusinessName().then(function(res) {
 	  if (!res) {
 	    $location.path('#/home');
-	  }
+	  } else {
+			console.log(res);
+			$scope.businessName =  res.data.name;
+		}
 	});
 
 	$scope.editHours=function(hours){

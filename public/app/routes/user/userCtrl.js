@@ -8,5 +8,4 @@ angular.module('openChairApp')
   });
   $scope.user = user;
   $scope.appointments = appointments;
-
 });
