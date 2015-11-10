@@ -1,67 +1,58 @@
 <!DOCTYPE html>
 <html ng-app='openChairApp'>
-  <head>
-    <meta charset="utf-8" />
-    <title>OpenChair.in</title>
-    <link rel="shortcut icon" href="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060083-black-ink-grunge-stamp-textures-icon-people-things-chair2.png">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
-    <link type="text/css" rel="stylesheet" href="styles/style.css" />
-    <link type="text/css" rel="stylesheet" href="styles/businessProfile.css" />
-    <link type="text/css" rel="stylesheet" href="styles/businessDash.css" />
-    <link type="text/css" rel="stylesheet" href="styles/footer.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>OpenChair.in</title>
+  <link rel="shortcut icon" href="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/black-ink-grunge-stamps-textures-icons-people-things/060083-black-ink-grunge-stamp-textures-icon-people-things-chair2.png">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
 
 
 
-    <ui-view></ui-view>
+  <ui-view></ui-view>
 
 
 
-
-    <footer>
-      <div class="row footerContainer">
-        <div class="col s2 offset-s2">
-          <i class="small material-icons">description</i>Pages
-          <div class="divider"></div>
-        </div>
-        <div class="col s2">
-          <h5><i class="small material-icons">info_outline</i>About</h5>
-          <div class="divider"></div>
-        </div>
-        <div class="col s2">
-          <h5><i class="small material-icons">email</i>Contact</h5>
-          <div class="divider"></div>
-        </div>
-        <div class="col s2">
-          <h5><i class="small material-icons">thumb_up</i>Social</h5>
-          <div class="divider"></div>
-        </div>
-      </div>
-    </footer>
+  <div class="row footerContainer">
+    <div class="col s2 offset-s2">
+      <h5>Pages<i class="small material-icons">description</i></h5>
+    </div>
+    <div class="col s2">
+      <h5>About<i class="small material-icons">info_outline</i></h5>
+    </div>
+    <div class="col s2">
+      <h5>Contact<i class="small material-icons">email</i></h5>
+    </div>
+    <div class="col s2">
+      <h5>Social<i class="small material-icons">thumb_up</i></h5>
+    </div>
+  </div>
 
 
 
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+  <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  <script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+  <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
+  <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+  <script src="bundle.js"></script>
+  <script src='App/Routes/businessSchedule/businessScheduleCtrl.js'></script>
+</body>
 
-
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
-    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
-    <script src="bundle.js"></script>
-    <script src='App/Routes/businessSchedule/businessScheduleCtrl.js'></script>
-  </body>
 </html>
