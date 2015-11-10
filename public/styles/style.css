@@ -11,6 +11,7 @@ body {
 .navBar {
   display: flex;
   flex-direction: row;
+  z-index: 999;
 }
 .navBarLogo {
   left: 2em;
@@ -190,7 +191,8 @@ body {
   position: relative;
   top: -10px;
 }
-.select-wrapper input.select-dropdown {
+.select-wrapper,
+input.select-dropdown {
   background: black;
   border-right: 1px solid #9e9e9e;
   text-align: center;

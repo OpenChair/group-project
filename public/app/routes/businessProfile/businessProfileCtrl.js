@@ -1,10 +1,10 @@
 angular.module('openChairApp')
 .controller('businessProfileCtrl', function($scope, business, loginService, $location) {
-  loginService.getBusinessName().then(function(res) {
-    if (!res) {
-      $location.path('#/home');
-    }
-  });
+  // loginService.getBusinessName().then(function(res) {
+  //   if (!res.data._id) {
+  //     $location.path('#/home');
+  //   }
+  // });
 
   $scope.bProfile = business;
 

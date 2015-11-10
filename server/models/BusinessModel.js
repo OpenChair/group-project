@@ -38,7 +38,7 @@ var Business = new mongoose.Schema({
       open:{type:Number},
       closed:{type:Number}
     },
-    wednsday:{
+    wednesday:{
       open:{type:Number},
       closed:{type:Number}
     },
