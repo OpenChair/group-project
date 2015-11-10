@@ -24,7 +24,7 @@ angular.module('openChairApp')
                         lng: $scope.bProfile.location[1],
                         focus: true,
                         draggable: false,
-                        message: "Hi there!",
+                        message: "Hello",
                         icon: {}
                     }
                 },

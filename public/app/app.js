@@ -41,11 +41,8 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
           return res.data;
         });
       },
-      reviews: function (apiService) {
-        return apiService.getReview();
-      },
       appointments: function (appointmentsService, $stateParams) {
-        return appointmentsService.getAppointments($stateParams.id);
+        return appointmentsService.getAppointments($stateParams.businessID);
       }
     }
   })
@@ -58,7 +55,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
           return userService.getUser($stateParams.id);
         },
         appointments: function (appointmentsService, $stateParams) {
-          return appointmentsService.getAppointments($stateParams.id);
+          return appointmentsService.getAppointmentsById($stateParams.id, "user");
         }
       }
     })

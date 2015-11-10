@@ -1,12 +1,258 @@
+.business-dash {
+  height: auto;
+}
+.name-business-dash {
+  position: relative;
+  left: 1.5%;
+  font-size: 60px;
+}
+.collapsible-body {
+  color: black;
+}
+.collapsible-body input {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+.collapsible-body .submit-button-business-dash {
+  position: relative;
+  left: 80%;
+  bottom: 5px;
+}
+.business-dash-content-one {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.business-dash-content-one .business-dash-content-one-one {
+  width: 600px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-one .picture-business-dash {
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.business-dash-content-one .business-dash-content-one-one .small-images {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+.business-dash-content-one .business-dash-content-one-one .small-images .small-image {
+  flex: 1;
+  margin: 10px;
+  width: 80px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-two {
+  width: 600px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash-header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  padding-top: 2px;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash-header .edit-info-header {
+  color: white;
+  font-size: 22px;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash {
+  position: relative;
+  top: -10px;
+  width: 100%;
+}
+
+.collapsible-body p {
+  padding: 0rem;
+}
+.business-page-content-one {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.business-page-content-one .business-page-content-one-one {
+  width: 725px;
+  height: auto;
+  padding-left: 10px;
+}
+.business-page-content-one .business-page-content-one-one .business-profile-name {
+  position: relative;
+  font-size: 36px;
+  margin: 15px;
+}
+.business-page-content-one .business-page-content-one-one .business-picture {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.business-page-content-one .business-page-content-one-one .mini-pictures-business {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+.business-page-content-one .business-page-content-one-one .mini-pictures-business .mini-picture-business {
+  flex: 1;
+  margin: 10px;
+  width: 200px;
+  height: auto;
+}
+.business-page-content-one .business-page-content-one-one .business-info-header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+}
+.business-page-content-one .business-page-content-one-one .business-info {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about {
+  padding-top: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100%;
+  height: 150px;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about .business-description {
+  width: 80%;
+  height: auto;
+  position: relative;
+}
+.business-page-content-one .business-page-content-one-one .business-info .business-about .business-info-expandable {
+  width: 100%;
+  height: 75px;
+  position: relative;
+}
+.business-page-content-one .business-page-content-one-one .leaflet-business {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  top: 25px;
+}
+.business-page-content-one .business-page-content-one-one .get-directions {
+  position: relative;
+  left: 525px;
+  top: 55px;
+  margin-bottom: 10px;
+}
+.business-page-content-one .business-page-content-one-two {
+  width: 465px;
+  height: auto;
+}
+.business-page-content-one .business-page-content-one-two .selecting-appointment-header {
+  position: relative;
+  margin-top: 35px;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+.business-page-content-one .business-page-content-one-two .selecting-appointment {
+  position: relative;
+  top: 42px;
+  left: 0;
+  width: 100%;
+}
+.business-page-content-one .business-page-content-one-two .services-repeat {
+  display: flex;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+}
+.business-page-content-one .business-page-content-one-two .services-repeat .b-name {
+  position: relative;
+  flex: 1;
+}
+.business-page-content-one .business-page-content-one-two .services-repeat .b-price {
+  position: relative;
+  flex: 1;
+}
+.business-page-content-one .business-page-content-one-two .services-repeat .b-select {
+  flex: 1;
+  position: relative;
+  padding-bottom: 15px;
+}
+.information-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.information-body .information-body-one {
+  width: 45%;
+  height: auto;
+}
+.information-body .information-body-one .information-body-one p {
+  padding: 0px;
+}
+.information-body .information-body-two {
+  width: 45%;
+  height: auto;
+}
+.information-body .information-body-two .information-body-two p {
+  padding: 0px;
+}
+
+.footerContainer {
+  background-color: black;
+  color: white;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  padding-bottom: 60px;
+}
+.footerContainer h5 {
+  border-bottom: 1px solid white;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-bottom: 5px;
+  position: relative;
+}
+.footerContainer h5 i {
+  margin-left: 10px;
+  position: absolute;
+  bottom: 6px;
+}
+.footerContainer ul {
+  list-style: none;
+}
+.footerContainer ul li {
+  margin-bottom: 10px;
+}
+.footerContainer ul li a {
+  color: white;
+}
+
 ::-webkit-scrollbar {
   display: none;
-}
-html,
-body {
-  height: 100%;
-  width: 100%;
-  min-height: 100em;
-  overflow-x: hidden;
 }
 .navBar {
   display: flex;
@@ -131,6 +377,9 @@ body {
   position: relative;
   top: 45px;
 }
+.business-display-search div {
+  margin-bottom: 20px;
+}
 .business-info {
   position: relative;
   top: 0;
@@ -158,6 +407,14 @@ body {
   background-color: black;
   color: white;
   font-size: 50px;
+}
+.business-page-content-one {
+  height: auto;
+  margin-bottom: 100px;
+}
+.business-dash-content-one {
+  height: auto;
+  margin-bottom: 100px;
 }
 .business-info {
   width: 35%;
@@ -250,4 +507,7 @@ input.select-dropdown {
 }
 .add-new-app {
   font-size: 30px;
+}
+label {
+  color: red;
 }

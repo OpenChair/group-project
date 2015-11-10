@@ -25,6 +25,7 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'styles') ]
     }))
+    .pipe(concat('style.css'))
     .pipe(gulp.dest('./public/styles'));
 });
 
