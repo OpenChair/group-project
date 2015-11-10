@@ -24,39 +24,41 @@
     </div>
     <!-- INFORMATION -->
     <ul class="collapsible business-info" data-collapsible="expandable">
-        <li>
-          <div class="collapsible-header active business-info-header center-align">Information</div>
-          <div class="collapsible-body business-about grey lighten-5 center-align"><p>{{bProfile.about}}</p></div>
-        </li>
-        <li>
-          <div class="collapsible-header center-align grey lighten-5">Hide details</div>
-          <div class="collapsible-body grey lighten-5 information-body">
-            <div class="information-body-one">
-              <h6><u>Address</u></h6>
-              <p>{{bProfile.address.street}} {{bProfile.address.suite}}</p>
-              <p>{{bProfile.address.city}}, {{bProfile.address.state}} {{bProfile.address.zip}}</p>
-              <h6><u>Contact Info</u></h6>
-              <p>{{bProfile.phone}}</p>
-              <p>{{bProfile.email}}</p>
-            </div>
-            <div class="information-body-two">
-              <h6><u>Hours</u></h6>
-              <p>Monday: {{bProfile.scheduleParams.monday.open}} to {{bProfile.scheduleParams.monday.closed}}</p>
-              <p>Tuesday: {{bProfile.scheduleParams.tuesday.open}} to {{bProfile.scheduleParams.tuesday.closed}}</p>
-              <p>Wednesday: {{bProfile.scheduleParams.wednesday.open}} to {{bProfile.scheduleParams.wednesday.closed}}</p>
-              <p>Thursday: {{bProfile.scheduleParams.thursday.open}} to {{bProfile.scheduleParams.thursday.closed}}</p>
-              <p>Friday: {{bProfile.scheduleParams.friday.open}} to {{bProfile.scheduleParams.friday.closed}}</p>
-              <p>Saturday: {{bProfile.scheduleParams.saturday.open}} to {{bProfile.scheduleParams.saturday.closed}}</p>
-              <p>Sunday: {{bProfile.scheduleParams.sunday.open}} to {{bProfile.scheduleParams.sunday.closed}}</p>
-            </div>
+      <li>
+        <div class="collapsible-header active business-info-header center-align">Information</div>
+        <div class="collapsible-body business-about grey lighten-5 center-align">
+          <p>{{bProfile.about}}</p>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header center-align grey lighten-5">Hide details</div>
+        <div class="collapsible-body grey lighten-5 information-body">
+          <div class="information-body-one">
+            <h6><u>Address</u></h6>
+            <p>{{bProfile.address.street}} {{bProfile.address.suite}}</p>
+            <p>{{bProfile.address.city}}, {{bProfile.address.state}} {{bProfile.address.zip}}</p>
+            <h6><u>Contact Info</u></h6>
+            <p>{{bProfile.phone}}</p>
+            <p>{{bProfile.email}}</p>
           </div>
-        </li>
-      </ul>
-      <!-- MAP -->
-      <leaflet class="leaflet-business z-depth-1" defaults="defaults" center="center" markers="markers" event-broadcast="events"></leaflet>
-      <a href="http://www.google.com/maps/place/{{bProfile.location[0]}},{{bProfile.location[1]}}">
-        <button class="btn black get-directions">Get Directions</button>
-      </a>
+          <div class="information-body-two">
+            <h6><u>Hours</u></h6>
+            <p>Monday: {{bProfile.scheduleParams.monday.open}} to {{bProfile.scheduleParams.monday.closed}}</p>
+            <p>Tuesday: {{bProfile.scheduleParams.tuesday.open}} to {{bProfile.scheduleParams.tuesday.closed}}</p>
+            <p>Wednesday: {{bProfile.scheduleParams.wednesday.open}} to {{bProfile.scheduleParams.wednesday.closed}}</p>
+            <p>Thursday: {{bProfile.scheduleParams.thursday.open}} to {{bProfile.scheduleParams.thursday.closed}}</p>
+            <p>Friday: {{bProfile.scheduleParams.friday.open}} to {{bProfile.scheduleParams.friday.closed}}</p>
+            <p>Saturday: {{bProfile.scheduleParams.saturday.open}} to {{bProfile.scheduleParams.saturday.closed}}</p>
+            <p>Sunday: {{bProfile.scheduleParams.sunday.open}} to {{bProfile.scheduleParams.sunday.closed}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- MAP -->
+    <leaflet class="leaflet-business z-depth-1" defaults="defaults" center="center" markers="markers" event-broadcast="events"></leaflet>
+    <a href="http://www.google.com/maps/place/{{bProfile.location[0]}},{{bProfile.location[1]}}">
+      <button class="btn black get-directions">Get Directions</button>
+    </a>
   </div>
 
   <div class="business-page-content-one-two">
@@ -71,7 +73,9 @@
         <div class="collapsible-body services-repeat" ng-repeat="b in bProfile.services">
           <div class="b-name">{{b.name}}</div>
           <div class="b-price">{{b.price}}</div>
-          <div class="b-select"><button>Select</button></div>
+          <div class="b-select">
+            <button>Select</button>
+          </div>
         </div>
       </li>
       <li>
@@ -90,3 +94,6 @@
 
 
   </div>
+</div>
+
+<footer-dir></footer-dir>
