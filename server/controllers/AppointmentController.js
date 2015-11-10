@@ -25,7 +25,7 @@ module.exports={
 			else{res.json(result);}
 		});
 	},
-	delete:function(req,res){
+	remove:function(req,res){
 		Appointment.findByIdAndRemove(req.params.id, function(err,result){
 			if(err){res.send(err);}
 			else{res.json(result);}

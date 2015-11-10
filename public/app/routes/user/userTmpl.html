@@ -33,7 +33,7 @@
         <h6>{{user.address.city}} {{user.address.state}} {{user.address.zip}}</h6>
       </div>
       <br>
-      <button class="edit-profile "> Edit Profile </button>
+      <button href="#editUserModal" class="edit-profile" modal> Edit Profile </button>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <a href="" class="cancel-button">Cancel appointment</a>
+        <button class="cancel-button" ng-click="deleteAppointment(appointment._id)">Cancel appointment</button>
 
       </div>
     </div>
@@ -72,5 +72,64 @@
     </div>
   </div>
 </div>
+
+
+<form id="editUserModal" class="modal" ng-submit="submitNewUser(user)">
+  <div class="modal-content input-field" style="margin-top: 0px;">
+    <h4>Edit Information</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input ng-model="user.name.first" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input ng-model="user.name.last" id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input ng-model="user.email" id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s6">
+            <input ng-model="user.phone" id="phone" type="text" class="validate">
+            <label for="phone">Phone</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s9">
+            <input ng-model="user.address.street" id="street" type="text" class="validate">
+            <label for="street">Street</label>
+          </div>
+          <div class="input-field col s3">
+            <input ng-model="user.address.aptSuite" id="suite" type="text" class="validate">
+            <label for="suite">Apt/Suite</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input ng-model="user.address.city" id="city" type="text" class="validate">
+            <label for="city">City</label>
+          </div>
+          <div class="input-field col s4">
+            <input ng-model="user.address.state" id="state" type="text" class="validate">
+            <label for="state">State</label>
+          </div>
+          <div class="input-field col s4">
+            <input ng-model="user.address.zip" id="zip" type="text" class="validate">
+            <label for="zip">Zip</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Submit<i class="material-icons right">send</i></button>
+    </div>
+</form>
+
 
 <footer-dir></footer-dir>

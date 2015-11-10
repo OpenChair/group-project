@@ -408,6 +408,14 @@
   color: white;
   font-size: 50px;
 }
+.business-page-content-one {
+  height: auto;
+  margin-bottom: 100px;
+}
+.business-dash-content-one {
+  height: auto;
+  margin-bottom: 100px;
+}
 .business-info {
   width: 35%;
   height: auto;
@@ -499,4 +507,7 @@ input.select-dropdown {
 }
 .add-new-app {
   font-size: 30px;
+}
+label {
+  color: red;
 }
