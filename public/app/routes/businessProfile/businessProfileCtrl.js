@@ -24,7 +24,7 @@ angular.module('openChairApp')
                         lng: $scope.bProfile.location[1],
                         focus: true,
                         draggable: false,
-                        message: "Hi there!",
+                       message: "<div ng-include src='../../businessPreview/businessPreview.html'></div>",
                         icon: {}
                     }
                 },
