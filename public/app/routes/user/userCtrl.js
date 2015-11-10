@@ -13,12 +13,11 @@ angular.module('openChairApp')
       $scope.appointments = response;
     });
   }
-  
+
   $scope.deleteAppointment = function(id) {
    appointmentsService.deleteAppointment(id).then(function() {
        $scope.getAppointments();
    });
  };
-  
-});
 
+});
