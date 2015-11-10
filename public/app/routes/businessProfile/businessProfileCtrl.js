@@ -23,16 +23,12 @@ angular.module('openChairApp')
   };
 
   $scope.selectService = function(service) {
-    $scope.appointment.service = service.name;
+    $scope.appointment.title = service.name;
     $scope.appointment.price = service.price;
-    $scope.appointment.timePeriod = service.duration;
+    $scope.appointment.end = service.duration;
   };
   $scope.selectDate = function(date) {
-    $scope.appointment.date = date;
-  };
-  $scope.selectTime = function(time) {
-    $scope.appointment.startTime = time;
-    console.log($scope.appointment);
+    $scope.appointment.start = date;
   };
 
   $scope.bProfile = business;
