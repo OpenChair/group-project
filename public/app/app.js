@@ -14,22 +14,22 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
   .state('home', {
     url: '/home',
     templateUrl: 'app/routes/home/HomeTmpl.html',
-    controller: 'homeCtrl'
-    // resolve: {
-    //   businesses: function (businessService) {
-    //     return businessService.getBusinesses();
-    //   }
-    // }
+    controller: 'homeCtrl',
+    resolve: {
+      businesses: function (businessService) {
+        return businessService.getBusinesses();
+      }
+    }
   })
   .state('search', {
     url: '/search',
     templateUrl: 'app/routes/search/searchTmpl.html',
-    controller: 'searchCtrl'
-    // resolve: {
-    //   businesses: function (businessService) {
-    //     return businessService.getBusinesses();
-    //   }
-    // }
+    controller: 'searchCtrl',
+    resolve: {
+      businesses: function (businessService) {
+        return businessService.getBusinesses();
+      }
+    }
   })
   .state('businessProfile', {
     url: '/search/:businessID',
@@ -40,13 +40,13 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
         return businessService.getBusiness($stateParams.businessID).then(function (res) {
           return res.data;
         });
+      },
+      reviews: function (apiService) {
+        return apiService.getReview();
+      },
+      appointments: function (appointmentsService, $stateParams) {
+        return appointmentsService.getAppointments($stateParams.id);
       }
-      // reviews: function (apiService) {
-      //   return apiService.getReview();
-      // },
-      // appointments: function (appointmentsService, $stateParams) {
-      //   return appointmentsService.getAppointments($stateParams.id);
-      // }
     }
   })
   .state('userProfile', {
@@ -65,27 +65,27 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
   .state('businessSchedule', {
     url: '/business/:id',
     templateUrl: 'app/routes/businessSchedule/businessScheduleTmpl.html',
-    controller: 'businessScheduleCtrl'
-    // resolve: {
-    //   business: function (businessService, $stateParams) {
-    //     return businessService.getBusiness($stateParams.id);
-    //   },
-    //   appointments: function (appointmentsService, $stateParams) {
-    //     return appointmentsService.getAppointments($stateParams.id);
-    //   }
-    // }
+    controller: 'businessScheduleCtrl',
+    resolve: {
+      business: function (businessService, $stateParams) {
+        return businessService.getBusiness($stateParams.id);
+      },
+      appointments: function (appointmentsService, $stateParams) {
+        return appointmentsService.getAppointments($stateParams.id);
+      }
+    }
   })
   .state('businessDash',{
     url:'/businessdash/:id',
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
-    controller: 'businessDashCtrl'
-    // resolve: {
-    //   business: function (businessService, $stateParams) {
-    //     return businessService.getBusiness($stateParams.id);
-    //   },
-    //   appointments: function (appointmentsService, $stateParams) {
-    //     return appointmentsService.getAppointments($stateParams.id);
-    //   }
-    // }
+    controller: 'businessDashCtrl',
+    resolve: {
+      business: function (businessService, $stateParams) {
+        return businessService.getBusiness($stateParams.id);
+      },
+      appointments: function (appointmentsService, $stateParams) {
+        return appointmentsService.getAppointments($stateParams.id);
+      }
+    }
   });
 });
