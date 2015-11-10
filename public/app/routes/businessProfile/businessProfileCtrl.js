@@ -1,10 +1,35 @@
 angular.module('openChairApp')
 .controller('businessProfileCtrl', function($scope, business, loginService, $location) {
-  // loginService.getBusinessName().then(function(res) {
+  loginService.getUserName().then(function(res) {
+
+    if (res) {
+      $scope.user = res.data;
+      $scope.appointment = {
+        user: $scope.user._id,
+        business: business._id,
+        date: new Date()
+      };
+    }
   //   if (!res.data._id) {
   //     $location.path('#/home');
   //   }
-  // });
+  });
+
+  $scope.pushService = "";
+
+  $scope.submitAppt = function(appointment) {
+    // appointmentService.addAppointmentById(appointment);
+    console.log(appointment);
+  };
+
+  $scope.selectService = function(service) {
+    $scope.appointment.title = service.name;
+    $scope.appointment.price = service.price;
+    $scope.appointment.end = service.duration;
+  };
+  $scope.selectDate = function(date) {
+    $scope.appointment.start = date;
+  };
 
   $scope.bProfile = business;
 
@@ -33,5 +58,13 @@ angular.module('openChairApp')
            scrollWheelZoom: false
        }
     });
+
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+
 
 });
