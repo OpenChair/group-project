@@ -1,5 +1,5 @@
 var app = angular.module('openChairApp');
-app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCalendarConfig, loginService, $location) {
+app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCalendarConfig, loginService, $location, businessService, appointmentsService ) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
   //     $location.path('#/home');
@@ -11,51 +11,16 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
   var y = date.getFullYear();
 
 
-  $scope.eventSource = {
-    url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
-    className: 'gcal-event', // an option!
-    currentTimezone: 'America/Chicago' // an option!
-  };
-  /* event source that contains custom events on the scope */
-  // $scope.events =
-  /* event source that calls a function on every view switch */
-  $scope.eventsF = function(start, end, timezone, callback) {
-    var s = new Date(start).getTime() / 1000;
-    var e = new Date(end).getTime() / 1000;
-    var m = new Date(start).getMonth();
-    var events = [{
-      title: 'Feed Me ' + m,
-      start: s + (50000),
-      end: s + (100000),
-      allDay: false,
-      className: ['customFeed']
-    }];
-    callback(events);
-  };
 
-  $scope.calEventsExt = {
-    color: '#f00',
-    textColor: 'yellow',
-    events: [{
-      type: 'party',
-      title: 'Lunch',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Lunch 2',
-      start: new Date(y, m, d, 12, 0),
-      end: new Date(y, m, d, 14, 0),
-      allDay: false
-    }, {
-      type: 'party',
-      title: 'Click for Google',
-      start: new Date(y, m, 28),
-      end: new Date(y, m, 29),
-      url: 'http://google.com/'
-    }]
-  };
+  /* event source that contains custom events on the scope */
+  $scope.events =[]
+
+  var appointments
+    appointmentsService.getAppointments("56411a9f3955d2bc64c1db78","business").then(function(res){
+       appointments=res
+     console.log(res)
+    })
+
   /* alert on eventClick */
   $scope.alertOnEventClick = function(date, jsEvent, view) {
     $scope.alertMessage = (date.title + ' was clicked ');
@@ -84,10 +49,12 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
   /* add custom event*/
   $scope.addEvent = function() {
     $scope.events.push({
-      title: 'Open Sesame',
-      start: new Date(y, m, 28),
-      end: new Date(y, m, 29),
-      className: ['openSesame']
+      user:appointments.user,
+      startTime:appointments.startTime,
+      timePeriod:appointments.timePeriod,
+      service:appointments.service,
+      price:appointments.price
+
     });
   };
   /* remove event */
@@ -131,14 +98,8 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     }
   };
 
-  $scope.changeLang = function() {
 
-    $scope.uiConfig.calendar.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    $scope.uiConfig.calendar.dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-
-  };
   /* event sources array*/
-  $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
-  $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+  $scope.eventSources = [$scope.events];
+  
 });
