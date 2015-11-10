@@ -20,5 +20,8 @@ angular.module('openChairApp')
    });
  };
   
+ $('#firstName').val('New Text');
+ $('#firstName').trigger('autoresize');
+  
 });
 
