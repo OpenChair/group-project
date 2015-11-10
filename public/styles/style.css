@@ -148,7 +148,8 @@
 }
 .business-page-content-one .business-page-content-one-one .leaflet-business {
   width: 100%;
-  height: 300px;
+  height: auto;
+  min-height: 400px;
   position: relative;
   top: 25px;
 }
