@@ -1,3 +1,6 @@
+.business-dash {
+  height: auto;
+}
 .name-business-dash {
   position: relative;
   left: 1.5%;
@@ -223,11 +226,14 @@
   background-color: black;
   color: white;
   margin-top: -20px;
+  margin-bottom: 0px;
+  padding-bottom: 60px;
 }
 .footerContainer h5 {
   border-bottom: 1px solid white;
   text-align: center;
-  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   padding-bottom: 5px;
   position: relative;
 }
@@ -235,6 +241,15 @@
   margin-left: 10px;
   position: absolute;
   bottom: 6px;
+}
+.footerContainer ul {
+  list-style: none;
+}
+.footerContainer ul li {
+  margin-bottom: 10px;
+}
+.footerContainer ul li a {
+  color: white;
 }
 
 ::-webkit-scrollbar {
@@ -363,6 +378,9 @@
   position: relative;
   top: 45px;
 }
+.business-display-search div {
+  margin-bottom: 20px;
+}
 .business-info {
   position: relative;
   top: 0;
@@ -390,6 +408,14 @@
   background-color: black;
   color: white;
   font-size: 50px;
+}
+.business-page-content-one {
+  height: auto;
+  margin-bottom: 100px;
+}
+.business-dash-content-one {
+  height: auto;
+  margin-bottom: 100px;
 }
 .business-info {
   width: 35%;

@@ -9,4 +9,16 @@ angular.module('openChairApp').service('userService', function($http, constants)
     });
   };
 
+this.editUser = function(id, user) {
+    return $http({
+      method: 'PUT',
+      url: constants.baseURL + 'user/' + id,
+      data: user 
+   }).then(function(response) {
+      return response.data;
+    });
+  };
+
+
+
 });
