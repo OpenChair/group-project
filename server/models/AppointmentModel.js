@@ -5,7 +5,7 @@ var schema = new Mongoose.Schema({
 	price: {type: Number},
 	promotion:{type:String},
 	startTime:{type:Date},
-	timePeriod:{type:Number},
+	timePeriod:{type:Date},
 	service:{type:String},
 	note:{type:String}
 });
