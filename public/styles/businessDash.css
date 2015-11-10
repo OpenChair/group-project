@@ -1,0 +1,69 @@
+.name-business-dash {
+  position: relative;
+  left: 1.5%;
+  font-size: 60px;
+}
+.collapsible-body {
+  color: black;
+}
+.collapsible-body input {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+.collapsible-body .submit-button-business-dash {
+  position: relative;
+  left: 80%;
+  bottom: 5px;
+}
+.business-dash-content-one {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.business-dash-content-one .business-dash-content-one-one {
+  width: 600px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-one .picture-business-dash {
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.business-dash-content-one .business-dash-content-one-one .small-images {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+.business-dash-content-one .business-dash-content-one-one .small-images .small-image {
+  flex: 1;
+  margin: 10px;
+  width: 80px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-two {
+  width: 600px;
+  height: auto;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash-header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  padding-top: 2px;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash-header .edit-info-header {
+  color: white;
+  font-size: 22px;
+}
+.business-dash-content-one .business-dash-content-one-two .collapsible-business-dash {
+  position: relative;
+  top: -10px;
+  width: 100%;
+}
