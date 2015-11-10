@@ -1,6 +1,6 @@
 <div class="searchBar">
   <div >
-    <select id="businessDropdown" material-select>
+    <select id="businessDropdown" material-select ng-model='searchCriteria.type'>
       <option>Type</option>
       <option><a href="javascript:void(0);">Hair Salon</a></option>
       <option><a href="javascript:void(0);">Nail Salon</a></option>
@@ -13,9 +13,10 @@
   <div class="datePicker">
     <label for="inputCreated"></label>
     <input input-date
+        ng-model='searchCriteria.date'
         type="text"
         name="created"
-        id="inputCreated"
+        id="inputCreated" 
         ng-model="currentTime"
         container="body"
         format="dd/mm/yyyy"
@@ -40,7 +41,7 @@
         />
   </div>
   <div class="timeSelector">
-    <select id="timeDropDown" material-select>
+    <select id="timeDropDown" material-select ng-model='searchCriteria.time'>
       <option >Time</option>
       <option value="09:00">9:00 AM</option>
       <option value="09:15">9:15 AM</option>
@@ -98,7 +99,7 @@
     </select>
   </div>
   <div >
-    <input class="searchInput" placeholder="Location, Business Name, or Type"></input>
+    <input class="searchInput" ng-model='searchCriteria.text' placeholder="Location, Business Name, or Type"></input>
   </div>
   <div>
     <a class="waves-effect waves-light btn searchButton"><i class="material-icons left">search</i>Find It</a>
