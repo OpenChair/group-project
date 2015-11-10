@@ -482,3 +482,6 @@ input.select-dropdown {
 .add-new-app {
   font-size: 30px;
 }
+label {
+  color: red;
+}
