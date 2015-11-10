@@ -4,7 +4,8 @@ var schema = new Mongoose.Schema({
 	business: {type: Mongoose.Schema.Types.ObjectId, ref:'Business'},
 	price: {type: Number},
 	promotion:{type:String},
-	startTime:{type:Date},
+	date: {type:Date},
+	startTime:{type:String},
 	timePeriod:{type:Date},
 	service:{type:String},
 	note:{type:String}
