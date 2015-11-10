@@ -58,7 +58,7 @@ app.get('/user/:id', UserController.find);
 app.post('/appointment', AppointmentController.create);
 app.get('/appointments', AppointmentController.read);
 app.put('/appointment/:id', AppointmentController.update);
-app.delete('appointment/:id', AppointmentController.delete);
+app.delete('/appointment/:id', AppointmentController.remove);
 app.get('/appointment/:id', AppointmentController.find);
 app.get('/appointments/user/:id', AppointmentController.userFind);
 app.get('/appointments/business/:id', AppointmentController.businessFind);
