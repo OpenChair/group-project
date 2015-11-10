@@ -19,13 +19,14 @@ angular.module('openChairApp')
            zoom: 16
        },
        markers: {
-                    m1: {
-                        lat: $scope.bProfile.location[0],
-                        lng: $scope.bProfile.location[1],
-                        focus: true,
-                        draggable: false,
-                       message: "<div ng-include src='../../businessPreview/businessPreview.html'></div>",
-                        icon: {}
+            m1: {
+              lat: $scope.bProfile.location[0],
+              lng: $scope.bProfile.location[1],
+              focus: false,
+              draggable: false,
+              getMessageScope: function () { return $scope; },
+              message: "<map-card-directive></map-card-directive>",
+              icon: {}
                     }
                 },
 
