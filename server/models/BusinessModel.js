@@ -4,6 +4,7 @@ var bcrypt = require('bcryptjs');
 var Business = new mongoose.Schema({
   businessName: {type:String},
   category: {type:String},
+  about: {type:String},
   address:{
     street:{type:String},
     suite:{type:String},
@@ -37,7 +38,7 @@ var Business = new mongoose.Schema({
       open:{type:Number},
       closed:{type:Number}
     },
-    wednsday:{
+    wednesday:{
       open:{type:Number},
       closed:{type:Number}
     },

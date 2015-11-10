@@ -25,7 +25,7 @@
   flex-wrap: wrap;
 }
 .business-dash-content-one .business-dash-content-one-one {
-  width: 800px;
+  width: 600px;
   height: auto;
 }
 .business-dash-content-one .business-dash-content-one-one .picture-business-dash {
@@ -43,11 +43,11 @@
 .business-dash-content-one .business-dash-content-one-one .small-images .small-image {
   flex: 1;
   margin: 10px;
-  width: 100px;
+  width: 80px;
   height: auto;
 }
 .business-dash-content-one .business-dash-content-one-two {
-  width: 800px;
+  width: 600px;
   height: auto;
 }
 .business-dash-content-one .business-dash-content-one-two .collapsible-business-dash-header {
