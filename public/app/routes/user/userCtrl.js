@@ -19,5 +19,4 @@ angular.module('openChairApp')
        $scope.getAppointments();
    });
  };
-
-});
+})
