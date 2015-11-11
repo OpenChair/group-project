@@ -13,9 +13,10 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     appointmentsService.getAppointmentsById('56411a9f3955d2bc64c1db78', 'business').then(function(res){
       for(var i=0;i<res.length;i++){
         var obj = {
-          title:res[i].service,
-          start:res[i].startTime,
-          end:res[i].timePeriod   
+          title:res[i].title,
+          start:res[i].start,
+          end:res[i].end,
+          id:res[i]._id  
         }
         arrd.push(obj);
       }
@@ -27,14 +28,27 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
         $scope.alertMessage = (date.title + ' was clicked ');
+        
     };
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
        $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
+       $scope.ap={
+         start:event.start._d,
+         end:event.end._d,
+         }
+       appointmentsService.editAppointment(event.id, $scope.ap)
+      
     };
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){
        $scope.alertMessage = ('Event Resized to make dayDelta ' + delta);
+       $scope.ap={
+         start:event.start._d,
+         end:event.end._d,
+         }
+       appointmentsService.editAppointment(event.id, $scope.ap)
+       
     };
     /* add and removes an event source of choice */
     $scope.addRemoveEventSource = function(sources,source) {
@@ -51,12 +65,7 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     };
     /* add custom event*/
     $scope.addEvent = function() {
-      $scope.events.push({
-        title: 'Open Sesame',
-        start: new Date(y, m, 28),
-        end: new Date(y, m, 29),
-        className: ['openSesame']
-      });
+      
     };
     /* remove event */
     $scope.remove = function(index) {
