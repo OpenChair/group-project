@@ -5,10 +5,11 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 	//   }
 	// });
 	$scope.business =  business;
-
+	console.log(business);
 	$scope.editHours = function(hours) {
 		businessService.editBusiness(business._id, hours).then(function(res){
 			if(res)alert('update completed');
 		});
 	};
+
 });
