@@ -512,3 +512,30 @@ input.select-dropdown {
 label {
   color: red;
 }
+.big-o-calender {
+  width: auto;
+  height: auto;
+}
+.big-o-calender input {
+  height: auto;
+  color: black;
+}
+.big-o-calender title {
+  color: black;
+}
+.big-o-calender md-button {
+  margin: 10px;
+  color: white;
+}
+.big-o-calender .time-date .buttons {
+  background-color: black;
+}
+.big-o-calender .full-title {
+  background-color: white;
+}
+.big-o-calender .control .full-title {
+  background-color: #424242;
+}
+.big-o-calender .control .slider .date-control .title .month-part {
+  color: black;
+}
