@@ -2,7 +2,7 @@ angular.module('openChairApp')
 .directive('businessPreview', function() {
 	return {
     restrict: 'EA',
-      templateUrl:'App/directives/businessPreview/businessPreview.html',
+      templateUrl:'app/directives/businessPreview/businessPreview.html',
       controller: 'businessPreviewCtrl'
 	};
 });

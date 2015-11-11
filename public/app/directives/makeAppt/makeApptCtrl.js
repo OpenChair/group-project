@@ -1,5 +1,6 @@
 angular.module('openChairApp')
 .controller('makeApptCtrl', function($scope) {
+  
   var currentTime = new Date();
   $scope.currentTime = currentTime;
   $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
