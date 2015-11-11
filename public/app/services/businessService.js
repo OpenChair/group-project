@@ -21,6 +21,8 @@ angular.module('openChairApp').service('businessService', function($http, consta
     return $http({
       method: 'GET',
       url: constants.baseURL + 'businesses/' + id
+    }).then(function(response) {
+      return response.data;
     });
   };
   this.addBusiness = function(business) {
@@ -68,15 +70,5 @@ angular.module('openChairApp').service('businessService', function($http, consta
   //     return response.data;
   //   });
   // };
-  this.edithours=function(id,hours){
-    return $http({
-      method:'PUT',
-      url:constants.baseURL + 'businesses/' + id,
-      data:hours
-    }).then(function(res){
-      console.log(res)
-      return res.data;
-    })
-  }
 
 });
