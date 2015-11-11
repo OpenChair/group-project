@@ -32,6 +32,7 @@ angular.module('openChairApp')
   };
 
   $scope.bProfile = business;
+  $scope.profilePic = $scope.bProfile.pictures.splice(0, 1);
 
   // NEED TO ADD MINIPICTURES TO SCHEMA
   $scope.pictures = business.miniPictures;

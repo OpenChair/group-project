@@ -111,6 +111,7 @@
   margin: 10px;
   width: 200px;
   height: auto;
+  display: inline-block;
 }
 .business-page-content-one .business-page-content-one-one .business-info-header {
   width: 100%;
