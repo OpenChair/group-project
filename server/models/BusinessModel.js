@@ -55,6 +55,10 @@ var Business = new mongoose.Schema({
       closed:{type:Number}
     },
   },
+  pictures: [{
+    caption: {type: String},
+    link: {type: String}
+  }],
   // user:[{
   //   email:{type:String},
   //   name:{
@@ -65,8 +69,6 @@ var Business = new mongoose.Schema({
   //   highLevelPrivilages:{type:Boolean},
 
   // }],
-
-
 
 });
 

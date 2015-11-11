@@ -6,22 +6,17 @@
 
     <!-- NAME -->
     <div class="business-profile-name">{{bProfile.businessName}} ({{bProfile.category}})</div>
-    <!-- PICTURE EVENTUALLY -->
-    <!-- <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="{{bProfile.picture}}"> -->
 
-    <!-- PICTURE HARD CODED-->
-    <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
-    <!-- MINI PICTURES EVENTUALLY-->
-    <!-- <div class="mini-pictures-business" ng-repeat="pic in pictures">
-      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.source}}">
-    </div> -->
-
-    <!-- MINI PICTURES HARD CODED -->
+    <!-- PICTURE -->
+    <img class="business-picture z-depth-1" materialboxed class="materialboxed" data-caption="{{profilePic[0].caption}}" width="250" src="{{profilePic[0].link}}">
+    
+    <!-- MINI PICTURES -->
     <div class="mini-pictures-business">
-      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
-      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
-      <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="Our Shop" width="250" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+      <div ng-repeat="pic in bProfile.pictures">
+        <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
+      </div>
     </div>
+
     <!-- INFORMATION -->
     <ul class="collapsible business-info" data-collapsible="expandable">
       <li>
