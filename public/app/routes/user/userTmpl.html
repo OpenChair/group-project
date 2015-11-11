@@ -33,7 +33,7 @@
         <h6>{{user.address.city}} {{user.address.state}} {{user.address.zip}}</h6>
       </div>
       <br>
-      <button href="#editUserModal" class="edit-profile" modal> Edit Profile </button>
+      <button href="#updateUserModal" class="edit-profile" modal> Edit Profile </button>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
 
       </div>
     </div>
-    <a href="#/search" class="add-new-app">+ Add new appointment
+    <a href="#/search" class="add-new-app">+ Find new appointment
       </a>
   </div>
 </div>
@@ -75,11 +75,11 @@
 
 <footer-dir></footer-dir>
 
-<form id="editUserModal" class="modal" ng-submit="submitNewUser(user)">
+<form id="updateUserModal" class="modal" ng-submit="updateUser(user)">
   <div class="modal-content input-field" style="margin-top: 0px;">
     <h4>Edit Information</h4>
     <div class="row">
-      <form class="col s12">
+      <div class="col s12">
         <div class="row">
           <div class="input-field col s6">
             <input ng-model="user.name.first" id="first_name" type="text" class="validate">
@@ -124,7 +124,7 @@
             <label for="zip">Zip</label>
           </div>
         </div>
-      </form>
+      </div>
     </div>
 
     <div class="modal-footer">

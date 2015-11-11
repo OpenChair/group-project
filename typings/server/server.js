@@ -47,7 +47,7 @@ app.get('/auth/facebook/callback',
 
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
-app.put('/user', isAuthed, UserController.update);
+app.put('/user/:id', isAuthed, UserController.update);
 app.post('/login', passport.authenticate('local',{
 	successRedirect:'/user'
 }));
