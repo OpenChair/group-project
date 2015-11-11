@@ -3,13 +3,23 @@
 	<h1 class="name-business-dash">{{business.businessName}}</h1>
 	<div class="business-dash-content-one">
 		<div class="business-dash-content-one-one">
-			<img class="picture-business-dash z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
+
+			<img class="picture-business-dash z-depth-1" materialboxed class="materialboxed" data-caption="{{profilePic[0].caption}}" width="250" src="{{profilePic[0].link}}">
+
+	    <!-- MINI PICTURES -->
+	    <div class="mini-pictures-business">
+	      <div ng-repeat="pic in business.pictures">
+	        <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
+	      </div>
+	    </div>
+
+			<!-- <img class="picture-business-dash z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg"> -->
 			<!-- PEOPLE NEED TO BE ABLE TO EDIT THESE PHOTOS -->
-			<div class="small-images">
+			<!-- <div class="small-images">
 				<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
 				<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
 				<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
-			</div>
+			</div> -->
 		</div>
 
 
