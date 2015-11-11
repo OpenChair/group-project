@@ -96,7 +96,8 @@
           <i class="mdi-action-event"></i>Select Date
         </div>
         <div class="collapsible-body">
-          <input type="datetime" ng-model="date" ng-change="selectDate(date)" placeholder="Click here" class="datepicker">
+          <!-- <input type="datetime" ng-model="date" ng-change="selectDate(date)" placeholder="Click here" class="datepicker"> -->
+          <button href="#pickDate" class="edit-profile" modal>Pick Date/ Time</button>
         </div>
       </li>
 
@@ -190,3 +191,9 @@
 
 
 <footer-dir></footer-dir>
+
+<form id="pickDate" class="modal" ng-submit="submitNewUser(user)">
+  <div class="modal-content input-field" style="margin-top: 0px;">
+		<time-date-picker class="big-o-calender grey lighten-3" ng-model="appointment.date"></time-date-picker>
+	</div>
+</form>
