@@ -243,12 +243,26 @@
 				<li class="edit-services">
 					<div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>edit services</div>
 					<div class="collapsible-body grey lighten-3">
-						<div ng-repeat="b in business.services">
-							<div class="">{{b.name}}</div>
-							<div class="">{{b.price}}</div>
+						<div ng-repeat="b in business.services track by $index">
+							
+							<div class="row">
+							<div class="input-field col s8">
+								<input ng-model='b.name' id="ServiceName" type="text">
+								<label for="ServiceName">Service</label>
+							</div>
+							
+							
+							<div class="input-field col s3">
+								<input ng-model='b.price' id="ServicePrice" type="text">
+								<label for="ServicePrice">Price</label>
+							</div>
+							
+							<div class="testokay col s1">
+								<button style="margin-top: 22px; color: red;" class="cancel-service-button" ng-click="deleteService($index)">X</button>
+							</div>
 						</div>
-						<button class="submit-button-business-dash">submit</button>
 					</div>
+						<button class="submit-button-business-dash">submit</button>
 				</li>
 				
 				
