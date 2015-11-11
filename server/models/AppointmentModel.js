@@ -4,8 +4,8 @@ var schema = new Mongoose.Schema({
 	business: {type: Mongoose.Schema.Types.ObjectId, ref:'Business'},
 	price: {type: Number},
 	promotion:{type:String},
-	start:{type:String},
-	end:{type:String},
+	start:{type:Date},
+	end:{type:Date},
 	title:{type:String},
 	note:{type:String}
 });
