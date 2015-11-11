@@ -102,6 +102,6 @@
     <input class="searchInput" ng-model='searchCriteria.text' placeholder="Location, Business Name, or Type"></input>
   </div>
   <div>
-    <a class="waves-effect waves-light btn searchButton"><i class="material-icons left">search</i>Find It</a>
+    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria, radius, lat, lon)'><i class="material-icons left">search</i>Find It</a>
   </div>
 </form>

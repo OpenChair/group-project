@@ -5,5 +5,5 @@ angular.module('openChairApp').directive('searchBar', function() {
       controller: 'searchBarCtrl'
   };
   
-  console.log(searchCriteria);
+//  console.log(searchCriteria);
 });

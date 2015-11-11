@@ -36,7 +36,12 @@ module.exports = {
   },
 
   findByLocation: function(req, res) {
-    Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } }).exec(function(err, result) {
+    Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } })
+      .where('type')equals(req.query.type)
+      .where('date')gt(req.query.date)
+      .where('time')gt(req.query.time)
+      .where('text')equals(req.query.text)
+      .exec(function(err, result) {
       if (err) {
         return res.status(500).json(err);
       } else {

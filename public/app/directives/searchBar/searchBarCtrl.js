@@ -1,4 +1,4 @@
-angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
+angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService) {
 
   var currentTime = new Date();
   $scope.currentTime = currentTime;
@@ -31,5 +31,13 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
   $scope.onStop = function () {
 //      console.log('onStop');
   };
-
+  $scope.radius = 30;
+  $scope.lat = ;
+  $scope.lon = ;
+  $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
+    businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon) {
+      
+    }
+  }
+  
 });
