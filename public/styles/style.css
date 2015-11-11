@@ -222,6 +222,11 @@
 .information-body .information-body-two .information-body-two p {
   padding: 0px;
 }
+.business-dash-button {
+  position: relative;
+  bottom: -35px;
+  left: 60%;
+}
 
 .footerContainer {
   background-color: black;
