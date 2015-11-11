@@ -1,4 +1,4 @@
-<div class="searchBar">
+<form class="searchBar">
   <div >
     <select id="businessDropdown" material-select ng-model='searchCriteria.type'>
       <option>Type</option>
@@ -12,7 +12,7 @@
 
   <div class="datePicker">
     <label for="inputCreated"></label>
-    <input input-date
+    <input style='color: l' input-date
         ng-model='searchCriteria.date'
         type="text"
         name="created"
@@ -104,4 +104,4 @@
   <div>
     <a class="waves-effect waves-light btn searchButton"><i class="material-icons left">search</i>Find It</a>
   </div>
-</div>
+</form>
