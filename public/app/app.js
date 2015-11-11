@@ -1,4 +1,15 @@
-angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'leaflet-directive'])
+angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'leaflet-directive', 'scDateTime'])
+
+.value("scDateTimeConfig", {
+  defaultTheme: 'material',
+  autosave: false,
+  defaultMode: "date",
+  defaultDate: new Date(), //should be date object!!
+  displayMode: "full",
+  defaultOrientation: false,
+  displayTwentyfour: false,
+  compact: false
+})
 
 .constant("constants",
 {
