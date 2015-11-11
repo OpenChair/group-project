@@ -13,13 +13,14 @@ angular.module('openChairApp')
     appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
       $scope.appointments = response;
     });
-  }
+  };
 
   $scope.deleteAppointment = function(id) {
    appointmentsService.deleteAppointment(id).then(function() {
        $scope.getAppointments();
    });
  };
+
  
  $scope.updateUser = function(user){
    userService.updateUser($scope.user._id, user).then(function(response) {
@@ -30,3 +31,5 @@ angular.module('openChairApp')
  };
  
 })
+
+
