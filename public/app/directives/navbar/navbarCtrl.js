@@ -2,7 +2,13 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
   loginService.getUserName().then(function(res) {
     $scope.customerName = 'Welcome, ' + res.data.name.first;
     $scope.user = res.data;
+  },function(err){
+    loginService.getBusinessName().then(function(res){
+      $scope.customerName=res.data.businessName;
+    })
   });
+  
+  
   $scope.submitNewUser = function(user) {
     var geocode = geocodingService.geocode(user.address).then(function(response) {
       user.location = [response.lat, response.lng];
@@ -36,12 +42,11 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
     });
   };
   $scope.loginBusinessSubmit = function(login) {
+
     loginService.loginBusinessSubmit(login).then(function(res) {
       console.log('hi', res);
-      loginService.getBusinessName().then(function(res) {
-        $scope.businessName = 'Welcome, ' + res.data.name;
-        $scope.business = res.data;
-      });
+      $scope.customerName=res.data.businessName
+    
     }, function(err) {
       if (err.status > 300) {
         alert('bad data guys!!!!');
