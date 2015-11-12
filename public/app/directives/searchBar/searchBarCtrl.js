@@ -62,7 +62,14 @@ app.controller('searchBarCtrl', function($scope, businessService, loginService) 
   $scope.radius = 30;
   getUserLocation();
   $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
-    businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon).then(function(response) {
+    var searchString = '/?';
+    if (searchCriteria.type) {
+      searchString += 'type=' +searchCriteria.type + '&';
+    }
+    if (searchCriteria.text) {
+      searchString += 'businessName=' +searchCriteria.text;
+    }
+    businessService.getFilterdBusinesses(searchString, radius, lat, lon).then(function(response) {
       console.log(response);
     } );
       

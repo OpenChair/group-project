@@ -1,7 +1,7 @@
 <form class="searchBar">
   <div >
     <select id="businessDropdown" material-select ng-model='searchCriteria.type'>
-      <option>Type</option>
+      <option value="" selected="selected">Type</option>
       <option><a href="javascript:void(0);">Hair Salon</a></option>
       <option><a href="javascript:void(0);">Nail Salon</a></option>
       <option><a href="javascript:void(0);">Spa</a></option>
@@ -42,7 +42,7 @@
   </div>
   <div class="timeSelector">
     <select id="timeDropDown" material-select ng-model='searchCriteria.time'>
-      <option >Time</option>
+      <option value="" >Time</option>
       <option value="09:00">9:00 AM</option>
       <option value="09:15">9:15 AM</option>
       <option value="09:30">9:30 AM</option>
