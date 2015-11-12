@@ -36,12 +36,10 @@ module.exports = {
   },
 
   findByLocation: function(req, res) {
-    console.log("here's a string");
-    Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } })
-      .where('type').equals(req.query.type)
-      .where('businessName').equals(req.query.businessName)
-      .exec(function(err, result) {
+    Business.find({ location: { $geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } })
+    .exec(function(err, result) {
       if (err) {
+        console.log(err);
         return res.status(500).json(err);
       } else {
         res.status(200).json(result);
