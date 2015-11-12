@@ -1,4 +1,4 @@
-angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService) {
+angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService, $location) {
 
   loginService.getUserName().then(function(response) {
     $scope.user = response.data;
@@ -41,12 +41,14 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(pos) {
-          $scope.lat = pos.coords.latitude;
-          $scope.lon = pos.coords.longitude;
+          $scope.searchCriteria.lat = pos.coords.latitude;
+          $scope.searchCriteria.lon = pos.coords.longitude;
+          $scope.searchCriteria.radius = 30;
         },
         function(error){
           $scope.lat = $scope.user.location[0];
           $scope.lon = $scope.user.location[1];
+          $scope.searchCriteria.radius = 30;
         },
         {
           timeout: (5 * 1000),
@@ -56,13 +58,10 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
       );
     }
   };
-  $scope.radius = 30;
   getUserLocation();
-  $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
-    businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon).then(function(response) {
-      console.log(response);
-    } );
-
+  $scope.apptQuery = function(searchCriteria) {
+    businessService.setSearchCriteria(searchCriteria);
+    $location.path('/search');
   };
 
 });

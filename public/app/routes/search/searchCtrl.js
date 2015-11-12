@@ -4,7 +4,9 @@ angular.module('openChairApp')
 
   $scope.searchCriteria = searchCriteria;
 
-  businessService.getBusinesses().then(function(response) {
+  console.log($scope.searchCriteria);
+
+  businessService.getFilterdBusinesses(searchCriteria.radius, searchCriteria.lat, searchCriteria.lon).then(function(response) {
     $scope.businesses = response;
   });
 
