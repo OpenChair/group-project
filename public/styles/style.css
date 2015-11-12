@@ -10,14 +10,13 @@
   color: black;
 }
 .collapsible-body input {
-  width: 80%;
+  width: 100%;
   position: relative;
-  left: 10%;
+  left: 0;
 }
 .collapsible-body .submit-button-business-dash {
   position: relative;
   left: 80%;
-  bottom: 5px;
 }
 .business-dash-content-one {
   width: 100%;
@@ -68,8 +67,17 @@
 }
 .business-dash-content-one .business-dash-content-one-two .collapsible-business-dash {
   position: relative;
-  top: -10px;
+  top: 0px;
   width: 100%;
+}
+.areYouSure-button {
+  color: black;
+  width: 25%;
+  height: 25%;
+  margin-left: 120px;
+}
+.areYouSure-header {
+  text-align: center;
 }
 
 .collapsible-body p {

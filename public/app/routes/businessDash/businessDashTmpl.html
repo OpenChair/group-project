@@ -26,34 +26,175 @@
 			<div class="collapsible-business-dash-header z-depth-1 center-align">
 				<h5 class="edit-info-header">Edit Information</h5>
 			</div>
-			<ul class="collapsible collapsible-business-dash" data-collapsible="accordion">
+			<ul class="collapsible popout collapsible-business-dash" data-collapsible="accordion">
 
 				<li class="edit-business-info">
-					<div class="collapsible-header"><i class="material-icons">work</i>edit business info</div>
-					<div class="collapsible-body grey lighten-3">
-						<div>
-							<input ng-model='Business.businessName' placeholder='Business Name' type="text">
-							<input ng-model='Business.address' placeholder='address' type="text">
-							<input ng-model='Business.address.street' placeholder='street' type="text">
-							<input ng-model='Business.address.suite' placeholder='suite' type="text">
-							<input ng-model='Business.address.city' placeholder='city' type="text">
-							<input ng-model='Business.address.state' placeholder='state' type="text">
-							<input ng-model='Business.address.zip' placeholder='zip' type="number">
-							<input ng-model='Business.phone' placeholder='phone' type="text">
-							<input ng-model='Business.email' placeholder='Main Admin email' type="email">
-							<input ng-model='Business.password' placeholder='Main Admin password' type="password">
-							<input ng-model='Business.logo' placeholder='logo img' type="text">
-							<input ng-model='Business.yelpReview' placeholder='yelp id' type="text">
-						</div>
-						<!-- just added a submit -->
-						<button class="submit-button-business-dash" ng-click=''>submit</button>
-					</div>
+					<div class="collapsible-header"><i class="material-icons">work</i>Edit business info</div>
+					<div class="collapsible-body grey lighten-3 input-field">
+						<div class="row">
+							<div class="input-field col s12">
+								<input ng-model='Business.businessName' id="BusinessName" type="text">
+								<label for="BusinessName">Business Name</label>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s9">
+									<input ng-model='Business.address.street' id="street" type="text">
+									<label for="street">Street</label>
+								</div>
+								<div class="input-field col s3">
+									<input ng-model='Business.address.suite' id="suite" type="text">
+									<label for="suite">Suite</label>
+								</div>
+								<div class="row">
+									<div class="input-field col s4">
+										<input ng-model='Business.address.city' id="city" type="text">
+										<label for="city">City</label>
+									</div>
+									<div class="input-field col s4">
+										<label for="state"></label>
+										<select class="browser-default" ng-model='Business.address.state' id="state" type="text">
+											<option value="" disabled selected>State</option>
+											<option value="1">AL</option>
+											<option value="2">AK</option>
+											<option value="3">AZ</option>
+											<option value="4">AR</option>
+											<option value="5">CA</option>
+											<option value="6">CO</option>
+											<option value="7">CT</option>
+											<option value="8">DE</option>
+											<option value="9">FL</option>
+											<option value="10">GA</option>
+											<option value="11">HI</option>
+											<option value="12">ID</option>
+											<option value="13">IL</option>
+											<option value="14">IN</option>
+											<option value="15">IA</option>
+											<option value="16">KS</option>
+											<option value="17">KY </option>
+											<option value="18">LA </option>
+											<option value="19">ME</option>
+											<option value="20">MD</option>
+											<option value="21">MA</option>
+											<option value="22">MI</option>
+											<option value="23">MN</option>
+											<option value="24">MS</option>
+											<option value="25">MO</option>
+											<option value="26">MT</option>
+											<option value="27">NE</option>
+											<option value="28">NV</option>
+											<option value="29">NH</option>
+											<option value="30">NJ</option>
+											<option value="31">NM</option>
+											<option value="32">NY</option>
+											<option value="33">NC</option>
+											<option value="34">ND</option>
+											<option value="35">OH</option>
+											<option value="36">OK</option>
+											<option value="37">OR</option>
+											<option value="38">PA</option>
+											<option value="39">RI</option>
+											<option value="40">SC</option>
+											<option value="41">SD</option>
+											<option value="42">TN</option>
+											<option value="43">TX</option>
+											<option value="44">UT</option>
+											<option value="45">VT</option>
+											<option value="46">VA</option>
+											<option value="47">WA</option>
+											<option value="48">WV</option>
+											<option value="49">WI</option>
+											<option value="50">WY</option>
+
+										</select>
+									</div>
+									<div class="input-field col s4">
+										<input ng-model='Business.address.zip' id="zip" type="number">
+										<label for="zip">Zip</label>
+									</div>
+									<div class="input-field col s6">
+										<input ng-model='Business.phone' id="phone" type="text">
+										<label for="phone">Phone</label>
+									</div>
+									<div class="input-field col s6">
+										<input ng-model='Business.email' id="email" type="email">
+										<label for="email">Email</label>
+									</div>
+
+									<!--<input ng-model='Business.logo' placeholder='logo img' type="text">
+							<input ng-model='Business.yelpReview' placeholder='yelp id' type="text">-->
+								</div>
+								<!-- just added a submit -->
+								<button class="submit-button-business-dash" ng-click=''>Submit</button>
+							</div>
 				</li>
 
 				<li class="edit-hours">
-					<div class="collapsible-header"><i class="material-icons">query_builder</i>edit hours</div>
+					<div class="collapsible-header"><i class="material-icons">query_builder</i>Edit hours</div>
 					<div class="collapsible-body grey lighten-3">
-						<div>
+						<form ng-click="editHours(Business.ScheduleParams)">
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.sunday.openSunday' id="Business.scheduleParams.sunday.openSunday" type="text">
+									<label for="Business.scheduleParams.sunday.openSunday">Open Sunday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.sunday.closedSunday' id="Business.scheduleParams.sunday.closedSunday" type="text">
+									<label for="Business.scheduleParams.sunday.closedSunday">Closed Sunday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Monday.openMonday' id="Business.scheduleParams.Monday.openMonday" type="text">
+									<label for="Business.scheduleParams.Monday.openMonday">Open Monday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Monday.closedMonday' id="Business.scheduleParams.Monday.closedMonday" type="text">
+									<label for="Business.scheduleParams.Monday.closedMonday">Closed Monday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Monday.openTuesday' id="Business.scheduleParams.Tuesday.openTuesday" type="text">
+									<label for="Business.scheduleParams.Tuesday.openTuesday">Open Tuesday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Tuesday.closedTuesday' id="Business.scheduleParams.Tuesday.closedTuesday" type="text">
+									<label for="Business.scheduleParams.Tuesday.closedTuesday">Closed Tuesday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Wednesday.openWednesday' id="Business.scheduleParams.Wednesday.openWednesday" type="text">
+									<label for="Business.scheduleParams.Wednesday.openWednesday">Open Wednesday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Wednesday.closedWednesday' id="Business.scheduleParams.Wednesday.closedWednesday"
+									type="text">
+									<label for="Business.scheduleParams.Wednesday.closedWednesday">Closed Wednesday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Thursday.openThursday' id="Business.scheduleParams.Thursday.openThursday" type="text">
+									<label for="Business.scheduleParams.Thursday.openThursday">Open Thursday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Thursday.closedThursday' id="Business.scheduleParams.Thursday.closedThursday" type="text">
+									<label for="Business.scheduleParams.Thursday.closedThursday">Closed Thursday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Friday.openFriday' id="Business.scheduleParams.Friday.openFriday" type="text">
+									<label for="Business.scheduleParams.Friday.openFriday">Open Friday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Friday.closedFriday' id="Business.scheduleParams.Friday.closedFriday" type="text">
+									<label for="Business.scheduleParams.Friday.closedFriday">Closed Friday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Saturday.openSaturday' id="Business.scheduleParams.Saturday.openSaturday" type="text">
+									<label for="Business.scheduleParams.Saturday.openSaturday">Open Saturday</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model='Business.scheduleParams.Saturday.closedSaturday' id="Business.scheduleParams.Saturday.closedSaturday" type="text">
+									<label for="Business.scheduleParams.Saturday.closedSaturday">Closed Saturday</label>
+								</div>
+							</div>
+							<button style="margin-bottom: 15px;" class="submit-button-business-dash" ng-click=''>Submit</button>
+						</form>
+						<!--<div>
 							<input ng-model='Business.scheduleParams.sunday.openSunday' placeholder='Open Sunday' type="text">
 							<input ng-model='Business.scheduleParams.sunday.closedSunday' placeholder='Closed Sunday' type="text">
 							<button class="waves-effect waves-light btn" ng-click='editHours(Business.ScheduleParams.sunday)'>submit</button>
@@ -88,37 +229,106 @@
 							<input ng-model='Business.scheduleParams.saturday.closedSaturday' placeholder='Closed Saturday' type="text">
 							<button ng-click='editHours(Business.ScheduleParams.saturday)'></button>
 						</div>
-					</div>
+					</div>-->
 				</li>
 
 				<li class="edit-users">
-					<div class="collapsible-header"><i class="material-icons">perm_identity</i>add users</div>
+					<div class="collapsible-header"><i class="material-icons">perm_identity</i>Add users</div>
 					<div class="collapsible-body grey lighten-3">
-						<div>
-							<input type="text" ng-model='Business.user.name.first' placeholder='first name'>
-							<input type="text" ng-model='Business.user.name.last' placeholder='last name'>
-							<input type="email" ng-model='Business.user.email' placeholder='email'>
-							<input type="password" ng-model='Business.user.password' placeholder='password'>
-							<input type="text" ng-model='Business.user.highLevelPrivilages' placeholder='highlevel privilages true or false'>
-						</div>
-						<button class="submit-button-business-dash" ng-click='addUserSubmit(Business)'>submit</button>
-					</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input ng-model='Business.businessName' id="firstName" type="text">
+								<label for="firstName">First Name</label>
+							</div>
+
+							<div class="row">
+								<div class="input-field col s12">
+									<input ng-model='Business.address.street' id="lastName" type="text">
+									<label for="lastName">Last Name</label>
+								</div>
+								<div class="input-field col s12">
+									<input ng-model='Business.address.suite' id="email" type="email">
+									<label for="email">Email</label>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input ng-model='Business.address.city' id="password" type="text">
+										<label for="password">Password</label>
+									</div>
+									<!--<div class="row">
+										<div class="input-field col s12">
+											<input ng-model='Business.address.city' id="highlevel" type="text">
+											<label for="highlevel">High Level Privilages</label>
+
+										</div>-->
+
+									<div class="row switch">
+										<div class="input-field col s12">
+											<p style="color: #9ea0b7;"> High Level Privilages? <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Allows user view and edit all information in business">warning</i>												</p>
+											<label style="margin-top: 25px;">
+												No
+												<input type="checkbox">
+												<span class="lever"></span> Yes
+											</label>
+										</div>
+									</div>
+
+
+
+									<button class="submit-button-business-dash" ng-click='addUserSubmit(Business)'>Submit</button>
+								</div>
 				</li>
+
+
 
 				<li class="edit-services">
-					<div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>edit services</div>
+					<div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Edit services</div>
 					<div class="collapsible-body grey lighten-3">
-						<div>
+						<div ng-repeat="b in business.services track by $index">
+
+							<div class="row">
+								<div class="input-field col s8">
+									<input ng-model='b.name' id="ServiceName" type="text">
+									<label for="ServiceName">Service</label>
+								</div>
+
+
+								<div class="input-field col s3">
+									<input ng-model='b.price' id="ServicePrice" type="text">
+									<label for="ServicePrice">Price</label>
+								</div>
+
+								<div class="testokay col s1">
+									<button href="#areYouSure" modal style="margin-top: 22px; color: red;" class="cancel-service-button">X</button>
+								</div>
+							</div>
+							<form id="areYouSure" class="modal">
+								<div class="modal-content" style="margin-top: 0px;">
+									<h4 class="areYouSure-header">Are you sure you want to delete this service?</h4>
+									<br>
+									<button class="areYouSure-button modal-close" ng-click="deleteService($index)" id="closeModal"> Yes </button>
+									<button class="areYouSure-button modal-close" id="closeModal"> No </button>
+								</div>
+							</form>
+
 						</div>
-						<button class="submit-button-business-dash">submit</button>
-					</div>
+						<button style="margin-bottom: 15px;" class="submit-button-business-dash">Submit</button>
 				</li>
+
+
+
+
+
+
+
+
+
 			</ul>
 
-		</div>
-	</div>
-</div>
+			</div>
+			</div>
+			</div>
 
 
 
-<footer-dir></footer-dir>
+			<footer-dir></footer-dir>

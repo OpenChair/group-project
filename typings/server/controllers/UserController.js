@@ -26,6 +26,7 @@ module.exports = {
     update: function(req, res, done){
         User.findByIdandUpdate(req.user._id, req.body, function(err, result){
             if(err){
+                console.log('hello')
                 return res.status(500).json(err);
             } else {
                 res.status(200).json(result);
