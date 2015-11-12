@@ -5,11 +5,36 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 	//   }
 	// });
 	$scope.business =  business;
+
+	console.log(business);
+
 	$scope.profilePic = $scope.business.pictures.splice(0, 1);
+
 
 	$scope.editHours = function(hours) {
 		businessService.editBusiness(business._id, hours).then(function(res){
 			if(res)alert('update completed');
 		});
 	};
+	
+$scope.deleteService = function(index) {	
+	$scope.business.services.splice(index, 1);
+   businessService.editBusiness($scope.business._id, $scope.business).then(function(response) {
+      $scope.business = response;
+   });
+ };
+ 
+ 
+ $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+ 
+ $(function(){
+ 
+ $('#closeModal').click(function() {
+    $('#areYouSure').modal('hide');
 });
+ });
+});
+
+
