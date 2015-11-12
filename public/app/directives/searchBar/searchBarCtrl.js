@@ -43,12 +43,10 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
         function(pos) {
           $scope.lat = pos.coords.latitude;
           $scope.lon = pos.coords.longitude;
-          console.log(pos);
         },
         function(error){
           $scope.lat = $scope.user.location[0];
           $scope.lon = $scope.user.location[1];
-          console.log( "Something went wrong: ", error );
         },
         {
           timeout: (5 * 1000),

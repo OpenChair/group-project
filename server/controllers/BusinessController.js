@@ -37,10 +37,11 @@ module.exports = {
   },
 
   findByLocation: function(req, res) {
-    Business.find({ location: { $geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } })
-    .exec(function(err, result) {
+    Business.find({ location:
+   { $geoWithin:
+      { $centerSphere: [ [ req.params.lon, req.params.lat ], req.params.radius / 3963.2 ] } } })
+      .exec(function(err, result) {
       if (err) {
-        console.log(err);
         return res.status(500).json(err);
       } else {
         res.status(200).json(result);
