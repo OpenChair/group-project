@@ -18,6 +18,18 @@ $scope.deleteService = function(index) {
       $scope.business = response;
    });
  };
+ 
+ 
+ $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+ 
+ $(function(){
+ 
+ $('#closeModal').click(function() {
+    $('#areYouSure').modal('hide');
+});
+ });
 });
 
 

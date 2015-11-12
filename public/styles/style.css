@@ -69,6 +69,15 @@
   top: 0px;
   width: 100%;
 }
+.areYouSure-button {
+  color: black;
+  width: 25%;
+  height: 25%;
+  margin-left: 120px;
+}
+.areYouSure-header {
+  text-align: center;
+}
 
 .collapsible-body p {
   padding: 0rem;
