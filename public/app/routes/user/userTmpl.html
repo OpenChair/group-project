@@ -40,12 +40,12 @@
   <div class="appointment-header "> Appointments </div>
   <div class="user-appointment-box s6 col ">
     <div class="row app-box " ng-repeat="appointment in appointments ">
-      <h5 class="app-bus-name ">{{appointment.businessName}} </h5>
+      <h5 class="app-bus-name ">{{appointment.business.businessName}} </h5>
       <div class="app-inside-container ">
         <div class="app-box-info ">
-          <h6 class="app-size ">Service: {{appointment.service}}</h6>
-          <h6 class="app-size "> Date: {{appointment.startTime | date: 'short'}} </h6>
-          <h6 class="app-size "> Appointment Length: {{appointment.timePeriod}}</h6>
+          <h6 class="app-size ">Service: {{appointment.title}}</h6>
+          <h6 class="app-size "> Date: {{appointment.start | date: 'short'}} </h6>
+          <h6 class="app-size "> Appointment Length: {{appointment.end}}</h6>
           <div>
             <h6 class="app-size "> Notes: {{appointment.note}}</h6>
           </div>

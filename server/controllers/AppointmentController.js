@@ -14,13 +14,15 @@ module.exports={
 		});
 	},
 	read:function(req,res){
-		Appointment.find().exec(function(err,result){
+		Appointment.find()
+		.populate('business')
+		.exec(function(err,result){
 			if(err){res.send(err);}
 			else{res.json(result);}
 		});
 	},
 	update:function(req,res){
-		Appointment.findByIdAndUpdate(req.body.id, req.body.updatedProd, {new:true}, function(err,result){
+		Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err,result){
 			if(err){res.send(err);}
 			else{res.json(result);}
 		});

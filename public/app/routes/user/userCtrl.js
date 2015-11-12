@@ -21,6 +21,7 @@ angular.module('openChairApp')
    });
  };
 
+
  
  $scope.updateUser = function(user){
    userService.updateUser($scope.user._id, user).then(function(response) {
@@ -32,4 +33,7 @@ angular.module('openChairApp')
  
 })
 
+
+
+});
 
