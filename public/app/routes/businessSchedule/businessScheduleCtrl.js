@@ -89,7 +89,8 @@ angular.module('openChairApp').controller('businessScheduleCtrl', function($scop
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        height: 450,
+        height: 750,
+        slotMinutes:15,
         editable: true,
         header:{
           left: 'title',

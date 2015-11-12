@@ -6,6 +6,7 @@ var configAuth = require('./config');
 var Business = require('../models/BusinessModel');
 
 passport.serializeUser(function(user, done) {
+  console.log('serialized')
   done(null, user._id);
 });
 passport.deserializeUser(function(_id, done) {
@@ -35,7 +36,7 @@ passport.use( 'biz', new LocalStrategy({
   Business.findOne({ email: email })
   .exec(function(err, business) {
     if(err) {
-      console.log(err);
+      console.log(12121212, err);
       done(err);
     }
     if(!business) return done(null, false);
