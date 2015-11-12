@@ -90,7 +90,8 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        height: 450,
+        height: 750,
+        slotMinutes:15,
         editable: true,
         header:{
           left: 'title',

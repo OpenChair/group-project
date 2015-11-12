@@ -14,7 +14,7 @@ var Business = new mongoose.Schema({
   },
   location: [{type: Number}],
   phone:{type:Number},
-  email: { type: String, unique: true},
+  email: {type: String, unique: true},
   password: {type: String},
   logo:{type:String},
   yelpReviews:{type:String},
