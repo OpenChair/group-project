@@ -1,5 +1,4 @@
-var app = angular.module('openChairApp');
-app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCalendarConfig, loginService, $location, businessService, appointmentsService ) {
+angular.module('openChairApp').controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCalendarConfig, loginService, $location, businessService, appointmentsService ) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
   //     $location.path('#/home');
@@ -9,18 +8,18 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-    var arrd=[]
+    var arrd=[];
     appointmentsService.getAppointmentsById('56411a9f3955d2bc64c1db78', 'business').then(function(res){
       for(var i=0;i<res.length;i++){
         var obj = {
           title:res[i].title,
           start:res[i].start,
           end:res[i].end,
-          id:res[i]._id  
-        }
+          id:res[i]._id
+        };
         arrd.push(obj);
       }
-    })
+    });
     /* event source that contains custom events on the scope */
     $scope.events = arrd;
     /* event source that calls a function on every view switch */
@@ -28,7 +27,7 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
         $scope.alertMessage = (date.title + ' was clicked ');
-        
+
     };
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
@@ -36,9 +35,9 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
        $scope.ap={
          start:event.start._d,
          end:event.end._d,
-         }
-       appointmentsService.editAppointment(event.id, $scope.ap)
-      
+       };
+       appointmentsService.editAppointment(event.id, $scope.ap);
+
     };
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){
@@ -46,9 +45,9 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
        $scope.ap={
          start:event.start._d,
          end:event.end._d,
-         }
-       appointmentsService.editAppointment(event.id, $scope.ap)
-       
+       };
+       appointmentsService.editAppointment(event.id, $scope.ap);
+
     };
     /* add and removes an event source of choice */
     $scope.addRemoveEventSource = function(sources,source) {
@@ -65,7 +64,7 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
     };
     /* add custom event*/
     $scope.addEvent = function() {
-      
+
     };
     /* remove event */
     $scope.remove = function(index) {
@@ -82,7 +81,7 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
       }
     };
      /* Render Tooltip */
-    $scope.eventRender = function( event, element, view ) { 
+    $scope.eventRender = function( event, element, view ) {
         element.attr({'tooltip': event.title,
                      'tooltip-append-to-body': true});
         $compile(element)($scope);
@@ -107,5 +106,5 @@ app.controller('businessScheduleCtrl', function($scope, $compile, $timeout, uiCa
 
     /* event sources array*/
     $scope.eventSources = [$scope.events];
-    
+
 });

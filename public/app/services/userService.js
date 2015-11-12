@@ -9,7 +9,8 @@ angular.module('openChairApp').service('userService', function($http, constants)
     });
   };
 
-this.editUser = function(id, user) {
+this.updateUser = function(id, user) {
+  console.log(user);
     return $http({
       method: 'PUT',
       url: constants.baseURL + 'user/' + id,

@@ -1,13 +1,11 @@
 angular.module('openChairApp')
-.controller('businessProfileCtrl', function($scope, business, loginService, $location) {
+.controller('businessProfileCtrl', function($scope, business, loginService, $location, appointmentsService) {
   loginService.getUserName().then(function(res) {
-
-    if (res) {
-      $scope.user = res.data;
+    if (res.data) {
       $scope.appointment = {
-        user: $scope.user._id,
+        user: res.data._id,
         business: business._id,
-        date: new Date()
+        start: new Date()
       };
     }
   //   if (!res.data._id) {
@@ -17,8 +15,11 @@ angular.module('openChairApp')
 
   $scope.pushService = "";
 
-  $scope.submitAppt = function(appointment) {
+  $scope.submitAppt = function(appointment, date, time) {
     // appointmentService.addAppointmentById(appointment);
+    appointment.start = new Date(date + ', ' + time);
+    appointment.end = moment(appointment.start).add(appointment.end, 'm');
+    appointmentsService.makeAppointment(appointment);
     console.log(appointment);
   };
 
@@ -26,9 +27,6 @@ angular.module('openChairApp')
     $scope.appointment.title = service.name;
     $scope.appointment.price = service.price;
     $scope.appointment.end = service.duration;
-  };
-  $scope.selectDate = function(date) {
-    $scope.appointment.start = date;
   };
 
   $scope.bProfile = business;

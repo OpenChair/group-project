@@ -24,7 +24,7 @@ module.exports = {
     },
 
     update: function(req, res, done){
-        User.findByIdandUpdate(req.user._id, req.body, function(err, result){
+        User.findByIdAndUpdate(req.params.id, req.body, function(err, result){
             if(err){
                 return res.status(500).json(err);
             } else {

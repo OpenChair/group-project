@@ -20,7 +20,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
   this.getBusiness = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses/' + id
+      url: constants.baseURL + 'businesses/' + idd
     }).then(function(response) {
       return response.data;
     });
@@ -51,8 +51,8 @@ angular.module('openChairApp').service('businessService', function($http, consta
       return response.data;
     });
   };
- 
-  
+
+
   // this.editBusinessService = function(id, business) {
   //   return $http({
   //     method: 'PUT',

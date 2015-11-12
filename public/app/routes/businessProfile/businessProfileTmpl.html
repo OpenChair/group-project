@@ -55,18 +55,10 @@
       <button class="btn black get-directions">Get Directions</button>
     </a>
   </div>
-
-  <div class="business-page-content-one-two">
+  <form class="business-page-content-one-two">
     <!-- MAKE APPOINTMENT -->
     <div class="selecting-appointment-header center-align">Make Appointment</div>
-
     <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
-
-
-
-
-
-
       <li>
         <div class="collapsible-header active">
           <i class="mdi-action-face-unlock"></i>Select Service
@@ -79,42 +71,21 @@
           </div>
         </div>
       </li>
-
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-event"></i>Select Date
         </div>
         <div class="collapsible-body">
-          <!-- <input type="datetime" ng-model="date" ng-change="selectDate(date)" placeholder="Click here" class="datepicker"> -->
-          <button href="#pickDate" class="edit-profile" modal>Pick Date/ Time</button>
+          <input type="datetime" ng-model="date" ng-change="selectDate(date)" placeholder="Click here" class="datepicker">
         </div>
       </li>
-
-
-
-
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-query-builder"></i>Select Time
         </div>
         <div class="collapsible-body">
-
           <div class="timeSelector">
-            <a class='dropdown-button btn searchButton' href='javascript:void(0);' data-activates='timeDropDown' dropdown data-hover="false">
-    Click here
-    </a>
+            <a class='dropdown-button btn searchButton' href='javascript:void(0);' data-activates='timeDropDown' dropdown data-hover="false">Click here</a>
             <select id="timeDropDown" ng-model="time" ng-change="selectTime(time)">
               <option value="09:00">9:00 AM</option>
               <option value="09:15">9:15 AM</option>
@@ -171,24 +142,26 @@
               <option value="22:00">10:00 PM</option>
             </select>
           </div>
-
-
         </div>
+      </li>
+      <li>
+        <div class="collapsible-header">
+          <i class="small material-icons">subject</i>
+          Notes
+        </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" ng-model="appointment.note"></textarea>
+                <label for="textarea1">Notes</label>
+              </div>
+            </div>
+          </div>
       </li>
     </ul>
 
-    <input type="submit" ng-click="submitAppt(appointment)"></input>
-  </div>
+    <button class="business-dash-button" type="submit" ng-click="submitAppt(appointment, date, time)">Submit Appointment</button>
 
+  </form>
 </div>
-
-
-
-
 <footer-dir></footer-dir>
-
-<form id="pickDate" class="modal" ng-submit="submitNewUser(user)">
-  <div class="modal-content input-field" style="margin-top: 0px;">
-		<time-date-picker class="big-o-calender grey lighten-3" ng-model="appointment.date"></time-date-picker>
-	</div>
-</form>

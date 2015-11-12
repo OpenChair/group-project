@@ -1,10 +1,9 @@
-var app = angular.module('openChairApp')
-app.controller('searchBarCtrl', function($scope, businessService, loginService) {
-  
+angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService) {
+
   loginService.getUserName().then(function(response) {
     $scope.user = response.data;
   });
-  
+
   var currentTime = new Date();
   $scope.currentTime = currentTime;
   $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -36,7 +35,7 @@ app.controller('searchBarCtrl', function($scope, businessService, loginService) 
   $scope.onStop = function () {
 //      console.log('onStop');
   };
-  
+
   var getUserLocation = function() {
 
     if (navigator.geolocation) {
@@ -48,7 +47,7 @@ app.controller('searchBarCtrl', function($scope, businessService, loginService) 
         },
         function(error){
           $scope.lat = $scope.user.location[0];
-          $scope.lon = $scope.user.location[1];  
+          $scope.lon = $scope.user.location[1];
           console.log( "Something went wrong: ", error );
         },
         {
@@ -72,7 +71,7 @@ app.controller('searchBarCtrl', function($scope, businessService, loginService) 
     businessService.getFilterdBusinesses(searchString, radius, lat, lon).then(function(response) {
       console.log(response);
     } );
-      
+
   }
-  
+
 });

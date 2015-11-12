@@ -42,7 +42,7 @@ app.get('/auth/facebook/callback',
 
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
-app.put('/user', isAuthed, UserController.update);
+// app.put('/user', isAuthed, UserController.update);
 app.post('/login', passport.authenticate('poople',{
 	successRedirect:'/user'
 }));
@@ -53,7 +53,10 @@ app.get('/logout', function(req, res){
   });
 });
 
+
+
 app.get('/user/:id', UserController.find);
+app.put('/user/:id', UserController.update);
 
 app.post('/appointment', AppointmentController.create);
 app.get('/appointments', AppointmentController.read);
