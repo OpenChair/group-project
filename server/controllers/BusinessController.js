@@ -36,6 +36,7 @@ module.exports = {
   },
 
   findByLocation: function(req, res) {
+    console.log("here's a string");
     Business.find({ location: {$geoWithin: { $centerSphere: [ [ req.params.lat, req.params.lon ], req.params.radius / 3963.2 ] } } })
       .where('type').equals(req.query.type)
       .where('date').gt(req.query.date)
