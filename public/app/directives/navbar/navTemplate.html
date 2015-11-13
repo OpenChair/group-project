@@ -20,8 +20,9 @@
           <a href="#/business/{{business._id}}">Profile</a>
         </li>
         <li ng-if="business">
-          <a href="#/businessDash">Dash</a>
+          <a href="#/businessDash/{{business._id}}">Dash</a>
         </li>
+        <li></li>
         <li ng-if="user">
           <a href = '/logout'>logout</a>
         </li>

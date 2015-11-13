@@ -3,7 +3,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 	this.newUserService=function(user){
 		return $http({
 			method:'POST',
-			url:'http://localhost:7200/user',
+			url:'/user',
 			data:user
 		}).then(function(err, res){
 			if(err){ return err;}
@@ -14,7 +14,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 	this.loginUserSubmit=function(user){
 		return $http({
 			method:"POST",
-			url:'http://localhost:7200/login',
+			url:'/login',
 			data:user
 		}).then(function(res){
 			console.log(res)
@@ -25,7 +25,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url:'http://localhost:7200/user'
+			url:'/user'
 		}).then(function(res){
 			var userName=res;
 			deferred.resolve(userName);
@@ -38,7 +38,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 
 		return $http({
 			method:'POST',
-			url:'http://localhost:7200/business',
+			url:'/business',
 			data:business
 		})
 		// .then(function(res, err){
@@ -62,7 +62,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url:'http://localhost:7200/business'
+			url:'/business'
 		}).then(function(res,err){
 			var businessName=res;
 			deferred.resolve(businessName);
