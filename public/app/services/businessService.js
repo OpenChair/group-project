@@ -1,4 +1,16 @@
 angular.module('openChairApp').service('businessService', function($http, constants) {
+  var searchCriteria = {
+    lat: 0,
+    lon: 0
+  };
+
+  this.getSearchCriteria = function() {
+    return searchCriteria;
+  };
+
+  this.setSearchCriteria = function(sC) {
+    searchCriteria = sC;
+  };
 
   this.getBusinesses = function() {
     return $http({
@@ -11,7 +23,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
   this.getFilterdBusinesses = function(searchCriteria, radius, lat, lon) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses/' + radius + '/' + lat + '/' + lon + '?',
+      url: '/businesses/' + radius + '/' + lat + '/' + lon + '?type=' + searchCriteria.type + '&date=' + searchCriteria.date + '&time=' + searchCriteria.time + '&text=' + searchCriteria.text
     }).then(function(response) {
       return response.data;
     });
@@ -20,7 +32,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
   this.getBusiness = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses/' + id
+      url: constants.baseURL + 'businesses/' + idd
     }).then(function(response) {
       return response.data;
     });
@@ -51,6 +63,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
       return response.data;
     });
   };
+
   
   this.updateBusiness = function(id, business) {
   console.log(business);
@@ -64,6 +77,10 @@ angular.module('openChairApp').service('businessService', function($http, consta
   };
   
   
+
+
+
+
   // this.editBusinessService = function(id, business) {
   //   return $http({
   //     method: 'PUT',

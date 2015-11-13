@@ -4,6 +4,7 @@
 	<div class="business-dash-content-one">
 		<div class="business-dash-content-one-one">
 
+
 			<img class="picture-business-dash z-depth-1" materialboxed class="materialboxed" data-caption="{{profilePic[0].caption}}"
 			width="250" src="{{profilePic[0].link}}">
 
@@ -21,6 +22,36 @@
 				<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
 				<img class="small-image" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg">
 			</div> -->
+
+			<!-- PROFILE PICTURE -->
+			<div class="card">
+				<div class="card-image">
+					<img class="picture-business-dash z-depth-1" width="250" src="{{profilePic[0].link}}">
+					<span class="card-title">{{profilePic[0].caption}}</span>
+				</div>
+				<div class="card-action">
+					<a href="#profilePicModal" modal>Edit Photo</a>
+				</div>
+			</div>
+
+			<!-- MINI PICTURES -->
+
+
+			<div class="mini-pictures-business">
+				<div ng-repeat="pic in business.pictures track by $index">
+					<div class="card">
+						<div class="card-image">
+							<img class="mini-picture-business" class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
+							<span class="card-title">{{pic.caption}}</span>
+						</div>
+						<div class="card-action">
+							<a href="#picModal" modal>Edit Photo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+>>>>>>> 464ced70d1aa489c83c70e210bb0043aaaaaade8
 		</div>
 
 		<div class="business-dash-content-one-two">
@@ -100,8 +131,7 @@
 									<label for="Business.scheduleParams.Wednesday.openWednesday">Open Wednesday</label>
 								</div>
 								<div class="input-field col s6">
-									<input ng-model='Business.scheduleParams.Wednesday.closedWednesday' id="Business.scheduleParams.Wednesday.closedWednesday"
-									type="text">
+									<input ng-model='Business.scheduleParams.Wednesday.closedWednesday' id="Business.scheduleParams.Wednesday.closedWednesday" type="text">
 									<label for="Business.scheduleParams.Wednesday.closedWednesday">Closed Wednesday</label>
 								</div>
 								<div class="input-field col s6">
@@ -201,7 +231,7 @@
 
 									<div class="row switch">
 										<div class="input-field col s12">
-											<p style="color: #9ea0b7;"> High Level Privilages? <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Allows user view and edit all information in business">warning</i>												</p>
+											<p style="color: #9ea0b7;"> High Level Privilages? <i class="material-icons tooltipped" data-position="right" data-delay="50" data-tooltip="Allows user view and edit all information in business">warning</i> </p>
 											<label style="margin-top: 25px;">
 												No
 												<input type="checkbox">
@@ -269,6 +299,7 @@
 
 
 			<footer-dir></footer-dir>
+
 
 
 			<form id="updateBusinessInfoModal" class="modal" ng-submit="updateBusiness(business)">
@@ -378,3 +409,32 @@
 					<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Submit<i class="material-icons right">send</i></button>
 				</div>
 			</form>
+
+			<form id="profilePicModal" class="modal editPicModal" ng-submit="editPictures(business.pictures, profilePic)">
+				<div class="col">
+					<img class="picture-business-dash z-depth-1" width="250" src="{{profilePic[0].link}}">
+					<div>
+						<label for="link{{$index}}">Link</label>
+						<input type="text" id="link{{$index}}" ng-model="profilePic[0].link" placeholder="If left blank, image will be replaced with black">
+						<label for="caption{{$index}}">Caption</label>
+						<input type="text" id="caption{{$index}}" ng-model="profilePic[0].caption">
+					</div>
+					<button type="submit" style="margin-bottom: 15px; margin-top: 15px;" class="submit-button">Save</button>
+				</div>
+			</form>
+
+			<form id="picModal" class="modal editPicModal" ng-submit="editPictures(business.pictures, profilePic)">
+				<div class="col">
+					<div class="pics" ng-repeat="pic in business.pictures track by $index">
+						<img class="mini-picture-business" class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
+						<div>
+							<label for="link{{$index}}">Link</label>
+							<input type="text" id="link{{$index}}" ng-model="pic.link" placeholder="If left blank, image will be replaced with black">
+							<label for="caption{{$index}}">Caption</label>
+							<input type="text" id="caption{{$index}}" ng-model="pic.caption">
+						</div>
+					</div>
+					<button type="submit" style="margin-bottom: 15px; margin-top: 15px;" class="submit-button">Save</button>
+				</div>
+			</form>
+

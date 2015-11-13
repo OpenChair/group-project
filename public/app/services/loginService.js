@@ -25,7 +25,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		return $http({
 			method:"GET",
 			url:'/user'
-		})
+		});
 	};
 	this.newBusinessService=function(business){
 
