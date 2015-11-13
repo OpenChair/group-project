@@ -22,11 +22,10 @@
         <li ng-if="business">
           <a href="#/businessDash/{{business._id}}">Dash</a>
         </li>
-        <li></li>
-        <li ng-if="user">
-          <a href = '/logout'>logout</a>
+        <li ng-if="user || business">
+          <a href = '/logout'>Logout</a>
         </li>
-        <li ng-if="!user">
+        <li ng-if="user==='' || business===''">
           <a class='dropdown-button' href='javascript:void(0)' data-activates='loginDropdown' dropdown>
             Login
           </a>
@@ -37,27 +36,22 @@
               <div class='col'>
                 <a class='grey' href='#userLoginModal' modal>User</a>
               </div>
-
             </li>
-
             <li class="divider black"></li>
-
             <li>
               <!-- Modal Trigger -->
               <div class="col">
                 <a class='grey' href='#businessLoginModal' modal>Business</a>
               </div>
-
             </li>
           </ul>
         </li>
 
-        <li ng-if="!user">
+        <li ng-if="user==='' || business===''">
           <!-- Dropdown Trigger -->
           <a class='dropdown-button' href='javascript:void(0)' data-activates='registerDropdown' dropdown>
             Register
           </a>
-
           <!-- Dropdown Structure -->
           <ul id='registerDropdown' class='dropdown-content'>
             <li>
