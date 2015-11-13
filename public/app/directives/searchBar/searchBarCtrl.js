@@ -35,9 +35,15 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
   $scope.onStop = function () {
 //      console.log('onStop');
   };
-
+  
+  $scope.searchCriteria = {
+    type: '',
+    date: '',
+    time: '',
+    text: ''
+  };
+  
   var getUserLocation = function() {
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(pos) {
@@ -61,8 +67,7 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
   $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
     businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon).then(function(response) {
       console.log(response);
-    } );
-
+    });
   };
 
 });
