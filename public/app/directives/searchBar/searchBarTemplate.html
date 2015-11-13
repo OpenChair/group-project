@@ -1,7 +1,7 @@
-<div class="searchBar">
+<form class="searchBar">
   <div >
-    <select id="businessDropdown" material-select>
-      <option>Type</option>
+    <select id="businessDropdown" material-select ng-model='searchCriteria.type'>
+      <option value="" selected="selected">Type</option>
       <option><a href="javascript:void(0);">Hair Salon</a></option>
       <option><a href="javascript:void(0);">Nail Salon</a></option>
       <option><a href="javascript:void(0);">Spa</a></option>
@@ -12,7 +12,8 @@
 
   <div class="datePicker">
     <label for="inputCreated"></label>
-    <input input-date
+    <input style='color: l' input-date
+        ng-model='searchCriteria.date'
         type="text"
         name="created"
         id="inputCreated"
@@ -40,8 +41,8 @@
         />
   </div>
   <div class="timeSelector">
-    <select id="timeDropDown" material-select>
-      <option >Time</option>
+    <select id="timeDropDown" material-select ng-model='searchCriteria.time'>
+      <option value="" >Time</option>
       <option value="09:00">9:00 AM</option>
       <option value="09:15">9:15 AM</option>
       <option value="09:30">9:30 AM</option>
@@ -98,9 +99,9 @@
     </select>
   </div>
   <div >
-    <input class="searchInput" placeholder="Location, Business Name, or Type"></input>
+    <input class="searchInput" ng-model='searchCriteria.text' placeholder="Location, Business Name, or Type"></input>
   </div>
   <div>
-    <a class="waves-effect waves-light btn searchButton"><i class="material-icons left">search</i>Find It</a>
+    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria)'><i class="material-icons left">search</i>Find It</a>
   </div>
-</div>
+</form>

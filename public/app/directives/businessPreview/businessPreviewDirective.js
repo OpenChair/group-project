@@ -3,6 +3,9 @@ angular.module('openChairApp')
 	return {
     restrict: 'EA',
       templateUrl:'app/directives/businessPreview/businessPreview.html',
+			scope: {
+				
+			},
       controller: 'businessPreviewCtrl'
 	};
 });
