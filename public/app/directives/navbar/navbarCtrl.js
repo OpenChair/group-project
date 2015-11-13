@@ -21,11 +21,13 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
       // loginService.getUserName().then(function(res) {
         $scope.customerName = 'Welcome, ' + res.data.name.first;
         $scope.user = res.data;
+        
       // });
 
     }, function(err) {
       if (err.status > 300) {
         alert('bad data guys!!!!');
+        $scope.user=err
       }
     });
 
@@ -52,6 +54,7 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
     }, function(err) {
       if (err.status > 300) {
         alert('bad data guys!!!!');
+        $scope.business=err
       }
     });
   };
