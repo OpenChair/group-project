@@ -64,7 +64,7 @@
 							</form>
       </div>
     </div>
-    <a href="#/search" class="add-new-app" style="color: #8c57cc;">+ Find new appointment
+    <a href="#/search" class="add-new-app" style="color: #636363; float: right;">+ Find new appointment
       </a>
   </div>
 
@@ -73,18 +73,19 @@
 
 
 <br>
-<h4 class="favorites-header"> Favorites </h4>
+<div class="favorites-header">
+<h4 class="favorites-text"> Favorites </h4>
+</div>
 <br>
 <div class="row ">
   <div class="s10 col ">
     <div class="row ">
-      <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
+      <div class="col s12 m6 l3 " style="margin-top: 10px;" ng-repeat="b in user.favorites ">
         <business-preview></business-preview>
       </div>
     </div>
   </div>
 </div>
-
 <footer-dir></footer-dir>
 
 <form id="updateUserModal" class="modal" ng-submit="updateUser(user)">
