@@ -11,6 +11,7 @@ passport.serializeUser(function(user, done) {
 });
 passport.deserializeUser(function(_id, done) {
   User.findById(_id, function(err, user) {
+    console.log('deserialize')
     done(err, user);
   });
 });
@@ -35,13 +36,23 @@ passport.use( 'biz', new LocalStrategy({
 }, function(email, password, done) {
   Business.findOne({ email: email })
   .exec(function(err, business) {
+    console.log('i made it this far')
     if(err) {
       console.log(12121212, err);
       done(err);
     }
-    if(!business) return done(null, false);
-    if(business.verifyPassword(password)) return done(null, business);
-    return done(null, false);
+    if(!business) {
+      console.log('business not found')
+      return done(null, false);
+    } 
+    if(business.verifyPassword(password)) {
+      console.log('business found')
+      return done(null, business);
+    }
+    else {
+      console.log('a hello next to it')      
+      return done(null, false);      
+    } 
   });
 }));
 

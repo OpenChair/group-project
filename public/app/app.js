@@ -82,7 +82,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
     }
   })
   .state('businessDash',{
-    url:'/businessdash/:id',
+    url:'/businessDash/:id',
     templateUrl: 'app/routes/businessDash/businessDashTmpl.html',
     controller: 'businessDashCtrl',
     resolve: {
