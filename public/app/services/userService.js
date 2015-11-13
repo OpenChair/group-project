@@ -14,7 +14,7 @@ this.updateUser = function(id, user) {
     return $http({
       method: 'PUT',
       url: constants.baseURL + 'user/' + id,
-      data: user 
+      data: user
    }).then(function(response) {
       return response.data;
     });

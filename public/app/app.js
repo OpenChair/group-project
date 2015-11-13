@@ -39,6 +39,9 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
     resolve: {
       businesses: function (businessService) {
         return businessService.getBusinesses();
+      },
+      searchCriteria: function(businessService) {
+        return businessService.getSearchCriteria();
       }
     }
   })

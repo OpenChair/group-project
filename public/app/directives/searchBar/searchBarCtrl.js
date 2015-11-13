@@ -1,4 +1,8 @@
-angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
+angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService) {
+
+  loginService.getUserName().then(function(response) {
+    $scope.user = response.data;
+  });
 
   var currentTime = new Date();
   $scope.currentTime = currentTime;
@@ -30,6 +34,34 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope) {
   };
   $scope.onStop = function () {
 //      console.log('onStop');
+  };
+  
+  
+  var getUserLocation = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(pos) {
+          $scope.lat = pos.coords.latitude;
+          $scope.lon = pos.coords.longitude;
+        },
+        function(error){
+          $scope.lat = $scope.user.location[0];
+          $scope.lon = $scope.user.location[1];
+        },
+        {
+          timeout: (5 * 1000),
+          maximumAge: (1000 * 60 * 15),
+          enableHighAccuracy: true
+        }
+      );
+    }
+  };
+  $scope.radius = 30;
+  getUserLocation();
+  $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
+    businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon).then(function(response) {
+      console.log(response);
+    });
   };
 
 });

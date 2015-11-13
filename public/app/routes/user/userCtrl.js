@@ -31,4 +31,3 @@ angular.module('openChairApp')
    });
  };
 });
-
