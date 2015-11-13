@@ -16,13 +16,22 @@ module.exports = {
   },
 
   me: function(req, res) {
+    console.log('hola')
     // console.log(req.user, 'kjasdkjhfkasjdhfkajshdf')
-    if (!req.isAuthenticated()) {
+  //   if (!req.user) {
+  //     console.log("not authenticated");
+  //     return res.status(401).send("current user not defined");
+  //   } else {
+  //     req.user.password = null;
+  //     return res.send(req.user);
+  //   }
+  // },
+    if (!req.session.user) {
       console.log("not authenticated");
       return res.status(401).send("current user not defined");
     } else {
-      req.user.password = null;
-      return res.json(req.user);
+      req.session.user.password = null;
+      return res.send(req.session.user);
     }
   },
 
