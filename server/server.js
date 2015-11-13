@@ -27,7 +27,7 @@ app.use(passport.session());
 
 
 var isAuthed = function(req, res, next){
-  console.log('jijdijd')
+  console.log('jijdijd');
   if(!req.isAuthenticated()) {return res.sendStatus(401);}
   return next();
 };
