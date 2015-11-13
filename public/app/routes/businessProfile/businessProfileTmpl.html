@@ -72,7 +72,7 @@
           <div class="b-name">{{b.name}}</div>
           <div class="b-price">$ {{b.price}}</div>
           <div class="b-select">
-            <button ng-click="selectService(b)">Select</button>
+            <button class="btn black" ng-click="selectService(b)">Select</button>
           </div>
         </div>
       </li>
@@ -108,7 +108,7 @@
             <option value="09:15">9:15 AM</option>
             <option value="09:30">9:30 AM</option>
             <option value="09:45">9:45 AM</option>
-            <option value="10:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
             <option value="10:15">10:15 AM</option>
             <option value="10:30">10:30 AM</option>
             <option value="10:45">10:45 AM</option>
@@ -188,8 +188,18 @@
       </li>
     </ul>
 
-    <button class="business-dash-button btn black" type="submit" ng-click="submitAppt(appointment, date, time)">Request Appointment</button>
+    <button  href="#verifyModal" class="business-dash-button btn black" type="submit" modal>Request Appointment</button>
 
   </form>
 </div>
 <footer-dir></footer-dir>
+
+<div id="verifyModal" class="modal">
+  <div class="row center-align are-you-sure">
+    Are you sure?
+  </div>
+  <div class="row center-align">
+    <button class="btn black waves-effect modal-close" ng-click="submitAppt(appointment, date, time); sendVerification(user.email, user.name)">Yes</button>
+    <button class="btn black waves-effect modal-close" id="closeDaModal">No</button>
+  </div>
+</div>

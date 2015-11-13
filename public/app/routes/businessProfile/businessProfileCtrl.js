@@ -1,5 +1,5 @@
 angular.module('openChairApp')
-.controller('businessProfileCtrl', function($scope, business, loginService, $location, appointmentsService) {
+.controller('businessProfileCtrl', function($scope, business, loginService, $location, appointmentsService, emailService) {
   loginService.getUserName().then(function(res) {
     if (res.data) {
       $scope.appointment = {
@@ -12,6 +12,10 @@ angular.module('openChairApp')
   //     $location.path('#/home');
   //   }
   });
+
+  $scope.sendVerification = function(email, name) {
+    emailService.verificationEmail(email, name);
+  };
 
   $scope.pushService = "";
 
@@ -59,14 +63,16 @@ angular.module('openChairApp')
        }
     });
 
-
-$('.datepicker').pickadate({
+  // JQUERY
+  $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   $('[data-click]').on('click', function (e) {
       $( $(this).data('click') ).trigger('click');
   });
-
+  $('#closeDaModal').on('click', function() {
+     $('#verifyModal').modal('hide');
+  });
 
 });
