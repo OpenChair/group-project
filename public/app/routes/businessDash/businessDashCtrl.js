@@ -50,7 +50,7 @@ angular.module('openChairApp').controller('businessDashCtrl', function ($scope, 
     $('.tooltipped').tooltip({ delay: 50 });
 
     $scope.profilePic = $scope.business.pictures.splice(0, 1);
-  })
+  });
 
   $(document).ready(function () {
     $('.tooltipped').tooltip({

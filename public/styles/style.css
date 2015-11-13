@@ -523,7 +523,7 @@ input.select-dropdown {
 }
 .dropdown-content {
   background: black;
-  text-decoration-color: #9e9e9e;
+  color: #9e9e9e;
 }
 .about-header {
   position: relative;
