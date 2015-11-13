@@ -30,10 +30,4 @@ angular.module('openChairApp')
      })
    })
  };
- 
-})
-
-
-
-});
-
+}

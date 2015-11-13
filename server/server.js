@@ -71,13 +71,14 @@ app.get('/businesses/:id', BusinessController.readByID);
 app.get('/businesses/:radius/:lat/:lon', BusinessController.findByLocation);
 app.post('/businesses', BusinessController.create);
 app.put('/businesses/:id', BusinessController.edit);
-// app.put('/businesses/:id', BusinessController.update);
+app.put('/businesses/:id', BusinessController.update);
 // app.put('/businesses/:id', BusinessController.update);
 app.delete('/businesses/:id', BusinessController.delete);
 
 app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
-app.put('/business', isAuthed, BusinessController.update);
+// app.put('/business', isAuthed, BusinessController.update);
+app.put('/business/:id', BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req,res){
   res.send(req);
 });

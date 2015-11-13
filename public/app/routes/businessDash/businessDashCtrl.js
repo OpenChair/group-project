@@ -25,6 +25,16 @@ $scope.deleteService = function(index) {
  };
  
  
+ $scope.updateBusiness = function(business){
+   businessService.updateBusiness($scope.business._id, business).then(function(response) {
+     businessService.getBusiness(business._id).then(function(response) {
+       $scope.business = response;
+     })
+   })
+ };
+ 
+ 
+ 
  $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
   });

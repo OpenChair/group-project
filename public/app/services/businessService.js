@@ -52,6 +52,18 @@ angular.module('openChairApp').service('businessService', function($http, consta
     });
   };
   
+  this.updateBusiness = function(id, business) {
+  console.log(business);
+    return $http({
+      method: 'PUT',
+      url: constants.baseURL + 'business/' + id,
+      data: business 
+   }).then(function(response) {
+      return response.data;
+    });
+  };
+  
+  
   // this.editBusinessService = function(id, business) {
   //   return $http({
   //     method: 'PUT',

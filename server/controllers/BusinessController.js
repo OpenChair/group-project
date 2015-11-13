@@ -26,7 +26,7 @@ module.exports = {
   },
 
   update: function(req, res, done) {
-    Business.findByIdandUpdate(req.business._id, req.body, function(err, result) {
+    Business.findByIdAndUpdate(req.business._id, req.body, function(err, result) {
       if (err) {
         return res.status(500).json(err);
       } else {

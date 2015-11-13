@@ -4,14 +4,15 @@
 	<div class="business-dash-content-one">
 		<div class="business-dash-content-one-one">
 
-			<img class="picture-business-dash z-depth-1" materialboxed class="materialboxed" data-caption="{{profilePic[0].caption}}" width="250" src="{{profilePic[0].link}}">
+			<img class="picture-business-dash z-depth-1" materialboxed class="materialboxed" data-caption="{{profilePic[0].caption}}"
+			width="250" src="{{profilePic[0].link}}">
 
-	    <!-- MINI PICTURES -->
-	    <div class="mini-pictures-business">
-	      <div ng-repeat="pic in business.pictures">
-	        <img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
-	      </div>
-	    </div>
+			<!-- MINI PICTURES -->
+			<div class="mini-pictures-business">
+				<div ng-repeat="pic in business.pictures">
+					<img class="mini-picture-business" materialboxed class="materialboxed" data-caption="{{pic.caption}}" width="250" src="{{pic.link}}">
+				</div>
+			</div>
 
 			<!-- <img class="picture-business-dash z-depth-1" src="http://beauty.takarabelmont.com/content/images/uploads/design-portfolio/Franks%20Barbershop/Franks%20Barber%20Shop-3.jpg"> -->
 			<!-- PEOPLE NEED TO BE ABLE TO EDIT THESE PHOTOS -->
@@ -24,108 +25,44 @@
 
 		<div class="business-dash-content-one-two">
 			<div class="collapsible-business-dash-header z-depth-1 center-align">
-				<h5 class="edit-info-header">Edit Information</h5>
+				<h5 class="edit-info-header">Information</h5>
 			</div>
 			<ul class="collapsible popout collapsible-business-dash" data-collapsible="accordion">
 
 				<li class="edit-business-info">
-					<div class="collapsible-header"><i class="material-icons">work</i>Edit business info</div>
-					<div class="collapsible-body grey lighten-3 input-field">
+					<div class="collapsible-header"><i class="material-icons">work</i>Business info</div>
+					<div class="collapsible-body grey lighten-3" ng-submit="updateBusiness(business)">
 						<div class="row">
-							<div class="input-field col s12">
-								<input ng-model='Business.businessName' id="BusinessName" type="text">
-								<label for="BusinessName">Business Name</label>
+							<div class="col s12">
+								<h5 id="BusinessName" style="text-align: center;">{{business.businessName}} </h5>
 							</div>
 
 							<div class="row">
-								<div class="input-field col s9">
-									<input ng-model='Business.address.street' id="street" type="text">
-									<label for="street">Street</label>
+								<div class="col s12">
+									<div ng-model='business.address.street' id="street"> Address: {{business.address.street}}</div>
 								</div>
-								<div class="input-field col s3">
-									<input ng-model='Business.address.suite' id="suite" type="text">
-									<label for="suite">Suite</label>
+								<div class="col s12">
+									<div ng-model='business.address.suite' id="suite"> Suite: {{business.address.suite}}</div>
 								</div>
 								<div class="row">
-									<div class="input-field col s4">
-										<input ng-model='Business.address.city' id="city" type="text">
-										<label for="city">City</label>
+									<div class="col s12">
+										<div ng-model='business.address.city' id="city"> City: {{business.address.city}}</div>
 									</div>
-									<div class="input-field col s4">
-										<label for="state"></label>
-										<select class="browser-default" ng-model='Business.address.state' id="state" type="text">
-											<option value="" disabled selected>State</option>
-											<option value="1">AL</option>
-											<option value="2">AK</option>
-											<option value="3">AZ</option>
-											<option value="4">AR</option>
-											<option value="5">CA</option>
-											<option value="6">CO</option>
-											<option value="7">CT</option>
-											<option value="8">DE</option>
-											<option value="9">FL</option>
-											<option value="10">GA</option>
-											<option value="11">HI</option>
-											<option value="12">ID</option>
-											<option value="13">IL</option>
-											<option value="14">IN</option>
-											<option value="15">IA</option>
-											<option value="16">KS</option>
-											<option value="17">KY </option>
-											<option value="18">LA </option>
-											<option value="19">ME</option>
-											<option value="20">MD</option>
-											<option value="21">MA</option>
-											<option value="22">MI</option>
-											<option value="23">MN</option>
-											<option value="24">MS</option>
-											<option value="25">MO</option>
-											<option value="26">MT</option>
-											<option value="27">NE</option>
-											<option value="28">NV</option>
-											<option value="29">NH</option>
-											<option value="30">NJ</option>
-											<option value="31">NM</option>
-											<option value="32">NY</option>
-											<option value="33">NC</option>
-											<option value="34">ND</option>
-											<option value="35">OH</option>
-											<option value="36">OK</option>
-											<option value="37">OR</option>
-											<option value="38">PA</option>
-											<option value="39">RI</option>
-											<option value="40">SC</option>
-											<option value="41">SD</option>
-											<option value="42">TN</option>
-											<option value="43">TX</option>
-											<option value="44">UT</option>
-											<option value="45">VT</option>
-											<option value="46">VA</option>
-											<option value="47">WA</option>
-											<option value="48">WV</option>
-											<option value="49">WI</option>
-											<option value="50">WY</option>
-
-										</select>
+									<div class="col s12">
+										<div ng-model='business.address.state' id="state"> State: {{business.address.state}}</div>
 									</div>
-									<div class="input-field col s4">
-										<input ng-model='Business.address.zip' id="zip" type="number">
-										<label for="zip">Zip</label>
+									<div class=" col s12">
+										<div ng-model='business.address.zip' id="zip">Zip: {{business.address.zip}}</div>
 									</div>
-									<div class="input-field col s6">
-										<input ng-model='Business.phone' id="phone" type="text">
-										<label for="phone">Phone</label>
+									<div class=" col s12">
+										<div ng-model='business.phone' id="phone"> Phone: {{business.phone}}</div>
 									</div>
-									<div class="input-field col s6">
-										<input ng-model='Business.email' id="email" type="email">
-										<label for="email">Email</label>
+									<div class=" col s12">
+										<div ng-model='business.email' id="email"> Email: {{business.email}}</div>
 									</div>
-
-									<!--<input ng-model='Business.logo' placeholder='logo img' type="text">
-							<input ng-model='Business.yelpReview' placeholder='yelp id' type="text">-->
 								</div>
-								<!-- just added a submit -->
-								<button class="submit-button-business-dash" ng-click=''>Submit</button>
+
+								<button href="#updateBusinessInfoModal" class="submit-button-business-dash" modal>Edit</button>
 							</div>
 				</li>
 
@@ -332,3 +269,112 @@
 
 
 			<footer-dir></footer-dir>
+
+
+			<form id="updateBusinessInfoModal" class="modal" ng-submit="updateBusiness(business)">
+				<div class="modal-content input-field" style="margin-top: 0px;">
+					<h4>Edit Information</h4>
+					<div class="row">
+						<div class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<input ng-model="business.businessName" id="businessName" type="text" class="validate">
+									<label for="businessName">Business Name</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s9">
+									<input ng-model="business.address.street" id="businessAddress" type="text" class="validate">
+									<label for="businessAddress">Address</label>
+								</div>
+								<div class="input-field col s3">
+									<input ng-model="business.address.suite" id="businessSuite" type="text" class="validate">
+									<label for="businessSuite">Suite</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s4">
+									<input ng-model="business.address.city" id="city" type="text" class="validate">
+									<label for="city">City</label>
+								</div>
+								<div class="input-field col s4">
+									<label for="state"></label>
+									<select style="background-color: black;" class="browser-default" ng-model="business.address.state" id="state" type="text">
+										<option value="" disabled selected>State</option>
+										<option value="AL">AL</option>
+										<option value="AK">AK</option>
+										<option value="AZ">AZ</option>
+										<option value="AR">AR</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DE">DE</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="ID">ID</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="IA">IA</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY </option>
+										<option value="LA">LA </option>
+										<option value="ME">ME</option>
+										<option value="MD">MD</option>
+										<option value="MA">MA</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MS">MS</option>
+										<option value="MO">MO</option>
+										<option value="MT">MT</option>
+										<option value="NE">NE</option>
+										<option value="NV">NV</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NY">NY</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VT">VT</option>
+										<option value="VA">VA</option>
+										<option value="WA">WA</option>
+										<option value="WV">WV</option>
+										<option value="WI">WI</option>
+										<option value="WY">WY</option>
+
+									</select>
+								</div>
+								<div class="input-field col s4">
+									<input ng-model="business.address.zip" id="zip" type="text" class="validate">
+									<label for="zip">Zip</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s6">
+									<input ng-model="business.phone" id="phone" type="text" class="validate">
+									<label for="phone">Phone</label>
+								</div>
+								<div class="input-field col s6">
+									<input ng-model="business.email" id="email" type="email" class="validate">
+									<label for="email">Email</label>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Submit<i class="material-icons right">send</i></button>
+				</div>
+			</form>
