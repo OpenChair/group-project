@@ -36,12 +36,6 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
 //      console.log('onStop');
   };
   
-  $scope.searchCriteria = {
-    type: '',
-    date: '',
-    time: '',
-    text: ''
-  };
   
   var getUserLocation = function() {
     if (navigator.geolocation) {

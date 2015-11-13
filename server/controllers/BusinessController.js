@@ -16,22 +16,13 @@ module.exports = {
   },
 
   me: function(req, res) {
-    console.log('hola')
     // console.log(req.user, 'kjasdkjhfkasjdhfkajshdf')
-  //   if (!req.user) {
-  //     console.log("not authenticated");
-  //     return res.status(401).send("current user not defined");
-  //   } else {
-  //     req.user.password = null;
-  //     return res.send(req.user);
-  //   }
-  // },
-    if (!req.session.user) {
+    if (!req.isAuthenticated()) {
       console.log("not authenticated");
       return res.status(401).send("current user not defined");
     } else {
-      req.session.user.password = null;
-      return res.send(req.session.user);
+      req.user.password = null;
+      return res.json(req.user);
     }
   },
 
@@ -53,6 +44,7 @@ module.exports = {
 //      .where('date').gt(req.query.date)
 //      .where('time').gt(req.query.time)
       .where('businessName').equals(req.query.text)
+    // .or([ {businessName: req.query.text}, {address: req.query.text} ])
       .exec(function(err, result) {
       if (err) {
         return res.status(500).json(err);

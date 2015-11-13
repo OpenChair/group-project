@@ -1,4 +1,16 @@
 angular.module('openChairApp').service('businessService', function($http, constants) {
+  var searchCriteria = {
+    lat: 0,
+    lon: 0
+  };
+
+  this.getSearchCriteria = function() {
+    return searchCriteria;
+  };
+
+  this.setSearchCriteria = function(sC) {
+    searchCriteria = sC;
+  };
 
   this.getBusinesses = function() {
     return $http({

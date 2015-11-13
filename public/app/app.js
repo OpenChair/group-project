@@ -41,7 +41,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
         return businessService.getBusinesses();
       },
       searchCriteria: function(businessService) {
-        return businessService.searchCriteria;
+        return businessService.getSearchCriteria();
       }
     }
   })
