@@ -1,7 +1,9 @@
 <div class="card grey lighten-3 business-card">
   <div class="card-content">
     <div class="card-title black">{{b.businessName}}</div>
-    <img class="card-image center-align" src="{{b.pictures[0].link}}" style="height: auto; max-width: " />
+    <div class="card-image">
+      <img class="center-align" src="{{b.pictures[0].link}}" style="height: auto; max-width: " />
+    </div>
     <br>
     <div class="row">
       <p class="">{{b.logo}}</p>
@@ -23,8 +25,7 @@
         <a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black">
           <i class="material-icons left">
             query_builder
-          </i>
-          Reserve
+          </i> Reserve
         </a>
       </div>
     </div>

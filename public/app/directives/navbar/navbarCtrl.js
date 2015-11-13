@@ -1,14 +1,22 @@
 angular.module('openChairApp').controller('navbarCtrl', function(loginService, $scope, $location, geocodingService) {
   loginService.getUserName().then(function(res) {
-    $scope.customerName = 'Welcome, ' + res.data.name.first;
+    if (res.data.businessName) $scope.customerName = res.data.businessName;
+    else{ $scope.customerName = 'Welcome, ' + res.data.name.first;
     $scope.user = res.data;
-  },function(err){
-    loginService.getBusinessName().then(function(res){
+    }
+  });
+  loginService.getBusinessName().then(function(res){
       $scope.customerName=res.data.businessName;
+<<<<<<< HEAD
     });
   });
 
 
+=======
+      $scope.business= res.data
+    })
+  
+>>>>>>> 9c0aceeef29796fd7c13bc37efe472ac0a498046
   $scope.submitNewUser = function(user) {
     var geocode = geocodingService.geocode(user.address).then(function(response) {
       user.location = [response.lng, response.lat];
@@ -17,14 +25,16 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
   };
   $scope.loginUserSubmit = function(user) {
     loginService.loginUserSubmit(user).then(function(res) {
-      loginService.getUserName().then(function(res) {
+      // loginService.getUserName().then(function(res) {
         $scope.customerName = 'Welcome, ' + res.data.name.first;
         $scope.user = res.data;
-      });
+        
+      // });
 
     }, function(err) {
       if (err.status > 300) {
         alert('bad data guys!!!!');
+        $scope.user=err
       }
     });
 
@@ -46,10 +56,16 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
     loginService.loginBusinessSubmit(login).then(function(res) {
       console.log('hi', res);
       $scope.customerName=res.data.businessName
+<<<<<<< HEAD
 
+=======
+      $scope.business= res.data
+    
+>>>>>>> 9c0aceeef29796fd7c13bc37efe472ac0a498046
     }, function(err) {
       if (err.status > 300) {
         alert('bad data guys!!!!');
+        $scope.business=err
       }
     });
   };
