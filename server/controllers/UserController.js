@@ -16,7 +16,7 @@ module.exports = {
 
     me: function(req, res){
         if(!req.user){
-            return res.send("current user not defined");
+            return res.status(401).send();
         } else {
             req.user.password = null;
             return res.json(req.user);

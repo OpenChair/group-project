@@ -22,17 +22,10 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		});
 	};
 	this.getUserName=function(){
-		var deferred=$q.defer();
-		$http({
+		return $http({
 			method:"GET",
-			url:'http://localhost:7200/user'
-		}).then(function(res){
-			var userName=res;
-			deferred.resolve(userName);
-		},function(err){
-			deferred.reject(err);
-		});
-		return deferred.promise;
+			url:'/user'
+		})
 	};
 	this.newBusinessService=function(business){
 
@@ -62,7 +55,7 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		var deferred=$q.defer();
 		$http({
 			method:"GET",
-			url:'http://localhost:7200/business'
+			url:'/business'
 		}).then(function(res){
 			var businessName=res;
 			deferred.resolve(businessName);

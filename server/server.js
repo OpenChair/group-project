@@ -27,6 +27,7 @@ app.use(passport.session());
 
 
 var isAuthed = function(req, res, next){
+  console.log('jijdijd')
   if(!req.isAuthenticated()) {return res.sendStatus(401);}
   return next();
 };
@@ -80,7 +81,7 @@ app.get('/business', BusinessController.me);
 // app.put('/business', isAuthed, BusinessController.update);
 app.put('/business/:id', BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req,res){
-  res.send(req);
+  res.send(req.user);
 });
 
 var mongoURI = 'mongodb://localhost:27017/openChair';

@@ -7,7 +7,7 @@ angular.module('openChairApp')
   //   }
   // });
   $scope.user = user;
-  
+
   $scope.appointments = appointments;
   $scope.getAppointments = function(){
     appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
@@ -22,12 +22,12 @@ angular.module('openChairApp')
  };
 
 
- 
+
  $scope.updateUser = function(user){
    userService.updateUser($scope.user._id, user).then(function(response) {
      userService.getUser(user._id).then(function(response) {
        $scope.user = response;
-     })
-   })
+     });
+   });
  };
-}
+});
