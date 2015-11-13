@@ -25,7 +25,7 @@
         <li ng-if="user || business">
           <a href = '/logout'>Logout</a>
         </li>
-        <li ng-if="user==='' || business===''">
+        <li ng-if="user===err && business===err">
           <a class='dropdown-button' href='javascript:void(0)' data-activates='loginDropdown' dropdown>
             Login
           </a>
@@ -47,7 +47,7 @@
           </ul>
         </li>
 
-        <li ng-if="user==='' || business===''">
+        <li ng-if="user===err && business===err">
           <!-- Dropdown Trigger -->
           <a class='dropdown-button' href='javascript:void(0)' data-activates='registerDropdown' dropdown>
             Register
