@@ -15,9 +15,14 @@ module.exports = {
     },
 
     me: function(req, res){
-        if(!req.user){
+        console.log(15151515, req.session.user)
+        if(!req.user && !req.session.user){
             return res.status(401).send();
         } else {
+            if (req.session.user) {
+                req.session.user.password = null;
+                return res.json(req.session.user)
+            }
             req.user.password = null;
             return res.json(req.user);
         }
