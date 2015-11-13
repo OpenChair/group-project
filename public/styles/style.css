@@ -567,3 +567,12 @@ label {
 .big-o-calender .control .slider .date-control .title .month-part {
   color: black;
 }
+.areYouSure-button {
+  color: black;
+  width: 25%;
+  height: 25%;
+  margin-left: 120px;
+}
+.areYouSure-header {
+  text-align: center;
+}

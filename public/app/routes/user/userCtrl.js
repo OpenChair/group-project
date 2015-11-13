@@ -30,5 +30,15 @@ angular.module('openChairApp')
      });
    });
  };
+ 
+ $(function(){
+ 
+ $('#closeDaModal').click(function() {
+    $('#deleteAppointment').modal('hide');
+});
+ });
+ 
+ 
+ 
 });
 

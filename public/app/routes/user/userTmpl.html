@@ -51,14 +51,25 @@
           </div>
         </div>
 
-        <button class="cancel-button" ng-click="deleteAppointment(appointment._id)">Cancel appointment</button>
+        <button href="#deleteAppointment" modal class="cancel-button">Cancel appointment</button>
 
+<form id="deleteAppointment" class="modal">
+								<div class="modal-content" style="margin-top: 0px;">
+									<h4 class="areYouSure-header">Are you sure you want to cancel this Appointment?</h4>
+									<br>
+									<button class="areYouSure-button modal-close" ng-click="deleteAppointment(appointment._id)" id="closeDaModal"> Yes </button>
+									<button class="areYouSure-button modal-close" id="closeDaModal"> No </button>
+								</div>
+							</form>
       </div>
     </div>
     <a href="#/search" class="add-new-app">+ Find new appointment
       </a>
   </div>
+
+
 </div>
+
 
 <br>
 <h4 class="favorites-header"> Favorites </h4>
@@ -184,3 +195,5 @@
       <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Submit<i class="material-icons right">send</i></button>
     </div>
 </form>
+
+
