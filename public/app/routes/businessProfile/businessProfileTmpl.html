@@ -23,6 +23,7 @@
         <div class="collapsible-header active business-info-header center-align">Information</div>
         <div class="collapsible-body business-about grey lighten-5 center-align">
           <p>{{bProfile.about}}</p>
+          <button ng-click='addToFavorites()'>add to favorites</button>
         </div>
       </li>
       <li>
@@ -60,7 +61,8 @@
 
 
 
-
+    
+    
     <!-- MAKE APPOINTMENT -->
     <div class="selecting-appointment-header center-align">Make Appointment</div>
     <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
@@ -189,7 +191,22 @@
     </ul>
 
     <button class="business-dash-button btn black" type="submit" ng-click="submitAppt(appointment, date, time)">Request Appointment</button>
-
+          <!--yelp-->
+    <div class ='yelp'>
+      <div id='yelpwidget'></div>
+    </div>
   </form>
+
 </div>
 <footer-dir></footer-dir>
+<script>
+  (function() { 
+		var s = document.createElement("script");
+		s.async = true;
+		s.onload = s.onreadystatechange = function(){
+			getYelpWidget("boo-boo-records-inc-san-luis-obispo","30%","black","y","y","2");
+			};
+		s.src='http://chrisawren.com/widgets/yelp/yelpv2.js';
+		var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);
+		})();
+</script>

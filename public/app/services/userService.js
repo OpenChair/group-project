@@ -10,7 +10,6 @@ angular.module('openChairApp').service('userService', function($http, constants)
   };
 
 this.updateUser = function(id, user) {
-  console.log(user);
     return $http({
       method: 'PUT',
       url: constants.baseURL + 'user/' + id,
@@ -19,7 +18,14 @@ this.updateUser = function(id, user) {
       return response.data;
     });
   };
-
-
+this.addFavorites = function(id, data){
+  return $http({
+    method:'PUT',
+    url:'userFavorites/'+id,
+    data:data
+  }).then(function(res){
+    return res.data;
+  })
+}
 
 });
