@@ -57,10 +57,6 @@
   </div>
   <form class="business-page-content-one-two">
 
-
-
-
-
     <!-- MAKE APPOINTMENT -->
     <div class="selecting-appointment-header center-align">Make Appointment</div>
     <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
@@ -76,12 +72,6 @@
           </div>
         </div>
       </li>
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-event"></i>Select Date
@@ -90,12 +80,6 @@
           <input type="text" ng-model="date" ng-change="selectDate(date)" placeholder="Select Date" class="datepicker">
         </div>
       </li>
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-query-builder"></i>Select Time
@@ -167,11 +151,6 @@
 
         </div>
       </li>
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="small material-icons">subject</i>
@@ -199,7 +178,7 @@
     Are you sure?
   </div>
   <div class="row center-align">
-    <button class="btn black waves-effect modal-close" ng-click="submitAppt(appointment, date, time); sendVerification(user.email, user.name)">Yes</button>
+    <button class="btn black waves-effect modal-close" ng-click="submitAppt(appointment, date, time); sendVerification(appointment, date, time)">Yes</button>
     <button class="btn black waves-effect modal-close" id="closeDaModal">No</button>
   </div>
 </div>

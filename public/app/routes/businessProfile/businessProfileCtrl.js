@@ -12,11 +12,6 @@ angular.module('openChairApp')
   //     $location.path('#/home');
   //   }
   });
-
-  $scope.sendVerification = function(email, name) {
-    emailService.verificationEmail(email, name);
-  };
-
   $scope.pushService = "";
 
   $scope.submitAppt = function(appointment, date, time) {
@@ -24,13 +19,26 @@ angular.module('openChairApp')
     appointment.start = new Date(date + ', ' + time);
     appointment.end = moment(appointment.start).add(appointment.end, 'm');
     appointmentsService.makeAppointment(appointment);
-    console.log(appointment);
+
   };
 
   $scope.selectService = function(service) {
     $scope.appointment.title = service.name;
     $scope.appointment.price = service.price;
     $scope.appointment.end = service.duration;
+  };
+
+  $scope.sendVerification = function(appointment, date, time) {
+    loginService.getUserName().then(function(res) {
+      if (res.data) {
+        $scope.verifyemail = res.data.email;
+      }
+      console.log($scope.verifyemail);
+      appointment.start = new Date(date + ', ' + time);
+      emailService.verificationEmail($scope.verifyemail, appointment, business);
+      console.log(appointment.start);
+    });
+
   };
 
   $scope.bProfile = business;
