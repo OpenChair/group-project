@@ -11,7 +11,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var AppointmentController = require('./controllers/AppointmentController');
 var BusinessController = require('./controllers/BusinessController');
 var UserController = require('./controllers/UserController');
-var config = require("./config");
+var config = require("./services/config");
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -32,7 +32,6 @@ var isAuthed = function(req, res, next){
   if(!req.isAuthenticated()) {return res.sendStatus(401);}
   return next();
 };
-
 
 app.get('/auth/facebook', passport.authenticate('facebook', {scope:'email'}));
 app.get('/auth/facebook/callback',
