@@ -1,20 +1,21 @@
+<nav-template class="business-schedule-nav"></nav-template>
 <div class="span8">
     <tabset>
         <tab select="renderCalender('myCalendar1');">
             <div class="btn-toolbar">
-                <div class="btn-group">
-                    <button class="btn btn-success" ng-click="changeView('agendaDay', 'calendar')">AgendaDay</button>
-                    <button class="btn btn-success" ng-click="changeView('agendaWeek', 'calendar')">AgendaWeek</button>
-                    <button class="btn btn-success" ng-click="changeView('month', 'calendar')">Month</button>
-                    <a class="btn btn-success pull-left" href = '#addApp' modal>Add Appointment</a>
+                <div class="btn-group group-of-buttons">
+                    <button class="btn btn-success black" ng-click="changeView('agendaDay', 'calendar')">AgendaDay</button>
+                    <button class="btn btn-success black" ng-click="changeView('agendaWeek', 'calendar')">AgendaWeek</button>
+                    <button class="btn btn-success black" ng-click="changeView('month', 'calendar')">Month</button>
+                    <a class="btn btn-success black pull-left" href = '#addApp' modal>Add Appointment</a>
                 </div>
             </div>
-            <div class="calendar" ng-model="eventSources" calendar="calendar" ui-calendar="uiConfig.calendar"></div>
+            <div class="calendar the-calendar" ng-model="eventSources" calendar="calendar" ui-calendar="uiConfig.calendar"></div>
         </tab>
     </tabset>
 </div>
 
-                
+
 <div id="addApp" class="modal">
     <div class="modal-content">
         <h4>Schedule Appointment</h4>
@@ -30,4 +31,3 @@
 
 
     <footer-dir></footer-dir>
-

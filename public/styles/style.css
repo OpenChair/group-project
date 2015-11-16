@@ -115,6 +115,22 @@
   vertical-align: top;
 }
 
+.yelp-button {
+  position: absolute;
+  top: 90px;
+  right: 8%;
+}
+.yelp-button img {
+  padding-top: 5px;
+  width: 50px;
+  height: auto;
+}
+.favorite-button {
+  text-shadow: 2;
+  position: absolute;
+  top: 90px;
+  right: 22%;
+}
 .collapsible-body p {
   padding: 0rem;
 }
@@ -336,6 +352,9 @@ body {
 .navBarLogo {
   left: 2em;
 }
+.group-of-buttons {
+  margin-top: 15px;
+}
 .picker__weekday-display {
   background-color: grey;
 }
@@ -448,12 +467,19 @@ body {
 }
 .business-display-search {
   position: relative;
-  top: 55px;
+  margin-top: 55px;
   min-height: 100%;
 }
 .business-display-search div {
   margin-bottom: 20px;
   z-index: 5;
+}
+.image-for-business {
+  width: 85%;
+  height: 200px;
+}
+.business-card {
+  height: 500px;
 }
 .business-info {
   position: relative;
@@ -461,11 +487,17 @@ body {
   height: 250px;
 }
 .business-picture {
-  width: 35%;
-  height: auto;
+  width: 100%;
+  height: 200px;
   position: relative;
-  top: 35px;
-  left: 3%;
+  top: 0;
+}
+.star-icons {
+  margin-bottom: 0px;
+}
+.card-city {
+  width: 100%;
+  height: 25px;
 }
 .selecting-appointment {
   position: absolute;
@@ -613,4 +645,7 @@ label {
 }
 .big-o-calender .control .slider .date-control .title .month-part {
   color: black;
+}
+.the-calendar {
+  margin-bottom: 50px;
 }
