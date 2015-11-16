@@ -28,8 +28,8 @@ node_modules
 
 .DS_Store
 
-bundle.js
 style.css
+bundle.js
 
 bower_components
 
