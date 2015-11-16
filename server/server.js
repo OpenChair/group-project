@@ -11,6 +11,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var AppointmentController = require('./controllers/AppointmentController');
 var BusinessController = require('./controllers/BusinessController');
 var UserController = require('./controllers/UserController');
+var config = require("./config");
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -80,14 +81,12 @@ app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req, res){
-
-  console.log(req.user);  
   req.session.user = req.user;
   res.redirect('business');
   // successRedirect:'/business'
 });
 
-var mongoURI = 'mongodb://localhost:27017/openChair';
+var mongoURI = config.MONGO_URI;
 
 mongoose.set('debug', true);
 mongoose.connect(mongoURI);
@@ -95,7 +94,7 @@ mongoose.connection.once('open', function() {
   console.log("connected to mongoDB at: ", mongoURI);
 });
 
-var port = 7200;
+var port = config.PORT;
 
 app.listen(port, function() {
   console.log('listening on port ', port);
