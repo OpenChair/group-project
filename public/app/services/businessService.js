@@ -23,7 +23,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
   this.getFilterdBusinesses = function(searchCriteria, radius, lat, lon) {
     return $http({
       method: 'GET',
-      url: '/businesses/' + radius + '/' + lat + '/' + lon + '?type=' + searchCriteria.type + '&date=' + searchCriteria.date + '&time=' + searchCriteria.time + '&text=' + searchCriteria.text
+      url: '/businesses/' + radius + '/' + lat + '/' + lon + '?type=' + searchCriteria.type + '&text=' + searchCriteria.text
     }).then(function(response) {
       return response.data;
     });

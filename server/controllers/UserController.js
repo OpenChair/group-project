@@ -37,7 +37,6 @@ module.exports = {
             }
         });
     },
-
     find: function(req, res) {
       User.findById(req.params.id).populate('favorites').exec(function(err, result){
           if(err){
