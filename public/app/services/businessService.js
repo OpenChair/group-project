@@ -20,10 +20,10 @@ angular.module('openChairApp').service('businessService', function($http, consta
       return response.data;
     });
   };
-  this.getFilterdBusinesses = function(searchCriteria, radius, lat, lon) {
+  this.getFilterdBusinesses = function(radius, lat, lon) {
     return $http({
       method: 'GET',
-      url: '/businesses/' + radius + '/' + lat + '/' + lon + '?type=' + searchCriteria.type + '&text=' + searchCriteria.text
+      url: '/businesses/' + radius + '/' + lat + '/' + lon
     }).then(function(response) {
       return response.data;
     });

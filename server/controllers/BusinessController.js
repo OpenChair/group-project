@@ -40,11 +40,6 @@ module.exports = {
     Business.find({ location:
    { $geoWithin:
       { $centerSphere: [ [ req.params.lon, req.params.lat ], req.params.radius / 3963.2 ] } } })
-      .where('category').equals(req.query.type)
-//      .where('date').gt(req.query.date)
-//      .where('time').gt(req.query.time)
-      .where('businessName').equals(req.query.text)
-    // .or([ {businessName: req.query.text}, {address: req.query.text} ])
       .exec(function(err, result) {
       if (err) {
         return res.status(500).json(err);
