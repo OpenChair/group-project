@@ -58,11 +58,6 @@
   </div>
   <form class="business-page-content-one-two">
 
-
-
-
-    
-    
     <!-- MAKE APPOINTMENT -->
     <div class="selecting-appointment-header center-align">Make Appointment</div>
     <ul class="collapsible popout selecting-appointment" data-collapsible="accordion" watch>
@@ -74,16 +69,10 @@
           <div class="b-name">{{b.name}}</div>
           <div class="b-price">$ {{b.price}}</div>
           <div class="b-select">
-            <button ng-click="selectService(b)">Select</button>
+            <button class="btn black" ng-click="selectService(b)">Select</button>
           </div>
         </div>
       </li>
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-event"></i>Select Date
@@ -92,12 +81,6 @@
           <input type="text" ng-model="date" ng-change="selectDate(date)" placeholder="Select Date" class="datepicker">
         </div>
       </li>
-
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="mdi-action-query-builder"></i>Select Time
@@ -110,7 +93,7 @@
             <option value="09:15">9:15 AM</option>
             <option value="09:30">9:30 AM</option>
             <option value="09:45">9:45 AM</option>
-            <option value="10:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
             <option value="10:15">10:15 AM</option>
             <option value="10:30">10:30 AM</option>
             <option value="10:45">10:45 AM</option>
@@ -169,11 +152,6 @@
 
         </div>
       </li>
-
-
-
-
-
       <li>
         <div class="collapsible-header">
           <i class="small material-icons">subject</i>
@@ -190,7 +168,8 @@
       </li>
     </ul>
 
-    <button class="business-dash-button btn black" type="submit" ng-click="submitAppt(appointment, date, time)">Request Appointment</button>
+    <button  href="#verifyModal" class="business-dash-button btn black" type="submit" ng-click="submitAppt(appointment, date, time)" modal>Request Appointment</button>
+
           <!--yelp-->
     <div class ='yelp'>
       <div id='yelpwidget'></div>
@@ -199,8 +178,19 @@
 
 </div>
 <footer-dir></footer-dir>
+
+<div id="verifyModal" class="modal">
+  <div class="row center-align are-you-sure">
+    Are you sure?
+  </div>
+  <div class="row center-align">
+    <button class="btn black waves-effect modal-close" ng-click="submitAppt(appointment, date, time); sendVerification(appointment, date, time)">Yes</button>
+    <button class="btn black waves-effect modal-close" id="closeDaModal">No</button>
+  </div>
+</div>
+
 <script>
-  (function() { 
+  (function() {
 		var s = document.createElement("script");
 		s.async = true;
 		s.onload = s.onreadystatechange = function(){
