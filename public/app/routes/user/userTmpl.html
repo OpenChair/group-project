@@ -72,6 +72,7 @@
     </div>
   </div>
 
+
   <br>
   <h4 class="favorites-header"> Favorites </h4>
   <br>
@@ -81,6 +82,17 @@
         <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
           <business-preview></business-preview>
         </div>
+
+<br>
+<h4 class="favorites-header"> Favorites </h4>
+<br>
+<div class="row ">
+  <div class="s10 col ">
+    <div class="row ">
+      <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
+        <business-preview></business-preview>
+        <button ng-click='removeFromFavorites(b)'>remove favorites</button>
+
       </div>
     </div>
   </div>

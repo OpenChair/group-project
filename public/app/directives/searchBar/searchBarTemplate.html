@@ -2,15 +2,15 @@
   <div >
     <select id="businessDropdown" material-select ng-model='searchCriteria.type'>
       <option value="" selected="selected">Type</option>
-      <option><a href="javascript:void(0);">Hair Salon</a></option>
-      <option><a href="javascript:void(0);">Nail Salon</a></option>
-      <option><a href="javascript:void(0);">Spa</a></option>
-      <option><a href="javascript:void(0);">Masseuse</a></option>
-      <option><a href="javascript:void(0);">Barber</a></option>
+      <option><a href="Hair Salon">Hair Salon</a></option>
+      <option><a href="Nail Salon">Nail Salon</a></option>
+      <option><a href="Spa">Spa</a></option>
+      <option><a href="Masseuse">Masseuse</a></option>
+      <option><a href="Barber">Barber</a></option>
     </select>
   </div>
 
-  <div class="datePicker">
+  <!-- <div class="datePicker">
     <label for="inputCreated"></label>
     <input
         input-date
@@ -100,11 +100,11 @@
       <option value="21:45">9:45 PM</option>
       <option value="22:00">10:00 PM</option>
     </select>
-  </div>
+  </div> -->
   <div >
     <input class="searchInput" ng-model='searchCriteria.text' placeholder="Location, Business Name, or Type"></input>
   </div>
   <div>
-    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria, radius, lat, lon)'><i class="material-icons left">search</i>Find It</a>
+    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria)'><i class="material-icons left">search</i>Find It</a>
   </div>
 </form>

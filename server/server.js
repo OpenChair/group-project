@@ -14,6 +14,8 @@ var UserController = require('./controllers/UserController');
 var config = require("./services/config");
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
+var config=require('./services/config')
+
 
 app.use(express.static('../public'));
 app.use(bodyParser.json());

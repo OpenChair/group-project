@@ -1,4 +1,23 @@
 angular.module('openChairApp').controller('navbarCtrl', function(loginService, $scope, $location, geocodingService) {
+      $scope.blankPictures = [
+        {
+            link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+            caption: ""
+        },
+        {
+            link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+            caption: ""
+        },
+        {
+            link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+            caption: ""
+        },
+        {
+            link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+            caption: ""
+        }
+    ];
+
       loginService.getUserName().then(function(res) {
         if (res.data.businessName) $scope.customerName = res.data.businessName;
         else {
@@ -34,9 +53,9 @@ angular.module('openChairApp').controller('navbarCtrl', function(loginService, $
       };
 
       $scope.submitNewBusiness = function(business) {
-        console.log(business);
         var geocode = geocodingService.geocode(business.address).then(function(response) {
           business.location = [response.lng, response.lat];
+          business.pictures = $scope.blankPictures;
           loginService.newBusinessService(business).then(function(res) {
             console.log('new biz: ', res.data);
           }, function(err) {
