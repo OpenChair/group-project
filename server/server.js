@@ -13,6 +13,7 @@ var BusinessController = require('./controllers/BusinessController');
 var UserController = require('./controllers/UserController');
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
+var config=require('./services/config')
 
 
 app.use(express.static('../public'));
