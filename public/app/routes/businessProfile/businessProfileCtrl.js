@@ -1,5 +1,6 @@
 angular.module('openChairApp')
-.controller('businessProfileCtrl', function($scope, userService, business, loginService, $location, appointmentsService) {
+
+.controller('businessProfileCtrl', function($scope, userService, business, loginService, $location, appointmentsService, emailService) {
   var uId;
   loginService.getUserName().then(function(res) {
     uId=res.data;
@@ -14,7 +15,6 @@ angular.module('openChairApp')
   //     $location.path('#/home');
   //   }
   });
-
   $scope.pushService = "";
 
   $scope.submitAppt = function(appointment, date, time) {
@@ -22,7 +22,7 @@ angular.module('openChairApp')
     appointment.start = new Date(date + ', ' + time);
     appointment.end = moment(appointment.start).add(appointment.end, 'm');
     appointmentsService.makeAppointment(appointment);
-    console.log(appointment);
+
   };
 
   $scope.selectService = function(service) {
@@ -31,11 +31,24 @@ angular.module('openChairApp')
     $scope.appointment.end = service.duration;
   };
   $scope.addToFavorites=function(){
-    uId.favorites.push($scope.bProfile._id)
+    uId.favorites.push($scope.bProfile._id);
     userService.updateUser(uId._id, uId).then(function(res){
       console.log(res);
-    })
-  }
+    });
+  };
+
+  $scope.sendVerification = function(appointment, date, time) {
+    loginService.getUserName().then(function(res) {
+      if (res.data) {
+        $scope.verifyemail = res.data.email;
+      }
+      console.log($scope.verifyemail);
+      appointment.start = new Date(date + ', ' + time);
+      emailService.verificationEmail($scope.verifyemail, appointment, business);
+      console.log(appointment.start);
+    });
+
+  };
 
   $scope.bProfile = business;
   $scope.profilePic = $scope.bProfile.pictures.splice(0, 1);
@@ -67,14 +80,16 @@ angular.module('openChairApp')
        }
     });
 
-
-$('.datepicker').pickadate({
+  // JQUERY
+  $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   $('[data-click]').on('click', function (e) {
       $( $(this).data('click') ).trigger('click');
   });
-
+  $('#closeDaModal').on('click', function() {
+     $('#verifyModal').modal('hide');
+  });
 
 });
