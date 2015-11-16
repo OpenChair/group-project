@@ -35,18 +35,18 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
   $scope.onStop = function () {
 //      console.log('onStop');
   };
-  
-  
+
+
   var getUserLocation = function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(pos) {
-          $scope.lat = pos.coords.latitude;
-          $scope.lon = pos.coords.longitude;
+          $scope.lat = pos.coords.longitude;
+          $scope.lon = pos.coords.latitude;
         },
         function(error){
-          $scope.lat = $scope.user.location[0];
-          $scope.lon = $scope.user.location[1];
+          $scope.lat = $scope.user.location[1];
+          $scope.lon = $scope.user.location[0];
         },
         {
           timeout: (5 * 1000),

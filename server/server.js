@@ -80,9 +80,9 @@ app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
 app.post('/loginBusiness', passport.authenticate('biz'), function(req, res){
-  console.log(req.user)
+  console.log(req.user);  
   req.session.user = req.user;
-  res.redirect('business')
+  res.redirect('business');
   // successRedirect:'/business'
 });
 
