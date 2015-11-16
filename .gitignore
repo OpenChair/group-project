@@ -32,3 +32,5 @@ bundle.js
 style.css
 
 bower_components
+
+config.js
