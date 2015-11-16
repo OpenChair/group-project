@@ -21,7 +21,13 @@ angular.module('openChairApp')
    });
  };
 
-
+  $scope.removeFromFavorites=function(b){
+    for(var i=0;i<$scope.user.favorites; i++){
+      if($scope.user.favorites[i]===b){
+        user.favorites.splice(i,1)
+      }
+    }
+  }
 
  $scope.updateUser = function(user){
    userService.updateUser($scope.user._id, user).then(function(response) {

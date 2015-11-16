@@ -68,6 +68,7 @@
     <div class="row ">
       <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
         <business-preview></business-preview>
+        <button ng-click='removeFromFavorites(b)'></button>
       </div>
     </div>
   </div>

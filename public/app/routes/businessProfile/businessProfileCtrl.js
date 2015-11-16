@@ -31,7 +31,16 @@ angular.module('openChairApp')
     $scope.appointment.end = service.duration;
   };
   $scope.addToFavorites=function(){
-    uId.favorites.push($scope.bProfile._id)
+    for(var i =0;i<uId.favorites; i++){
+      if(uId.favorites[i]===$scope.bProfile._id){
+        alert('already added')
+      }
+      else{
+        uId.favorites.push($scope.bProfile._id)
+        alert('added to favorites')
+      }
+      return uId
+    }
     userService.updateUser(uId._id, uId).then(function(res){
       console.log(res);
     })

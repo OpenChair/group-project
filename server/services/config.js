@@ -16,6 +16,9 @@ module.exports = {
         'clientID'      : 'your-secret-clientID-here',
         'clientSecret'  : 'your-client-secret-here',
         'callbackURL'   : 'http://localhost:7200/auth/google/callback'
-    }
+    },
+    PORT: 7200,
+    MONGO_URI: 'mongodb://open_chair:OpenChair@ds045704.mongolab.com:45704/open_chair'
+
 
 };

@@ -14,6 +14,7 @@ var UserController = require('./controllers/UserController');
 var app = express();
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+
 app.use(express.static('../public'));
 app.use(bodyParser.json());
 app.use(cors());

@@ -32,7 +32,7 @@ angular.module('openChairApp').service('businessService', function($http, consta
   this.getBusiness = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses/' + idd
+      url: constants.baseURL + 'businesses/' + id
     }).then(function(response) {
       return response.data;
     });
