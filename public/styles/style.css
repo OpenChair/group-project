@@ -324,6 +324,10 @@
 ::-webkit-scrollbar {
   display: none;
 }
+html,
+body {
+  height: 100%;
+}
 .navBar {
   display: flex;
   flex-direction: row;
@@ -445,9 +449,11 @@
 .business-display-search {
   position: relative;
   top: 55px;
+  min-height: 100%;
 }
 .business-display-search div {
   margin-bottom: 20px;
+  z-index: 5;
 }
 .business-info {
   position: relative;
@@ -522,6 +528,7 @@ input.select-dropdown {
   background: black;
   border-right: 1px solid #9e9e9e;
   text-align: center;
+  color: white;
 }
 .dropdown-content {
   background: black;

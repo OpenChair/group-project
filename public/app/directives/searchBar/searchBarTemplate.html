@@ -12,7 +12,8 @@
 
   <div class="datePicker">
     <label for="inputCreated"></label>
-    <input style='color: l' input-date
+    <input
+        input-date
         ng-model='searchCriteria.date'
         type="text"
         name="created"
@@ -38,6 +39,8 @@
         on-close="onClose()"
         on-set="onSet()"
         on-stop="onStop()"
+        placeholder="Date"
+        style="color: white"
         />
   </div>
   <div class="timeSelector">
@@ -102,6 +105,6 @@
     <input class="searchInput" ng-model='searchCriteria.text' placeholder="Location, Business Name, or Type"></input>
   </div>
   <div>
-    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria)'><i class="material-icons left">search</i>Find It</a>
+    <a class="waves-effect waves-light btn searchButton" ng-click='apptQuery(searchCriteria, radius, lat, lon)'><i class="material-icons left">search</i>Find It</a>
   </div>
 </form>
