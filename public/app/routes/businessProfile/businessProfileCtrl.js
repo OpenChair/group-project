@@ -43,10 +43,10 @@ angular.module('openChairApp')
       console.log(uId)
       }
     }
-    // else{
-    //   uId.favorites.push($scope.bProfile._id)
-    //   alert('added to favorites')
-    // }
+    else{
+      uId.favorites.push($scope.bProfile._id)
+      alert('added to favorites')
+    }
 
     userService.updateUser(uId._id, uId).then(function(res){
       uId=res.favorites
