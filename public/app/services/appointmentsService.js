@@ -19,7 +19,7 @@ angular.module('openChairApp')
     });
   };
   this.editAppointment = function(id, appointment) {
-    
+
     return $http({
       method: 'PUT',
       url: constants.baseURL + 'appointment/' + id,

@@ -1,6 +1,9 @@
 angular.module('openChairApp')
-.controller('businessProfileCtrl', function($scope, business, loginService, $location, appointmentsService, emailService) {
+
+.controller('businessProfileCtrl', function($scope, userService, business, loginService, $location, appointmentsService, emailService) {
+  var uId;
   loginService.getUserName().then(function(res) {
+    uId=res.data;
     if (res.data) {
       $scope.appointment = {
         user: res.data._id,
@@ -26,6 +29,12 @@ angular.module('openChairApp')
     $scope.appointment.title = service.name;
     $scope.appointment.price = service.price;
     $scope.appointment.end = service.duration;
+  };
+  $scope.addToFavorites=function(){
+    uId.favorites.push($scope.bProfile._id);
+    userService.updateUser(uId._id, uId).then(function(res){
+      console.log(res);
+    });
   };
 
   $scope.sendVerification = function(appointment, date, time) {
