@@ -450,9 +450,7 @@ body {
 }
 .business-display-search div {
   margin-bottom: 20px;
-}
-.business-display-search div input {
-  z-index: 999;
+  z-index: 5;
 }
 .business-info {
   position: relative;
