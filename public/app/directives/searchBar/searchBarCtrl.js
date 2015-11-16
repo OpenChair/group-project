@@ -1,4 +1,4 @@
-angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService) {
+angular.module('openChairApp').controller('searchBarCtrl', function($scope, businessService, loginService, $location, $rootScope) {
 
   loginService.getUserName().then(function(response) {
     $scope.user = response.data;
@@ -56,12 +56,11 @@ angular.module('openChairApp').controller('searchBarCtrl', function($scope, busi
       );
     }
   };
-  $scope.radius = 30;
   getUserLocation();
-  $scope.apptQuery = function(searchCriteria, radius, lat, lon) {
-    businessService.getFilterdBusinesses(searchCriteria, radius, lat, lon).then(function(response) {
-      console.log(response);
-    });
+  $scope.apptQuery = function(searchCriteria) {
+    $rootScope.searchCriteria = searchCriteria;
+    $location.path('/search');
   };
+
 
 });
