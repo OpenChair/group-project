@@ -31,20 +31,25 @@ angular.module('openChairApp')
     $scope.appointment.end = service.duration;
   };
   $scope.addToFavorites=function(){
-
-    for(var i =0;i<uId.favorites; i++){
-      if(uId.favorites[i]===$scope.bProfile._id){
-        alert('already added')
+    if(uId.favorites>0){
+      for(var i =0;i<uId.favorites; i++){
+        if(uId.favorites[i]===$scope.bProfile._id){
+          console.log('already added')
+        }
+        else{
+          uId.favorites.push($scope.bProfile._id)
+          console.log('added to favorites')
+        }
+      console.log(uId)
       }
-      else{
-        uId.favorites.push($scope.bProfile._id)
-        alert('added to favorites')
-      }
-      return uId
     }
+    // else{
+    //   uId.favorites.push($scope.bProfile._id)
+    //   alert('added to favorites')
+    // }
 
     userService.updateUser(uId._id, uId).then(function(res){
-      console.log(res);
+      uId=res.favorites
     });
   };
 
