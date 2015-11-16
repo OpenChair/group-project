@@ -33,6 +33,7 @@ angular.module('openChairApp')
     };
 
     businessService.getBusinesses().then(function(response) {
+      console.log(response);
       $scope.businesses = response;
       // businessService.getFilterdBusinesses(searchCriteria.radius, searchCriteria.lat, searchCriteria.lon).then(function(response) {
       //   $scope.businesses = response;

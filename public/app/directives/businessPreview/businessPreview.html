@@ -1,14 +1,37 @@
 <div class="card grey lighten-3 business-card">
   <div class="card-content">
-    <div class="card-title black">{{b.businessName}}</div>
-    <div class="card-image">
-      <img class="center-align" src="{{b.pictures[0].link}}" style="height: auto; max-width: " />
+
+    <div class="biz-name">{{b.businessName}}</div>
+    <div class="biz-pic">
+      <img class="center-align business-picture" src="{{b.pictures[0].link}}" style="height: auto; max-width: " />
+    </div>
+    <div class="biz-stars">
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+      <a href=""><i class="extra-small material-icons black-text">stars</i></a>
+    </div>
+    <div class="biz-cat">{{b.category}}</div>
+    <div class="biz-city">
+      <a href="#/" class="black-text">{{b.address.city}}, {{b.address.state}}</a>
+    </div>
+    <a ui-sref="businessProfile({ businessID : b._id })" class="waves-effect waves-light btn black">
+      <i class="material-icons left">
+        query_builder
+      </i> Reserve
+    </a>
+
+
+    <!-- <div class="card-title black">{{b.businessName}}</div>
+    <div class="image-for-business">
+      <img class="center-align business-picture" src="{{b.pictures[0].link}}" style="height: auto; max-width: " />
     </div>
     <br>
     <div class="row">
       <p class="">{{b.logo}}</p>
     </div>
-    <div class="">
+    <div class="star-icons">
       <a href=""><i class="extra-small material-icons black-text">stars</i></a>
       <a href=""><i class="extra-small material-icons black-text">stars</i></a>
       <a href=""><i class="extra-small material-icons black-text">stars</i></a>
@@ -17,7 +40,7 @@
     </div>
     <p class="black-text">{{b.category}} - $$</p>
     <br>
-    <div class="card-action">
+    <div class="card-city">
       <a href="#/" class="black-text">{{b.address.city}}, {{b.address.state}}</a>
     </div>
     <div class="">
@@ -28,6 +51,6 @@
           </i> Reserve
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
