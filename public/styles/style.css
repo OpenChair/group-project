@@ -321,63 +321,62 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
 body {
   margin: 0;
   background-color: #ededed;
-
-html,
-body {
+}
+body html,
+body body {
   height: 100%;
 }
-.navBar {
+body .navBar {
   display: flex;
   flex-direction: row;
   z-index: 999;
 }
-.navBarLogo {
+body .navBarLogo {
   left: 2em;
 }
-.picker__weekday-display {
+body .picker__weekday-display {
   background-color: grey;
 }
-.picker__date-display {
+body .picker__date-display {
   background-color: black;
 }
-.picker__select--year.browser-default {
+body .picker__select--year.browser-default {
   width: 28%;
 }
-.picker__day.picker__day--today {
+body .picker__day.picker__day--today {
   color: burlywood;
 }
-.picker__day--selected,
-.picker__day--selected:hover,
-.picker--focused .picker__day--selected {
+body .picker__day--selected,
+body .picker__day--selected:hover,
+body .picker--focused .picker__day--selected {
   background-color: black;
 }
-.picker__close,
-.picker__today {
+body .picker__close,
+body .picker__today {
   color: grey;
 }
-.picker__close:active,
-.picker__today:active {
+body .picker__close:active,
+body .picker__today:active {
   color: grey;
 }
-.searchBar {
+body .searchBar {
   height: auto;
   width: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.businessSelector {
+body .businessSelector {
   height: 100%;
 }
-.searchInput {
+body .searchInput {
   height: 3em;
   width: 20em;
 }
-.searchButton {
+body .searchButton {
   height: 3em;
   width: 10em;
   background: black;
@@ -385,7 +384,7 @@ body {
   border-right: 1px solid grey;
   padding-top: 0.3em;
 }
-.datePicker {
+body .datePicker {
   height: 3em;
   width: 10em;
   background: black;
@@ -393,16 +392,16 @@ body {
   border-right: 1px solid grey;
   padding-left: 3em;
 }
-.homeSearchContainer {
+body .homeSearchContainer {
   position: relative;
   left: 2em;
   bottom: 8em;
 }
-.popularContainer {
+body .popularContainer {
   position: relative;
   top: -12.5em;
 }
-.homePopularTitle {
+body .homePopularTitle {
   width: 81%;
   position: relative;
   top: 1em;
@@ -410,72 +409,72 @@ body {
   border-bottom: .03em solid black;
   padding-bottom: 1em;
 }
-.homeBusCard {
+body .homeBusCard {
   padding-top: 2em;
 }
-.homeContainer {
+body .homeContainer {
   height: auto;
   width: 100%;
 }
-.homeMap {
+body .homeMap {
   left: 5em;
 }
-.search-bar-home-title {
+body .search-bar-home-title {
   position: relative;
   left: 0.41em;
   bottom: 1.35em;
   text-shadow: .02em .02em white;
 }
-.search-bar-home {
+body .search-bar-home {
   position: relative;
   bottom: 8em;
   left: 2em;
 }
-#timeDropDown {
+body #timeDropDown {
   position: absolute;
   top: 0em;
   left: 20em;
 }
-.parallax-container {
+body .parallax-container {
   height: 30em;
 }
-.modal-content {
+body .modal-content {
   color: white;
   background: black;
 }
-.search-bar-search {
+body .search-bar-search {
   position: relative;
   top: 25px;
   left: 9.65%;
 }
-.business-display-search {
+body .business-display-search {
   position: relative;
   top: 55px;
   min-height: 100%;
 }
-.business-display-search div {
+body .business-display-search div {
   margin-bottom: 20px;
   z-index: 5;
 }
-.business-info {
+body .business-info {
   position: relative;
   top: 0;
   height: 250px;
 }
-.business-picture {
+body .business-picture {
   width: 35%;
   height: auto;
   position: relative;
   top: 35px;
   left: 3%;
 }
-.selecting-appointment {
+body .selecting-appointment {
   position: absolute;
   right: 3%;
   top: 200px;
   width: 55%;
 }
-.selecting-appointment-header {
+body .selecting-appointment-header {
   position: absolute;
   right: 3%;
   top: 100px;
@@ -485,22 +484,22 @@ body {
   color: white;
   font-size: 50px;
 }
-.business-page-content-one {
+body .business-page-content-one {
   height: auto;
   margin-bottom: 100px;
 }
-.business-dash-content-one {
+body .business-dash-content-one {
   height: auto;
   margin-bottom: 100px;
 }
-.business-info {
+body .business-info {
   width: 35%;
   height: auto;
   top: 75px;
   position: relative;
   left: 3%;
 }
-.business-info .business-info-header {
+body .business-info .business-info-header {
   width: 100%;
   height: 50px;
   position: relative;
@@ -508,48 +507,48 @@ body {
   color: white;
   font-size: 35px;
 }
-.business-info .business-about {
+body .business-info .business-about {
   width: 100%;
   height: 100px;
 }
-.business-info .business-about .business-description {
+body .business-info .business-about .business-description {
   width: 80%;
   height: auto;
   position: relative;
   left: 10%;
   top: 25px;
 }
-.business-info .business-about .business-info-expandable {
+body .business-info .business-about .business-info-expandable {
   width: 100%;
   height: 75px;
   position: relative;
   top: -10px;
 }
-.select-wrapper,
-input.select-dropdown {
+body .select-wrapper,
+body input.select-dropdown {
   background: black;
   border-right: 1px solid #9e9e9e;
   text-align: center;
   color: white;
 }
-.dropdown-content {
+body .dropdown-content {
   background: black;
   color: #9e9e9e;
 }
-.about-header {
+body .about-header {
   position: relative;
   top: 115px;
   left: 10%;
 }
-.user-pic {
+body .user-pic {
   height: 40%;
   width: 40%;
   margin-top: 10px;
 }
-.user-firstName {
+body .user-firstName {
   margin-top: 10px;
 }
-.appointment-header {
+body .appointment-header {
   background-color: #8c57cc;
   color: white;
   width: 50%;
@@ -560,7 +559,7 @@ input.select-dropdown {
   font-size: 30px;
   box-shadow: 5px 5px 5px #636363;
 }
-.app-box {
+body .app-box {
   height: 220px;
   width: 100%;
   border: 1px solid black ;
@@ -571,61 +570,61 @@ input.select-dropdown {
   margin-top: 15px;
   background-color: #f9f9f9;
 }
-.cancel-button {
+body .cancel-button {
   float: right;
   margin-right: 10px;
 }
-.app-bus-name {
+body .app-bus-name {
   text-align: center;
   font-size: 25px;
 }
-.app-size {
+body .app-size {
   font-size: 20px;
   margin-left: 10px;
 }
-.add-new-app {
+body .add-new-app {
   font-size: 30px;
 }
-label {
+body label {
   color: red;
 }
-.big-o-calender {
+body .big-o-calender {
   width: auto;
   height: auto;
 }
-.big-o-calender input {
+body .big-o-calender input {
   height: auto;
   color: black;
 }
-.big-o-calender title {
+body .big-o-calender title {
   color: black;
 }
-.big-o-calender md-button {
+body .big-o-calender md-button {
   margin: 10px;
   color: white;
 }
-.big-o-calender .time-date .buttons {
+body .big-o-calender .time-date .buttons {
   background-color: black;
 }
-.big-o-calender .full-title {
+body .big-o-calender .full-title {
   background-color: white;
 }
-.big-o-calender .control .full-title {
+body .big-o-calender .control .full-title {
   background-color: #424242;
 }
-.big-o-calender .control .slider .date-control .title .month-part {
+body .big-o-calender .control .slider .date-control .title .month-part {
   color: black;
 }
-.areYouSure-button {
+body .areYouSure-button {
   color: black;
   width: 25%;
   height: 25%;
   margin-left: 120px;
 }
-.areYouSure-header {
+body .areYouSure-header {
   text-align: center;
 }
-.favorites-header {
+body .favorites-header {
   background-color: #ededed;
   color: black;
   width: 100%;
@@ -635,7 +634,7 @@ label {
   margin-top: 0px;
   font-size: 30px;
 }
-.favorites-text {
+body .favorites-text {
   margin-bottom: 20px;
   line-height: 50%;
 }
