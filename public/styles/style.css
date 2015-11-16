@@ -604,6 +604,10 @@ label {
   float: right;
   margin-right: 10px;
 }
+.cancel-button:hover {
+  float: right;
+  margin-right: 10px;
+}
 .app-bus-name {
   text-align: center;
   font-size: 25px;
@@ -624,4 +628,8 @@ body {
 }
 .favorites-header {
   margin-left: 45%;
+}
+.modal-content {
+  color: white;
+  background: black;
 }

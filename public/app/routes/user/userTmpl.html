@@ -1,77 +1,89 @@
 <nav-template></nav-template>
+
 <body>
-<div id='container-user-template' style="" class="row">
-  <div class="user-container col s6">
-    <div class="row">
-      <img class="col user-pic" src="http://www.flowjo.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
-      <div class="user-firstName col">
-        <h3>{{user.name.first}} {{user.name.last}}</h3>
-        <h4>{{user.displayName}}</h4>
-      </div>
-    </div>
-
-    <div class="user-info col">
-      <div>
-        <h5 class="underline">Email </h5>
-      </div>
-      <div>
-        <h6>{{user.email}}</h6>
-      </div>
-      <div>
-        <h5 class="underline"> Phone</h5>
-      </div>
-      <div>
-        <h6>{{user.phone}}</h6>
-      </div>
-      <div>
-        <h5 class="underline">Address</h5>
-      </div>
-      <div>
-        <h6>{{user.address.street}} {{user.address.aptSuite}}</h6>
-      </div>
-      <div>
-        <h6>{{user.address.city}} {{user.address.state}} {{user.address.zip}}</h6>
-      </div>
-      <br>
-      <button href="#updateUserModal" class="edit-profile" modal> Edit Profile </button>
-    </div>
-  </div>
-
-  <div class="appointment-header blue accent-4"> Appointments </div>
-  <div class="user-appointment-box s6 col ">
-    <div class="row app-box " ng-repeat="appointment in appointments ">
-      <h5 class="app-bus-name ">{{appointment.business.businessName}} </h5>
-      <div class="app-inside-container ">
-        <div class="app-box-info ">
-          <h6 class="app-size ">Service: {{appointment.title}}</h6>
-          <h6 class="app-size "> Date: {{appointment.start | date: 'short'}} </h6>
-          <h6 class="app-size "> Appointment Length: {{appointment.end}}</h6>
-          <div>
-            <h6 class="app-size "> Notes: {{appointment.note}}</h6>
-          </div>
+  <div id='container-user-template' style="" class="row">
+    <div class="user-container col s6">
+      <div class="row">
+        <img class="col user-pic" src="http://www.flowjo.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+        />
+        <div class="user-firstName col">
+          <h3>{{user.name.first}} {{user.name.last}}</h3>
+          <h4>{{user.displayName}}</h4>
         </div>
+      </div>
 
-        <button class="cancel-button" ng-click="deleteAppointment(appointment._id)">Cancel appointment</button>
-
+      <div class="user-info col">
+        <div>
+          <h5 class="underline">Email </h5>
+        </div>
+        <div>
+          <h6>{{user.email}}</h6>
+        </div>
+        <div>
+          <h5 class="underline"> Phone</h5>
+        </div>
+        <div>
+          <h6>{{user.phone}}</h6>
+        </div>
+        <div>
+          <h5 class="underline">Address</h5>
+        </div>
+        <div>
+          <h6>{{user.address.street}} {{user.address.aptSuite}}</h6>
+        </div>
+        <div>
+          <h6>{{user.address.city}} {{user.address.state}} {{user.address.zip}}</h6>
+        </div>
+        <br>
+        <button href="#updateUserModal" class="edit-profile" modal> Edit Profile </button>
       </div>
     </div>
-    <a href="#/search" class="add-new-app ">+ Find new appointment
+
+    <div class="appointment-header blue accent-4"> Appointments </div>
+    <div class="user-appointment-box s6 col ">
+      <div class="row app-box " ng-repeat="appointment in appointments ">
+        <h5 class="app-bus-name ">{{appointment.business.businessName}} </h5>
+        <div class="app-inside-container ">
+          <div class="app-box-info ">
+            <h6 class="app-size ">Service: {{appointment.title}}</h6>
+            <h6 class="app-size "> Date: {{appointment.start | date: 'short'}} </h6>
+            <h6 class="app-size "> Appointment Length: {{appointment.end}}</h6>
+            <div>
+              <h6 class="app-size "> Notes: {{appointment.note}}</h6>
+            </div>
+          </div>
+
+          <button href="#areYouSure" class="cancel-button" modal>Cancel appointment</button>
+
+          <form id="areYouSure" class="modal">
+            <div class="modal-content" style="margin-top: 0px;">
+              <h4 class="areYouSure-header">Are you sure you want to delete this appointment?</h4>
+              <br>
+              <button class="areYouSure-button modal-close" ng-click="deleteAppointment(appointment._id)" id="closeModal"> Yes </button>
+              <button class="areYouSure-button modal-close" id="closeModal"> No </button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+      <a href="#/search" class="add-new-app ">+ Find new appointment
       </a>
+    </div>
   </div>
-</div>
 
-<br>
-<h4 class="favorites-header"> Favorites </h4>
-<br>
-<div class="row ">
-  <div class="s10 col ">
-    <div class="row ">
-      <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
-        <business-preview></business-preview>
+  <br>
+  <h4 class="favorites-header"> Favorites </h4>
+  <br>
+  <div class="row ">
+    <div class="s10 col ">
+      <div class="row ">
+        <div class="col s12 m6 l3 " ng-repeat="b in user.favorites ">
+          <business-preview></business-preview>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
 <footer-dir></footer-dir>
 
@@ -117,60 +129,60 @@
           </div>
           <div class="input-field col s4">
             <label for="state"></label>
-            <select style="background-color: black;"  class="browser-default" ng-model="user.address.state" id="state" type="text">
+            <select style="background-color: black;" class="browser-default" ng-model="user.address.state" id="state" type="text">
               <option value="" disabled selected>State</option>
-										<option value="AL">AL</option>
-										<option value="AK">AK</option>
-										<option value="AZ">AZ</option>
-										<option value="AR">AR</option>
-										<option value="CA">CA</option>
-										<option value="CO">CO</option>
-										<option value="CT">CT</option>
-										<option value="DE">DE</option>
-										<option value="FL">FL</option>
-										<option value="GA">GA</option>
-										<option value="HI">HI</option>
-										<option value="ID">ID</option>
-										<option value="IL">IL</option>
-										<option value="IN">IN</option>
-										<option value="IA">IA</option>
-										<option value="KS">KS</option>
-										<option value="KY">KY </option>
-										<option value="LA">LA </option>
-										<option value="ME">ME</option>
-										<option value="MD">MD</option>
-										<option value="MA">MA</option>
-										<option value="MI">MI</option>
-										<option value="MN">MN</option>
-										<option value="MS">MS</option>
-										<option value="MO">MO</option>
-										<option value="MT">MT</option>
-										<option value="NE">NE</option>
-										<option value="NV">NV</option>
-										<option value="NH">NH</option>
-										<option value="NJ">NJ</option>
-										<option value="NM">NM</option>
-										<option value="NY">NY</option>
-										<option value="NC">NC</option>
-										<option value="ND">ND</option>
-										<option value="OH">OH</option>
-										<option value="OK">OK</option>
-										<option value="OR">OR</option>
-										<option value="PA">PA</option>
-										<option value="RI">RI</option>
-										<option value="SC">SC</option>
-										<option value="SD">SD</option>
-										<option value="TN">TN</option>
-										<option value="TX">TX</option>
-										<option value="UT">UT</option>
-										<option value="VT">VT</option>
-										<option value="VA">VA</option>
-										<option value="WA">WA</option>
-										<option value="WV">WV</option>
-										<option value="WI">WI</option>
-										<option value="WY">WY</option>
-										
-										</select>
+              <option value="AL">AL</option>
+              <option value="AK">AK</option>
+              <option value="AZ">AZ</option>
+              <option value="AR">AR</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="IA">IA</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY </option>
+              <option value="LA">LA </option>
+              <option value="ME">ME</option>
+              <option value="MD">MD</option>
+              <option value="MA">MA</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MS">MS</option>
+              <option value="MO">MO</option>
+              <option value="MT">MT</option>
+              <option value="NE">NE</option>
+              <option value="NV">NV</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NY">NY</option>
+              <option value="NC">NC</option>
+              <option value="ND">ND</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VT">VT</option>
+              <option value="VA">VA</option>
+              <option value="WA">WA</option>
+              <option value="WV">WV</option>
+              <option value="WI">WI</option>
+              <option value="WY">WY</option>
+
+            </select>
           </div>
           <div class="input-field col s4">
             <input ng-model="user.address.zip" id="zip" type="text" class="validate">
