@@ -536,6 +536,37 @@ input.select-dropdown {
   top: 115px;
   left: 10%;
 }
+label {
+  color: red;
+}
+.big-o-calender {
+  width: auto;
+  height: auto;
+}
+.big-o-calender input {
+  height: auto;
+  color: black;
+}
+.big-o-calender title {
+  color: black;
+}
+.big-o-calender md-button {
+  margin: 10px;
+  color: white;
+}
+.big-o-calender .time-date .buttons {
+  background-color: black;
+}
+.big-o-calender .full-title {
+  background-color: white;
+}
+.big-o-calender .control .full-title {
+  background-color: #424242;
+}
+.big-o-calender .control .slider .date-control .title .month-part {
+  color: black;
+}
+
 .user-pic {
   height: 40%;
   width: 40%;
@@ -545,7 +576,7 @@ input.select-dropdown {
   margin-top: 10px;
 }
 .appointment-header {
-  background-color: #6534ff;
+  background-color: red;
   color: white;
   width: 50%;
   height: 50px;
@@ -580,34 +611,14 @@ input.select-dropdown {
 }
 .add-new-app {
   font-size: 30px;
+  color: #2962ff;
 }
-label {
-  color: red;
+#container-user-template {
+  width: 90%;
 }
-.big-o-calender {
-  width: auto;
-  height: auto;
+body {
+  background-color: #fafafa;
 }
-.big-o-calender input {
-  height: auto;
-  color: black;
-}
-.big-o-calender title {
-  color: black;
-}
-.big-o-calender md-button {
-  margin: 10px;
-  color: white;
-}
-.big-o-calender .time-date .buttons {
-  background-color: black;
-}
-.big-o-calender .full-title {
-  background-color: white;
-}
-.big-o-calender .control .full-title {
-  background-color: #424242;
-}
-.big-o-calender .control .slider .date-control .title .month-part {
-  color: black;
+.favorites-header {
+  margin-left: 45%;
 }

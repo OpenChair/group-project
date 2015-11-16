@@ -1,6 +1,6 @@
 <nav-template></nav-template>
-
-<div style="background-color: white" class="row">
+<body>
+<div id='container-user-template' style="" class="row">
   <div class="user-container col s6">
     <div class="row">
       <img class="col user-pic" src="http://www.flowjo.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class="appointment-header "> Appointments </div>
+  <div class="appointment-header blue accent-4"> Appointments </div>
   <div class="user-appointment-box s6 col ">
     <div class="row app-box " ng-repeat="appointment in appointments ">
       <h5 class="app-bus-name ">{{appointment.business.businessName}} </h5>
@@ -55,7 +55,7 @@
 
       </div>
     </div>
-    <a href="#/search" class="add-new-app">+ Find new appointment
+    <a href="#/search" class="add-new-app ">+ Find new appointment
       </a>
   </div>
 </div>
@@ -72,7 +72,7 @@
     </div>
   </div>
 </div>
-
+</body>
 <footer-dir></footer-dir>
 
 <form id="updateUserModal" class="modal" ng-submit="updateUser(user)">
