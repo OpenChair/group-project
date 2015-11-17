@@ -17,7 +17,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var config=require('./services/config');
 
 
-app.use(express.static('../public'));
+app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.json());
 // app.use(cors());
 app.use(session({
