@@ -44,8 +44,8 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 		return $http({
 			method:"POST",
 			url:'/loginBusiness',
-			data:business
-		}).then(function(res,err){
+			data: business
+		}).then(function(res){
 			console.log(res);
 			return res;
 		});

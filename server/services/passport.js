@@ -6,12 +6,12 @@ var configAuth = require('./config');
 var Business = require('../models/BusinessModel');
 
 passport.serializeUser(function(user, done) {
-  console.log('serialized')
+  console.log('serialized');
   done(null, user._id);
 });
 passport.deserializeUser(function(_id, done) {
   User.findById(_id, function(err, user) {
-    console.log('deserialize')
+    console.log('deserialize');
     done(err, user);
   });
 });
@@ -22,37 +22,49 @@ passport.use('poople', new LocalStrategy({
 }, function(email, password, done) {
   User.findOne({ email: email })
   .exec(function(err, user) {
-    if(err) done(err);
-    if(!user) return done(null, false);
-    if(user.verifyPassword(password)) return done(null, user);
-    return done(null, false);
+    console.log('USER:', user);
+    if(err) {
+      console.log("Theres an error?");
+      done(err);
+    }
+    if(!user) {
+      console.log("No User");
+      return done(null, false);
+    }
+    if(!user.verifyPassword(password)) {
+      console.log("Wrong Password");
+      return done(null, false);
+    }
+    else {
+      console.log("I WORK!!!");
+      return done(null, user);
+    }
   });
 }));
 
 
-passport.use( 'biz', new LocalStrategy({
+passport.use('biz', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function(email, password, done) {
   Business.findOne({ email: email })
   .exec(function(err, business) {
-    console.log('i made it this far')
     if(err) {
-      console.log(12121212, err);
+      console.log("Theres an error?");
       done(err);
     }
     if(!business) {
-      console.log('business not found')
+      console.log("No Business");
       return done(null, false);
-    } 
+    }
     if(business.verifyPassword(password)) {
-      console.log('business found')
+      console.log("I WORK!!!");
       return done(null, business);
     }
     else {
-      console.log('a hello next to it')      
-      return done(null, false);      
-    } 
+      console.log("Im not sure?");
+      return done(null, false);
+    }
   });
 }));
 

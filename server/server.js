@@ -46,9 +46,10 @@ app.get('/auth/facebook/callback',
 app.post('/user', UserController.register);
 app.get('/user', UserController.me);
 // app.put('/user', isAuthed, UserController.update);
-app.post('/login', passport.authenticate('poople',{
-	successRedirect:'/user'
-}));
+app.post('/login', passport.authenticate('poople'), function(req, res) {
+  req.session.user = req.user;
+  res.redirect('/user');
+});
 app.get('/logout', function(req, res){
   req.logout();
   req.session.destroy(function(err){
@@ -81,10 +82,9 @@ app.delete('/businesses/:id', BusinessController.delete);
 app.post('/business', BusinessController.register);
 app.get('/business', BusinessController.me);
 app.put('/business', isAuthed, BusinessController.update);
-app.post('/loginBusiness', passport.authenticate('biz'), function(req, res){
+app.post('/loginBusiness', passport.authenticate('biz'), function(req, res) {
   req.session.user = req.user;
-  res.redirect('business');
-  // successRedirect:'/business'
+  res.redirect('/user');
 });
 
 var mongoURI = config.MONGO_URI;

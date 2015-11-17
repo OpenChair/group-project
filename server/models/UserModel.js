@@ -34,6 +34,7 @@ User.pre('save', function(next) {
 
 User.methods.verifyPassword = function(reqBodyPassword) {
   var user = this;
+  console.log(user.password);
   return bcrypt.compareSync(reqBodyPassword, user.password);
 };
 

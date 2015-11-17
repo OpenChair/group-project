@@ -3,15 +3,30 @@ angular.module('openChairApp')
 
     // Check for currently loged in
     loginService.getUserName().then(function(res) {
+      console.log(res);
       if (res.data.businessName) {
         $scope.customerName = res.data.businessName;
         $scope.business = res.data;
-      }
-      else {
+      } else {
         $scope.customerName = 'Welcome, ' + res.data.name.first;
         $scope.user = res.data;
         console.log('Current User', res);
       }
+    }, function(err) {
+      console.log(err);
+    });
+    loginService.getBusinessName().then(function(res) {
+      console.log(res);
+      if (res.data.businessName) {
+        $scope.customerName = res.data.businessName;
+        $scope.business = res.data;
+      } else {
+        $scope.customerName = 'Welcome, ' + res.data.name.first;
+        $scope.user = res.data;
+        console.log('Current User', res);
+      }
+    }, function(err) {
+      console.log(err);
     });
 
     // Register new business
@@ -59,24 +74,21 @@ angular.module('openChairApp')
       loginService.loginUserSubmit(user).then(function(res) {
         $scope.customerName = 'Welcome, ' + res.data.name.first;
         $scope.user = res.data;
-        console.log(res);
       }, function(err) {
         if (err.status > 300) {
           alert('Invalid Login: Please try again');
         }
       });
-      $scope.loginBusinessSubmit = function(login) {
-        loginService.loginBusinessSubmit(login).then(function(res) {
-          $scope.customerName = res.data.businessName;
-          $scope.business = res.data;
-          console.log(res);
-        }, function(err) {
-          if (err.status > 300) {
-            alert('Invalid Login: Please try again');
-          }
-        });
-      };
 
     };
-
+    $scope.loginBusinessSubmit = function(login) {
+    loginService.loginBusinessSubmit(login).then(function(res) {
+        $scope.customerName = res.data.businessName;
+        $scope.business = res.data;
+      }, function(err) {
+        if (err.status > 300) {
+          alert('Invalid Login: Please try again');
+        }
+      });
+    };
   });
