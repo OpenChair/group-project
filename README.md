@@ -41,6 +41,6 @@ Once logged in it takes the business user to his schedlue calendar. You can choo
 -------------------------------------------
 * Cyrus Holt,
 * Deon Sharp,
-* Devyn Bartel,
+* Devyn Bartell,
 * Stephen Brinkworth,
 * Travis Erickson
