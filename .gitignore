@@ -29,7 +29,6 @@ node_modules
 .DS_Store
 
 style.css
-bundle.js
 
 bower_components
 
