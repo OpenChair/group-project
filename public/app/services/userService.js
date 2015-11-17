@@ -3,7 +3,7 @@ angular.module('openChairApp').service('userService', function($http, constants)
   this.getUser = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'user/' + id
+      url: '/user/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -12,7 +12,7 @@ angular.module('openChairApp').service('userService', function($http, constants)
 this.updateUser = function(id, user) {
     return $http({
       method: 'PUT',
-      url: constants.baseURL + 'user/' + id,
+      url: '/user/' + id,
       data: user
    }).then(function(response) {
       return response.data;
@@ -25,7 +25,7 @@ this.addFavorites = function(id, data){
     data:data
   }).then(function(res){
     return res.data;
-  })
-}
+  });
+};
 
 });

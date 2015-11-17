@@ -116,7 +116,7 @@ angular.module('openChairApp')
   this.makeAppointment = function(appointment) {
     return $http({
       method: 'POST',
-      url: constants.baseURL + 'appointment',
+      url: '/appointment',
       data: appointment
     }).then(function(response) {
       return response.data;
@@ -125,7 +125,7 @@ angular.module('openChairApp')
   this.getAppointments = function() {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'appointments'
+      url: '/appointments'
     }).then(function(response) {
       return response.data;
     });
@@ -134,7 +134,7 @@ angular.module('openChairApp')
 
     return $http({
       method: 'PUT',
-      url: constants.baseURL + 'appointment/' + id,
+      url: '/appointment/' + id,
       data: appointment
     }).then(function(response) {
       return response.data;
@@ -143,7 +143,7 @@ angular.module('openChairApp')
   this.deleteAppointment = function(id) {
     return $http({
       method: 'DELETE',
-      url: constants.baseURL + 'appointment/' + id
+      url: '/appointment/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -151,7 +151,7 @@ angular.module('openChairApp')
   this.getAppointment = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'appointment/' + id
+      url: '/appointment/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -159,7 +159,7 @@ angular.module('openChairApp')
   this.getAppointmentsById = function(id, type) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'appointments/' + type + '/' + id
+      url: '/appointments/' + type + '/' + id
     }).then(function(response) {
       return response.data;
 
@@ -184,7 +184,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   this.getBusinesses = function() {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses'
+      url: '/businesses'
     }).then(function(response) {
       return response.data;
     });
@@ -201,7 +201,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   this.getBusiness = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'businesses/' + id
+      url: '/businesses/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -209,7 +209,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   this.addBusiness = function(business) {
     return $http({
       method: 'POST',
-      url: constants.baseURL + 'businesses',
+      url: '/businesses',
       data: business
     }).then(function(response) {
       return response.data;
@@ -218,7 +218,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   this.editBusiness = function(id, business) {
     return $http({
       method: 'PUT',
-      url: constants.baseURL + 'businesses/' + id,
+      url: '/businesses/' + id,
       data: business
     }).then(function(response) {
       return response.data;
@@ -227,7 +227,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   this.deleteBusiness = function(id) {
     return $http({
       method: 'DELETE',
-      url: constants.baseURL + 'businesses/' + id
+      url: '/businesses/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -237,7 +237,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   // this.editBusinessService = function(id, business) {
   //   return $http({
   //     method: 'PUT',
-  //     url: constants.baseURL + 'businesses/' + id,
+  //     url: '/businesses/' + id,
   //     data: business
   //   }).then(function(response) {
   //     return response.data;
@@ -246,7 +246,7 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
   // this.editBusinessUsers = function(id, business) {
   //   return $http({
   //     method: 'PUT',
-  //     url: constants.baseURL + 'businesses/' + id,
+  //     url: '/businesses/' + id,
   //     data: business
   //   }).then(function(response) {
   //     return response.data;
@@ -373,7 +373,7 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
   this.getUser = function(id) {
     return $http({
       method: 'GET',
-      url: constants.baseURL + 'user/' + id
+      url: '/user/' + id
     }).then(function(response) {
       return response.data;
     });
@@ -382,7 +382,7 @@ angular.module('openChairApp').service('userService', ["$http", "constants", fun
 this.updateUser = function(id, user) {
     return $http({
       method: 'PUT',
-      url: constants.baseURL + 'user/' + id,
+      url: '/user/' + id,
       data: user
    }).then(function(response) {
       return response.data;
@@ -395,8 +395,8 @@ this.addFavorites = function(id, data){
     data:data
   }).then(function(res){
     return res.data;
-  })
-}
+  });
+};
 
 }]);
 
