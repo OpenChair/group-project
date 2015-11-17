@@ -17,6 +17,6 @@ module.exports = {
         'clientSecret'  : 'your-client-secret-here',
         'callbackURL'   : 'http://localhost:7200/auth/google/callback'
     },
-    PORT: 7200,
-    MONGO_URI: 'mongodb://open_chair:OpenChair@ds045704.mongolab.com:45704/open_chair'
+    PORT: process.env.PORT || 7200,
+    MONGO_URI: process.env.MONGO_LABS_URI
 };

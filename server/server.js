@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var cors = require('cors');
+// var cors = require('cors');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('./services/passport');
@@ -19,7 +19,7 @@ var config=require('./services/config');
 
 app.use(express.static('../public'));
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 app.use(session({
   secret:'myNameIsTravis',
   saveUninitialized:true,
