@@ -31,6 +31,10 @@ Once logged in it takes the business user to his schedlue calendar. You can choo
 |gulp| Gulp was used for auto configuration.|
 |less| Less was used as our preprocesser for our CSS.|
 |passport|Passport was used to authenticate the user.|
+|moment.js|Moment.js was used in manipulating and formatting times and dates.|
+|mandril| Mandril was used for confirmation emails.|
+|FullCalendar| FullCalendar was used to help create the business schedule view|
+
 
 
 ###Contributers
