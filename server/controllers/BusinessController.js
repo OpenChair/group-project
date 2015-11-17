@@ -16,9 +16,7 @@ module.exports = {
   },
 
   me: function(req, res) {
-    // console.log(req.user, 'kjasdkjhfkasjdhfkajshdf')
     if (!req.isAuthenticated()) {
-      console.log("not authenticated");
       return res.status(401).send("current user not defined");
     } else {
       req.user.password = null;
