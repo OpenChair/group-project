@@ -388,17 +388,20 @@ this.updateUser = function(id, user) {
       return response.data;
     });
   };
-this.addFavorites = function(id, data){
-  return $http({
-    method:'PUT',
-    url:'userFavorites/'+id,
-    data:data
-  }).then(function(res){
-    return res.data;
-  });
-};
-
 }]);
+
+angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
+  
+}]);
+
+angular.module('openChairApp')
+.directive('footerDir', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/footer/footer.html',
+		controller: 'footerCtrl'
+	};
+});
 
 angular.module('openChairApp')
 .controller('businessPreviewCtrl', ["$scope", function($scope) {
@@ -411,19 +414,6 @@ angular.module('openChairApp')
     restrict: 'EA',
       templateUrl:'app/directives/businessPreview/businessPreview.html',
       controller: 'businessPreviewCtrl'
-	};
-});
-
-angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
-  
-}]);
-
-angular.module('openChairApp')
-.directive('footerDir', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'App/directives/footer/footer.html',
-		controller: 'footerCtrl'
 	};
 });
 
