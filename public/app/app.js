@@ -24,7 +24,7 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
   $stateProvider
   .state('home', {
     url: '/home',
-    templateUrl: 'app/routes/home/HomeTmpl.html',
+    templateUrl: 'app/routes/home/homeTmpl.html',
     controller: 'homeCtrl',
     resolve: {
       businesses: function (businessService) {
