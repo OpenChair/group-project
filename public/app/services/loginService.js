@@ -34,10 +34,6 @@ angular.module('openChairApp').service('loginService', function($http, $q){
 			url:'/business',
 			data:business
 		});
-		// .then(function(res, err){
-		// 	if(err){ return err;}
-		// 	else{return res;}
-		// });
 	};
 
 	this.loginBusinessSubmit=function(business){

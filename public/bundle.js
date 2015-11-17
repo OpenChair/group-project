@@ -232,27 +232,6 @@ angular.module('openChairApp').service('businessService', ["$http", "constants",
       return response.data;
     });
   };
-
-
-  // this.editBusinessService = function(id, business) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: '/businesses/' + id,
-  //     data: business
-  //   }).then(function(response) {
-  //     return response.data;
-  //   });
-  // };
-  // this.editBusinessUsers = function(id, business) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: '/businesses/' + id,
-  //     data: business
-  //   }).then(function(response) {
-  //     return response.data;
-  //   });
-  // };
-
 }]);
 
 angular.module("openChairApp").service("emailService", ["$http", function($http) {
@@ -335,10 +314,6 @@ angular.module('openChairApp').service('loginService', ["$http", "$q", function(
 			url:'/business',
 			data:business
 		});
-		// .then(function(res, err){
-		// 	if(err){ return err;}
-		// 	else{return res;}
-		// });
 	};
 
 	this.loginBusinessSubmit=function(business){
@@ -390,19 +365,6 @@ this.updateUser = function(id, user) {
   };
 }]);
 
-angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
-  
-}]);
-
-angular.module('openChairApp')
-.directive('footerDir', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'App/directives/footer/footer.html',
-		controller: 'footerCtrl'
-	};
-});
-
 angular.module('openChairApp')
 .controller('businessPreviewCtrl', ["$scope", function($scope) {
 
@@ -414,6 +376,19 @@ angular.module('openChairApp')
     restrict: 'EA',
       templateUrl:'app/directives/businessPreview/businessPreview.html',
       controller: 'businessPreviewCtrl'
+	};
+});
+
+angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
+  
+}]);
+
+angular.module('openChairApp')
+.directive('footerDir', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'App/directives/footer/footer.html',
+		controller: 'footerCtrl'
 	};
 });
 
@@ -941,6 +916,50 @@ angular.module('openChairApp')
 
 angular.module('openChairApp')
 
+.controller('userCtrl', ["$scope", "user", "appointments", "loginService", "$location", "appointmentsService", "userService", function($scope, user, appointments, loginService, $location, appointmentsService, userService){
+  // loginService.getUserName().then(function(res) {
+  //   if (!res.data._id) {
+  //     $location.path('#/home');
+  //   }
+  // });
+  $scope.user = user;
+
+  $scope.appointments = appointments;
+  $scope.getAppointments = function(){
+    appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
+      $scope.appointments = response;
+    });
+  };
+
+  $scope.deleteAppointment = function(id) {
+   appointmentsService.deleteAppointment(id).then(function() {
+       $scope.getAppointments();
+   });
+ };
+
+  $scope.removeFromFavorites=function(b){
+          
+    for(var i=0;i<$scope.user.favorites.length; i++){
+      if($scope.user.favorites[i]._id===b._id){
+        user.favorites.splice(i,1)
+        alert('removed')
+        userService.updateUser(user._id,user)
+        
+      }
+    }
+  }
+
+ $scope.updateUser = function(user){
+   userService.updateUser($scope.user._id, user).then(function(response) {
+     userService.getUser(user._id).then(function(response) {
+       $scope.user = response;
+     });
+   });
+ };
+}]);
+
+angular.module('openChairApp')
+
 .controller('searchCtrl', ["$scope", "businessService", "$rootScope", function($scope, businessService, $rootScope) {
 
       if ($rootScope.searchCriteria) {
@@ -985,47 +1004,3 @@ angular.module('openChairApp')
         });
       }
     }]);
-
-angular.module('openChairApp')
-
-.controller('userCtrl', ["$scope", "user", "appointments", "loginService", "$location", "appointmentsService", "userService", function($scope, user, appointments, loginService, $location, appointmentsService, userService){
-  // loginService.getUserName().then(function(res) {
-  //   if (!res.data._id) {
-  //     $location.path('#/home');
-  //   }
-  // });
-  $scope.user = user;
-
-  $scope.appointments = appointments;
-  $scope.getAppointments = function(){
-    appointmentsService.getAppointmentsById($scope.user._id, 'user').then(function(response) {
-      $scope.appointments = response;
-    });
-  };
-
-  $scope.deleteAppointment = function(id) {
-   appointmentsService.deleteAppointment(id).then(function() {
-       $scope.getAppointments();
-   });
- };
-
-  $scope.removeFromFavorites=function(b){
-          
-    for(var i=0;i<$scope.user.favorites.length; i++){
-      if($scope.user.favorites[i]._id===b._id){
-        user.favorites.splice(i,1)
-        alert('removed')
-        userService.updateUser(user._id,user)
-        
-      }
-    }
-  }
-
- $scope.updateUser = function(user){
-   userService.updateUser($scope.user._id, user).then(function(response) {
-     userService.getUser(user._id).then(function(response) {
-       $scope.user = response;
-     });
-   });
- };
-}]);

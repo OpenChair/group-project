@@ -63,25 +63,4 @@ angular.module('openChairApp').service('businessService', function($http, consta
       return response.data;
     });
   };
-
-
-  // this.editBusinessService = function(id, business) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: '/businesses/' + id,
-  //     data: business
-  //   }).then(function(response) {
-  //     return response.data;
-  //   });
-  // };
-  // this.editBusinessUsers = function(id, business) {
-  //   return $http({
-  //     method: 'PUT',
-  //     url: '/businesses/' + id,
-  //     data: business
-  //   }).then(function(response) {
-  //     return response.data;
-  //   });
-  // };
-
 });
