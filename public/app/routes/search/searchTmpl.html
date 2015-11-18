@@ -3,14 +3,14 @@
 <div class="row business-display-search">
   <div class="s10 offset-s1 col" style="min-height: 100%">
     <div class="row">
-      <div class="col s12 m6 l3" ng-repeat="b in businesses | filter: {category: searchCriteria.type, businessName: searchCriteria.text}">
+      <div class="col s12 m6 l3" ng-repeat="b in filtered = (businesses | filter: {category: searchCriteria.type, businessName: searchCriteria.text})">
         <business-preview></business-preview>
-        <h2 class="no-business" ng-if="!b">
-          No Businesses Found
-        </h2>
       </div>
     </div>
   </div>
+  <h2 class="no-business" ng-if="!filtered">
+    No Businesses Found
+  </h2>
 </div>
 
 <footer-dir></footer-dir>
