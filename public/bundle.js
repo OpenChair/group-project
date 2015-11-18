@@ -365,6 +365,271 @@ this.updateUser = function(id, user) {
   };
 }]);
 
+angular.module('openChairApp')
+.controller('businessPreviewCtrl', ["$scope", function($scope) {
+
+}]);
+
+angular.module('openChairApp')
+.directive('businessPreview', function() {
+	return {
+    restrict: 'EA',
+      templateUrl:'app/directives/businessPreview/businessPreview.html',
+      controller: 'businessPreviewCtrl'
+	};
+});
+
+angular.module('openChairApp')
+.controller('makeApptCtrl', ["$scope", function($scope) {
+  
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+      console.log('onStart');
+  };
+  $scope.onRender = function () {
+      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+      console.log('onClose');
+  };
+  $scope.onSet = function () {
+      console.log('onSet');
+  };
+  $scope.onStop = function () {
+      console.log('onStop');
+  };
+}]);
+
+angular.module('openChairApp')
+.directive('makeAppt', function() {
+	return {
+    restrict: 'EA',
+      templateUrl:'App/directives/makeAppt/makeAppt.html',
+      controller: 'makeApptCtrl'
+	};
+  
+});
+
+angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
+  
+}]);
+
+angular.module('openChairApp')
+.directive('footerDir', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'app/directives/footer/footer.html',
+		controller: 'footerCtrl'
+	};
+});
+
+angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
+  
+  $scope.bProfile.businessName = "something";
+    
+}]);
+angular.module('openChairApp').directive('mapCardDirective', function() {
+  return {
+    restrict: 'EA',
+      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
+      controller: ["$scope", function($scope) {
+      
+      }]
+	};
+});
+angular.module('openChairApp').directive('navTemplate', function(){
+	return{
+		templateUrl:'app/directives/navbar/navTemplate.html'
+	};
+});
+
+angular.module('openChairApp')
+  .controller('navbarCtrl', ["loginService", "$scope", "$location", "geocodingService", function(loginService, $scope, $location, geocodingService) {
+
+    // Check for currently loged in
+    loginService.getUserName().then(function(res) {
+      console.log(res);
+      if (res.data.businessName) {
+        $scope.customerName = res.data.businessName;
+        $scope.business = res.data;
+      } else {
+        $scope.customerName = 'Welcome, ' + res.data.name.first;
+        $scope.user = res.data;
+        console.log('Current User', res);
+      }
+    }, function(err) {
+      console.log(err);
+    });
+    loginService.getBusinessName().then(function(res) {
+      console.log(res);
+      if (res.data.businessName) {
+        $scope.customerName = res.data.businessName;
+        $scope.business = res.data;
+      } else {
+        $scope.customerName = 'Welcome, ' + res.data.name.first;
+        $scope.user = res.data;
+        console.log('Current User', res);
+      }
+    }, function(err) {
+      console.log(err);
+    });
+
+    // Register new business
+    $scope.blankPictures = [{
+      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+      caption: ""
+    }, {
+      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+      caption: ""
+    }, {
+      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+      caption: ""
+    }, {
+      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
+      caption: ""
+    }];
+
+    $scope.userBlankPicture = 'http://www.flowjo.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png';
+
+    $scope.submitNewBusiness = function(business) {
+      var geocode = geocodingService.geocode(business.address).then(function(response) {
+        business.location = [response.lng, response.lat];
+        business.pictures = $scope.blankPictures;
+        loginService.newBusinessService(business).then(function(res) {
+          console.log('new biz: ', res.data);
+        }, function(err) {
+          console.log('biz create err: ', err);
+        });
+      });
+    };
+    $scope.submitNewUser = function(user) {
+      var geocode = geocodingService.geocode(user.address).then(function(response) {
+        user.location = [response.lng, response.lat];
+        user.photo = $scope.userBlankPicture;
+        loginService.newUserService(user).then(function(res) {
+          console.log('new user: ', res.data);
+        }, function(err) {
+          console.log('user create err: ', err);
+        });
+      });
+    };
+
+    // Login Users and Businesses
+    $scope.loginUserSubmit = function(user) {
+      loginService.loginUserSubmit(user).then(function(res) {
+        $scope.customerName = 'Welcome, ' + res.data.name.first;
+        $scope.user = res.data;
+      }, function(err) {
+        if (err.status > 300) {
+          alert('Invalid Login: Please try again');
+        }
+      });
+
+    };
+    $scope.loginBusinessSubmit = function(login) {
+    loginService.loginBusinessSubmit(login).then(function(res) {
+        $scope.customerName = res.data.businessName;
+        $scope.business = res.data;
+      }, function(err) {
+        if (err.status > 300) {
+          alert('Invalid Login: Please try again');
+        }
+      });
+    };
+  }]);
+
+angular.module('openChairApp').controller('searchBarCtrl', ["$scope", "businessService", "loginService", "$location", "$rootScope", function($scope, businessService, loginService, $location, $rootScope) {
+
+  loginService.getUserName().then(function(response) {
+    $scope.user = response.data;
+  });
+
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+//      console.log('onStart');
+  };
+  $scope.onRender = function () {
+//      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+//      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+//      console.log('onClose');
+  };
+  $scope.onSet = function () {
+//      console.log('onSet');
+  };
+  $scope.onStop = function () {
+//      console.log('onStop');
+  };
+
+
+  var getUserLocation = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(pos) {
+          $scope.lat = pos.coords.longitude;
+          $scope.lon = pos.coords.latitude;
+        },
+        function(error){
+          $scope.lat = $scope.user.location[1];
+          $scope.lon = $scope.user.location[0];
+        },
+        {
+          timeout: (5 * 1000),
+          maximumAge: (1000 * 60 * 15),
+          enableHighAccuracy: true
+        }
+      );
+    }
+  };
+  getUserLocation();
+  $scope.apptQuery = function(searchCriteria) {
+    $rootScope.searchCriteria = searchCriteria;
+    $location.path('/search');
+  };
+
+
+}]);
+
+angular.module('openChairApp').directive('searchBar', function() {
+  return {
+    restrict: 'EA',
+      templateUrl:'app/directives/searchBar/searchBarTemplate.html',
+      controller: 'searchBarCtrl'
+  };
+
+//  console.log(searchCriteria);
+});
+
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "businessService", "loginService", "$location", "business", "appointments", function($scope, businessService, loginService, $location, business, appointments) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
@@ -668,6 +933,8 @@ angular.module('openChairApp')
         };
       }
 
+      $scope.filtered = '';
+
       $scope.radius = 30;
       $scope.getUserLocation = function() {
         if (navigator.geolocation) {
@@ -745,268 +1012,3 @@ angular.module('openChairApp')
    });
  };
 }]);
-
-angular.module('openChairApp')
-.controller('businessPreviewCtrl', ["$scope", function($scope) {
-
-}]);
-
-angular.module('openChairApp')
-.directive('businessPreview', function() {
-	return {
-    restrict: 'EA',
-      templateUrl:'app/directives/businessPreview/businessPreview.html',
-      controller: 'businessPreviewCtrl'
-	};
-});
-
-angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
-  
-}]);
-
-angular.module('openChairApp')
-.directive('footerDir', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'app/directives/footer/footer.html',
-		controller: 'footerCtrl'
-	};
-});
-
-angular.module('openChairApp')
-.controller('makeApptCtrl', ["$scope", function($scope) {
-  
-  var currentTime = new Date();
-  $scope.currentTime = currentTime;
-  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  //$scope.disable = [false, 1, 7];
-  $scope.today = 'Today';
-  $scope.clear = 'Clear';
-  $scope.close = 'Close';
-  var days = 15;
-  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  $scope.onStart = function () {
-      console.log('onStart');
-  };
-  $scope.onRender = function () {
-      console.log('onRender');
-  };
-  $scope.onOpen = function () {
-      console.log('onOpen');
-  };
-  $scope.onClose = function () {
-      console.log('onClose');
-  };
-  $scope.onSet = function () {
-      console.log('onSet');
-  };
-  $scope.onStop = function () {
-      console.log('onStop');
-  };
-}]);
-
-angular.module('openChairApp')
-.directive('makeAppt', function() {
-	return {
-    restrict: 'EA',
-      templateUrl:'App/directives/makeAppt/makeAppt.html',
-      controller: 'makeApptCtrl'
-	};
-  
-});
-
-angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
-  
-  $scope.bProfile.businessName = "something";
-    
-}]);
-angular.module('openChairApp').directive('mapCardDirective', function() {
-  return {
-    restrict: 'EA',
-      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
-      controller: ["$scope", function($scope) {
-      
-      }]
-	};
-});
-angular.module('openChairApp').directive('navTemplate', function(){
-	return{
-		templateUrl:'app/directives/navbar/navTemplate.html'
-	};
-});
-
-angular.module('openChairApp')
-  .controller('navbarCtrl', ["loginService", "$scope", "$location", "geocodingService", function(loginService, $scope, $location, geocodingService) {
-
-    // Check for currently loged in
-    loginService.getUserName().then(function(res) {
-      console.log(res);
-      if (res.data.businessName) {
-        $scope.customerName = res.data.businessName;
-        $scope.business = res.data;
-      } else {
-        $scope.customerName = 'Welcome, ' + res.data.name.first;
-        $scope.user = res.data;
-        console.log('Current User', res);
-      }
-    }, function(err) {
-      console.log(err);
-    });
-    loginService.getBusinessName().then(function(res) {
-      console.log(res);
-      if (res.data.businessName) {
-        $scope.customerName = res.data.businessName;
-        $scope.business = res.data;
-      } else {
-        $scope.customerName = 'Welcome, ' + res.data.name.first;
-        $scope.user = res.data;
-        console.log('Current User', res);
-      }
-    }, function(err) {
-      console.log(err);
-    });
-
-    // Register new business
-    $scope.blankPictures = [{
-      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
-      caption: ""
-    }, {
-      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
-      caption: ""
-    }, {
-      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
-      caption: ""
-    }, {
-      link: "http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg",
-      caption: ""
-    }];
-
-    $scope.userBlankPicture = 'http://www.flowjo.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png';
-
-    $scope.submitNewBusiness = function(business) {
-      var geocode = geocodingService.geocode(business.address).then(function(response) {
-        business.location = [response.lng, response.lat];
-        business.pictures = $scope.blankPictures;
-        loginService.newBusinessService(business).then(function(res) {
-          console.log('new biz: ', res.data);
-        }, function(err) {
-          console.log('biz create err: ', err);
-        });
-      });
-    };
-    $scope.submitNewUser = function(user) {
-      var geocode = geocodingService.geocode(user.address).then(function(response) {
-        user.location = [response.lng, response.lat];
-        user.photo = $scope.userBlankPicture;
-        loginService.newUserService(user).then(function(res) {
-          console.log('new user: ', res.data);
-        }, function(err) {
-          console.log('user create err: ', err);
-        });
-      });
-    };
-
-    // Login Users and Businesses
-    $scope.loginUserSubmit = function(user) {
-      loginService.loginUserSubmit(user).then(function(res) {
-        $scope.customerName = 'Welcome, ' + res.data.name.first;
-        $scope.user = res.data;
-      }, function(err) {
-        if (err.status > 300) {
-          alert('Invalid Login: Please try again');
-        }
-      });
-
-    };
-    $scope.loginBusinessSubmit = function(login) {
-    loginService.loginBusinessSubmit(login).then(function(res) {
-        $scope.customerName = res.data.businessName;
-        $scope.business = res.data;
-      }, function(err) {
-        if (err.status > 300) {
-          alert('Invalid Login: Please try again');
-        }
-      });
-    };
-  }]);
-
-angular.module('openChairApp').controller('searchBarCtrl', ["$scope", "businessService", "loginService", "$location", "$rootScope", function($scope, businessService, loginService, $location, $rootScope) {
-
-  loginService.getUserName().then(function(response) {
-    $scope.user = response.data;
-  });
-
-  var currentTime = new Date();
-  $scope.currentTime = currentTime;
-  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  //$scope.disable = [false, 1, 7];
-  $scope.today = 'Today';
-  $scope.clear = 'Clear';
-  $scope.close = 'Close';
-  var days = 15;
-  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  $scope.onStart = function () {
-//      console.log('onStart');
-  };
-  $scope.onRender = function () {
-//      console.log('onRender');
-  };
-  $scope.onOpen = function () {
-//      console.log('onOpen');
-  };
-  $scope.onClose = function () {
-//      console.log('onClose');
-  };
-  $scope.onSet = function () {
-//      console.log('onSet');
-  };
-  $scope.onStop = function () {
-//      console.log('onStop');
-  };
-
-
-  var getUserLocation = function() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(pos) {
-          $scope.lat = pos.coords.longitude;
-          $scope.lon = pos.coords.latitude;
-        },
-        function(error){
-          $scope.lat = $scope.user.location[1];
-          $scope.lon = $scope.user.location[0];
-        },
-        {
-          timeout: (5 * 1000),
-          maximumAge: (1000 * 60 * 15),
-          enableHighAccuracy: true
-        }
-      );
-    }
-  };
-  getUserLocation();
-  $scope.apptQuery = function(searchCriteria) {
-    $rootScope.searchCriteria = searchCriteria;
-    $location.path('/search');
-  };
-
-
-}]);
-
-angular.module('openChairApp').directive('searchBar', function() {
-  return {
-    restrict: 'EA',
-      templateUrl:'app/directives/searchBar/searchBarTemplate.html',
-      controller: 'searchBarCtrl'
-  };
-
-//  console.log(searchCriteria);
-});

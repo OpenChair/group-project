@@ -11,6 +11,8 @@ angular.module('openChairApp')
         };
       }
 
+      $scope.filtered = '';
+
       $scope.radius = 30;
       $scope.getUserLocation = function() {
         if (navigator.geolocation) {
