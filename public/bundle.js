@@ -99,17 +99,6 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
   });
 }]);
 
-// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
-//   this.lengthFilter = function(length) {
-//     var tempLength = length % 4;
-//     if (tempLength < 1) {
-//       if (tempLength) {
-//
-//       }
-//     }
-//   };
-// });
-
 angular.module('openChairApp')
 
 .service('appointmentsService', ["$http", "constants", function($http, constants) {
@@ -379,65 +368,6 @@ angular.module('openChairApp')
 	};
 });
 
-angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
-  
-}]);
-
-angular.module('openChairApp')
-.directive('footerDir', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'app/directives/footer/footer.html',
-		controller: 'footerCtrl'
-	};
-});
-
-angular.module('openChairApp')
-.controller('makeApptCtrl', ["$scope", function($scope) {
-  
-  var currentTime = new Date();
-  $scope.currentTime = currentTime;
-  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  //$scope.disable = [false, 1, 7];
-  $scope.today = 'Today';
-  $scope.clear = 'Clear';
-  $scope.close = 'Close';
-  var days = 15;
-  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  $scope.onStart = function () {
-      console.log('onStart');
-  };
-  $scope.onRender = function () {
-      console.log('onRender');
-  };
-  $scope.onOpen = function () {
-      console.log('onOpen');
-  };
-  $scope.onClose = function () {
-      console.log('onClose');
-  };
-  $scope.onSet = function () {
-      console.log('onSet');
-  };
-  $scope.onStop = function () {
-      console.log('onStop');
-  };
-}]);
-
-angular.module('openChairApp')
-.directive('makeAppt', function() {
-	return {
-    restrict: 'EA',
-      templateUrl:'App/directives/makeAppt/makeAppt.html',
-      controller: 'makeApptCtrl'
-	};
-  
-});
-
 angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
   
   $scope.bProfile.businessName = "something";
@@ -630,6 +560,17 @@ angular.module('openChairApp').directive('searchBar', function() {
 //  console.log(searchCriteria);
 });
 
+// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
+//   this.lengthFilter = function(length) {
+//     var tempLength = length % 4;
+//     if (tempLength < 1) {
+//       if (tempLength) {
+//
+//       }
+//     }
+//   };
+// });
+
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "businessService", "loginService", "$location", "business", "appointments", function($scope, businessService, loginService, $location, business, appointments) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
@@ -646,7 +587,13 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
       if (res) alert('update completed');
     });
   };
-
+  $scope.addService = function(service) {
+    $scope.business.services.push(service);
+    console.log(service);
+    businessService.editBusiness($scope.business._id, $scope.business).then(function (response) {
+      $scope.business = response;
+    });
+  };
   $scope.deleteService = function(index) {
     $scope.business.services.splice(index, 1);
     businessService.editBusiness($scope.business._id, $scope.business).then(function(response) {
@@ -680,6 +627,19 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
     });
   });
 }]);
+
+angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
+  
+}]);
+
+angular.module('openChairApp')
+.directive('footerDir', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'app/directives/footer/footer.html',
+		controller: 'footerCtrl'
+	};
+});
 
 angular.module('openChairApp')
 
@@ -960,6 +920,52 @@ angular.module('openChairApp')
         });
       }
     }]);
+
+angular.module('openChairApp')
+.controller('makeApptCtrl', ["$scope", function($scope) {
+  
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+      console.log('onStart');
+  };
+  $scope.onRender = function () {
+      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+      console.log('onClose');
+  };
+  $scope.onSet = function () {
+      console.log('onSet');
+  };
+  $scope.onStop = function () {
+      console.log('onStop');
+  };
+}]);
+
+angular.module('openChairApp')
+.directive('makeAppt', function() {
+	return {
+    restrict: 'EA',
+      templateUrl:'App/directives/makeAppt/makeAppt.html',
+      controller: 'makeApptCtrl'
+	};
+  
+});
 
 angular.module('openChairApp')
 
