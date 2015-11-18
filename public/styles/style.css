@@ -485,7 +485,8 @@ body {
 .business-display-search .no-business {
   position: relative;
   top: 50%;
-  left: 50%;
+  width: 100%;
+  text-align: center;
 }
 .image-for-business {
   width: 85%;
