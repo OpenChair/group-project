@@ -17,6 +17,16 @@ angular.module('openChairApp')
   });
   $scope.pushService = "";
 
+  (function() {
+		var s = document.createElement("script");
+		s.async = true;
+		s.onload = s.onreadystatechange = function(){
+			getYelpWidget($scope.bProfile.yelpReviews,"30%","black","y","y","2");
+			};
+		s.src='http://chrisawren.com/widgets/yelp/yelpv2.js';
+		var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);
+		})();
+
   $scope.submitAppt = function(appointment, date, time) {
     // appointmentService.addAppointmentById(appointment);
     appointment.start = new Date(date + ', ' + time);
