@@ -1,4 +1,7 @@
 # OpenChair.in
+
+Temporarily Live @ https://morning-shore-5704.herokuapp.com/
+
 ###General Info
 -------------------------------------------
 OpenChair.in is an appointment scheduling website akin to open table, but for salon and spa services.
