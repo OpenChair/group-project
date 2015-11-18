@@ -300,7 +300,7 @@
 					<div class="collapsible-header"><i class="material-icons">subject</i>Edit description</div>
 					<div class="collapsible-body grey lighten-3">
 						<form ng-submit="editBusiness(tempInfo)">
-							<textarea rows="8" cols="40" placeholder="Description..."></textarea>
+							<textarea rows="8" cols="40" placeholder="Description..." ng-model="tempInfo.about"></textarea>
 							<button class="btn black submit-button-business-dash" type="submit" name="button">Submit</button>
 						</form>
 					</div>
