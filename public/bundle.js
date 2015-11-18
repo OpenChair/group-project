@@ -99,6 +99,17 @@ angular.module('openChairApp', ['ui.router', 'ui.materialize', 'ui.calendar', 'l
   });
 }]);
 
+// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
+//   this.lengthFilter = function(length) {
+//     var tempLength = length % 4;
+//     if (tempLength < 1) {
+//       if (tempLength) {
+//
+//       }
+//     }
+//   };
+// });
+
 angular.module('openChairApp')
 
 .service('appointmentsService', ["$http", "constants", function($http, constants) {
@@ -353,17 +364,6 @@ this.updateUser = function(id, user) {
     });
   };
 }]);
-
-// angular.module('openChairApp').sevice('appointmentLengthFilter', function() {
-//   this.lengthFilter = function(length) {
-//     var tempLength = length % 4;
-//     if (tempLength < 1) {
-//       if (tempLength) {
-//
-//       }
-//     }
-//   };
-// });
 
 angular.module('openChairApp')
 .controller('businessPreviewCtrl', ["$scope", function($scope) {
@@ -732,15 +732,15 @@ angular.module('openChairApp')
   });
   $scope.pushService = "";
 
-  (function() {
-		var s = document.createElement("script");
-		s.async = true;
-		s.onload = s.onreadystatechange = function(){
-			getYelpWidget($scope.bProfile.yelpReviews,"30%","black","y","y","2");
-			};
-		s.src='http://chrisawren.com/widgets/yelp/yelpv2.js';
-		var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);
-		})();
+  // (function() {
+	// 	var s = document.createElement("script");
+	// 	s.async = true;
+	// 	s.onload = s.onreadystatechange = function(){
+	// 		getYelpWidget($scope.bProfile.yelpReviews,"30%","black","y","y","2");
+	// 		};
+	// 	s.src='http://chrisawren.com/widgets/yelp/yelpv2.js';
+	// 	var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);
+	// 	})();
 
   $scope.submitAppt = function(appointment, date, time) {
     // appointmentService.addAppointmentById(appointment);
