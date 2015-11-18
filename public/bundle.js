@@ -392,20 +392,6 @@ angular.module('openChairApp')
 	};
 });
 
-angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
-  
-  $scope.bProfile.businessName = "something";
-    
-}]);
-angular.module('openChairApp').directive('mapCardDirective', function() {
-  return {
-    restrict: 'EA',
-      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
-      controller: ["$scope", function($scope) {
-      
-      }]
-	};
-});
 angular.module('openChairApp')
 .controller('makeApptCtrl', ["$scope", function($scope) {
   
@@ -452,6 +438,20 @@ angular.module('openChairApp')
   
 });
 
+angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
+  
+  $scope.bProfile.businessName = "something";
+    
+}]);
+angular.module('openChairApp').directive('mapCardDirective', function() {
+  return {
+    restrict: 'EA',
+      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
+      controller: ["$scope", function($scope) {
+      
+      }]
+	};
+});
 angular.module('openChairApp').directive('navTemplate', function(){
 	return{
 		templateUrl:'app/directives/navbar/navTemplate.html'
@@ -654,9 +654,7 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
 				$scope.business.pictures[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
 			}
 		}
-    console.log(business);
-    console.log($stateParams.id);
-    businessService.editBusiness($scope.business._id, hours).then(function(res) {
+    businessService.editBusiness($stateParams.id, hours).then(function(res) {
       if (res) {
         alert('update completed');
 
