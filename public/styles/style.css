@@ -482,6 +482,11 @@ body {
   margin-bottom: 20px;
   z-index: 5;
 }
+.business-display-search .no-business {
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
 .image-for-business {
   width: 85%;
   height: 200px;
