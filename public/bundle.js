@@ -379,6 +379,19 @@ angular.module('openChairApp')
 	};
 });
 
+angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
+  
+}]);
+
+angular.module('openChairApp')
+.directive('footerDir', function() {
+	return {
+    restrict: 'EA',
+		templateUrl:'app/directives/footer/footer.html',
+		controller: 'footerCtrl'
+	};
+});
+
 angular.module('openChairApp')
 .controller('makeApptCtrl', ["$scope", function($scope) {
   
@@ -423,19 +436,6 @@ angular.module('openChairApp')
       controller: 'makeApptCtrl'
 	};
   
-});
-
-angular.module("openChairApp").controller("footerCtrl", ["$scope", function($scope) {
-  
-}]);
-
-angular.module('openChairApp')
-.directive('footerDir', function() {
-	return {
-    restrict: 'EA',
-		templateUrl:'app/directives/footer/footer.html',
-		controller: 'footerCtrl'
-	};
 });
 
 angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
@@ -723,22 +723,22 @@ angular.module('openChairApp')
     if(uId.favorites>0){
       for(var i =0;i<uId.favorites; i++){
         if(uId.favorites[i]===$scope.bProfile._id){
-          console.log('already added')
+          console.log('already added');
         }
         else{
-          uId.favorites.push($scope.bProfile._id)
-          console.log('added to favorites')
+          uId.favorites.push($scope.bProfile._id);
+          console.log('added to favorites');
         }
-      console.log(uId)
+      console.log(uId);
       }
     }
     else{
-      uId.favorites.push($scope.bProfile._id)
-      alert('added to favorites')
+      uId.favorites.push($scope.bProfile._id);
+      alert('added to favorites');
     }
 
     userService.updateUser(uId._id, uId).then(function(res){
-      uId=res.favorites
+      uId=res.favorites;
     });
   };
 
