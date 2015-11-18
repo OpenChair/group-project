@@ -8,6 +8,12 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 
   $scope.profilePic = $scope.business.pictures.splice(0, 1);
 
+  $scope.tempInfo = business;
+  delete $scope.tempInfo._id;
+  delete $scope.tempInfo.__v;
+  $scope.tempSchedule = business;
+  delete $scope.tempSchedule._id;
+  delete $scope.tempSchedule.__v;
 
   $scope.editHours = function(hours) {
     businessService.editBusiness(business._id, hours).then(function(res) {

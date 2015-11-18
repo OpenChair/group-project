@@ -452,83 +452,6 @@ angular.module('openChairApp').directive('mapCardDirective', function() {
       }]
 	};
 });
-angular.module('openChairApp').controller('searchBarCtrl', ["$scope", "businessService", "loginService", "$location", "$rootScope", function($scope, businessService, loginService, $location, $rootScope) {
-
-  loginService.getUserName().then(function(response) {
-    $scope.user = response.data;
-  });
-
-  var currentTime = new Date();
-  $scope.currentTime = currentTime;
-  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  //$scope.disable = [false, 1, 7];
-  $scope.today = 'Today';
-  $scope.clear = 'Clear';
-  $scope.close = 'Close';
-  var days = 15;
-  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
-  $scope.onStart = function () {
-//      console.log('onStart');
-  };
-  $scope.onRender = function () {
-//      console.log('onRender');
-  };
-  $scope.onOpen = function () {
-//      console.log('onOpen');
-  };
-  $scope.onClose = function () {
-//      console.log('onClose');
-  };
-  $scope.onSet = function () {
-//      console.log('onSet');
-  };
-  $scope.onStop = function () {
-//      console.log('onStop');
-  };
-
-
-  var getUserLocation = function() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(pos) {
-          $scope.lat = pos.coords.longitude;
-          $scope.lon = pos.coords.latitude;
-        },
-        function(error){
-          $scope.lat = $scope.user.location[1];
-          $scope.lon = $scope.user.location[0];
-        },
-        {
-          timeout: (5 * 1000),
-          maximumAge: (1000 * 60 * 15),
-          enableHighAccuracy: true
-        }
-      );
-    }
-  };
-  getUserLocation();
-  $scope.apptQuery = function(searchCriteria) {
-    $rootScope.searchCriteria = searchCriteria;
-    $location.path('/search');
-  };
-
-
-}]);
-
-angular.module('openChairApp').directive('searchBar', function() {
-  return {
-    restrict: 'EA',
-      templateUrl:'app/directives/searchBar/searchBarTemplate.html',
-      controller: 'searchBarCtrl'
-  };
-
-//  console.log(searchCriteria);
-});
-
 angular.module('openChairApp').directive('navTemplate', function(){
 	return{
 		templateUrl:'app/directives/navbar/navTemplate.html'
@@ -630,6 +553,83 @@ angular.module('openChairApp')
     };
   }]);
 
+angular.module('openChairApp').controller('searchBarCtrl', ["$scope", "businessService", "loginService", "$location", "$rootScope", function($scope, businessService, loginService, $location, $rootScope) {
+
+  loginService.getUserName().then(function(response) {
+    $scope.user = response.data;
+  });
+
+  var currentTime = new Date();
+  $scope.currentTime = currentTime;
+  $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  $scope.monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $scope.weekdaysFull = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  $scope.weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  //$scope.disable = [false, 1, 7];
+  $scope.today = 'Today';
+  $scope.clear = 'Clear';
+  $scope.close = 'Close';
+  var days = 15;
+  //$scope.minDate = (new Date($scope.currentTime.getTime() - ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  //$scope.maxDate = (new Date($scope.currentTime.getTime() + ( 1000 * 60 * 60 *24 * days ))).toISOString();
+  $scope.onStart = function () {
+//      console.log('onStart');
+  };
+  $scope.onRender = function () {
+//      console.log('onRender');
+  };
+  $scope.onOpen = function () {
+//      console.log('onOpen');
+  };
+  $scope.onClose = function () {
+//      console.log('onClose');
+  };
+  $scope.onSet = function () {
+//      console.log('onSet');
+  };
+  $scope.onStop = function () {
+//      console.log('onStop');
+  };
+
+
+  var getUserLocation = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(pos) {
+          $scope.lat = pos.coords.longitude;
+          $scope.lon = pos.coords.latitude;
+        },
+        function(error){
+          $scope.lat = $scope.user.location[1];
+          $scope.lon = $scope.user.location[0];
+        },
+        {
+          timeout: (5 * 1000),
+          maximumAge: (1000 * 60 * 15),
+          enableHighAccuracy: true
+        }
+      );
+    }
+  };
+  getUserLocation();
+  $scope.apptQuery = function(searchCriteria) {
+    $rootScope.searchCriteria = searchCriteria;
+    $location.path('/search');
+  };
+
+
+}]);
+
+angular.module('openChairApp').directive('searchBar', function() {
+  return {
+    restrict: 'EA',
+      templateUrl:'app/directives/searchBar/searchBarTemplate.html',
+      controller: 'searchBarCtrl'
+  };
+
+//  console.log(searchCriteria);
+});
+
 angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "businessService", "loginService", "$location", "business", "appointments", function($scope, businessService, loginService, $location, business, appointments) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
@@ -640,6 +640,12 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
 
   $scope.profilePic = $scope.business.pictures.splice(0, 1);
 
+  $scope.tempInfo = business;
+  delete $scope.tempInfo._id;
+  delete $scope.tempInfo.__v;
+  $scope.tempSchedule = business;
+  delete $scope.tempSchedule._id;
+  delete $scope.tempSchedule.__v;
 
   $scope.editHours = function(hours) {
     businessService.editBusiness(business._id, hours).then(function(res) {
