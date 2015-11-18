@@ -16,7 +16,15 @@
 }
 .collapsible-body .submit-button-business-dash {
   position: relative;
-  left: 80%;
+  left: 60%;
+}
+.collapsible-body .add-button-business-dash-modal {
+  color: black;
+}
+.collapsible-body .add-button-business-dash {
+  position: relative;
+  left: 55%;
+  top: -7px;
 }
 .business-dash-content-one {
   width: 100%;
@@ -70,7 +78,7 @@
 .business-dash-content-one .business-dash-content-one-one .mini-pictures-business .mini-picture-business {
   flex: 1;
   margin: 10px;
-  width: 200px;
+  width: 150px;
   height: auto;
   display: inline-block;
 }

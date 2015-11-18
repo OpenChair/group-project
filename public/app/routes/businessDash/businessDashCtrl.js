@@ -14,7 +14,13 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
       if (res) alert('update completed');
     });
   };
-
+  $scope.addService = function(service) {
+    $scope.business.services.push(service);
+    console.log(service);
+    businessService.editBusiness($scope.business._id, $scope.business).then(function (response) {
+      $scope.business = response;
+    });
+  };
   $scope.deleteService = function(index) {
     $scope.business.services.splice(index, 1);
     businessService.editBusiness($scope.business._id, $scope.business).then(function(response) {
