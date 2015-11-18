@@ -1,4 +1,4 @@
-angular.module('openChairApp').controller('businessDashCtrl', function($scope, businessService, loginService, $location, business, appointments) {
+angular.module('openChairApp').controller('businessDashCtrl', function($scope, businessService, loginService, $location, business, appointments, $stateParams) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
   //     // $location.path('#/home');
@@ -23,6 +23,7 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 			}
 		}
     console.log(business);
+    console.log($stateParams.id);
     businessService.editBusiness($scope.business._id, hours).then(function(res) {
       if (res) {
         alert('update completed');

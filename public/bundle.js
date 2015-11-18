@@ -392,6 +392,20 @@ angular.module('openChairApp')
 	};
 });
 
+angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
+  
+  $scope.bProfile.businessName = "something";
+    
+}]);
+angular.module('openChairApp').directive('mapCardDirective', function() {
+  return {
+    restrict: 'EA',
+      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
+      controller: ["$scope", function($scope) {
+      
+      }]
+	};
+});
 angular.module('openChairApp')
 .controller('makeApptCtrl', ["$scope", function($scope) {
   
@@ -438,20 +452,6 @@ angular.module('openChairApp')
   
 });
 
-angular.module('openChairApp').controller('mapCardCtrl', ["$scope", function($scope) {
-  
-  $scope.bProfile.businessName = "something";
-    
-}]);
-angular.module('openChairApp').directive('mapCardDirective', function() {
-  return {
-    restrict: 'EA',
-      templateUrl:'app/directives/mapCard/mapCardTmpl.html',
-      controller: ["$scope", function($scope) {
-      
-      }]
-	};
-});
 angular.module('openChairApp').directive('navTemplate', function(){
 	return{
 		templateUrl:'app/directives/navbar/navTemplate.html'
@@ -630,7 +630,7 @@ angular.module('openChairApp').directive('searchBar', function() {
 //  console.log(searchCriteria);
 });
 
-angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "businessService", "loginService", "$location", "business", "appointments", function($scope, businessService, loginService, $location, business, appointments) {
+angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "businessService", "loginService", "$location", "business", "appointments", "$stateParams", function($scope, businessService, loginService, $location, business, appointments, $stateParams) {
   // loginService.getBusinessName().then(function(res) {
   //   if (!res.data._id) {
   //     // $location.path('#/home');
@@ -655,6 +655,7 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
 			}
 		}
     console.log(business);
+    console.log($stateParams.id);
     businessService.editBusiness($scope.business._id, hours).then(function(res) {
       if (res) {
         alert('update completed');
