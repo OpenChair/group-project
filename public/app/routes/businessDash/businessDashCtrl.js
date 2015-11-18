@@ -25,6 +25,8 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
     businessService.editBusiness(business._id, hours).then(function(res) {
       if (res) {
         alert('update completed');
+
+        console.log(res);
         $scope.business = res;
 
         $scope.profilePic = $scope.business.pictures.splice(0, 1);
@@ -36,7 +38,6 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
         delete $scope.tempSchedule._id;
         delete $scope.tempSchedule.__v;
         console.log($scope.tempInfo);
-        console.log(res);
       }
     });
   };
