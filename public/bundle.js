@@ -654,6 +654,7 @@ angular.module('openChairApp').controller('businessDashCtrl', ["$scope", "busine
 				$scope.business.pictures[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
 			}
 		}
+    console.log($scope.business);
     businessService.editBusiness($scope.business._id, hours).then(function(res) {
       if (res) {
         alert('update completed');
