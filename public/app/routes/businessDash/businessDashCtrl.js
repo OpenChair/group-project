@@ -16,19 +16,27 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
   delete $scope.tempSchedule.__v;
 
   $scope.editHours = function(hours) {
+    $scope.business.pictures.unshift($scope.profilePic[0]);
+		for (var i = 0; i < $scope.business.pictures.length; i++) {
+			if (!$scope.business.pictures[i].link) {
+				$scope.business.pictures[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
+			}
+		}
     businessService.editBusiness(business._id, hours).then(function(res) {
       if (res) {
         alert('update completed');
-        $scope.business = business;
+        $scope.business = res;
 
         $scope.profilePic = $scope.business.pictures.splice(0, 1);
 
-        $scope.tempInfo = business;
+        $scope.tempInfo = res;
         delete $scope.tempInfo._id;
         delete $scope.tempInfo.__v;
-        $scope.tempSchedule = business;
+        $scope.tempSchedule = res;
         delete $scope.tempSchedule._id;
         delete $scope.tempSchedule.__v;
+        console.log($scope.tempInfo);
+        console.log(res);
       }
     });
   };
