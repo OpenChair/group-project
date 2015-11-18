@@ -27,32 +27,32 @@ var Business = new mongoose.Schema({
   ],
   scheduleParams:{
     sunday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     monday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     tuesday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     wednesday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     thursday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     friday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
     saturday:{
-      open:{type:Number},
-      closed:{type:Number}
+      open:{type:String},
+      closed:{type:String}
     },
   },
   pictures: [{

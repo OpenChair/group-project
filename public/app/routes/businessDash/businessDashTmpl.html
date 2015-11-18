@@ -296,6 +296,16 @@
 						<button style="margin-bottom: 15px;" class="btn black submit-button-business-dash">Submit</button>
 				</li>
 
+				<li class="edit-hours">
+					<div class="collapsible-header"><i class="material-icons">subject</i>Edit description</div>
+					<div class="collapsible-body grey lighten-3">
+						<form ng-submit="editBusiness(tempInfo)">
+							<textarea rows="8" cols="40" placeholder="Description..."></textarea>
+							<button class="btn black submit-button-business-dash" type="submit" name="button">Submit</button>
+						</form>
+					</div>
+				</li>
+
 				<form id="addServiceModal" class="modal" ng-submit="addService(service)">
 				  <div class="modal-content input-field" style="margin-top: 0px;">
 				    <h4>Add Service</h4>
