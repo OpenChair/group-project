@@ -10,12 +10,6 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
 
 
   $scope.editHours = function(hours) {
-    picArray.unshift(profilePic[0]);
-		for (var i = 0; i < picArray.length; i++) {
-			if (!picArray[i].link) {
-				picArray[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
-			}
-		}
     businessService.editBusiness(business._id, hours).then(function(res) {
       if (res) alert('update completed');
     });
@@ -23,24 +17,13 @@ angular.module('openChairApp').controller('businessDashCtrl', function($scope, b
   $scope.addService = function(service) {
     $scope.business.services.push(service);
     console.log(service);
-    picArray.unshift(profilePic[0]);
-		for (var i = 0; i < picArray.length; i++) {
-			if (!picArray[i].link) {
-				picArray[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
-			}
-		}
+
     businessService.editBusiness($scope.business._id, $scope.business).then(function (response) {
       $scope.business = response;
     });
   };
   $scope.deleteService = function(index) {
-    $scope.business.services.splice(index, 1);
-    picArray.unshift(profilePic[0]);
-		for (var i = 0; i < picArray.length; i++) {
-			if (!picArray[i].link) {
-				picArray[i].link = 'http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg';
-			}
-		}
+
     businessService.editBusiness($scope.business._id, $scope.business).then(function(response) {
       $scope.business = response;
     });
