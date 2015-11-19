@@ -1,6 +1,6 @@
 # OpenChair.in
 
-Temporarily Live @ https://www.openchair.in/
+Temporarily Live @ http://www.openchair.in/
 
 ###General Info
 -------------------------------------------
