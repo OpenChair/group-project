@@ -1,6 +1,6 @@
 # OpenChair.in
 
-Temporarily Live @ https://morning-shore-5704.herokuapp.com/
+Temporarily Live @ https://www.openchair.in/
 
 ###General Info
 -------------------------------------------
